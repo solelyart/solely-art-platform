@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { getLoginUrl } from "@/const";
 import { trpc } from "@/lib/trpc";
-import { Search, Palette, Camera, Music, Hammer, Sparkles, Globe, Heart, Star } from "lucide-react";
+import { Search, Palette, Camera, Music, Hammer, Award, Globe, TrendingUp } from "lucide-react";
 import { useState } from "react";
 import { Link } from "wouter";
 import { UserAvatar } from "@/components/UserAvatar";
@@ -27,26 +27,23 @@ export default function Home() {
   return (
     <div className="min-h-screen gradient-artistic">
       {/* Header */}
-      <header className="border-b bg-card/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="relative">
-              <Palette className="h-10 w-10 text-primary transition-transform group-hover:scale-110" />
-              <Sparkles className="h-4 w-4 text-accent absolute -top-1 -right-1 animate-pulse" />
-            </div>
-            <span className="text-2xl font-bold text-gradient">Solely Art</span>
+      <header className="glass-effect sticky top-0 z-50 border-b">
+        <div className="container flex h-20 items-center justify-between">
+          <Link href="/" className="flex items-center gap-3 group">
+            <Palette className="h-9 w-9 text-primary transition-transform group-hover:scale-105" />
+            <span className="text-2xl font-semibold tracking-tight">Solely Art</span>
           </Link>
           
-          <nav className="flex items-center gap-4">
-            <Link href="/browse" className="text-sm font-medium hover:text-primary transition-colors">
+          <nav className="flex items-center gap-6">
+            <Link href="/browse" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
               Browse Artists
             </Link>
             {isAuthenticated ? (
               <>
-                <Link href="/dashboard" className="text-sm font-medium hover:text-primary transition-colors">
+                <Link href="/dashboard" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
                   Dashboard
                 </Link>
-                <Button variant="outline" size="sm" asChild className="border-primary/20 hover:bg-primary/10">
+                <Button variant="outline" size="sm" asChild className="border-primary/20 hover:bg-primary/5">
                   <Link href="/become-artist">Become an Artist</Link>
                 </Button>
                 <LogoutButton />
@@ -68,64 +65,61 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden py-24 md:py-32">
-        {/* Decorative elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
+      <section className="relative overflow-hidden py-32 md:py-40 texture-overlay">
+        {/* Subtle decorative elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
+          <div className="absolute top-32 left-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-32 right-20 w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
         </div>
         
         <div className="container relative">
           <div className="mx-auto max-w-4xl text-center">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
+            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-card/50 px-5 py-2.5 text-sm font-medium text-primary backdrop-blur-sm">
               <Globe className="h-4 w-4" />
-              <span>Connecting Artists Worldwide</span>
+              <span>Curated Global Talent</span>
             </div>
             
-            <h1 className="mb-6 text-6xl font-bold leading-tight md:text-7xl lg:text-8xl">
+            <h1 className="mb-8 text-6xl font-semibold leading-[1.1] md:text-7xl lg:text-8xl">
               Discover
               <br />
-              <span className="text-gradient brush-underline">Creative Souls</span>
+              <span className="text-gradient">Exceptional Artists</span>
             </h1>
             
-            <p className="mb-10 text-xl text-muted-foreground md:text-2xl">
-              A global marketplace where artistic passion meets opportunity.
-              <br />
-              From painters to photographers, musicians to muralists.
+            <p className="mb-12 text-xl text-foreground/70 md:text-2xl font-light leading-relaxed">
+              A refined marketplace connecting discerning clients with world-class creative talent.
             </p>
             
             {/* Search Bar */}
-            <div className="mx-auto flex max-w-2xl gap-3">
+            <div className="mx-auto flex max-w-2xl gap-3 mb-16">
               <div className="relative flex-1">
-                <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
+                <Search className="absolute left-5 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
                 <Input
-                  placeholder="Search for artists, services, or locations..."
-                  className="h-14 pl-12 text-lg border-2 border-primary/20 focus:border-primary shadow-lg"
+                  placeholder="Search artists, services, or locations..."
+                  className="h-16 pl-14 text-base border-2 border-border/50 focus:border-primary/50 shadow-elegant bg-card/80 backdrop-blur-sm"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
               </div>
-              <Button size="lg" asChild className="h-14 px-8 gradient-hero text-white hover:opacity-90 transition-opacity shadow-lg">
+              <Button size="lg" asChild className="h-16 px-10 gradient-hero text-white hover:opacity-90 transition-opacity shadow-elegant">
                 <Link href={`/browse?q=${encodeURIComponent(searchTerm)}`}>
-                  <Search className="mr-2 h-5 w-5" />
                   Search
                 </Link>
               </Button>
             </div>
             
             {/* Stats */}
-            <div className="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+            <div className="grid grid-cols-3 gap-12 max-w-3xl mx-auto pt-8 border-t border-border/50">
               <div className="text-center">
-                <div className="text-4xl font-bold text-primary mb-2">1000+</div>
-                <div className="text-sm text-muted-foreground">Artists</div>
+                <div className="text-5xl font-semibold text-primary mb-3">1,000+</div>
+                <div className="text-sm text-foreground/60 font-medium uppercase tracking-wider">Curated Artists</div>
+              </div>
+              <div className="text-center border-x border-border/50">
+                <div className="text-5xl font-semibold text-accent mb-3">50+</div>
+                <div className="text-sm text-foreground/60 font-medium uppercase tracking-wider">Countries</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-accent mb-2">50+</div>
-                <div className="text-sm text-muted-foreground">Countries</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-secondary mb-2">10k+</div>
-                <div className="text-sm text-muted-foreground">Projects</div>
+                <div className="text-5xl font-semibold text-secondary mb-3">10,000+</div>
+                <div className="text-sm text-foreground/60 font-medium uppercase tracking-wider">Projects</div>
               </div>
             </div>
           </div>
@@ -133,14 +127,19 @@ export default function Home() {
       </section>
 
       {/* Categories */}
-      <section className="py-20 bg-card/50">
+      <section className="py-24 bg-card/30">
         <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">
-              Explore by <span className="text-gradient">Category</span>
+          <div className="text-center mb-16">
+            <div className="mb-4 inline-flex items-center gap-2 text-primary/80">
+              <div className="h-px w-8 bg-primary/30"></div>
+              <span className="text-sm font-medium uppercase tracking-widest">Categories</span>
+              <div className="h-px w-8 bg-primary/30"></div>
+            </div>
+            <h2 className="text-5xl font-semibold mb-6">
+              Explore by <span className="text-gradient">Discipline</span>
             </h2>
-            <p className="text-lg text-muted-foreground">
-              Find the perfect artist for your creative project
+            <p className="text-lg text-foreground/60 font-light max-w-2xl mx-auto">
+              Each category features hand-selected artists renowned for their exceptional craft
             </p>
           </div>
           
@@ -149,15 +148,15 @@ export default function Home() {
               const Icon = categoryIcons[category.slug] || Palette;
               return (
                 <Link key={category.id} href={`/browse?category=${category.slug}`}>
-                  <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-2 hover:border-primary/50 bg-gradient-to-br from-card to-card/50">
-                    <CardContent className="p-8 text-center">
-                      <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
-                        <Icon className="h-8 w-8" />
+                  <Card className="group hover-lift border-border/50 bg-card/80 backdrop-blur-sm shadow-elegant">
+                    <CardContent className="p-10 text-center">
+                      <div className="mb-6 inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-primary/5 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
+                        <Icon className="h-10 w-10" />
                       </div>
-                      <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+                      <h3 className="text-2xl font-semibold mb-3 group-hover:text-primary transition-colors">
                         {category.name}
                       </h3>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-sm text-foreground/60 font-light leading-relaxed">
                         {category.description}
                       </p>
                     </CardContent>
@@ -170,59 +169,58 @@ export default function Home() {
       </section>
 
       {/* Featured Artists */}
-      <section className="py-20">
+      <section className="py-24">
         <div className="container">
-          <div className="text-center mb-12">
-            <div className="mb-4 inline-flex items-center gap-2 text-primary">
-              <Star className="h-5 w-5 fill-current" />
-              <span className="text-sm font-medium uppercase tracking-wider">Featured</span>
-              <Star className="h-5 w-5 fill-current" />
+          <div className="text-center mb-16">
+            <div className="mb-4 inline-flex items-center gap-3 text-primary">
+              <Award className="h-5 w-5" />
+              <span className="text-sm font-medium uppercase tracking-widest">Featured</span>
             </div>
-            <h2 className="text-4xl font-bold mb-4">
-              Meet Our <span className="text-gradient">Top Artists</span>
+            <h2 className="text-5xl font-semibold mb-6">
+              Distinguished <span className="text-gradient">Creators</span>
             </h2>
-            <p className="text-lg text-muted-foreground">
-              Talented creators from around the world
+            <p className="text-lg text-foreground/60 font-light max-w-2xl mx-auto">
+              Meet the exceptional artists shaping creative excellence worldwide
             </p>
           </div>
           
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {featuredArtists?.slice(0, 6).map((artist) => (
               <Link key={artist.id} href={`/artist/${artist.id}`}>
-                <Card className="group overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 hover:border-primary/50">
+                <Card className="group overflow-hidden hover-lift border-border/50 bg-card/80 backdrop-blur-sm shadow-elegant">
                   {artist.portfolioImages && artist.portfolioImages.length > 0 ? (
                     <div className="aspect-[4/3] overflow-hidden bg-muted relative">
                       <img
                         src={JSON.parse(artist.portfolioImages)[0]}
                         alt={artist.displayName}
-                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        className="h-full w-full object-cover transition-all duration-700 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
                   ) : (
-                    <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                      <Palette className="h-16 w-16 text-primary/40" />
+                    <div className="aspect-[4/3] bg-gradient-to-br from-primary/5 to-accent/5 flex items-center justify-center">
+                      <Palette className="h-20 w-20 text-primary/20" />
                     </div>
                   )}
-                  <CardContent className="p-6">
-                    <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">
+                  <CardContent className="p-8">
+                    <h3 className="text-2xl font-semibold mb-3 group-hover:text-primary transition-colors">
                       {artist.displayName}
                     </h3>
                     {artist.location && (
-                      <p className="text-sm text-muted-foreground mb-3 flex items-center gap-1">
+                      <p className="text-sm text-foreground/60 mb-4 flex items-center gap-2 font-light">
                         <Globe className="h-4 w-4" />
                         {artist.location}
                       </p>
                     )}
                     {artist.bio && (
-                      <p className="text-sm text-muted-foreground line-clamp-2 mb-4">
+                      <p className="text-sm text-foreground/60 line-clamp-2 mb-6 font-light leading-relaxed">
                         {artist.bio}
                       </p>
                     )}
                     {artist.hourlyRate && (
-                      <div className="flex items-center justify-between pt-4 border-t">
-                        <span className="text-sm text-muted-foreground">Starting at</span>
-                        <span className="text-xl font-bold text-primary">
+                      <div className="flex items-center justify-between pt-6 border-t border-border/50">
+                        <span className="text-sm text-foreground/50 font-light">Starting from</span>
+                        <span className="text-2xl font-semibold text-primary">
                           ${(artist.hourlyRate / 100).toFixed(0)}/hr
                         </span>
                       </div>
@@ -234,13 +232,13 @@ export default function Home() {
           </div>
           
           {(!featuredArtists || featuredArtists.length === 0) && (
-            <div className="text-center py-12">
-              <Palette className="h-16 w-16 text-muted-foreground mx-auto mb-4 opacity-50" />
-              <p className="text-lg text-muted-foreground">
-                No artists yet. Be the first to join our creative community!
+            <div className="text-center py-20">
+              <Palette className="h-20 w-20 text-muted-foreground mx-auto mb-6 opacity-30" />
+              <p className="text-lg text-foreground/60 font-light mb-8">
+                Be among the first to join our curated community of exceptional artists
               </p>
-              <Button asChild className="mt-6 gradient-hero text-white">
-                <Link href="/become-artist">Become an Artist</Link>
+              <Button asChild size="lg" className="gradient-hero text-white shadow-elegant">
+                <Link href="/become-artist">Apply as an Artist</Link>
               </Button>
             </div>
           )}
@@ -248,28 +246,26 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary via-accent to-secondary relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-full h-full" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-          }}></div>
+      <section className="py-24 bg-gradient-to-br from-primary via-primary/95 to-accent relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-0 left-0 w-full h-full texture-overlay"></div>
         </div>
         <div className="container relative">
           <div className="mx-auto max-w-3xl text-center text-white">
-            <Heart className="h-16 w-16 mx-auto mb-6 fill-current" />
-            <h2 className="text-4xl font-bold mb-6 md:text-5xl">
-              Join Our Global Creative Community
+            <TrendingUp className="h-16 w-16 mx-auto mb-8 opacity-90" />
+            <h2 className="text-5xl font-semibold mb-8 md:text-6xl">
+              Elevate Your Creative Vision
             </h2>
-            <p className="text-xl mb-8 opacity-90">
-              Whether you're an artist looking to showcase your work or a client seeking creative talent, 
-              Solely Art is your canvas for connection.
+            <p className="text-xl mb-12 opacity-90 font-light leading-relaxed">
+              Join a distinguished community where exceptional artistry meets discerning clientele. 
+              Whether showcasing your portfolio or commissioning bespoke work, Solely Art is your gateway to excellence.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" variant="secondary" asChild className="text-lg h-14 px-8 shadow-xl">
-                <Link href="/become-artist">Start Creating</Link>
+            <div className="flex flex-col sm:flex-row gap-5 justify-center">
+              <Button size="lg" variant="secondary" asChild className="text-lg h-16 px-10 shadow-elegant hover:shadow-2xl transition-all">
+                <Link href="/become-artist">Apply as Artist</Link>
               </Button>
-              <Button size="lg" variant="outline" asChild className="text-lg h-14 px-8 bg-white/10 border-white/30 text-white hover:bg-white/20 shadow-xl">
-                <Link href="/browse">Find Artists</Link>
+              <Button size="lg" variant="outline" asChild className="text-lg h-16 px-10 bg-white/10 border-white/30 text-white hover:bg-white/20 shadow-elegant hover:shadow-2xl transition-all backdrop-blur-sm">
+                <Link href="/browse">Explore Portfolio</Link>
               </Button>
             </div>
           </div>
@@ -277,41 +273,41 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t bg-card py-12">
+      <footer className="border-t border-border/50 bg-card/50 backdrop-blur-sm py-16">
         <div className="container">
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4 mb-12">
             <div>
-              <div className="flex items-center gap-2 mb-4">
+              <div className="flex items-center gap-3 mb-6">
                 <Palette className="h-8 w-8 text-primary" />
-                <span className="text-xl font-bold">Solely Art</span>
+                <span className="text-xl font-semibold">Solely Art</span>
               </div>
-              <p className="text-sm text-muted-foreground">
-                Connecting artists with opportunities worldwide.
+              <p className="text-sm text-foreground/60 font-light leading-relaxed">
+                Curating exceptional creative talent for discerning clients worldwide.
               </p>
             </div>
             <div>
-              <h3 className="font-bold mb-4">For Artists</h3>
-              <ul className="space-y-2 text-sm text-muted-foreground">
+              <h3 className="font-semibold mb-6 text-sm uppercase tracking-wider">For Artists</h3>
+              <ul className="space-y-3 text-sm text-foreground/60 font-light">
                 <li><Link href="/become-artist" className="hover:text-primary transition-colors">Join as Artist</Link></li>
                 <li><Link href="/dashboard" className="hover:text-primary transition-colors">Dashboard</Link></li>
               </ul>
             </div>
             <div>
-              <h3 className="font-bold mb-4">For Clients</h3>
-              <ul className="space-y-2 text-sm text-muted-foreground">
+              <h3 className="font-semibold mb-6 text-sm uppercase tracking-wider">For Clients</h3>
+              <ul className="space-y-3 text-sm text-foreground/60 font-light">
                 <li><Link href="/browse" className="hover:text-primary transition-colors">Browse Artists</Link></li>
-                <li><Link href="/dashboard" className="hover:text-primary transition-colors">My Bookings</Link></li>
+                <li><Link href="/dashboard" className="hover:text-primary transition-colors">My Commissions</Link></li>
               </ul>
             </div>
             <div>
-              <h3 className="font-bold mb-4">Connect</h3>
-              <p className="text-sm text-muted-foreground">
-                Join our global community of creative professionals.
+              <h3 className="font-semibold mb-6 text-sm uppercase tracking-wider">Connect</h3>
+              <p className="text-sm text-foreground/60 font-light leading-relaxed">
+                Join our global network of distinguished creative professionals.
               </p>
             </div>
           </div>
-          <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
-            <p>© 2024 Solely Art. Empowering artists worldwide.</p>
+          <div className="pt-8 border-t border-border/50 text-center text-sm text-foreground/50 font-light">
+            <p>© 2024 Solely Art. Celebrating exceptional artistry worldwide.</p>
           </div>
         </div>
       </footer>
