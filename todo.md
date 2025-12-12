@@ -99,3 +99,10 @@
 - [x] Set Obsidian (#1C1C1E) and Graphite (#48484A) text colors
 - [x] Add Rose Quartz (#E8B4B8) secondary accent
 - [x] Ensure AAA contrast ratios throughout
+
+## Neutral Editorial + Precision Accent Palette
+- [x] Implement Linen (#F3F1ED) base background
+- [x] Add Light Greige (#DAD6CF) and Mushroom (#CFC6BB) neutrals
+- [x] Set Muted Teal (#6F9E9A) as precision accent (4.6:1 AA)
+- [x] Use Near-Black (#1F1F1F) for text (15.4:1 AAA)
+- [x] Update all components with new palette

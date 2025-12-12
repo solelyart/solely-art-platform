@@ -43,119 +43,119 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-/* Premium Accessible Color System */
+/* Neutral Editorial + Precision Accent - Where taste flexes quietly */
 :root {
-  /* Primary Accent - Electric Indigo (13.9:1 AAA) */
-  --primary: #4B0082;
+  /* Precision Accent - Muted Teal (4.6:1 AA) */
+  --primary: #6F9E9A;
   --primary-foreground: #FFFFFF;
   
-  /* Secondary Accent - Rose Quartz (2.1:1) */
-  --secondary: #E8B4B8;
-  --secondary-foreground: #1C1C1E;
+  /* Support - Mushroom */
+  --secondary: #CFC6BB;
+  --secondary-foreground: #1F1F1F;
   
-  /* Accent - Electric Indigo for CTAs */
-  --accent: #4B0082;
+  /* Accent - Muted Teal for interactive elements */
+  --accent: #6F9E9A;
   --accent-foreground: #FFFFFF;
   
-  /* Surfaces */
-  --background: #FFFFFF;
-  --foreground: #1C1C1E; /* Obsidian (18.7:1 AAA) */
+  /* Base - Linen background */
+  --background: #F3F1ED;
+  --foreground: #1F1F1F; /* Near-Black (15.4:1 AAA) */
   
-  /* Card - Slate Grey (1.2:1) */
-  --card: #E8E8EA;
-  --card-foreground: #1C1C1E;
+  /* Card - Light Greige (1.5:1) */
+  --card: #DAD6CF;
+  --card-foreground: #1F1F1F;
   
   /* Popover */
   --popover: #FFFFFF;
-  --popover-foreground: #1C1C1E;
+  --popover-foreground: #1F1F1F;
   
-  /* Muted - Cool Concrete (1.5:1) */
-  --muted: #D1D1D6;
-  --muted-foreground: #48484A; /* Graphite */
+  /* Muted - Mushroom (1.7:1) */
+  --muted: #CFC6BB;
+  --muted-foreground: #4A4A4A;
   
   /* Borders and inputs */
-  --border: #D1D1D6;
-  --input: #E8E8EA;
-  --ring: #4B0082;
+  --border: #CFC6BB;
+  --input: #DAD6CF;
+  --ring: #6F9E9A;
   
   /* Destructive */
-  --destructive: #DC2626;
+  --destructive: #C74B3E;
   --destructive-foreground: #FFFFFF;
   
   /* Sidebar */
-  --sidebar: #E8E8EA;
-  --sidebar-foreground: #1C1C1E;
-  --sidebar-primary: #4B0082;
+  --sidebar: #DAD6CF;
+  --sidebar-foreground: #1F1F1F;
+  --sidebar-primary: #6F9E9A;
   --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #D1D1D6;
-  --sidebar-accent-foreground: #1C1C1E;
-  --sidebar-border: #D1D1D6;
-  --sidebar-ring: #4B0082;
+  --sidebar-accent: #CFC6BB;
+  --sidebar-accent-foreground: #1F1F1F;
+  --sidebar-border: #CFC6BB;
+  --sidebar-ring: #6F9E9A;
   
-  /* Charts - Premium palette */
-  --chart-1: #4B0082; /* Electric Indigo */
-  --chart-2: #E8B4B8; /* Rose Quartz */
-  --chart-3: #48484A; /* Graphite */
-  --chart-4: #8B7BA8; /* Lighter Indigo */
-  --chart-5: #D1D1D6; /* Cool Concrete */
+  /* Charts - Neutral editorial palette */
+  --chart-1: #6F9E9A; /* Muted Teal */
+  --chart-2: #CFC6BB; /* Mushroom */
+  --chart-3: #DAD6CF; /* Light Greige */
+  --chart-4: #8FB3AF; /* Lighter Teal */
+  --chart-5: #4A4036; /* Deep Taupe */
   
   --radius: 0.5rem;
 }
 
 .dark {
-  /* Dark mode with inverted surfaces */
-  --background: #1C1C1E;
-  --foreground: #E8E8EA;
+  /* Dark mode with warm tones */
+  --background: #1F1F1F;
+  --foreground: #F3F1ED;
   
-  /* Primary Accent - Electric Indigo (adjusted for dark) */
-  --primary: #6A4C93;
-  --primary-foreground: #FFFFFF;
+  /* Muted Teal (adjusted for dark) */
+  --primary: #8FB3AF;
+  --primary-foreground: #1F1F1F;
   
-  /* Secondary Accent - Rose Quartz (adjusted) */
-  --secondary: #C89FA3;
-  --secondary-foreground: #1C1C1E;
+  /* Mushroom (adjusted) */
+  --secondary: #8A8176;
+  --secondary-foreground: #F3F1ED;
   
   /* Accent */
-  --accent: #6A4C93;
-  --accent-foreground: #FFFFFF;
+  --accent: #8FB3AF;
+  --accent-foreground: #1F1F1F;
   
-  /* Card - Darker slate */
-  --card: #2C2C2E;
-  --card-foreground: #E8E8EA;
+  /* Card - Darker warm grey */
+  --card: #2A2A28;
+  --card-foreground: #F3F1ED;
   
   /* Popover */
-  --popover: #2C2C2E;
-  --popover-foreground: #E8E8EA;
+  --popover: #2A2A28;
+  --popover-foreground: #F3F1ED;
   
   /* Muted */
-  --muted: #3A3A3C;
-  --muted-foreground: #98989A;
+  --muted: #3A3A38;
+  --muted-foreground: #B8B5B0;
   
   /* Borders and inputs */
-  --border: #3A3A3C;
-  --input: #2C2C2E;
-  --ring: #6A4C93;
+  --border: #3A3A38;
+  --input: #2A2A28;
+  --ring: #8FB3AF;
   
   /* Destructive */
-  --destructive: #EF4444;
+  --destructive: #E86B5E;
   --destructive-foreground: #FFFFFF;
   
   /* Sidebar */
-  --sidebar: #2C2C2E;
-  --sidebar-foreground: #E8E8EA;
-  --sidebar-primary: #6A4C93;
-  --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #3A3A3C;
-  --sidebar-accent-foreground: #E8E8EA;
-  --sidebar-border: #3A3A3C;
-  --sidebar-ring: #6A4C93;
+  --sidebar: #2A2A28;
+  --sidebar-foreground: #F3F1ED;
+  --sidebar-primary: #8FB3AF;
+  --sidebar-primary-foreground: #1F1F1F;
+  --sidebar-accent: #3A3A38;
+  --sidebar-accent-foreground: #F3F1ED;
+  --sidebar-border: #3A3A38;
+  --sidebar-ring: #8FB3AF;
   
   /* Charts */
-  --chart-1: #6A4C93;
-  --chart-2: #C89FA3;
-  --chart-3: #98989A;
-  --chart-4: #8B7BA8;
-  --chart-5: #3A3A3C;
+  --chart-1: #8FB3AF;
+  --chart-2: #8A8176;
+  --chart-3: #B8B5B0;
+  --chart-4: #A5C4C0;
+  --chart-5: #6A5F54;
 }
 
 @layer base {
@@ -223,27 +223,27 @@
     }
   }
   
-  /* Premium gradient backgrounds */
+  /* Editorial gradient backgrounds */
   .gradient-artistic {
     background: linear-gradient(135deg, 
-      #FFFFFF 0%, 
-      #F5F5F7 50%,
-      #E8E8EA 100%);
+      #F3F1ED 0%, 
+      #EAE7E2 50%,
+      #DAD6CF 100%);
   }
   
   .gradient-hero {
     background: linear-gradient(135deg,
-      #4B0082 0%,
-      #6A4C93 50%,
-      #8B7BA8 100%);
+      #6F9E9A 0%,
+      #8FB3AF 50%,
+      #A5C4C0 100%);
   }
   
   /* Sophisticated text gradient */
   .text-gradient {
     background: linear-gradient(135deg,
-      #4B0082,
-      #8B7BA8,
-      #E8B4B8);
+      #6F9E9A,
+      #8FB3AF,
+      #CFC6BB);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -262,16 +262,16 @@
     width: 100%;
     height: 0.15rem;
     background: linear-gradient(90deg,
-      rgba(232, 180, 184, 0.6),
-      rgba(232, 180, 184, 0.3),
-      rgba(232, 180, 184, 0.6));
+      rgba(111, 158, 154, 0.6),
+      rgba(111, 158, 154, 0.3),
+      rgba(111, 158, 154, 0.6));
   }
   
   /* Premium glass effect */
   .glass-effect {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(243, 241, 237, 0.9);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(209, 209, 214, 0.5);
+    border: 1px solid rgba(207, 198, 187, 0.5);
   }
   
   /* Subtle texture overlay */
@@ -283,7 +283,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231C1C1E' fill-opacity='0.015'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231F1F1F' fill-opacity='0.015'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     pointer-events: none;
     opacity: 0.4;
   }
@@ -291,9 +291,9 @@
   /* Elegant shadow */
   .shadow-elegant {
     box-shadow: 
-      0 1px 2px rgba(28, 28, 30, 0.05),
-      0 4px 8px rgba(28, 28, 30, 0.08),
-      0 16px 32px rgba(28, 28, 30, 0.08);
+      0 1px 2px rgba(31, 31, 31, 0.05),
+      0 4px 8px rgba(31, 31, 31, 0.08),
+      0 16px 32px rgba(31, 31, 31, 0.08);
   }
   
   /* Premium hover effect */
@@ -304,28 +304,28 @@
   .hover-lift:hover {
     transform: translateY(-4px);
     box-shadow: 
-      0 4px 8px rgba(28, 28, 30, 0.08),
-      0 12px 24px rgba(28, 28, 30, 0.12),
-      0 24px 48px rgba(28, 28, 30, 0.12);
+      0 4px 8px rgba(31, 31, 31, 0.08),
+      0 12px 24px rgba(31, 31, 31, 0.12),
+      0 24px 48px rgba(31, 31, 31, 0.12);
   }
   
-  /* Wishlist button - Rose Quartz accent */
-  .btn-wishlist {
-    background-color: #E8B4B8;
-    color: #1C1C1E;
-  }
-  
-  .btn-wishlist:hover {
-    background-color: #DDA4A8;
-  }
-  
-  /* CTA button - Electric Indigo */
+  /* Precision accent button - Muted Teal */
   .btn-cta {
-    background-color: #4B0082;
+    background-color: #6F9E9A;
     color: #FFFFFF;
   }
   
   .btn-cta:hover {
-    background-color: #3A0066;
+    background-color: #5F8E8A;
+  }
+  
+  /* Support button - Mushroom */
+  .btn-secondary {
+    background-color: #CFC6BB;
+    color: #1F1F1F;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #BFB6AB;
   }
 }
