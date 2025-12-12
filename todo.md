@@ -79,3 +79,10 @@
 - [x] Seed initial categories
 - [ ] Create production checkpoint
 - [ ] Deploy application
+
+## UI/UX Theme Redesign
+- [x] Redesign color palette to be more artistic and vibrant
+- [x] Update typography for creative appeal
+- [x] Add artistic design elements to homepage
+- [x] Update component styling for artistic theme
+- [x] Test theme across all pages
