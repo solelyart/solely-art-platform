@@ -11,7 +11,8 @@ import {
   InsertBooking,
   reviews,
   InsertReview,
-  ArtistProfile
+  ArtistProfile,
+  services
 } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
@@ -305,4 +306,63 @@ export async function getArtistAverageRating(artistId: number) {
     average: result[0].avgRating ? Number(result[0].avgRating) : 0,
     count: result[0].count ? Number(result[0].count) : 0,
   };
+}
+
+// ============================================================================
+// Services
+// ============================================================================
+
+export async function createService(data: {
+  artistId: number;
+  name: string;
+  description: string | null;
+  price: number;
+  durationMinutes: number;
+}) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  await db.insert(services).values(data);
+}
+
+export async function getServicesByArtistId(artistId: number) {
+  const db = await getDb();
+  if (!db) return [];
+
+  return await db.select().from(services).where(eq(services.artistId, artistId));
+}
+
+export async function getServiceById(id: number) {
+  const db = await getDb();
+  if (!db) return null;
+
+  const result = await db.select().from(services).where(eq(services.id, id)).limit(1);
+  return result[0] || null;
+}
+
+export async function updateService(id: number, data: {
+  name?: string;
+  description?: string;
+  price?: number;
+  durationMinutes?: number;
+}) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  const updateData: any = {};
+  if (data.name !== undefined) updateData.name = data.name;
+  if (data.description !== undefined) updateData.description = data.description;
+  if (data.price !== undefined) updateData.price = data.price;
+  if (data.durationMinutes !== undefined) updateData.durationMinutes = data.durationMinutes;
+
+  if (Object.keys(updateData).length > 0) {
+    await db.update(services).set(updateData).where(eq(services.id, id));
+  }
+}
+
+export async function deleteService(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  await db.delete(services).where(eq(services.id, id));
 }

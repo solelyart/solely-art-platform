@@ -121,3 +121,23 @@
 - [x] Implement elegant multi-layer shadow system
 - [x] Create loading skeleton components
 - [x] Add empty state components with helpful messaging
+
+## Browse Page Filters
+- [x] Create filter sidebar component
+- [x] Add category filter chips with active states
+- [x] Implement price range slider
+- [x] Add location search input
+- [x] Add availability toggle filters
+- [x] Add skeleton loaders for initial page load
+- [x] Implement filter state management
+- [x] Connect filters to artist list query
+
+## Enhanced Artist Profile Pages
+- [x] Create portfolio gallery grid component
+- [x] Implement lightbox for portfolio images
+- [x] Create service cards with shadow system
+- [ ] Add availability calendar component
+- [ ] Implement calendar empty states
+- [x] Create review section with skeleton loaders
+- [x] Add review cards with ratings
+- [x] Implement "Book Now" CTAs on service cards
