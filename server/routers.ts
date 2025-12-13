@@ -338,6 +338,11 @@ export const appRouter = router({
       .query(async ({ input }) => {
         return await db.getReviewsByArtistId(input.artistId);
       }),
+
+    getMyReviews: protectedProcedure
+      .query(async ({ ctx }) => {
+        return await db.getReviewsByClientId(ctx.user.id);
+      }),
   }),
 
   services: router({
@@ -566,6 +571,12 @@ export const appRouter = router({
         }
 
         return await db.getArtistSettings(profile.id);
+      }),
+
+    getSettingsByArtist: publicProcedure
+      .input(z.object({ artistId: z.number() }))
+      .query(async ({ input }) => {
+        return await db.getArtistSettings(input.artistId);
       }),
 
     updateSettings: protectedProcedure

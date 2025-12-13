@@ -43,6 +43,12 @@ export default function Home() {
                 <Link href="/dashboard" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
                   Dashboard
                 </Link>
+                <Link href="/availability" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+                  Availability
+                </Link>
+                <Link href="/bookings" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+                  Bookings
+                </Link>
                 <Button variant="outline" size="sm" asChild className="border-primary/20 hover:bg-primary/5">
                   <Link href="/become-artist">Become an Artist</Link>
                 </Button>

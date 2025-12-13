@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { ReviewPrompt } from "@/components/ReviewPrompt";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { trpc } from "@/lib/trpc";
 import { Card } from "@/components/ui/card";
@@ -36,6 +37,12 @@ export function BookingManagement() {
   const { data: bookings, isLoading } = trpc.bookings.getMyBookings.useQuery(
     undefined,
     { enabled: !!user }
+  );
+
+  // Fetch reviews to check which bookings have been reviewed
+  const { data: myReviews } = trpc.reviews.getMyReviews.useQuery(
+    undefined,
+    { enabled: !!user && !profile }
   );
 
   // Update booking status mutation
@@ -337,6 +344,20 @@ export function BookingManagement() {
                       )}
                     </div>
                   </div>
+
+                  {/* Review Prompt for Completed Bookings (Client Side) */}
+                  {!isArtist && booking.status === "completed" && !myReviews?.some((r: any) => r.bookingId === booking.id) && (
+                    <div className="mt-4 pt-4 border-t">
+                      <ReviewPrompt
+                        bookingId={booking.id}
+                        artistId={booking.artistId}
+                        artistName="the artist"
+                        onReviewSubmitted={() => {
+                          trpc.useUtils().bookings.getMyBookings.invalidate();
+                        }}
+                      />
+                    </div>
+                  )}
                 </Card>
               );
             })

@@ -7,9 +7,48 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { ProfileHeaderSkeleton, ServiceCardSkeleton, ReviewCardSkeleton } from "@/components/Skeleton";
 import { NoPortfolioYet, NoServicesYet, NoReviewsYet } from "@/components/EmptyState";
 import { trpc } from "@/lib/trpc";
-import { MapPin, Star, Palette, Clock, DollarSign, Calendar, ChevronLeft, ChevronRight } from "lucide-react";
+import { MapPin, Star, Palette, Clock, DollarSign, Calendar, ChevronLeft, ChevronRight, Info } from "lucide-react";
 import { Link, useParams } from "wouter";
 import { useState } from "react";
+
+function BookingSettingsCard({ artistId }: { artistId: number }) {
+  const { data: settings } = trpc.availability.getSettingsByArtist.useQuery({ artistId });
+
+  if (!settings) return null;
+
+  return (
+    <Card className="shadow-elegant">
+      <CardHeader>
+        <CardTitle className="flex items-center gap-2">
+          <Info className="h-5 w-5" />
+          Booking Information
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <div>
+          <p className="text-sm font-medium mb-1">Advance Booking</p>
+          <p className="text-sm text-muted-foreground">
+            Book up to {settings.advanceBookingDays} days in advance
+          </p>
+        </div>
+        <div>
+          <p className="text-sm font-medium mb-1">Buffer Time</p>
+          <p className="text-sm text-muted-foreground">
+            {settings.bookingBufferMinutes} minutes between appointments
+          </p>
+        </div>
+        {settings.cancellationPolicy && (
+          <div>
+            <p className="text-sm font-medium mb-1">Cancellation Policy</p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              {settings.cancellationPolicy}
+            </p>
+          </div>
+        )}
+      </CardContent>
+    </Card>
+  );
+}
 
 export default function ArtistProfile() {
   const { id } = useParams<{ id: string }>();
@@ -354,6 +393,9 @@ export default function ArtistProfile() {
                 )}
               </CardContent>
             </Card>
+
+            {/* Booking Settings */}
+            <BookingSettingsCard artistId={artistId} />
 
             {/* Contact Card */}
             <Card className="shadow-elegant">

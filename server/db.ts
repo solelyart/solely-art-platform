@@ -242,9 +242,11 @@ export async function getCategoryBySlug(slug: string) {
 export async function createBooking(booking: InsertBooking) {
   const db = await getDb();
   if (!db) throw new Error("Database not available");
-
   const result = await db.insert(bookings).values(booking);
-  return result;
+  const insertId = Number(result[0].insertId);
+  const created = await getBookingById(insertId);
+  if (!created) throw new Error("Failed to retrieve created booking");
+  return created;
 }
 
 export async function getBookingById(id: number) {
@@ -288,8 +290,13 @@ export async function createReview(review: InsertReview) {
 export async function getReviewsByArtistId(artistId: number) {
   const db = await getDb();
   if (!db) return [];
-
   return await db.select().from(reviews).where(eq(reviews.artistId, artistId)).orderBy(desc(reviews.createdAt));
+}
+
+export async function getReviewsByClientId(clientId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  return await db.select().from(reviews).where(eq(reviews.clientId, clientId)).orderBy(desc(reviews.createdAt));
 }
 
 export async function getArtistAverageRating(artistId: number) {
