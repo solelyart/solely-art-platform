@@ -59,7 +59,9 @@ export default function ArtistProfile() {
     Array.isArray(artist.categories) && artist.categories.includes(cat.id)
   );
 
-  const portfolioImages = Array.isArray(artist.portfolioImages) ? artist.portfolioImages : [];
+  const portfolioImages = typeof artist.portfolioImages === 'string'
+    ? JSON.parse(artist.portfolioImages)
+    : (Array.isArray(artist.portfolioImages) ? artist.portfolioImages : []);
 
   const navigateImage = (direction: 'prev' | 'next') => {
     if (selectedImageIndex === null) return;

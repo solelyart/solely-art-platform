@@ -185,13 +185,18 @@ export default function Home() {
           </div>
           
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {featuredArtists?.slice(0, 6).map((artist) => (
+            {featuredArtists?.slice(0, 6).map((artist) => {
+              const portfolioImages = typeof artist.portfolioImages === 'string' 
+                ? JSON.parse(artist.portfolioImages) 
+                : artist.portfolioImages || [];
+              
+              return (
               <Link key={artist.id} href={`/artist/${artist.id}`}>
                 <Card className="group overflow-hidden hover-lift border-border/50 bg-card/80 backdrop-blur-sm shadow-elegant">
-                  {artist.portfolioImages && artist.portfolioImages.length > 0 ? (
+                  {portfolioImages && portfolioImages.length > 0 ? (
                     <div className="aspect-[4/3] overflow-hidden bg-muted relative">
                       <img
-                        src={JSON.parse(artist.portfolioImages)[0]}
+                        src={portfolioImages[0]}
                         alt={artist.displayName}
                         className="h-full w-full object-cover transition-all duration-700 group-hover:scale-105"
                       />
@@ -228,7 +233,8 @@ export default function Home() {
                   </CardContent>
                 </Card>
               </Link>
-            ))}
+            );
+            })}
           </div>
           
           {(!featuredArtists || featuredArtists.length === 0) && (

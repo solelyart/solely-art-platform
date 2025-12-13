@@ -290,9 +290,9 @@ export default function Browse() {
             ) : filteredArtists && filteredArtists.length > 0 ? (
               <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {filteredArtists.map((artist) => {
-                  const portfolioImages = Array.isArray(artist.portfolioImages) 
-                    ? artist.portfolioImages 
-                    : [];
+                  const portfolioImages = typeof artist.portfolioImages === 'string'
+                    ? JSON.parse(artist.portfolioImages)
+                    : (Array.isArray(artist.portfolioImages) ? artist.portfolioImages : []);
                   const firstImage = portfolioImages[0];
                   
                   return (

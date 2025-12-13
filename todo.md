@@ -155,3 +155,9 @@
 - [ ] Upload artistic photos to portfolios
 - [ ] Add sample reviews for artists
 - [ ] Create sample bookingsta displays correctly
+
+## Portfolio Images for Sample Artists
+- [x] Upload artistic images to S3
+- [x] Update artist profiles with portfolio image URLs
+- [x] Verify images display in Browse page artist cards
+- [x] Verify images display in Artist Profile pages
