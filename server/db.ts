@@ -1,4 +1,4 @@
-import { eq, and, or, like, desc, sql } from "drizzle-orm";
+import { eq, and, or, like, desc, sql, gte, gt, lt } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
 import { 
   InsertUser, 
@@ -12,7 +12,11 @@ import {
   reviews,
   InsertReview,
   ArtistProfile,
-  services
+  services,
+  availabilityWindows,
+  blackoutDates,
+  artistSettings,
+  slotLocks
 } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
@@ -365,4 +369,422 @@ export async function deleteService(id: number) {
   if (!db) throw new Error("Database not available");
 
   await db.delete(services).where(eq(services.id, id));
+}
+
+
+// ============================================================================
+// Availability Windows
+// ============================================================================
+
+export async function createAvailabilityWindow(data: {
+  artistId: number;
+  dayOfWeek: number;
+  startTime: string;
+  endTime: string;
+  timezone: string;
+}) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  await db.insert(availabilityWindows).values(data);
+}
+
+export async function getAvailabilityWindowsByArtistId(artistId: number) {
+  const db = await getDb();
+  if (!db) return [];
+
+  return await db.select().from(availabilityWindows).where(eq(availabilityWindows.artistId, artistId));
+}
+
+export async function getActiveAvailabilityWindowsByArtistId(artistId: number) {
+  const db = await getDb();
+  if (!db) return [];
+
+  return await db
+    .select()
+    .from(availabilityWindows)
+    .where(and(
+      eq(availabilityWindows.artistId, artistId),
+      eq(availabilityWindows.isActive, true)
+    ));
+}
+
+export async function updateAvailabilityWindow(id: number, data: {
+  dayOfWeek?: number;
+  startTime?: string;
+  endTime?: string;
+  timezone?: string;
+  isActive?: boolean;
+}) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  const updateData: any = {};
+  if (data.dayOfWeek !== undefined) updateData.dayOfWeek = data.dayOfWeek;
+  if (data.startTime !== undefined) updateData.startTime = data.startTime;
+  if (data.endTime !== undefined) updateData.endTime = data.endTime;
+  if (data.timezone !== undefined) updateData.timezone = data.timezone;
+  if (data.isActive !== undefined) updateData.isActive = data.isActive;
+
+  if (Object.keys(updateData).length > 0) {
+    await db.update(availabilityWindows).set(updateData).where(eq(availabilityWindows.id, id));
+  }
+}
+
+export async function deleteAvailabilityWindow(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  await db.delete(availabilityWindows).where(eq(availabilityWindows.id, id));
+}
+
+// ============================================================================
+// Blackout Dates
+// ============================================================================
+
+export async function createBlackoutDate(data: {
+  artistId: number;
+  startDate: Date;
+  endDate: Date;
+  reason?: string | null;
+}) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  await db.insert(blackoutDates).values(data);
+}
+
+export async function getBlackoutDatesByArtistId(artistId: number) {
+  const db = await getDb();
+  if (!db) return [];
+
+  return await db.select().from(blackoutDates).where(eq(blackoutDates.artistId, artistId));
+}
+
+export async function getFutureBlackoutDatesByArtistId(artistId: number) {
+  const db = await getDb();
+  if (!db) return [];
+
+  const now = new Date();
+  return await db
+    .select()
+    .from(blackoutDates)
+    .where(and(
+      eq(blackoutDates.artistId, artistId),
+      gte(blackoutDates.endDate, now)
+    ));
+}
+
+export async function deleteBlackoutDate(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  await db.delete(blackoutDates).where(eq(blackoutDates.id, id));
+}
+
+// ============================================================================
+// Artist Settings
+// ============================================================================
+
+export async function createArtistSettings(data: {
+  artistId: number;
+  bookingBufferMinutes?: number;
+  advanceBookingDays?: number;
+  cancellationPolicy?: string | null;
+}) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  await db.insert(artistSettings).values(data);
+}
+
+export async function getArtistSettings(artistId: number) {
+  const db = await getDb();
+  if (!db) return null;
+
+  const result = await db
+    .select()
+    .from(artistSettings)
+    .where(eq(artistSettings.artistId, artistId))
+    .limit(1);
+  
+  return result[0] || null;
+}
+
+export async function updateArtistSettings(artistId: number, data: {
+  bookingBufferMinutes?: number;
+  advanceBookingDays?: number;
+  cancellationPolicy?: string | null;
+}) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  const updateData: any = {};
+  if (data.bookingBufferMinutes !== undefined) updateData.bookingBufferMinutes = data.bookingBufferMinutes;
+  if (data.advanceBookingDays !== undefined) updateData.advanceBookingDays = data.advanceBookingDays;
+  if (data.cancellationPolicy !== undefined) updateData.cancellationPolicy = data.cancellationPolicy;
+
+  if (Object.keys(updateData).length > 0) {
+    await db.update(artistSettings).set(updateData).where(eq(artistSettings.artistId, artistId));
+  }
+}
+
+// ============================================================================
+// Slot Locks
+// ============================================================================
+
+export async function createSlotLock(data: {
+  artistId: number;
+  date: string;
+  startTime: string;
+  durationMinutes: number;
+  lockedBy: number;
+  expiresAt: Date;
+}) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  const result = await db.insert(slotLocks).values(data);
+  return result;
+}
+
+export async function getSlotLock(id: number) {
+  const db = await getDb();
+  if (!db) return null;
+
+  const result = await db.select().from(slotLocks).where(eq(slotLocks.id, id)).limit(1);
+  return result[0] || null;
+}
+
+export async function getActiveSlotLocks(artistId: number, date: string) {
+  const db = await getDb();
+  if (!db) return [];
+
+  const now = new Date();
+  return await db
+    .select()
+    .from(slotLocks)
+    .where(and(
+      eq(slotLocks.artistId, artistId),
+      eq(slotLocks.date, date),
+      gt(slotLocks.expiresAt, now)
+    ));
+}
+
+export async function deleteSlotLock(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  await db.delete(slotLocks).where(eq(slotLocks.id, id));
+}
+
+export async function deleteExpiredSlotLocks() {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  const now = new Date();
+  await db.delete(slotLocks).where(lt(slotLocks.expiresAt, now));
+}
+
+
+// ============================================================================
+// Availability Calculation
+// ============================================================================
+
+export interface AvailableSlot {
+  date: string; // YYYY-MM-DD
+  startTime: string; // HH:MM
+  endTime: string; // HH:MM
+  timezone: string;
+}
+
+/**
+ * Calculate available time slots for an artist within a date range
+ * 
+ * @param artistId - The artist's profile ID
+ * @param startDate - Start of date range (YYYY-MM-DD)
+ * @param endDate - End of date range (YYYY-MM-DD)
+ * @param durationMinutes - Required duration for the booking
+ * @param slotIntervalMinutes - Interval between slot start times (default: 30)
+ * @returns Array of available time slots
+ */
+export async function calculateAvailableSlots(
+  artistId: number,
+  startDate: string,
+  endDate: string,
+  durationMinutes: number,
+  slotIntervalMinutes: number = 30
+): Promise<AvailableSlot[]> {
+  const db = await getDb();
+  if (!db) return [];
+
+  // 1. Get artist settings
+  const settings = await getArtistSettings(artistId);
+  const bufferMinutes = settings?.bookingBufferMinutes || 0;
+  const advanceBookingDays = settings?.advanceBookingDays || 30;
+
+  // 2. Get active availability windows
+  const windows = await getActiveAvailabilityWindowsByArtistId(artistId);
+  if (windows.length === 0) return [];
+
+  // Group windows by day of week
+  const windowsByDay = new Map<number, typeof windows>();
+  for (const window of windows) {
+    if (!windowsByDay.has(window.dayOfWeek)) {
+      windowsByDay.set(window.dayOfWeek, []);
+    }
+    windowsByDay.get(window.dayOfWeek)!.push(window);
+  }
+
+  // 3. Get blackout dates
+  const blackouts = await getFutureBlackoutDatesByArtistId(artistId);
+
+  // 4. Get existing bookings in date range
+  const existingBookings = await db
+    .select()
+    .from(bookings)
+    .where(and(
+      eq(bookings.artistId, artistId),
+      or(
+        eq(bookings.status, "pending"),
+        eq(bookings.status, "accepted")
+      )
+    ));
+
+  // 5. Generate candidate slots
+  const availableSlots: AvailableSlot[] = [];
+  const start = new Date(startDate + "T00:00:00");
+  const end = new Date(endDate + "T23:59:59");
+  const today = new Date();
+  const maxDate = new Date(today);
+  maxDate.setDate(maxDate.getDate() + advanceBookingDays);
+
+  let currentDate = new Date(start);
+  while (currentDate <= end && currentDate <= maxDate) {
+    const dateStr = currentDate.toISOString().split('T')[0];
+    const dayOfWeek = currentDate.getDay(); // 0 = Sunday
+
+    // Check if this day has availability windows
+    const dayWindows = windowsByDay.get(dayOfWeek);
+    if (!dayWindows || dayWindows.length === 0) {
+      currentDate.setDate(currentDate.getDate() + 1);
+      continue;
+    }
+
+    // Check if date is in blackout period
+    const isBlackedOut = blackouts.some(blackout => {
+      const blackoutStart = new Date(blackout.startDate);
+      const blackoutEnd = new Date(blackout.endDate);
+      return currentDate >= blackoutStart && currentDate <= blackoutEnd;
+    });
+
+    if (isBlackedOut) {
+      currentDate.setDate(currentDate.getDate() + 1);
+      continue;
+    }
+
+    // Get slot locks for this date
+    const locks = await getActiveSlotLocks(artistId, dateStr);
+
+    // Generate slots for each availability window on this day
+    for (const window of dayWindows) {
+      const [startHour, startMin] = window.startTime.split(':').map(Number);
+      const [endHour, endMin] = window.endTime.split(':').map(Number);
+      
+      let slotStartMinutes = startHour * 60 + startMin;
+      const windowEndMinutes = endHour * 60 + endMin;
+
+      while (slotStartMinutes + durationMinutes <= windowEndMinutes) {
+        const slotStartHour = Math.floor(slotStartMinutes / 60);
+        const slotStartMin = slotStartMinutes % 60;
+        const slotEndMinutes = slotStartMinutes + durationMinutes;
+        const slotEndHour = Math.floor(slotEndMinutes / 60);
+        const slotEndMin = slotEndMinutes % 60;
+
+        const slotStartTime = `${String(slotStartHour).padStart(2, '0')}:${String(slotStartMin).padStart(2, '0')}`;
+        const slotEndTime = `${String(slotEndHour).padStart(2, '0')}:${String(slotEndMin).padStart(2, '0')}`;
+
+        // Check if slot conflicts with existing bookings
+        const hasBookingConflict = existingBookings.some(booking => {
+          const bookingDate = new Date(booking.requestedDate);
+          const bookingDateStr = bookingDate.toISOString().split('T')[0];
+          
+          if (bookingDateStr !== dateStr) return false;
+
+          const bookingHour = bookingDate.getHours();
+          const bookingMin = bookingDate.getMinutes();
+          const bookingStartMinutes = bookingHour * 60 + bookingMin;
+          
+          // Assume booking duration is same as service duration for now
+          // In production, this should use actual booking duration
+          const bookingEndMinutes = bookingStartMinutes + durationMinutes + bufferMinutes;
+
+          // Check for overlap
+          return !(slotEndMinutes <= bookingStartMinutes || slotStartMinutes >= bookingEndMinutes);
+        });
+
+        // Check if slot conflicts with active locks
+        const hasLockConflict = locks.some(lock => {
+          const [lockStartHour, lockStartMin] = lock.startTime.split(':').map(Number);
+          const lockStartMinutes = lockStartHour * 60 + lockStartMin;
+          const lockEndMinutes = lockStartMinutes + lock.durationMinutes;
+
+          // Check for overlap
+          return !(slotEndMinutes <= lockStartMinutes || slotStartMinutes >= lockEndMinutes);
+        });
+
+        if (!hasBookingConflict && !hasLockConflict) {
+          availableSlots.push({
+            date: dateStr,
+            startTime: slotStartTime,
+            endTime: slotEndTime,
+            timezone: window.timezone
+          });
+        }
+
+        slotStartMinutes += slotIntervalMinutes;
+      }
+    }
+
+    currentDate.setDate(currentDate.getDate() + 1);
+  }
+
+  return availableSlots;
+}
+
+/**
+ * Check if a specific time slot is available for booking
+ * 
+ * @param artistId - The artist's profile ID
+ * @param date - Date in YYYY-MM-DD format
+ * @param startTime - Start time in HH:MM format
+ * @param durationMinutes - Duration of the booking
+ * @returns true if the slot is available, false otherwise
+ */
+export async function isSlotAvailable(
+  artistId: number,
+  date: string,
+  startTime: string,
+  durationMinutes: number
+): Promise<boolean> {
+  const db = await getDb();
+  if (!db) return false;
+
+  // Calculate end time
+  const [startHour, startMin] = startTime.split(':').map(Number);
+  const startMinutes = startHour * 60 + startMin;
+  const endMinutes = startMinutes + durationMinutes;
+  const endHour = Math.floor(endMinutes / 60);
+  const endMin = endMinutes % 60;
+  const endTime = `${String(endHour).padStart(2, '0')}:${String(endMin).padStart(2, '0')}`;
+
+  // Get available slots for this date
+  const slots = await calculateAvailableSlots(artistId, date, date, durationMinutes);
+  
+  // Check if the requested slot exists in available slots
+  return slots.some(slot => 
+    slot.date === date && 
+    slot.startTime === startTime &&
+    slot.endTime === endTime
+  );
 }
