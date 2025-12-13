@@ -199,3 +199,68 @@ export const blackoutDates = mysqlTable("blackoutDates", {
 
 export type BlackoutDate = typeof blackoutDates.$inferSelect;
 export type InsertBlackoutDate = typeof blackoutDates.$inferInsert;
+
+
+/**
+ * Conversations between users (clients and artists)
+ */
+export const conversations = mysqlTable("conversations", {
+  id: int("id").autoincrement().primaryKey(),
+  participant1Id: int("participant1Id").notNull(), // User ID
+  participant2Id: int("participant2Id").notNull(), // User ID
+  bookingId: int("bookingId"), // Optional: link to booking
+  lastMessageAt: timestamp("lastMessageAt").defaultNow().notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+}, (table) => ({
+  participant1Idx: index("conversations_participant1_idx").on(table.participant1Id),
+  participant2Idx: index("conversations_participant2_idx").on(table.participant2Id),
+  bookingIdx: index("conversations_booking_idx").on(table.bookingId),
+}));
+
+export type Conversation = typeof conversations.$inferSelect;
+export type InsertConversation = typeof conversations.$inferInsert;
+
+/**
+ * Messages within conversations
+ */
+export const messages = mysqlTable("messages", {
+  id: int("id").autoincrement().primaryKey(),
+  conversationId: int("conversationId").notNull(),
+  senderId: int("senderId").notNull(), // User ID
+  content: text("content").notNull(),
+  isRead: boolean("isRead").default(false).notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+}, (table) => ({
+  conversationIdx: index("messages_conversation_idx").on(table.conversationId),
+  senderIdx: index("messages_sender_idx").on(table.senderId),
+}));
+
+export type Message = typeof messages.$inferSelect;
+export type InsertMessage = typeof messages.$inferInsert;
+
+
+/**
+ * Payment transactions linked to bookings
+ */
+export const payments = mysqlTable("payments", {
+  id: int("id").autoincrement().primaryKey(),
+  bookingId: int("bookingId").notNull(),
+  clientId: int("clientId").notNull(),
+  artistId: int("artistId").notNull(),
+  amount: int("amount").notNull(), // in cents
+  stripePaymentIntentId: varchar("stripePaymentIntentId", { length: 255 }),
+  stripeCustomerId: varchar("stripeCustomerId", { length: 255 }),
+  status: mysqlEnum("status", ["pending", "succeeded", "failed", "refunded"]).default("pending").notNull(),
+  paymentType: mysqlEnum("paymentType", ["deposit", "milestone", "final"]).notNull(),
+  description: text("description"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  bookingIdx: index("payments_booking_idx").on(table.bookingId),
+  clientIdx: index("payments_client_idx").on(table.clientId),
+  artistIdx: index("payments_artist_idx").on(table.artistId),
+  stripePaymentIntentIdx: index("payments_stripe_payment_intent_idx").on(table.stripePaymentIntentId),
+}));
+
+export type Payment = typeof payments.$inferSelect;
+export type InsertPayment = typeof payments.$inferInsert;

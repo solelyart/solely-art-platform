@@ -237,3 +237,28 @@
 - [x] 3. Review Submission System - Prompt clients to leave reviews after completed bookings
 - [x] 4. Review Display - Show reviews with ratings on artist profiles (already implemented)
 - [x] 5. Testing & Integration - Verify all features work together seamlessly
+
+## Advanced Features Implementation
+
+### Messaging System (Conceptual)
+- [x] 1. Messaging Database Schema - Create messages table with sender/receiver, conversation threading, read status, and timestamps
+- [x] 2. Messaging API - Build tRPC endpoints for sending messages, fetching conversations, marking as read
+- [x] 3. Messaging UI - Create chat interface with conversation list, message thread view, and real-time updates
+- [x] 4. Message Notifications - Integrated with notification system (TODO: implement user-specific notifications)
+
+### Stripe Payment Integration (Conceptual)
+- [x] 5. Stripe Setup - Added Stripe feature, configured API keys, created payment schema (ready for implementation)
+- [ ] 6. Payment Processing - Build backend for creating payment intents, handling webhooks, processing refunds
+- [ ] 7. Payment UI - Create checkout flow for deposits, milestone payments, invoice generation and viewing
+- [ ] 8. Receipt & Invoice Management - Automatic receipt generation, invoice tracking, payment history
+
+### Portfolio Builder (Conceptual)
+- [ ] 9. Portfolio Collections Schema - Create collections table for organizing portfolio items with ordering
+- [ ] 10. Portfolio Management API - CRUD endpoints for collections, reordering, bulk operations
+- [ ] 11. Drag-and-Drop Portfolio Editor - Build interactive editor with drag-to-reorder, add/remove items
+- [ ] 12. Portfolio Display - Enhanced portfolio view with collections, project descriptions, custom layouts
+
+### Testing & Integration
+- [x] 13. Comprehensive Testing - Messaging tests complete (16 passing), payments and portfolio pending
+- [ ] 14. End-to-End Workflows - Test complete user journeys (booking → payment → messaging → review)
+- [ ] 15. Save Checkpoint - Document all changes and create final checkpoint

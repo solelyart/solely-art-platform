@@ -16,7 +16,11 @@ import {
   availabilityWindows,
   blackoutDates,
   artistSettings,
-  slotLocks
+  slotLocks,
+  conversations,
+  InsertConversation,
+  messages,
+  InsertMessage
 } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
@@ -1178,4 +1182,130 @@ export async function isSlotAvailable(
     slot.startTime === startTime &&
     slot.endTime === endTime
   );
+}
+
+
+// ===== MESSAGING QUERIES =====
+
+export async function createConversation(conversation: InsertConversation) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  const result = await db.insert(conversations).values(conversation);
+  const insertId = Number(result[0].insertId);
+  const created = await getConversationById(insertId);
+  if (!created) throw new Error("Failed to retrieve created conversation");
+  return created;
+}
+
+export async function getConversationById(id: number) {
+  const db = await getDb();
+  if (!db) return undefined;
+  
+  const result = await db.select().from(conversations).where(eq(conversations.id, id));
+  return result[0];
+}
+
+export async function getConversationByParticipants(userId1: number, userId2: number) {
+  const db = await getDb();
+  if (!db) return undefined;
+  
+  const result = await db.select().from(conversations).where(
+    or(
+      and(eq(conversations.participant1Id, userId1), eq(conversations.participant2Id, userId2)),
+      and(eq(conversations.participant1Id, userId2), eq(conversations.participant2Id, userId1))
+    )
+  );
+  return result[0];
+}
+
+export async function getConversationsByUserId(userId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  
+  return await db.select().from(conversations).where(
+    or(
+      eq(conversations.participant1Id, userId),
+      eq(conversations.participant2Id, userId)
+    )
+  ).orderBy(desc(conversations.lastMessageAt));
+}
+
+export async function updateConversationLastMessage(conversationId: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  await db.update(conversations)
+    .set({ lastMessageAt: new Date() })
+    .where(eq(conversations.id, conversationId));
+}
+
+export async function createMessage(message: InsertMessage) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  const result = await db.insert(messages).values(message);
+  const insertId = Number(result[0].insertId);
+  
+  // Update conversation last message timestamp
+  await updateConversationLastMessage(message.conversationId);
+  
+  const created = await getMessageById(insertId);
+  if (!created) throw new Error("Failed to retrieve created message");
+  return created;
+}
+
+export async function getMessageById(id: number) {
+  const db = await getDb();
+  if (!db) return undefined;
+  
+  const result = await db.select().from(messages).where(eq(messages.id, id));
+  return result[0];
+}
+
+export async function getMessagesByConversationId(conversationId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  
+  return await db.select().from(messages)
+    .where(eq(messages.conversationId, conversationId))
+    .orderBy(messages.createdAt);
+}
+
+export async function markMessagesAsRead(conversationId: number, userId: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  await db.update(messages)
+    .set({ isRead: true })
+    .where(
+      and(
+        eq(messages.conversationId, conversationId),
+        sql`${messages.senderId} != ${userId}`,
+        eq(messages.isRead, false)
+      )
+    );
+}
+
+export async function getUnreadMessageCount(userId: number) {
+  const db = await getDb();
+  if (!db) return 0;
+  
+  // Get all conversations for this user
+  const userConversations = await getConversationsByUserId(userId);
+  const conversationIds = userConversations.map(c => c.id);
+  
+  if (conversationIds.length === 0) return 0;
+  
+  const result = await db.select({ count: sql<number>`count(*)` })
+    .from(messages)
+    .where(
+      and(
+        sql`${messages.conversationId} IN (${sql.join(conversationIds.map(id => sql`${id}`), sql`, `)})`,
+        sql`${messages.senderId} != ${userId}`,
+        eq(messages.isRead, false)
+      )
+    );
+  
+  return Number(result[0]?.count || 0);
 }

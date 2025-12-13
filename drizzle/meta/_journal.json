@@ -15,6 +15,20 @@
       "when": 1765578389536,
       "tag": "0001_violet_marten_broadcloak",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1765651203043,
+      "tag": "0002_lowly_talisman",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1765651465503,
+      "tag": "0003_sloppy_phalanx",
+      "breakpoints": true
     }
   ]
 }
