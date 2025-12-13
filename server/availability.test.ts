@@ -1,16 +1,19 @@
-import { describe, it, expect, beforeEach, afterEach } from "vitest";
+import { describe, it, expect, beforeAll } from "vitest";
 import * as db from "./db";
+import { createTestArtist } from "./test-utils";
 
 describe("Availability System", () => {
   let testArtistId: number;
   let testClientId: number;
 
-  beforeEach(async () => {
-    // Create test artist profile
-    // Note: In a real test environment, you'd want to use a test database
-    // and clean up after each test
-    testArtistId = 1; // Using existing sample artist
-    testClientId = 2; // Using existing sample client
+  beforeAll(async () => {
+    // Create unique test artists for this test suite
+    const artist = await createTestArtist({ displayName: "Availability Test Artist" });
+    testArtistId = artist.artist.id;
+    
+    const client = await createTestArtist({ displayName: "Availability Test Client" });
+    testClientId = client.userId;
+  });lient
   });
 
   describe("Availability Windows", () => {

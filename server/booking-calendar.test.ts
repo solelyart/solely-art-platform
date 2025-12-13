@@ -1,12 +1,24 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import * as db from "./db";
+import { createTestArtist, createTestAvailabilityWindow } from "./test-utils";
 
 describe("Booking Calendar Integration", () => {
   let testArtistId: number;
 
   beforeAll(async () => {
-    // Use existing sample artist with seeded availability
-    testArtistId = 1; // Elena Martinez - has Mon-Fri 10am-6pm EST availability
+    // Create unique test artist with availability
+    const artist = await createTestArtist({ displayName: "Calendar Test Artist" });
+    testArtistId = artist.artist.id;
+    
+    // Set up Mon-Fri availability
+    for (let day = 1; day <= 5; day++) {
+      await createTestAvailabilityWindow(testArtistId, {
+        dayOfWeek: day,
+        startTime: "10:00",
+        endTime: "18:00",
+        timezone: "America/New_York",
+      });
+    }
   });
 
   describe("Calendar Data Retrieval", () => {
