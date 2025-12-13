@@ -5,6 +5,7 @@ import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
 import * as db from "./db";
+import * as notifications from "./notifications";
 
 export const appRouter = router({
   system: systemRouter,
@@ -212,6 +213,19 @@ export const appRouter = router({
           status: "pending",
         });
 
+        // Send notification
+        const artist = await db.getArtistProfileById(input.artistId);
+        const client = await db.getUserById(ctx.user.id);
+        if (artist && client) {
+          await notifications.notifyBookingCreated({
+            artistName: artist.displayName!,
+            clientName: client.name!,
+            serviceDescription: input.serviceDescription,
+            requestedDate: input.requestedDate,
+            budget: input.budget || null,
+          });
+        }
+
         return { success: true };
       }),
 
@@ -247,6 +261,41 @@ export const appRouter = router({
         }
 
         await db.updateBookingStatus(input.bookingId, input.status);
+
+        // Send notification based on status change
+        const artist = await db.getArtistProfileById(booking.artistId);
+        const client = await db.getUserById(booking.clientId);
+        if (artist && client) {
+          if (input.status === "accepted") {
+            await notifications.notifyBookingAccepted({
+              artistName: artist.displayName!,
+              clientName: client.name!,
+              serviceDescription: booking.serviceDescription!,
+              requestedDate: booking.requestedDate,
+            });
+          } else if (input.status === "declined") {
+            await notifications.notifyBookingDeclined({
+              artistName: artist.displayName!,
+              clientName: client.name!,
+              serviceDescription: booking.serviceDescription!,
+            });
+          } else if (input.status === "cancelled") {
+            const cancelledBy = profile && booking.artistId === profile.id ? "artist" : "client";
+            await notifications.notifyBookingCancelled({
+              artistName: artist.displayName!,
+              clientName: client.name!,
+              serviceDescription: booking.serviceDescription!,
+              cancelledBy,
+            });
+          } else if (input.status === "completed") {
+            await notifications.notifyBookingCompleted({
+              artistName: artist.displayName!,
+              clientName: client.name!,
+              serviceDescription: booking.serviceDescription!,
+            });
+          }
+        }
+
         return { success: true };
       }),
   }),
