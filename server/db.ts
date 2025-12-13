@@ -655,11 +655,19 @@ export async function calculateAvailableSlots(
   const availableSlots: AvailableSlot[] = [];
   const start = new Date(startDate + "T00:00:00");
   const end = new Date(endDate + "T23:59:59");
+  
+  // Ensure start date is not before end date
+  if (start > end) return [];
+  
   const today = new Date();
+  today.setHours(0, 0, 0, 0); // Reset to start of day for comparison
+  
   const maxDate = new Date(today);
   maxDate.setDate(maxDate.getDate() + advanceBookingDays);
 
-  let currentDate = new Date(start);
+  // Start from today if start date is in the past
+  let currentDate = start < today ? new Date(today) : new Date(start);
+  
   while (currentDate <= end && currentDate <= maxDate) {
     const dateStr = currentDate.toISOString().split('T')[0];
     const dayOfWeek = currentDate.getDay(); // 0 = Sunday

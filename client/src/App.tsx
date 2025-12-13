@@ -9,6 +9,7 @@ import Browse from "./pages/Browse";
 import BecomeArtist from "./pages/BecomeArtist";
 import Dashboard from "./pages/Dashboard";
 import ArtistProfile from "./pages/ArtistProfile";
+import BookArtist from "./pages/BookArtist";
 
 function Router() {
   return (
@@ -18,6 +19,7 @@ function Router() {
       <Route path="/become-artist" component={BecomeArtist} />
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/artist/:id" component={ArtistProfile} />
+      <Route path="/book/:id" component={BookArtist} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
