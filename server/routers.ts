@@ -384,15 +384,25 @@ export const appRouter = router({
           throw new TRPCError({ code: "NOT_FOUND", message: "Artist profile not found" });
         }
 
-        await db.createAvailabilityWindow({
-          artistId: profile.id,
-          dayOfWeek: input.dayOfWeek,
-          startTime: input.startTime,
-          endTime: input.endTime,
-          timezone: input.timezone,
-        });
+        try {
+          await db.createAvailabilityWindow({
+            artistId: profile.id,
+            dayOfWeek: input.dayOfWeek,
+            startTime: input.startTime,
+            endTime: input.endTime,
+            timezone: input.timezone,
+          });
 
-        return { success: true };
+          // Clear cache after creating new availability
+          db.clearAvailabilityCache(profile.id);
+
+          return { success: true };
+        } catch (error) {
+          throw new TRPCError({
+            code: "INTERNAL_SERVER_ERROR",
+            message: error instanceof Error ? error.message : "Failed to create availability window",
+          });
+        }
       }),
 
     getWindows: protectedProcedure
@@ -420,13 +430,23 @@ export const appRouter = router({
           throw new TRPCError({ code: "NOT_FOUND", message: "Artist profile not found" });
         }
 
-        await db.updateAvailabilityWindow(input.windowId, {
-          dayOfWeek: input.dayOfWeek,
-          startTime: input.startTime,
-          endTime: input.endTime,
-          timezone: input.timezone,
-          isActive: input.isActive,
-        });
+        try {
+          await db.updateAvailabilityWindow(input.windowId, {
+            dayOfWeek: input.dayOfWeek,
+            startTime: input.startTime,
+            endTime: input.endTime,
+            timezone: input.timezone,
+            isActive: input.isActive,
+          });
+
+          // Clear cache after updating availability
+          db.clearAvailabilityCache(profile.id);
+        } catch (error) {
+          throw new TRPCError({
+            code: "INTERNAL_SERVER_ERROR",
+            message: error instanceof Error ? error.message : "Failed to update availability window",
+          });
+        }
 
         return { success: true };
       }),

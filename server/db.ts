@@ -376,6 +376,24 @@ export async function deleteService(id: number) {
 // Availability Windows
 // ============================================================================
 
+/**
+ * Validate time format (HH:MM)
+ */
+function isValidTimeFormat(time: string): boolean {
+  return /^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/.test(time);
+}
+
+/**
+ * Validate that end time is after start time
+ */
+function isValidTimeRange(startTime: string, endTime: string): boolean {
+  const [startHour, startMin] = startTime.split(':').map(Number);
+  const [endHour, endMin] = endTime.split(':').map(Number);
+  const startMinutes = startHour * 60 + startMin;
+  const endMinutes = endHour * 60 + endMin;
+  return endMinutes > startMinutes;
+}
+
 export async function createAvailabilityWindow(data: {
   artistId: number;
   dayOfWeek: number;
@@ -386,7 +404,68 @@ export async function createAvailabilityWindow(data: {
   const db = await getDb();
   if (!db) throw new Error("Database not available");
 
+  // Validation
+  if (data.dayOfWeek < 0 || data.dayOfWeek > 6) {
+    throw new Error("Invalid day of week (must be 0-6)");
+  }
+  if (!isValidTimeFormat(data.startTime) || !isValidTimeFormat(data.endTime)) {
+    throw new Error("Invalid time format (must be HH:MM)");
+  }
+  if (!isValidTimeRange(data.startTime, data.endTime)) {
+    throw new Error("End time must be after start time");
+  }
+
   await db.insert(availabilityWindows).values(data);
+}
+
+/**
+ * Bulk create availability windows (e.g., set Mon-Fri 9-5)
+ */
+export async function bulkCreateAvailabilityWindows(data: {
+  artistId: number;
+  windows: Array<{
+    dayOfWeek: number;
+    startTime: string;
+    endTime: string;
+  }>;
+  timezone: string;
+}) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  // Validate all windows first
+  for (const window of data.windows) {
+    if (window.dayOfWeek < 0 || window.dayOfWeek > 6) {
+      throw new Error(`Invalid day of week: ${window.dayOfWeek}`);
+    }
+    if (!isValidTimeFormat(window.startTime) || !isValidTimeFormat(window.endTime)) {
+      throw new Error(`Invalid time format for day ${window.dayOfWeek}`);
+    }
+    if (!isValidTimeRange(window.startTime, window.endTime)) {
+      throw new Error(`Invalid time range for day ${window.dayOfWeek}`);
+    }
+  }
+
+  // Insert all windows
+  const values = data.windows.map(w => ({
+    artistId: data.artistId,
+    dayOfWeek: w.dayOfWeek,
+    startTime: w.startTime,
+    endTime: w.endTime,
+    timezone: data.timezone,
+  }));
+
+  await db.insert(availabilityWindows).values(values);
+}
+
+/**
+ * Delete all availability windows for an artist
+ */
+export async function deleteAllAvailabilityWindows(artistId: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  await db.delete(availabilityWindows).where(eq(availabilityWindows.artistId, artistId));
 }
 
 export async function getAvailabilityWindowsByArtistId(artistId: number) {
@@ -451,7 +530,103 @@ export async function createBlackoutDate(data: {
   const db = await getDb();
   if (!db) throw new Error("Database not available");
 
+  // Validation
+  if (data.startDate > data.endDate) {
+    throw new Error("Start date must be before or equal to end date");
+  }
+
   await db.insert(blackoutDates).values(data);
+}
+
+/**
+ * Bulk create blackout dates (e.g., all weekends in a month)
+ */
+export async function bulkCreateBlackoutDates(data: {
+  artistId: number;
+  dates: Array<{
+    startDate: Date;
+    endDate: Date;
+    reason?: string | null;
+  }>;
+}) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  // Validate all dates
+  for (const dateRange of data.dates) {
+    if (dateRange.startDate > dateRange.endDate) {
+      throw new Error("Invalid date range detected");
+    }
+  }
+
+  const values = data.dates.map(d => ({
+    artistId: data.artistId,
+    startDate: d.startDate,
+    endDate: d.endDate,
+    reason: d.reason || null,
+  }));
+
+  await db.insert(blackoutDates).values(values);
+}
+
+/**
+ * Create blackout dates from template (holidays, vacation patterns)
+ */
+export async function createBlackoutFromTemplate(data: {
+  artistId: number;
+  template: 'us-holidays' | 'weekends' | 'custom';
+  year: number;
+  customDates?: Array<{ month: number; day: number; reason: string }>;
+}) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  const blackouts: Array<{
+    startDate: Date;
+    endDate: Date;
+    reason: string;
+  }> = [];
+
+  if (data.template === 'us-holidays') {
+    // Major US holidays
+    blackouts.push(
+      { startDate: new Date(data.year, 0, 1), endDate: new Date(data.year, 0, 1), reason: "New Year's Day" },
+      { startDate: new Date(data.year, 6, 4), endDate: new Date(data.year, 6, 4), reason: "Independence Day" },
+      { startDate: new Date(data.year, 11, 25), endDate: new Date(data.year, 11, 25), reason: "Christmas" },
+    );
+  } else if (data.template === 'weekends') {
+    // All weekends in the year
+    const start = new Date(data.year, 0, 1);
+    const end = new Date(data.year, 11, 31);
+    const current = new Date(start);
+    
+    while (current <= end) {
+      if (current.getDay() === 0 || current.getDay() === 6) {
+        blackouts.push({
+          startDate: new Date(current),
+          endDate: new Date(current),
+          reason: "Weekend",
+        });
+      }
+      current.setDate(current.getDate() + 1);
+    }
+  } else if (data.template === 'custom' && data.customDates) {
+    for (const customDate of data.customDates) {
+      const date = new Date(data.year, customDate.month - 1, customDate.day);
+      blackouts.push({
+        startDate: date,
+        endDate: date,
+        reason: customDate.reason,
+      });
+    }
+  }
+
+  if (blackouts.length > 0) {
+    await bulkCreateBlackoutDates({
+      artistId: data.artistId,
+      dates: blackouts,
+    });
+  }
 }
 
 export async function getBlackoutDatesByArtistId(artistId: number) {
@@ -486,6 +661,32 @@ export async function deleteBlackoutDate(id: number) {
 // Artist Settings
 // ============================================================================
 
+/**
+ * Preset templates for common artist booking configurations
+ */
+export const ARTIST_SETTINGS_PRESETS = {
+  flexible: {
+    bookingBufferMinutes: 0,
+    advanceBookingDays: 90,
+    cancellationPolicy: "Flexible cancellation up to 24 hours before appointment. Full refund available.",
+  },
+  moderate: {
+    bookingBufferMinutes: 15,
+    advanceBookingDays: 60,
+    cancellationPolicy: "Cancellation allowed up to 48 hours before appointment. 50% refund for late cancellations.",
+  },
+  strict: {
+    bookingBufferMinutes: 30,
+    advanceBookingDays: 30,
+    cancellationPolicy: "Strict cancellation policy. No refunds within 7 days of appointment.",
+  },
+  premium: {
+    bookingBufferMinutes: 60,
+    advanceBookingDays: 14,
+    cancellationPolicy: "Premium service requires 72-hour cancellation notice. Deposit non-refundable.",
+  },
+} as const;
+
 export async function createArtistSettings(data: {
   artistId: number;
   bookingBufferMinutes?: number;
@@ -495,7 +696,29 @@ export async function createArtistSettings(data: {
   const db = await getDb();
   if (!db) throw new Error("Database not available");
 
-  await db.insert(artistSettings).values(data);
+  // Apply smart defaults if not provided
+  const settings = {
+    artistId: data.artistId,
+    bookingBufferMinutes: data.bookingBufferMinutes ?? ARTIST_SETTINGS_PRESETS.moderate.bookingBufferMinutes,
+    advanceBookingDays: data.advanceBookingDays ?? ARTIST_SETTINGS_PRESETS.moderate.advanceBookingDays,
+    cancellationPolicy: data.cancellationPolicy ?? ARTIST_SETTINGS_PRESETS.moderate.cancellationPolicy,
+  };
+
+  await db.insert(artistSettings).values(settings);
+}
+
+/**
+ * Create artist settings from preset template
+ */
+export async function createArtistSettingsFromPreset(data: {
+  artistId: number;
+  preset: keyof typeof ARTIST_SETTINGS_PRESETS;
+}) {
+  const template = ARTIST_SETTINGS_PRESETS[data.preset];
+  return createArtistSettings({
+    artistId: data.artistId,
+    ...template,
+  });
 }
 
 export async function getArtistSettings(artistId: number) {
@@ -583,7 +806,100 @@ export async function deleteExpiredSlotLocks() {
   if (!db) throw new Error("Database not available");
 
   const now = new Date();
-  await db.delete(slotLocks).where(lt(slotLocks.expiresAt, now));
+  const result = await db.delete(slotLocks).where(lt(slotLocks.expiresAt, now));
+  return result;
+}
+
+/**
+ * Get slot lock statistics for monitoring
+ */
+export async function getSlotLockStats() {
+  const db = await getDb();
+  if (!db) return null;
+
+  const now = new Date();
+  
+  const allLocks = await db.select().from(slotLocks);
+  const activeLocks = allLocks.filter(lock => new Date(lock.expiresAt) > now);
+  const expiredLocks = allLocks.filter(lock => new Date(lock.expiresAt) <= now);
+
+  return {
+    total: allLocks.length,
+    active: activeLocks.length,
+    expired: expiredLocks.length,
+    oldestActive: activeLocks.length > 0 
+      ? activeLocks.reduce((oldest, lock) => 
+          new Date(lock.createdAt) < new Date(oldest.createdAt) ? lock : oldest
+        ).createdAt
+      : null,
+  };
+}
+
+/**
+ * Release slot lock by user (cancel booking flow)
+ */
+export async function releaseSlotLockByUser(userId: number, artistId: number, date: string) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  await db.delete(slotLocks).where(
+    and(
+      eq(slotLocks.lockedBy, userId),
+      eq(slotLocks.artistId, artistId),
+      eq(slotLocks.date, date)
+    )
+  );
+}
+
+/**
+ * Extend slot lock expiration (user still in booking flow)
+ */
+export async function extendSlotLock(id: number, additionalMinutes: number = 15) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  const lock = await getSlotLock(id);
+  if (!lock) throw new Error("Slot lock not found");
+
+  const newExpiry = new Date(lock.expiresAt);
+  newExpiry.setMinutes(newExpiry.getMinutes() + additionalMinutes);
+
+  await db.update(slotLocks)
+    .set({ expiresAt: newExpiry })
+    .where(eq(slotLocks.id, id));
+}
+
+/**
+ * Check if a specific slot is locked
+ */
+export async function isSlotLocked(
+  artistId: number,
+  date: string,
+  startTime: string,
+  durationMinutes: number
+): Promise<boolean> {
+  const activeLocks = await getActiveSlotLocks(artistId, date);
+  
+  const [reqStartHour, reqStartMin] = startTime.split(':').map(Number);
+  const reqStartMinutes = reqStartHour * 60 + reqStartMin;
+  const reqEndMinutes = reqStartMinutes + durationMinutes;
+
+  for (const lock of activeLocks) {
+    const [lockStartHour, lockStartMin] = lock.startTime.split(':').map(Number);
+    const lockStartMinutes = lockStartHour * 60 + lockStartMin;
+    const lockEndMinutes = lockStartMinutes + lock.durationMinutes;
+
+    // Check for overlap
+    if (
+      (reqStartMinutes >= lockStartMinutes && reqStartMinutes < lockEndMinutes) ||
+      (reqEndMinutes > lockStartMinutes && reqEndMinutes <= lockEndMinutes) ||
+      (reqStartMinutes <= lockStartMinutes && reqEndMinutes >= lockEndMinutes)
+    ) {
+      return true;
+    }
+  }
+
+  return false;
 }
 
 
@@ -596,6 +912,56 @@ export interface AvailableSlot {
   startTime: string; // HH:MM
   endTime: string; // HH:MM
   timezone: string;
+}
+
+/**
+ * Simple in-memory cache for availability calculations
+ * Cache key: `${artistId}:${startDate}:${endDate}:${duration}`
+ * Cache TTL: 5 minutes
+ */
+const availabilityCache = new Map<string, { data: AvailableSlot[]; expiresAt: number }>();
+
+function getCacheKey(artistId: number, startDate: string, endDate: string, duration: number): string {
+  return `${artistId}:${startDate}:${endDate}:${duration}`;
+}
+
+function getCachedAvailability(key: string): AvailableSlot[] | null {
+  const cached = availabilityCache.get(key);
+  if (!cached) return null;
+  
+  if (Date.now() > cached.expiresAt) {
+    availabilityCache.delete(key);
+    return null;
+  }
+  
+  return cached.data;
+}
+
+function setCachedAvailability(key: string, data: AvailableSlot[], ttlMinutes: number = 5) {
+  availabilityCache.set(key, {
+    data,
+    expiresAt: Date.now() + (ttlMinutes * 60 * 1000),
+  });
+}
+
+/**
+ * Clear availability cache for a specific artist (call after settings/availability changes)
+ */
+export function clearAvailabilityCache(artistId: number) {
+  const keysToDelete: string[] = [];
+  availabilityCache.forEach((_, key) => {
+    if (key.startsWith(`${artistId}:`)) {
+      keysToDelete.push(key);
+    }
+  });
+  keysToDelete.forEach(key => availabilityCache.delete(key));
+}
+
+/**
+ * Clear entire availability cache (maintenance)
+ */
+export function clearAllAvailabilityCache() {
+  availabilityCache.clear();
 }
 
 /**
@@ -617,6 +983,13 @@ export async function calculateAvailableSlots(
 ): Promise<AvailableSlot[]> {
   const db = await getDb();
   if (!db) return [];
+
+  // Check cache first
+  const cacheKey = getCacheKey(artistId, startDate, endDate, durationMinutes);
+  const cached = getCachedAvailability(cacheKey);
+  if (cached) {
+    return cached;
+  }
 
   // 1. Get artist settings
   const settings = await getArtistSettings(artistId);
@@ -757,6 +1130,9 @@ export async function calculateAvailableSlots(
     currentDate.setDate(currentDate.getDate() + 1);
   }
 
+  // Cache the results
+  setCachedAvailability(cacheKey, availableSlots);
+  
   return availableSlots;
 }
 

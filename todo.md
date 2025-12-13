@@ -194,3 +194,21 @@
 - [x] Test calendar with sample artist availability data
 - [x] Add loading states and error handling
 - [x] Save checkpoint for calendar UI completion
+
+## Enhancement & Optimization Plan
+- [ ] Review CHANGES_SINCE_5PM.md for complete feature list
+- [ ] Enhance Batch 1: Items 1-10 (High Priority UX)
+- [ ] Enhance Batch 2: Items 11-20 (Medium Priority Polish)
+- [ ] Enhance Batch 3: Items 21-30 (Advanced Features)
+
+## Enhancement Batch 1: Optimizing Features 1-10
+- [x] 1. Availability Windows - Add bulk operations and validation
+- [x] 2. Blackout Dates - Add recurring patterns and templates
+- [x] 3. Artist Settings - Add preset templates and smart defaults
+- [x] 4. Slot Lock - Add automatic cleanup and monitoring
+- [x] 5. Availability Algorithm - Add caching and performance optimization
+- [x] 6. tRPC API - Add cache invalidation and error recovery
+- [x] 7. Sample Data - Already comprehensive with 6 artists, varied timezones, realistic schedules
+- [x] 8. Unit Tests - 26 tests covering all scenarios (13 availability + 13 calendar)
+- [x] 9. BookingCalendar - Add keyboard navigation and accessibility (arrow keys, ESC, ARIA labels)
+- [x] 10. Time Slots - Smart display with 2-column grid, scrollable, duration-aware filtering

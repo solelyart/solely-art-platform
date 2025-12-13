@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useCallback } from "react";
 import { trpc } from "@/lib/trpc";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -19,6 +19,7 @@ export function BookingCalendar({
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const [selectedSlot, setSelectedSlot] = useState<{ startTime: string; endTime: string } | null>(null);
+  const [focusedDateIndex, setFocusedDateIndex] = useState<number | null>(null);
 
   // Calculate date range for availability query (current month + next month)
   const dateRange = useMemo(() => {
@@ -56,6 +57,43 @@ export function BookingCalendar({
   const datesWithAvailability = useMemo(() => {
     return new Set(Array.from(slotsByDate.keys()));
   }, [slotsByDate]);
+
+  // Keyboard navigation for calendar
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!selectedDate) return;
+
+      const availableDates = Array.from(datesWithAvailability).sort();
+      const currentIndex = availableDates.indexOf(selectedDate);
+
+      switch (e.key) {
+        case 'ArrowLeft':
+          e.preventDefault();
+          if (currentIndex > 0) {
+            const newDate = availableDates[currentIndex - 1];
+            setSelectedDate(newDate);
+            setSelectedSlot(null);
+          }
+          break;
+        case 'ArrowRight':
+          e.preventDefault();
+          if (currentIndex < availableDates.length - 1) {
+            const newDate = availableDates[currentIndex + 1];
+            setSelectedDate(newDate);
+            setSelectedSlot(null);
+          }
+          break;
+        case 'Escape':
+          e.preventDefault();
+          setSelectedDate(null);
+          setSelectedSlot(null);
+          break;
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedDate, datesWithAvailability]);
 
   // Generate calendar days for current month
   const calendarDays = useMemo(() => {
@@ -202,6 +240,9 @@ export function BookingCalendar({
                     key={dateStr}
                     onClick={() => !isPast && isAvailable && handleDateClick(date)}
                     disabled={isPast || !isAvailable}
+                    aria-label={`${date.toLocaleDateString('en-US', { month: 'long', day: 'numeric' })}${isAvailable ? ', available' : ', unavailable'}${isSelected ? ', selected' : ''}`}
+                    aria-pressed={isSelected}
+                    tabIndex={isAvailable && !isPast ? 0 : -1}
                     className={`
                       aspect-square rounded-lg text-sm font-medium transition-all
                       ${isSelected
