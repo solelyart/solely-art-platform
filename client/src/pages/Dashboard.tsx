@@ -4,9 +4,60 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { getLoginUrl } from "@/const";
 import { trpc } from "@/lib/trpc";
-import { Calendar, CheckCircle, Clock, XCircle, Palette } from "lucide-react";
+import { Calendar, CheckCircle, Clock, XCircle, Palette, User } from "lucide-react";
+import { ImageUpload, MultiImageUpload } from "@/components/ImageUpload";
 import { Link } from "wouter";
 import { toast } from "sonner";
+
+function ProfilePictureUpload({ userId, currentPhoto }: { userId?: number; currentPhoto?: string | null }) {
+  const utils = trpc.useUtils();
+  const uploadMutation = trpc.user.uploadProfilePhoto.useMutation({
+    onSuccess: () => {
+      utils.auth.me.invalidate();
+      utils.artists.getMyProfile.invalidate();
+    },
+  });
+
+  return (
+    <ImageUpload
+      currentImage={currentPhoto || undefined}
+      label="Profile Picture"
+      aspectRatio="square"
+      onUpload={async (imageData, mimeType) => {
+        await uploadMutation.mutateAsync({ imageData, mimeType });
+      }}
+    />
+  );
+}
+
+function PortfolioUpload({ images }: { images: string[] }) {
+  const utils = trpc.useUtils();
+  const uploadMutation = trpc.portfolio.upload.useMutation({
+    onSuccess: () => {
+      utils.artists.getMyProfile.invalidate();
+    },
+  });
+
+  const deleteMutation = trpc.portfolio.delete.useMutation({
+    onSuccess: () => {
+      utils.artists.getMyProfile.invalidate();
+    },
+  });
+
+  return (
+    <MultiImageUpload
+      images={images}
+      onUpload={async (imageData, mimeType) => {
+        await uploadMutation.mutateAsync({ imageData, mimeType });
+      }}
+      onDelete={async (imageUrl) => {
+        await deleteMutation.mutateAsync({ imageUrl });
+      }}
+      maxImages={12}
+      label="Portfolio Images"
+    />
+  );
+}
 
 export default function Dashboard() {
   const { user, isAuthenticated } = useAuth();
@@ -175,7 +226,28 @@ export default function Dashboard() {
           </TabsContent>
 
           {artistProfile && (
-            <TabsContent value="profile" className="space-y-4">
+            <TabsContent value="profile" className="space-y-6">
+              {/* Profile Picture */}
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="mb-4 text-lg font-semibold">Profile Picture</h3>
+                  <div className="max-w-xs">
+                    <ProfilePictureUpload userId={user?.id} currentPhoto={user?.profilePhotoUrl} />
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Portfolio Images */}
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="mb-4 text-lg font-semibold">Portfolio</h3>
+                  <PortfolioUpload 
+                    images={artistProfile.portfolioImages || []} 
+                  />
+                </CardContent>
+              </Card>
+
+              {/* Profile Info */}
               <Card>
                 <CardContent className="p-6">
                   <h2 className="mb-4 text-2xl font-bold">{artistProfile.displayName}</h2>

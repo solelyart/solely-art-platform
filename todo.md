@@ -141,3 +141,17 @@
 - [x] Create review section with skeleton loaders
 - [x] Add review cards with ratings
 - [x] Implement "Book Now" CTAs on service cards
+
+## Profile & Portfolio Upload
+- [x] Create profile picture upload component
+- [x] Create portfolio image upload component with drag-and-drop
+- [x] Add image preview before upload
+- [x] Implement upload progress indicators
+- [x] Add delete functionality for portfolio images
+- [x] Test S3 upload integration
+## Sample Data Creation
+- [x] Create 5-8 sample artist profiles
+- [x] Add diverse services for each artist
+- [ ] Upload artistic photos to portfolios
+- [ ] Add sample reviews for artists
+- [ ] Create sample bookingsta displays correctly
