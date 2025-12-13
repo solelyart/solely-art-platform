@@ -264,3 +264,38 @@ export const payments = mysqlTable("payments", {
 
 export type Payment = typeof payments.$inferSelect;
 export type InsertPayment = typeof payments.$inferInsert;
+
+// Portfolio Collections
+export const portfolioCollections = mysqlTable("portfolioCollections", {
+  id: int("id").autoincrement().primaryKey(),
+  artistId: int("artistId").notNull(),
+  title: varchar("title", { length: 255 }).notNull(),
+  description: text("description"),
+  displayOrder: int("displayOrder").default(0).notNull(),
+  isFeatured: boolean("isFeatured").default(false).notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  artistIdIdx: index("portfolio_collections_artist_id_idx").on(table.artistId),
+}));
+
+export const portfolioItems = mysqlTable("portfolioItems", {
+  id: int("id").autoincrement().primaryKey(),
+  collectionId: int("collectionId").notNull(),
+  title: varchar("title", { length: 255 }).notNull(),
+  description: text("description"),
+  imageUrl: varchar("imageUrl", { length: 1024 }).notNull(),
+  thumbnailUrl: varchar("thumbnailUrl", { length: 1024 }),
+  displayOrder: int("displayOrder").default(0).notNull(),
+  isFeatured: boolean("isFeatured").default(false).notNull(),
+  metadata: text("metadata"), // Store JSON as text: dimensions, file size, etc.
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+}, (table) => ({
+  collectionIdIdx: index("portfolio_items_collection_id_idx").on(table.collectionId),
+}));
+
+export type PortfolioCollection = typeof portfolioCollections.$inferSelect;
+export type InsertPortfolioCollection = typeof portfolioCollections.$inferInsert;
+export type PortfolioItem = typeof portfolioItems.$inferSelect;
+export type InsertPortfolioItem = typeof portfolioItems.$inferInsert;

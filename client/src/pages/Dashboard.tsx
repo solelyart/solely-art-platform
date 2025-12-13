@@ -30,32 +30,18 @@ function ProfilePictureUpload({ userId, currentPhoto }: { userId?: number; curre
   );
 }
 
+// Portfolio upload moved to dedicated Portfolio Builder page
+// This component is deprecated - use /portfolio-builder instead
 function PortfolioUpload({ images }: { images: string[] }) {
-  const utils = trpc.useUtils();
-  const uploadMutation = trpc.portfolio.upload.useMutation({
-    onSuccess: () => {
-      utils.artists.getMyProfile.invalidate();
-    },
-  });
-
-  const deleteMutation = trpc.portfolio.delete.useMutation({
-    onSuccess: () => {
-      utils.artists.getMyProfile.invalidate();
-    },
-  });
-
   return (
-    <MultiImageUpload
-      images={images}
-      onUpload={async (imageData, mimeType) => {
-        await uploadMutation.mutateAsync({ imageData, mimeType });
-      }}
-      onDelete={async (imageUrl) => {
-        await deleteMutation.mutateAsync({ imageUrl });
-      }}
-      maxImages={12}
-      label="Portfolio Images"
-    />
+    <div className="p-4 border border-border rounded-lg">
+      <p className="text-sm text-muted-foreground">
+        Portfolio management has moved to the new Portfolio Builder.
+        <Link href="/portfolio-builder" className="text-primary hover:underline ml-1">
+          Go to Portfolio Builder →
+        </Link>
+      </p>
+    </div>
   );
 }
 

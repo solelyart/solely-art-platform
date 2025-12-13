@@ -13,6 +13,7 @@ import BookArtist from "./pages/BookArtist";
 import { AvailabilityDashboard } from "./pages/AvailabilityDashboard";
 import { BookingManagement } from "./pages/BookingManagement";
 import Messages from "./pages/Messages";
+import PortfolioBuilder from "./pages/PortfolioBuilder";
 
 function Router() {
   return (
@@ -26,6 +27,7 @@ function Router() {
       <Route path="/availability" component={AvailabilityDashboard} />
       <Route path="/bookings" component={BookingManagement} />
       <Route path="/messages" component={Messages} />
+      <Route path="/portfolio-builder" component={PortfolioBuilder} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

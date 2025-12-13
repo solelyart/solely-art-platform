@@ -20,7 +20,9 @@ import {
   conversations,
   InsertConversation,
   messages,
-  InsertMessage
+  InsertMessage,
+  portfolioCollections,
+  portfolioItems
 } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
@@ -1308,4 +1310,208 @@ export async function getUnreadMessageCount(userId: number) {
     );
   
   return Number(result[0]?.count || 0);
+}
+
+
+// ============================================================================
+// Portfolio Collections & Items
+// ============================================================================
+
+export async function createPortfolioCollection(data: {
+  artistId: number;
+  title: string;
+  description?: string;
+  displayOrder?: number;
+  isFeatured?: boolean;
+}) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  const result = await db.insert(portfolioCollections).values({
+    artistId: data.artistId,
+    title: data.title,
+    description: data.description || null,
+    displayOrder: data.displayOrder ?? 0,
+    isFeatured: data.isFeatured ?? false,
+  });
+  
+  const id = Number(result[0].insertId);
+  const collections = await db.select().from(portfolioCollections).where(eq(portfolioCollections.id, id));
+  return collections[0];
+}
+
+export async function getPortfolioCollectionsByArtistId(artistId: number) {
+  const db = await getDb();
+  if (!db) return [];
+
+  return await db
+    .select()
+    .from(portfolioCollections)
+    .where(eq(portfolioCollections.artistId, artistId))
+    .orderBy(portfolioCollections.displayOrder, portfolioCollections.createdAt);
+}
+
+export async function updatePortfolioCollection(id: number, data: {
+  title?: string;
+  description?: string;
+  displayOrder?: number;
+  isFeatured?: boolean;
+}) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  const updateData: any = {};
+  if (data.title !== undefined) updateData.title = data.title;
+  if (data.description !== undefined) updateData.description = data.description;
+  if (data.displayOrder !== undefined) updateData.displayOrder = data.displayOrder;
+  if (data.isFeatured !== undefined) updateData.isFeatured = data.isFeatured;
+
+  if (Object.keys(updateData).length > 0) {
+    await db.update(portfolioCollections).set(updateData).where(eq(portfolioCollections.id, id));
+  }
+}
+
+export async function deletePortfolioCollection(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  // Delete all items in this collection first
+  await db.delete(portfolioItems).where(eq(portfolioItems.collectionId, id));
+  
+  // Then delete the collection
+  await db.delete(portfolioCollections).where(eq(portfolioCollections.id, id));
+}
+
+export async function reorderPortfolioCollections(updates: Array<{ id: number; displayOrder: number }>) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  // Update each collection's display order
+  for (const update of updates) {
+    await db
+      .update(portfolioCollections)
+      .set({ displayOrder: update.displayOrder })
+      .where(eq(portfolioCollections.id, update.id));
+  }
+}
+
+export async function createPortfolioItem(data: {
+  collectionId: number;
+  title: string;
+  description?: string;
+  imageUrl: string;
+  thumbnailUrl?: string;
+  displayOrder?: number;
+  isFeatured?: boolean;
+  metadata?: string;
+}) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  const result = await db.insert(portfolioItems).values({
+    collectionId: data.collectionId,
+    title: data.title,
+    description: data.description || null,
+    imageUrl: data.imageUrl,
+    thumbnailUrl: data.thumbnailUrl || null,
+    displayOrder: data.displayOrder ?? 0,
+    isFeatured: data.isFeatured ?? false,
+    metadata: data.metadata || null,
+  });
+  
+  const id = Number(result[0].insertId);
+  const items = await db.select().from(portfolioItems).where(eq(portfolioItems.id, id));
+  return items[0];
+}
+
+export async function getPortfolioItemsByCollectionId(collectionId: number) {
+  const db = await getDb();
+  if (!db) return [];
+
+  return await db
+    .select()
+    .from(portfolioItems)
+    .where(eq(portfolioItems.collectionId, collectionId))
+    .orderBy(portfolioItems.displayOrder, portfolioItems.createdAt);
+}
+
+export async function getPortfolioItemsByArtistId(artistId: number) {
+  const db = await getDb();
+  if (!db) return [];
+
+  // Join with collections to get all items for an artist
+  const result = await db
+    .select({
+      item: portfolioItems,
+      collection: portfolioCollections,
+    })
+    .from(portfolioItems)
+    .innerJoin(portfolioCollections, eq(portfolioItems.collectionId, portfolioCollections.id))
+    .where(eq(portfolioCollections.artistId, artistId))
+    .orderBy(portfolioCollections.displayOrder, portfolioItems.displayOrder);
+
+  return result;
+}
+
+export async function getFeaturedPortfolioItems(artistId: number, limit: number = 6) {
+  const db = await getDb();
+  if (!db) return [];
+
+  const result = await db
+    .select({
+      item: portfolioItems,
+      collection: portfolioCollections,
+    })
+    .from(portfolioItems)
+    .innerJoin(portfolioCollections, eq(portfolioItems.collectionId, portfolioCollections.id))
+    .where(and(
+      eq(portfolioCollections.artistId, artistId),
+      eq(portfolioItems.isFeatured, true)
+    ))
+    .orderBy(portfolioItems.displayOrder)
+    .limit(limit);
+
+  return result;
+}
+
+export async function updatePortfolioItem(id: number, data: {
+  title?: string;
+  description?: string;
+  displayOrder?: number;
+  isFeatured?: boolean;
+  metadata?: string;
+}) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  const updateData: any = {};
+  if (data.title !== undefined) updateData.title = data.title;
+  if (data.description !== undefined) updateData.description = data.description;
+  if (data.displayOrder !== undefined) updateData.displayOrder = data.displayOrder;
+  if (data.isFeatured !== undefined) updateData.isFeatured = data.isFeatured;
+  if (data.metadata !== undefined) updateData.metadata = data.metadata;
+
+  if (Object.keys(updateData).length > 0) {
+    await db.update(portfolioItems).set(updateData).where(eq(portfolioItems.id, id));
+  }
+}
+
+export async function deletePortfolioItem(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  await db.delete(portfolioItems).where(eq(portfolioItems.id, id));
+}
+
+export async function reorderPortfolioItems(updates: Array<{ id: number; displayOrder: number }>) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  // Update each item's display order
+  for (const update of updates) {
+    await db
+      .update(portfolioItems)
+      .set({ displayOrder: update.displayOrder })
+      .where(eq(portfolioItems.id, update.id));
+  }
 }

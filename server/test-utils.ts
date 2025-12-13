@@ -22,14 +22,15 @@ export async function createTestArtist(overrides?: {
   email?: string;
 }) {
   const timestamp = Date.now();
-  const random = Math.floor(Math.random() * 10000);
-  const displayName = overrides?.displayName || `Test Artist ${random}`;
-  const email = overrides?.email || `test-artist-${timestamp}-${random}@test.com`;
+  const random = Math.floor(Math.random() * 1000000); // Increased randomness
+  const nanoRandom = Math.floor(Math.random() * 1000000); // Additional randomness
+  const displayName = overrides?.displayName || `Test Artist ${random}-${nanoRandom}`;
+  const email = overrides?.email || `test-artist-${timestamp}-${random}-${nanoRandom}@test.com`;
 
   // Create user through existing function
-  // Use smaller numeric ID to avoid MySQL INT range issues
-  const userNumericId = Math.floor(timestamp / 1000) + random; // Smaller number
-  const openId = `test-openid-${timestamp}-${random}`;
+  // Use smaller numeric ID to avoid MySQL INT range issues, but ensure uniqueness
+  const userNumericId = Math.floor(timestamp / 1000) + random + nanoRandom;
+  const openId = `test-openid-${timestamp}-${random}-${nanoRandom}`;
   await db.upsertUser({
     openId,
     id: userNumericId,

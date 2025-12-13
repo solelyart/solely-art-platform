@@ -291,3 +291,27 @@
 ### Test Execution & Reporting
 - [x] 11. Run Full Test Suite - 86 tests passing (100% pass rate)
 - [x] 12. Test Coverage - P0 critical (8 tests), P1 high-priority (20 tests), integration (58 tests) 13. Save Checkpoint - Deliver comprehensive test suite with documentation
+
+
+## Portfolio Builder & Real-Time Features
+
+### Portfolio Builder (Conceptual)
+- [x] 1. Portfolio Collections Schema - Create collections table with ordering, featured flag, and project metadata
+- [x] 2. Portfolio API - Build tRPC endpoints for CRUD operations on collections and items
+- [x] 3. Drag-and-Drop Editor - Create interactive editor with dnd-kit for reordering collections and items
+- [x] 4. Image Upload System - Integrate S3 storage for portfolio images with thumbnails (via uploadItem API)
+- [x] 5. Portfolio Display - Show organized collections on artist profiles with lightbox gallery
+- [x] 6. Featured Work Section - Highlight selected pieces prominently on profile pages
+
+### Real-Time Features (Conceptual)
+- [ ] 7. WebSocket Server Setup - Configure Socket.IO server with authentication and room management
+- [ ] 8. Real-Time Message Notifications - Push instant notifications when new messages arrive
+- [ ] 9. Live Booking Updates - Broadcast booking status changes to relevant users
+- [ ] 10. Online Status Indicators - Show which users are currently active/online
+- [ ] 11. Typing Indicators - Display when someone is typing in messages
+- [ ] 12. Unread Badge Counters - Real-time update of unread message counts
+
+### Testing & Integration
+- [ ] 13. Portfolio Builder Tests - Test drag-and-drop, image upload, and display functionality
+- [ ] 14. WebSocket Integration Tests - Test real-time event delivery and reconnection
+- [ ] 15. Save Checkpoint - Deliver complete portfolio builder and real-time features

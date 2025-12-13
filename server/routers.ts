@@ -807,10 +807,78 @@ export const appRouter = router({
   }),
 
   portfolio: router({
-    upload: protectedProcedure
+    // Collections
+    createCollection: protectedProcedure
       .input(z.object({
-        imageData: z.string(), // base64 encoded image
+        title: z.string().min(1).max(255),
+        description: z.string().optional(),
+        isFeatured: z.boolean().optional(),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        const profile = await db.getArtistProfileByUserId(ctx.user.id);
+        if (!profile) {
+          throw new TRPCError({ code: "NOT_FOUND", message: "Artist profile not found" });
+        }
+        return await db.createPortfolioCollection({
+          artistId: profile.id,
+          ...input,
+        });
+      }),
+
+    getCollections: publicProcedure
+      .input(z.object({ artistId: z.number() }))
+      .query(async ({ input }) => {
+        return await db.getPortfolioCollectionsByArtistId(input.artistId);
+      }),
+
+    getMyCollections: protectedProcedure
+      .query(async ({ ctx }) => {
+        const profile = await db.getArtistProfileByUserId(ctx.user.id);
+        if (!profile) return [];
+        return await db.getPortfolioCollectionsByArtistId(profile.id);
+      }),
+
+    updateCollection: protectedProcedure
+      .input(z.object({
+        id: z.number(),
+        title: z.string().min(1).max(255).optional(),
+        description: z.string().optional(),
+        isFeatured: z.boolean().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const { id, ...updates } = input;
+        await db.updatePortfolioCollection(id, updates);
+        return { success: true };
+      }),
+
+    deleteCollection: protectedProcedure
+      .input(z.object({ id: z.number() }))
+      .mutation(async ({ input }) => {
+        await db.deletePortfolioCollection(input.id);
+        return { success: true };
+      }),
+
+    reorderCollections: protectedProcedure
+      .input(z.object({
+        updates: z.array(z.object({
+          id: z.number(),
+          displayOrder: z.number(),
+        })),
+      }))
+      .mutation(async ({ input }) => {
+        await db.reorderPortfolioCollections(input.updates);
+        return { success: true };
+      }),
+
+    // Items
+    uploadItem: protectedProcedure
+      .input(z.object({
+        collectionId: z.number(),
+        title: z.string().min(1).max(255),
+        description: z.string().optional(),
+        imageData: z.string(), // base64 encoded
         mimeType: z.string(),
+        isFeatured: z.boolean().optional(),
       }))
       .mutation(async ({ ctx, input }) => {
         const profile = await db.getArtistProfileByUserId(ctx.user.id);
@@ -824,39 +892,73 @@ export const appRouter = router({
         const base64Data = input.imageData.replace(/^data:image\/\w+;base64,/, "");
         const buffer = Buffer.from(base64Data, "base64");
         
-        // Generate unique key
+        // Generate unique keys for full image and thumbnail
         const fileExtension = input.mimeType.split("/")[1];
-        const fileKey = `portfolio/${profile.id}-${Date.now()}.${fileExtension}`;
+        const timestamp = Date.now();
+        const fileKey = `portfolio/${profile.id}/${timestamp}.${fileExtension}`;
         
         // Upload to S3
         const { url } = await storagePut(fileKey, buffer, input.mimeType);
         
-        // Update portfolio images
-        const currentImages = JSON.parse(profile.portfolioImages || "[]");
-        const updatedImages = [...currentImages, url];
-        await db.updateArtistProfile(profile.id, { portfolioImages: JSON.stringify(updatedImages) });
-        
-        return { success: true, url, images: updatedImages };
+        // Create portfolio item
+        return await db.createPortfolioItem({
+          collectionId: input.collectionId,
+          title: input.title,
+          description: input.description,
+          imageUrl: url,
+          thumbnailUrl: url, // Using same URL for now, can add thumbnail generation later
+          isFeatured: input.isFeatured,
+        });
       }),
 
-    delete: protectedProcedure
-      .input(z.object({
-        imageUrl: z.string().url(),
-      }))
-      .mutation(async ({ input, ctx }) => {
-        const profile = await db.getArtistProfileByUserId(ctx.user.id);
-        if (!profile) {
-          throw new TRPCError({ code: "NOT_FOUND", message: "Artist profile not found" });
-        }
+    getItems: publicProcedure
+      .input(z.object({ collectionId: z.number() }))
+      .query(async ({ input }) => {
+        return await db.getPortfolioItemsByCollectionId(input.collectionId);
+      }),
 
-        const currentImages = JSON.parse(profile.portfolioImages || "[]");
-        const updatedImages = currentImages.filter((url: string) => url !== input.imageUrl);
-        await db.updateArtistProfile(profile.id, { portfolioImages: JSON.stringify(updatedImages) });
-        
-        // Note: We're not deleting from S3 here to avoid breaking references
-        // In production, you might want to implement a cleanup job
-        
-        return { success: true, images: updatedImages };
+    getArtistItems: publicProcedure
+      .input(z.object({ artistId: z.number() }))
+      .query(async ({ input }) => {
+        return await db.getPortfolioItemsByArtistId(input.artistId);
+      }),
+
+    getFeaturedItems: publicProcedure
+      .input(z.object({ artistId: z.number(), limit: z.number().optional() }))
+      .query(async ({ input }) => {
+        return await db.getFeaturedPortfolioItems(input.artistId, input.limit);
+      }),
+
+    updateItem: protectedProcedure
+      .input(z.object({
+        id: z.number(),
+        title: z.string().min(1).max(255).optional(),
+        description: z.string().optional(),
+        isFeatured: z.boolean().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const { id, ...updates } = input;
+        await db.updatePortfolioItem(id, updates);
+        return { success: true };
+      }),
+
+    deleteItem: protectedProcedure
+      .input(z.object({ id: z.number() }))
+      .mutation(async ({ input }) => {
+        await db.deletePortfolioItem(input.id);
+        return { success: true };
+      }),
+
+    reorderItems: protectedProcedure
+      .input(z.object({
+        updates: z.array(z.object({
+          id: z.number(),
+          displayOrder: z.number(),
+        })),
+      }))
+      .mutation(async ({ input }) => {
+        await db.reorderPortfolioItems(input.updates);
+        return { success: true };
       }),
   }),
 });

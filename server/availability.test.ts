@@ -13,7 +13,6 @@ describe("Availability System", () => {
     
     const client = await createTestArtist({ displayName: "Availability Test Client" });
     testClientId = client.userId;
-  });lient
   });
 
   describe("Availability Windows", () => {

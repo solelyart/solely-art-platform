@@ -6,6 +6,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { ProfileHeaderSkeleton, ServiceCardSkeleton, ReviewCardSkeleton } from "@/components/Skeleton";
 import { NoPortfolioYet, NoServicesYet, NoReviewsYet } from "@/components/EmptyState";
+import { PortfolioDisplay } from "@/components/PortfolioDisplay";
 import { trpc } from "@/lib/trpc";
 import { MapPin, Star, Palette, Clock, DollarSign, Calendar, ChevronLeft, ChevronRight, Info } from "lucide-react";
 import { Link, useParams } from "wouter";
@@ -202,64 +203,7 @@ export default function ArtistProfile() {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
             {/* Portfolio Gallery */}
-            <Card className="shadow-elegant">
-              <CardHeader>
-                <CardTitle className="text-2xl">Portfolio</CardTitle>
-              </CardHeader>
-              <CardContent>
-                {portfolioImages.length > 0 ? (
-                  <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-                    {portfolioImages.map((imageUrl: string, index: number) => (
-                      <Dialog key={index}>
-                        <DialogTrigger asChild>
-                          <div 
-                            className="aspect-square overflow-hidden rounded-lg bg-muted cursor-pointer hover-lift shadow-elegant"
-                            onClick={() => setSelectedImageIndex(index)}
-                          >
-                            <img
-                              src={imageUrl}
-                              alt={`Portfolio ${index + 1}`}
-                              className="h-full w-full object-cover transition-transform hover:scale-105"
-                            />
-                          </div>
-                        </DialogTrigger>
-                        <DialogContent className="max-w-4xl p-0">
-                          <div className="relative">
-                            <img
-                              src={portfolioImages[selectedImageIndex ?? index]}
-                              alt={`Portfolio ${(selectedImageIndex ?? index) + 1}`}
-                              className="w-full h-auto"
-                            />
-                            {portfolioImages.length > 1 && (
-                              <>
-                                <Button
-                                  variant="ghost"
-                                  size="icon"
-                                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background"
-                                  onClick={() => navigateImage('prev')}
-                                >
-                                  <ChevronLeft className="h-6 w-6" />
-                                </Button>
-                                <Button
-                                  variant="ghost"
-                                  size="icon"
-                                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-background/80 hover:bg-background"
-                                  onClick={() => navigateImage('next')}
-                                >
-                                  <ChevronRight className="h-6 w-6" />
-                                </Button>
-                              </>
-                            )}
-                          </div>
-                        </DialogContent>
-                      </Dialog>
-                    ))}
-                  </div>
-                ) : (
-                  <NoPortfolioYet />
-                )}
-              </CardContent>
-            </Card>
+            <PortfolioDisplay artistId={artistId} />
 
             {/* Services */}
             <Card className="shadow-elegant">
