@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <div className="min-h-screen gradient-artistic">
       {/* Header */}
-      <header className="glass-effect sticky top-0 z-50 border-b">
+      <header className="glass-effect sticky top-0 z-50 border-b border-border/50">
         <div className="container flex h-20 items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
             <Palette className="h-9 w-9 text-primary transition-transform group-hover:scale-105" />
