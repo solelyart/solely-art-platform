@@ -330,3 +330,15 @@
 - [ ] 6. Stripe Connect Integration - Implement Connect onboarding and payout system
 - [ ] 7. Revenue Dashboard - Build admin dashboard for financial monitoring and reporting
 - [ ] 8. Accounting Integration - Connect with QuickBooks/Xero for automated bookkeeping
+
+## Playwright E2E Testing Setup
+- [x] Create test client user account (playwright-client@test.com)
+- [x] Create test artist user account (playwright-artist@test.com)
+- [x] Set up test artist profile with portfolio and services
+- [x] Create test admin user account (playwright-admin@test.com)
+- [x] Add 39 data-testid attributes to critical components
+- [x] Run initial Playwright test suite (1/49 tests passing)
+- [ ] Fix test authentication endpoint (server startup issue)
+- [ ] Update auth fixtures to use test auth endpoint
+- [ ] Add remaining test IDs to Messages, BecomeArtist, PortfolioBuilder
+- [ ] Re-run tests and achieve 80%+ P0 test pass rate
