@@ -338,7 +338,7 @@
 - [x] Create test admin user account (playwright-admin@test.com)
 - [x] Add 39 data-testid attributes to critical components
 - [x] Run initial Playwright test suite (1/49 tests passing)
-- [ ] Fix test authentication endpoint (server startup issue)
-- [ ] Update auth fixtures to use test auth endpoint
+- [x] Fix test authentication endpoint (server startup issue)
+- [x] Update auth fixtures to use test auth endpoint
 - [ ] Add remaining test IDs to Messages, BecomeArtist, PortfolioBuilder
 - [ ] Re-run tests and achieve 80%+ P0 test pass rate

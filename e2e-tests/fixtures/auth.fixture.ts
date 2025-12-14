@@ -1,10 +1,13 @@
 import { test as base, expect } from '@playwright/test';
-import * as dotenv from 'dotenv';
-
-dotenv.config();
+import { testConfig } from '../playwright.env';
 
 /**
- * Authentication Fixture
+ * Authentication Fixture for Manus OAuth
+ * 
+ * Since Solely Art uses Manus OAuth (not traditional email/password),
+ * we use a test-only authentication endpoint to bypass OAuth for E2E testing.
+ * 
+ * This is the industry-standard approach for testing OAuth-based applications.
  * 
  * Provides authenticated contexts for different user types:
  * - Client (books artists)
@@ -18,34 +21,51 @@ type AuthFixtures = {
   authenticatedAdminPage: any;
 };
 
+/**
+ * Helper function to authenticate via test-auth endpoint
+ * Sets session cookie directly without going through OAuth flow
+ */
+async function authenticateUser(page: any, openId: string, expectedUrl?: string) {
+  // Call test-auth endpoint to get session cookie
+  const response = await page.request.post(`${testConfig.baseUrl}/api/test-auth/login`, {
+    data: { openId },
+    headers: { 'Content-Type': 'application/json' }
+  });
+
+  if (!response.ok()) {
+    throw new Error(`Authentication failed: ${response.status()} ${await response.text()}`);
+  }
+
+  // Session cookie is automatically set by the browser
+  // Navigate to home page to verify authentication worked
+  await page.goto(expectedUrl || '/');
+  
+  // Wait a moment for auth state to settle
+  await page.waitForTimeout(500);
+}
+
 export const test = base.extend<AuthFixtures>({
   /**
    * Authenticated Client Page
    * Automatically logs in as a client before tests
    */
   authenticatedClientPage: async ({ page }, use) => {
-    // Navigate to login page
-    await page.goto('/login');
+    // Authenticate as test client
+    await authenticateUser(page, testConfig.testUsers.client.openId, '/');
 
-    // Fill in client credentials
-    await page.fill('input[name="email"]', process.env.TEST_CLIENT_EMAIL || '');
-    await page.fill('input[name="password"]', process.env.TEST_CLIENT_PASSWORD || '');
-
-    // Submit login form
-    await page.click('button[type="submit"]');
-
-    // Wait for navigation to complete
-    await page.waitForURL('**/dashboard', { timeout: 10000 });
-
-    // Verify authentication
-    await expect(page.locator('[data-testid="user-menu"]')).toBeVisible();
+    // Verify authentication by checking for logout button
+    await expect(page.locator('[data-testid="logout-button"]')).toBeVisible({ timeout: 5000 });
 
     // Use the authenticated page
     await use(page);
 
-    // Cleanup: logout after test
-    await page.click('[data-testid="user-menu"]');
-    await page.click('text=Logout');
+    // Cleanup: logout after test (optional, session will expire anyway)
+    try {
+      await page.click('[data-testid="logout-button"]');
+      await page.waitForURL('/', { timeout: 3000 });
+    } catch (e) {
+      // Ignore logout errors in cleanup
+    }
   },
 
   /**
@@ -53,28 +73,22 @@ export const test = base.extend<AuthFixtures>({
    * Automatically logs in as an artist before tests
    */
   authenticatedArtistPage: async ({ page }, use) => {
-    // Navigate to login page
-    await page.goto('/login');
-
-    // Fill in artist credentials
-    await page.fill('input[name="email"]', process.env.TEST_ARTIST_EMAIL || '');
-    await page.fill('input[name="password"]', process.env.TEST_ARTIST_PASSWORD || '');
-
-    // Submit login form
-    await page.click('button[type="submit"]');
-
-    // Wait for navigation to complete
-    await page.waitForURL('**/artist/dashboard', { timeout: 10000 });
+    // Authenticate as test artist
+    await authenticateUser(page, testConfig.testUsers.artist.openId, '/');
 
     // Verify authentication
-    await expect(page.locator('[data-testid="artist-menu"]')).toBeVisible();
+    await expect(page.locator('[data-testid="logout-button"]')).toBeVisible({ timeout: 5000 });
 
     // Use the authenticated page
     await use(page);
 
     // Cleanup: logout after test
-    await page.click('[data-testid="artist-menu"]');
-    await page.click('text=Logout');
+    try {
+      await page.click('[data-testid="logout-button"]');
+      await page.waitForURL('/', { timeout: 3000 });
+    } catch (e) {
+      // Ignore logout errors in cleanup
+    }
   },
 
   /**
@@ -82,28 +96,22 @@ export const test = base.extend<AuthFixtures>({
    * Automatically logs in as an admin before tests
    */
   authenticatedAdminPage: async ({ page }, use) => {
-    // Navigate to login page
-    await page.goto('/admin/login');
-
-    // Fill in admin credentials
-    await page.fill('input[name="email"]', process.env.TEST_ADMIN_EMAIL || '');
-    await page.fill('input[name="password"]', process.env.TEST_ADMIN_PASSWORD || '');
-
-    // Submit login form
-    await page.click('button[type="submit"]');
-
-    // Wait for navigation to complete
-    await page.waitForURL('**/admin/dashboard', { timeout: 10000 });
+    // Authenticate as test admin
+    await authenticateUser(page, testConfig.testUsers.admin.openId, '/');
 
     // Verify authentication
-    await expect(page.locator('[data-testid="admin-panel"]')).toBeVisible();
+    await expect(page.locator('[data-testid="logout-button"]')).toBeVisible({ timeout: 5000 });
 
     // Use the authenticated page
     await use(page);
 
     // Cleanup: logout after test
-    await page.click('[data-testid="admin-menu"]');
-    await page.click('text=Logout');
+    try {
+      await page.click('[data-testid="logout-button"]');
+      await page.waitForURL('/', { timeout: 3000 });
+    } catch (e) {
+      // Ignore logout errors in cleanup
+    }
   },
 });
 
