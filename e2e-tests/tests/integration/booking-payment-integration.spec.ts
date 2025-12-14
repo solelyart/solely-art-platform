@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from '../../fixtures/auth.fixture';
 import { waitForAPIResponse } from '../../utils/helpers';
 
 /**
@@ -12,21 +12,16 @@ import { waitForAPIResponse } from '../../utils/helpers';
  */
 
 test.describe('Booking and Payment Integration Tests', () => {
-  test.beforeEach(async ({ page }) => {
+  test.beforeEach(async ({ authenticatedClientPage: page }) => {
     // Navigate to the application
     await page.goto('/');
   });
 
-  test('should integrate booking creation with database', async ({ page }) => {
+  test('should integrate booking creation with database', async ({ authenticatedClientPage: page }) => {
     // Login as client
-    await page.goto('/login');
-    await page.fill('input[name="email"]', process.env.TEST_CLIENT_EMAIL || '');
-    await page.fill('input[name="password"]', process.env.TEST_CLIENT_PASSWORD || '');
-    await page.click('button[type="submit"]');
-    await page.waitForURL('**/dashboard');
 
     // Create a booking
-    await page.goto('/search');
+    await page.goto('/browse');
     await page.fill('[data-testid="search-input"]', 'Jane Doe');
     await page.click('[data-testid="search-button"]');
 
@@ -58,16 +53,11 @@ test.describe('Booking and Payment Integration Tests', () => {
     await expect(page.locator(`[data-booking-id="${bookingData.id}"]`)).toBeVisible();
   });
 
-  test('should integrate booking with payment processing', async ({ page }) => {
+  test('should integrate booking with payment processing', async ({ authenticatedClientPage: page }) => {
     // Login as client
-    await page.goto('/login');
-    await page.fill('input[name="email"]', process.env.TEST_CLIENT_EMAIL || '');
-    await page.fill('input[name="password"]', process.env.TEST_CLIENT_PASSWORD || '');
-    await page.click('button[type="submit"]');
-    await page.waitForURL('**/dashboard');
 
     // Create a booking
-    await page.goto('/search');
+    await page.goto('/browse');
     await page.click('[data-testid="artist-card"]:first-child');
     
     const tomorrow = new Date();
@@ -92,7 +82,6 @@ test.describe('Booking and Payment Integration Tests', () => {
     await stripeFrame.locator('input[name="postal"]').fill('12345');
 
     // Submit payment
-    await page.click('[data-testid="submit-payment"]');
 
     // Wait for payment processing
     const paymentResponse = await waitForAPIResponse(page, '/api/payments', 200);
@@ -112,12 +101,8 @@ test.describe('Booking and Payment Integration Tests', () => {
     expect(updatedBooking.paymentStatus).toBe('paid');
   });
 
-  test('should integrate booking cancellation with refund processing', async ({ page }) => {
+  test('should integrate booking cancellation with refund processing', async ({ authenticatedClientPage: page }) => {
     // Login as client
-    await page.goto('/login');
-    await page.fill('input[name="email"]', process.env.TEST_CLIENT_EMAIL || '');
-    await page.fill('input[name="password"]', process.env.TEST_CLIENT_PASSWORD || '');
-    await page.click('button[type="submit"]');
 
     // Navigate to bookings
     await page.goto('/bookings');
@@ -150,15 +135,11 @@ test.describe('Booking and Payment Integration Tests', () => {
     expect(refundData.status).toBe('succeeded');
   });
 
-  test('should integrate availability check with booking creation', async ({ page }) => {
+  test('should integrate availability check with booking creation', async ({ authenticatedClientPage: page }) => {
     // Login as client
-    await page.goto('/login');
-    await page.fill('input[name="email"]', process.env.TEST_CLIENT_EMAIL || '');
-    await page.fill('input[name="password"]', process.env.TEST_CLIENT_PASSWORD || '');
-    await page.click('button[type="submit"]');
 
     // Search for artist
-    await page.goto('/search');
+    await page.goto('/browse');
     await page.click('[data-testid="artist-card"]:first-child');
 
     // Select a date
@@ -245,15 +226,11 @@ test.describe('Booking and Payment Integration Tests', () => {
       .toContainText('This time slot is no longer available');
   });
 
-  test('should integrate messaging with booking confirmation', async ({ page }) => {
+  test('should integrate messaging with booking confirmation', async ({ authenticatedClientPage: page }) => {
     // Login as client
-    await page.goto('/login');
-    await page.fill('input[name="email"]', process.env.TEST_CLIENT_EMAIL || '');
-    await page.fill('input[name="password"]', process.env.TEST_CLIENT_PASSWORD || '');
-    await page.click('button[type="submit"]');
 
     // Create and confirm a booking
-    await page.goto('/search');
+    await page.goto('/browse');
     await page.click('[data-testid="artist-card"]:first-child');
     
     const tomorrow = new Date();
@@ -268,7 +245,6 @@ test.describe('Booking and Payment Integration Tests', () => {
     await stripeFrame.locator('input[name="cardnumber"]').fill('4242424242424242');
     await stripeFrame.locator('input[name="exp-date"]').fill('12/25');
     await stripeFrame.locator('input[name="cvc"]').fill('123');
-    await page.click('[data-testid="submit-payment"]');
 
     // Wait for confirmation
     await page.waitForURL('**/booking/confirmed/**');

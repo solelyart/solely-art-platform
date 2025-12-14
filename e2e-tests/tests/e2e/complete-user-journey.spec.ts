@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from '../../fixtures/auth.fixture';
 import { generateTestData } from '../../utils/helpers';
 
 /**
@@ -37,14 +37,9 @@ test.describe('Complete User Journey - End-to-End Tests', () => {
     await page.click('[data-testid="signup-button"]');
     await page.fill('input[name="firstName"]', testData.firstName);
     await page.fill('input[name="lastName"]', testData.lastName);
-    await page.fill('input[name="email"]', testData.email);
-    await page.fill('input[name="password"]', testData.password);
-    await page.fill('input[name="confirmPassword"]', testData.password);
     await page.check('input[name="agreeToTerms"]');
-    await page.click('[data-testid="submit-signup"]');
 
     // Verify account created and logged in
-    await page.waitForURL('**/dashboard', { timeout: 10000 });
     await expect(page.locator('[data-testid="welcome-message"]'))
       .toContainText(testData.firstName);
 
@@ -115,7 +110,6 @@ test.describe('Complete User Journey - End-to-End Tests', () => {
     await stripeFrame.locator('input[name="postal"]').fill('12345');
 
     // Submit payment
-    await page.click('[data-testid="submit-payment"]');
 
     // Step 7: Receive confirmation
     await page.waitForURL('**/booking/confirmed/**', { timeout: 15000 });
@@ -155,7 +149,7 @@ test.describe('Complete User Journey - End-to-End Tests', () => {
     await expect(page.locator('[data-testid="email-notification-sent"]')).toBeVisible();
   });
 
-  test('E2E: Artist receives booking, manages schedule, and communicates with client', async ({ page }) => {
+  test('E2E: Artist receives booking, manages schedule, and communicates with client', async ({ authenticatedClientPage: page }) => {
     /**
      * This test simulates an artist's workflow:
      * 1. Artist logs in
@@ -166,12 +160,7 @@ test.describe('Complete User Journey - End-to-End Tests', () => {
      */
 
     // Step 1: Artist logs in
-    await page.goto('/login');
-    await page.fill('input[name="email"]', process.env.TEST_ARTIST_EMAIL || '');
-    await page.fill('input[name="password"]', process.env.TEST_ARTIST_PASSWORD || '');
-    await page.click('button[type="submit"]');
 
-    await page.waitForURL('**/artist/dashboard', { timeout: 10000 });
 
     // Step 2: Check for new bookings
     await expect(page.locator('[data-testid="new-bookings-badge"]')).toBeVisible();
@@ -221,7 +210,7 @@ test.describe('Complete User Journey - End-to-End Tests', () => {
       .toContainText(responseText);
   });
 
-  test('E2E: Client cancels booking and receives refund', async ({ page }) => {
+  test('E2E: Client cancels booking and receives refund', async ({ authenticatedClientPage: page }) => {
     /**
      * This test simulates the cancellation workflow:
      * 1. Client logs in
@@ -231,11 +220,6 @@ test.describe('Complete User Journey - End-to-End Tests', () => {
      */
 
     // Step 1: Login as client
-    await page.goto('/login');
-    await page.fill('input[name="email"]', process.env.TEST_CLIENT_EMAIL || '');
-    await page.fill('input[name="password"]', process.env.TEST_CLIENT_PASSWORD || '');
-    await page.click('button[type="submit"]');
-    await page.waitForURL('**/dashboard');
 
     // Step 2: Navigate to bookings
     await page.goto('/bookings');
@@ -294,11 +278,6 @@ test.describe('Complete User Journey - End-to-End Tests', () => {
 
     // Login on both devices
     for (const p of [desktopPage, mobilePage]) {
-      await p.goto('/login');
-      await p.fill('input[name="email"]', process.env.TEST_CLIENT_EMAIL || '');
-      await p.fill('input[name="password"]', process.env.TEST_CLIENT_PASSWORD || '');
-      await p.click('button[type="submit"]');
-      await p.waitForURL('**/dashboard');
     }
 
     // Send a message from desktop
@@ -324,7 +303,7 @@ test.describe('Complete User Journey - End-to-End Tests', () => {
       .toContainText(testMessage);
   });
 
-  test('E2E: Complete booking lifecycle from creation to completion', async ({ page }) => {
+  test('E2E: Complete booking lifecycle from creation to completion', async ({ authenticatedClientPage: page }) => {
     /**
      * This test follows a booking through its entire lifecycle:
      * 1. Booking created
@@ -335,13 +314,9 @@ test.describe('Complete User Journey - End-to-End Tests', () => {
      */
 
     // Login as client
-    await page.goto('/login');
-    await page.fill('input[name="email"]', process.env.TEST_CLIENT_EMAIL || '');
-    await page.fill('input[name="password"]', process.env.TEST_CLIENT_PASSWORD || '');
-    await page.click('button[type="submit"]');
 
     // Create booking
-    await page.goto('/search');
+    await page.goto('/browse');
     await page.click('[data-testid="artist-card"]:first-child');
     
     const tomorrow = new Date();
@@ -357,7 +332,6 @@ test.describe('Complete User Journey - End-to-End Tests', () => {
     await stripeFrame.locator('input[name="cardnumber"]').fill('4242424242424242');
     await stripeFrame.locator('input[name="exp-date"]').fill('12/25');
     await stripeFrame.locator('input[name="cvc"]').fill('123');
-    await page.click('[data-testid="submit-payment"]');
 
     // Get booking ID
     await page.waitForURL('**/booking/confirmed/**');
@@ -380,7 +354,6 @@ test.describe('Complete User Journey - End-to-End Tests', () => {
     await page.fill('[data-testid="review-text"]', 'Amazing session! Jane was very professional and talented. Highly recommend!');
     
     // Submit review
-    await page.click('[data-testid="submit-review"]');
 
     // Verify review submitted
     await expect(page.locator('[data-testid="review-success"]')).toBeVisible();

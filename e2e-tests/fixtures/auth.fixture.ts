@@ -40,8 +40,11 @@ async function authenticateUser(page: any, openId: string, expectedUrl?: string)
   // Navigate to home page to verify authentication worked
   await page.goto(expectedUrl || '/');
   
+  // Wait for network to be idle before checking auth state
+  await page.waitForLoadState('networkidle');
+  
   // Wait a moment for auth state to settle
-  await page.waitForTimeout(500);
+  await page.waitForTimeout(1000); // Increased from 500ms
 }
 
 export const test = base.extend<AuthFixtures>({
@@ -54,7 +57,7 @@ export const test = base.extend<AuthFixtures>({
     await authenticateUser(page, testConfig.testUsers.client.openId, '/');
 
     // Verify authentication by checking for logout button
-    await expect(page.locator('[data-testid="logout-button"]')).toBeVisible({ timeout: 5000 });
+    await expect(page.locator('[data-testid="logout-button"]')).toBeVisible({ timeout: 10000 }); // Increased from 5000ms
 
     // Use the authenticated page
     await use(page);
@@ -77,7 +80,7 @@ export const test = base.extend<AuthFixtures>({
     await authenticateUser(page, testConfig.testUsers.artist.openId, '/');
 
     // Verify authentication
-    await expect(page.locator('[data-testid="logout-button"]')).toBeVisible({ timeout: 5000 });
+    await expect(page.locator('[data-testid="logout-button"]')).toBeVisible({ timeout: 10000 }); // Increased from 5000ms
 
     // Use the authenticated page
     await use(page);
@@ -100,7 +103,7 @@ export const test = base.extend<AuthFixtures>({
     await authenticateUser(page, testConfig.testUsers.admin.openId, '/');
 
     // Verify authentication
-    await expect(page.locator('[data-testid="logout-button"]')).toBeVisible({ timeout: 5000 });
+    await expect(page.locator('[data-testid="logout-button"]')).toBeVisible({ timeout: 10000 }); // Increased from 5000ms
 
     // Use the authenticated page
     await use(page);

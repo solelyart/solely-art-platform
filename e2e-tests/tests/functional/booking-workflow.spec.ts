@@ -29,7 +29,7 @@ test.describe('Booking Workflow - Functional Tests', () => {
   });
 
   test('should allow client to filter artists by category', async ({ page }) => {
-    await page.goto('/search');
+    await page.goto('/browse');
 
     // Select category filter
     await page.click('[data-testid="category-filter"]');
@@ -49,7 +49,7 @@ test.describe('Booking Workflow - Functional Tests', () => {
   });
 
   test('should display artist profile with all required information', async ({ page }) => {
-    await page.goto('/search');
+    await page.goto('/browse');
     await page.click('[data-testid="artist-card"]:first-child');
 
     // Verify profile sections are visible
@@ -68,7 +68,7 @@ test.describe('Booking Workflow - Functional Tests', () => {
   });
 
   test('should allow client to view artist availability calendar', async ({ page }) => {
-    await page.goto('/search');
+    await page.goto('/browse');
     await page.click('[data-testid="artist-card"]:first-child');
 
     // Click on availability section
@@ -91,7 +91,7 @@ test.describe('Booking Workflow - Functional Tests', () => {
   });
 
   test('should allow client to select booking duration', async ({ page }) => {
-    await page.goto('/search');
+    await page.goto('/browse');
     await page.click('[data-testid="artist-card"]:first-child');
 
     // Select date and time
@@ -114,7 +114,7 @@ test.describe('Booking Workflow - Functional Tests', () => {
   });
 
   test('should display booking summary before confirmation', async ({ authenticatedClientPage: page }) => {
-    await page.goto('/search');
+    await page.goto('/browse');
     await page.click('[data-testid="artist-card"]:first-child');
 
     // Select booking details
@@ -140,7 +140,7 @@ test.describe('Booking Workflow - Functional Tests', () => {
   });
 
   test('should enforce minimum advance booking time', async ({ authenticatedClientPage: page }) => {
-    await page.goto('/search');
+    await page.goto('/browse');
     await page.click('[data-testid="artist-card"]:first-child');
 
     // Try to select today's date (should be disabled or show error)
@@ -162,7 +162,7 @@ test.describe('Booking Workflow - Functional Tests', () => {
 
   test('should prevent double-booking of time slots', async ({ authenticatedClientPage: page }) => {
     // Book a time slot
-    await page.goto('/search');
+    await page.goto('/browse');
     await page.click('[data-testid="artist-card"]:first-child');
 
     const tomorrow = new Date();
@@ -188,7 +188,7 @@ test.describe('Booking Workflow - Functional Tests', () => {
     await page.waitForURL('**/booking/confirmed/**');
 
     // Try to book the same slot again
-    await page.goto('/search');
+    await page.goto('/browse');
     await page.click('[data-testid="artist-card"]:first-child');
     await page.click('[data-testid="date-picker"]');
     await page.click(`[data-date="${tomorrow.toISOString().split('T')[0]}"]`);
@@ -199,7 +199,7 @@ test.describe('Booking Workflow - Functional Tests', () => {
   });
 
   test('should allow client to add special requests to booking', async ({ authenticatedClientPage: page }) => {
-    await page.goto('/search');
+    await page.goto('/browse');
     await page.click('[data-testid="artist-card"]:first-child');
 
     // Select booking details
@@ -226,7 +226,7 @@ test.describe('Booking Workflow - Functional Tests', () => {
   });
 
   test('should display booking confirmation with all details', async ({ authenticatedClientPage: page }) => {
-    await page.goto('/search');
+    await page.goto('/browse');
     await page.click('[data-testid="artist-card"]:first-child');
 
     // Complete booking flow

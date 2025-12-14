@@ -94,7 +94,7 @@ test.describe('Performance Tests', () => {
   });
 
   test('should load search results quickly', async ({ page }) => {
-    await page.goto('/search');
+    await page.goto('/browse');
 
     const startTime = Date.now();
 
@@ -112,7 +112,7 @@ test.describe('Performance Tests', () => {
   });
 
   test('should load artist profile within acceptable time', async ({ page }) => {
-    await page.goto('/search');
+    await page.goto('/browse');
     await page.click('[data-testid="artist-card"]:first-child');
 
     const startTime = Date.now();
@@ -130,7 +130,7 @@ test.describe('Performance Tests', () => {
   });
 
   test('should fetch availability data quickly', async ({ page }) => {
-    await page.goto('/search');
+    await page.goto('/browse');
     await page.click('[data-testid="artist-card"]:first-child');
 
     // Measure API response time
@@ -149,7 +149,7 @@ test.describe('Performance Tests', () => {
   });
 
   test('should handle image loading efficiently', async ({ page }) => {
-    await page.goto('/search');
+    await page.goto('/browse');
 
     // Wait for images to load
     await page.waitForLoadState('networkidle');
@@ -182,11 +182,6 @@ test.describe('Performance Tests', () => {
     await page.goto('/');
 
     // Login
-    await page.goto('/login');
-    await page.fill('input[name="email"]', process.env.TEST_CLIENT_EMAIL || '');
-    await page.fill('input[name="password"]', process.env.TEST_CLIENT_PASSWORD || '');
-    await page.click('button[type="submit"]');
-    await page.waitForURL('**/dashboard');
 
     // Measure concurrent requests
     const startTime = Date.now();
@@ -303,7 +298,7 @@ test.describe('Performance Tests', () => {
 
     // Step 1: Search
     let startTime = Date.now();
-    await page.goto('/search');
+    await page.goto('/browse');
     await page.waitForLoadState('networkidle');
     timings.search = Date.now() - startTime;
 

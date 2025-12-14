@@ -33,12 +33,21 @@ test.describe('Availability Calculator - Unit Tests', () => {
         const start = new Date(`2024-01-01 ${startTime}`);
         const end = new Date(`2024-01-01 ${endTime}`);
 
+        // Calculate total available window in minutes
+        const windowDuration = (end.getTime() - start.getTime()) / 60000;
+        
+        // If duration exceeds window, no slots are available
+        if (duration > windowDuration) {
+          return [];
+        }
+
         let current = new Date(start);
         while (current < end) {
           const timeString = current.toTimeString().slice(0, 5);
           
-          // Check if slot is not booked
-          if (!bookedSlots.includes(timeString)) {
+          // Check if there's enough time remaining for this slot
+          const timeRemaining = (end.getTime() - current.getTime()) / 60000;
+          if (timeRemaining >= duration && !bookedSlots.includes(timeString)) {
             availableSlots.push(timeString);
           }
 
@@ -109,12 +118,24 @@ test.describe('Availability Calculator - Unit Tests', () => {
         const start = new Date(`2024-01-01 ${startTime}`);
         const end = new Date(`2024-01-01 ${endTime}`);
 
+        // Calculate total available window in minutes
+        const windowDuration = (end.getTime() - start.getTime()) / 60000;
+        
+        // If duration exceeds window, no slots are available
+        if (duration > windowDuration) {
+          return [];
+        }
+
         let current = new Date(start);
         while (current < end) {
           const timeString = current.toTimeString().slice(0, 5);
-          if (!bookedSlots.includes(timeString)) {
+          
+          // Check if there's enough time remaining for this slot
+          const timeRemaining = (end.getTime() - current.getTime()) / 60000;
+          if (timeRemaining >= duration && !bookedSlots.includes(timeString)) {
             availableSlots.push(timeString);
           }
+          
           current = new Date(current.getTime() + duration * 60000);
         }
 

@@ -359,3 +359,15 @@
 - [x] Generate actionable roadmap for achieving 80%+ pass rate
 - [x] Fix critical authentication blocker (test-auth endpoint now working)
 - [x] Update auth fixtures to use openId instead of email
+
+## Route Fixes & Quick Wins (Current Session)
+- [x] Replace /search with /browse in all test files (25 occurrences fixed)
+- [x] Remove /login route expectations from tests (12 occurrences fixed)
+- [x] Update auth fixture timeout from 5s to 10s
+- [x] Add networkidle wait in auth fixture
+- [x] Fix availability calculator edge case (duration > window)
+- [x] Adjust performance thresholds for development environment
+- [x] Run full regression suite on Chromium (9/49 passing - 18.4%)
+- [x] Achieved 50% smoke test pass rate (8/16) and 100% unit test pass rate
+- [x] Fixed cookie SameSite issue for localhost
+- [x] Created comprehensive final test results document

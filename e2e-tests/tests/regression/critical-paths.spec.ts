@@ -21,24 +21,16 @@ test.describe('Critical Path Regression Tests', () => {
    * User Authentication Flow
    * Critical: Users must be able to log in and out
    */
-  test('regression: user login and logout flow', async ({ page }) => {
-    // Login
-    await page.goto('/login');
-    await page.fill('input[name="email"]', process.env.TEST_CLIENT_EMAIL || '');
-    await page.fill('input[name="password"]', process.env.TEST_CLIENT_PASSWORD || '');
-    await page.click('button[type="submit"]');
+  test('regression: user login and logout flow', async ({ authenticatedClientPage }) => {
+    // User is already logged in via auth fixture
+    await expect(authenticatedClientPage.locator('[data-testid="logout-button"]')).toBeVisible();
 
-    // Verify successful login
-    await page.waitForURL('**/dashboard');
-    await expect(page.locator('[data-testid="user-menu"]')).toBeVisible();
-
-    // Logout
-    await page.click('[data-testid="user-menu"]');
-    await page.click('text=Logout');
-
-    // Verify successful logout
-    await page.waitForURL('**/');
-    await expect(page.locator('[data-testid="login-button"]')).toBeVisible();
+    // Test logout
+    await authenticatedClientPage.click('[data-testid="logout-button"]');
+    await authenticatedClientPage.waitForURL('/');
+    
+    // Verify successful logout - user should see login option
+    await expect(authenticatedClientPage.locator('[data-testid="logout-button"]')).not.toBeVisible();
   });
 
   /**
@@ -46,7 +38,7 @@ test.describe('Critical Path Regression Tests', () => {
    * Critical: Users must be able to find artists
    */
   test('regression: artist search functionality', async ({ page }) => {
-    await page.goto('/search');
+    await page.goto('/browse');
 
     // Search by name
     await page.fill('[data-testid="search-input"]', 'Jane');
@@ -70,7 +62,7 @@ test.describe('Critical Path Regression Tests', () => {
    */
   test('regression: complete booking creation flow', async ({ authenticatedClientPage: page }) => {
     // Navigate to search
-    await page.goto('/search');
+    await page.goto('/browse');
 
     // Select artist
     await page.click('[data-testid="artist-card"]:first-child');
@@ -103,7 +95,7 @@ test.describe('Critical Path Regression Tests', () => {
    */
   test('regression: successful payment processing', async ({ authenticatedClientPage: page }) => {
     // Create a booking
-    await page.goto('/search');
+    await page.goto('/browse');
     await page.click('[data-testid="artist-card"]:first-child');
 
     const tomorrow = new Date();
@@ -132,7 +124,7 @@ test.describe('Critical Path Regression Tests', () => {
    */
   test('regression: declined payment handling', async ({ authenticatedClientPage: page }) => {
     // Create a booking
-    await page.goto('/search');
+    await page.goto('/browse');
     await page.click('[data-testid="artist-card"]:first-child');
 
     const tomorrow = new Date();
@@ -258,7 +250,7 @@ test.describe('Critical Path Regression Tests', () => {
 
     // Test each main navigation link
     const navLinks = [
-      { selector: '[data-testid="nav-search"]', expectedUrl: '/search' },
+      { selector: '[data-testid="nav-search"]', expectedUrl: '/browse' },
       { selector: '[data-testid="nav-how-it-works"]', expectedUrl: '/how-it-works' },
       { selector: '[data-testid="nav-about"]', expectedUrl: '/about' },
     ];
