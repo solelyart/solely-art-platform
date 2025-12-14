@@ -2,9 +2,15 @@
 
 ```yaml
 - generic [ref=e2]:
-  - img [ref=e3]
-  - generic [ref=e11]:
-    - heading "The temporary website is currently unavailable" [level=2] [ref=e12]
-    - paragraph [ref=e13]: This may be because Manus's computer is asleep or the link has expired. Please return to the task to try waking it up, or generate a new link.
-    - button "Wake up" [ref=e15] [cursor=pointer]
+  - region "Notifications alt+T"
+  - generic [ref=e5]:
+    - img [ref=e9]
+    - heading "404" [level=1] [ref=e11]
+    - heading "Page Not Found" [level=2] [ref=e12]
+    - paragraph [ref=e13]:
+      - text: Sorry, the page you are looking for doesn't exist.
+      - text: It may have been moved or deleted.
+    - button "Go Home" [ref=e15] [cursor=pointer]:
+      - img
+      - text: Go Home
 ```

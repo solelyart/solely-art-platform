@@ -2,9 +2,205 @@
 
 ```yaml
 - generic [ref=e2]:
-  - img [ref=e3]
-  - generic [ref=e11]:
-    - heading "The temporary website is currently unavailable" [level=2] [ref=e12]
-    - paragraph [ref=e13]: This may be because Manus's computer is asleep or the link has expired. Please return to the task to try waking it up, or generate a new link.
-    - button "Wake up" [ref=e15] [cursor=pointer]
+  - region "Notifications alt+T"
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - link "Solely Art" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - img [ref=e7]
+          - generic [ref=e13]: Solely Art
+        - navigation [ref=e14]:
+          - link "Browse Artists" [ref=e15] [cursor=pointer]:
+            - /url: /browse
+          - link "Sign In" [ref=e16] [cursor=pointer]:
+            - /url: https://manus.im/app-auth?appId=b8XDdB8n6irgSrJYrYA6i8&redirectUri=http%3A%2F%2Flocalhost%3A3000%2Fapi%2Foauth%2Fcallback&state=aHR0cDovL2xvY2FsaG9zdDozMDAwL2FwaS9vYXV0aC9jYWxsYmFjaw%3D%3D&type=signIn
+    - generic [ref=e19]:
+      - generic [ref=e20]:
+        - img [ref=e21]
+        - generic [ref=e24]: Curated Global Talent
+      - heading "Discover Exceptional Artists" [level=1] [ref=e25]:
+        - text: Discover
+        - text: Exceptional Artists
+      - paragraph [ref=e26]: A refined marketplace connecting discerning clients with world-class creative talent.
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - img [ref=e29]
+          - textbox "Search artists, services, or locations..." [ref=e32]
+        - link "Search" [ref=e33] [cursor=pointer]:
+          - /url: /browse?q=
+      - generic [ref=e34]:
+        - generic [ref=e35]:
+          - generic [ref=e36]: 1,000+
+          - generic [ref=e37]: Curated Artists
+        - generic [ref=e38]:
+          - generic [ref=e39]: 50+
+          - generic [ref=e40]: Countries
+        - generic [ref=e41]:
+          - generic [ref=e42]: 10,000+
+          - generic [ref=e43]: Projects
+    - generic [ref=e45]:
+      - generic [ref=e46]:
+        - generic [ref=e49]: Categories
+        - heading "Explore by Discipline" [level=2] [ref=e51]
+        - paragraph [ref=e52]: Each category features hand-selected artists renowned for their exceptional craft
+      - generic [ref=e53]:
+        - link "Crafts & Handmade Handcrafted items, pottery, jewelry, and custom creations" [ref=e54] [cursor=pointer]:
+          - /url: /browse?category=crafts-handmade
+          - generic [ref=e56]:
+            - img [ref=e58]
+            - heading "Crafts & Handmade" [level=3] [ref=e62]
+            - paragraph [ref=e63]: Handcrafted items, pottery, jewelry, and custom creations
+        - link "Digital Art & Design Graphic design, illustration, and digital artwork" [ref=e64] [cursor=pointer]:
+          - /url: /browse?category=digital-art-design
+          - generic [ref=e66]:
+            - img [ref=e68]
+            - heading "Digital Art & Design" [level=3] [ref=e74]
+            - paragraph [ref=e75]: Graphic design, illustration, and digital artwork
+        - link "Music & Performance Live music, DJ services, and performance art" [ref=e76] [cursor=pointer]:
+          - /url: /browse?category=music-performance
+          - generic [ref=e78]:
+            - img [ref=e80]
+            - heading "Music & Performance" [level=3] [ref=e84]
+            - paragraph [ref=e85]: Live music, DJ services, and performance art
+        - link "Painting & Drawing Custom paintings, portraits, murals, and drawings" [ref=e86] [cursor=pointer]:
+          - /url: /browse?category=painting-drawing
+          - generic [ref=e88]:
+            - img [ref=e90]
+            - heading "Painting & Drawing" [level=3] [ref=e96]
+            - paragraph [ref=e97]: Custom paintings, portraits, murals, and drawings
+        - link "Photography Professional photography services for events, portraits, and more" [ref=e98] [cursor=pointer]:
+          - /url: /browse?category=photography
+          - generic [ref=e100]:
+            - img [ref=e102]
+            - heading "Photography" [level=3] [ref=e105]
+            - paragraph [ref=e106]: Professional photography services for events, portraits, and more
+        - link "Sculpture & 3D Art Sculptures, installations, and three-dimensional artwork" [ref=e107] [cursor=pointer]:
+          - /url: /browse?category=sculpture-3d
+          - generic [ref=e109]:
+            - img [ref=e111]
+            - heading "Sculpture & 3D Art" [level=3] [ref=e117]
+            - paragraph [ref=e118]: Sculptures, installations, and three-dimensional artwork
+        - link "Videography & Film Video production, editing, and cinematography" [ref=e119] [cursor=pointer]:
+          - /url: /browse?category=videography-film
+          - generic [ref=e121]:
+            - img [ref=e123]
+            - heading "Videography & Film" [level=3] [ref=e129]
+            - paragraph [ref=e130]: Video production, editing, and cinematography
+        - link "Writing & Poetry Creative writing, poetry, and literary services" [ref=e131] [cursor=pointer]:
+          - /url: /browse?category=writing-poetry
+          - generic [ref=e133]:
+            - img [ref=e135]
+            - heading "Writing & Poetry" [level=3] [ref=e141]
+            - paragraph [ref=e142]: Creative writing, poetry, and literary services
+    - generic [ref=e144]:
+      - generic [ref=e145]:
+        - generic [ref=e146]:
+          - img [ref=e147]
+          - generic [ref=e150]: Featured
+        - heading "Distinguished Creators" [level=2] [ref=e151]
+        - paragraph [ref=e152]: Meet the exceptional artists shaping creative excellence worldwide
+      - generic [ref=e153]:
+        - link "Test Artist Test Artist Raleigh, NC Professional test artist for automated Playwright testing. This profile is used exclusively for E2E test scenarios and should not be used for production bookings. Starting from $100/hr" [ref=e154] [cursor=pointer]:
+          - /url: /artist/120001
+          - generic [ref=e155]:
+            - img "Test Artist" [ref=e157]
+            - generic [ref=e159]:
+              - heading "Test Artist" [level=3] [ref=e160]
+              - paragraph [ref=e161]:
+                - img [ref=e162]
+                - text: Raleigh, NC
+              - paragraph [ref=e165]: Professional test artist for automated Playwright testing. This profile is used exclusively for E2E test scenarios and should not be used for production bookings.
+              - generic [ref=e166]:
+                - generic [ref=e167]: Starting from
+                - generic [ref=e168]: $100/hr
+        - link "Test Artist 430268-252085 Test artist bio for automated testing Starting from $100/hr" [ref=e169] [cursor=pointer]:
+          - /url: /artist/90028
+          - generic [ref=e170]:
+            - img [ref=e172]
+            - generic [ref=e178]:
+              - heading "Test Artist 430268-252085" [level=3] [ref=e179]
+              - paragraph [ref=e180]: Test artist bio for automated testing
+              - generic [ref=e181]:
+                - generic [ref=e182]: Starting from
+                - generic [ref=e183]: $100/hr
+        - link "Test Artist 275907-568654 Test artist bio for automated testing Starting from $100/hr" [ref=e184] [cursor=pointer]:
+          - /url: /artist/90027
+          - generic [ref=e185]:
+            - img [ref=e187]
+            - generic [ref=e193]:
+              - heading "Test Artist 275907-568654" [level=3] [ref=e194]
+              - paragraph [ref=e195]: Test artist bio for automated testing
+              - generic [ref=e196]:
+                - generic [ref=e197]: Starting from
+                - generic [ref=e198]: $100/hr
+        - link "Test Artist 431977-370947 Test artist bio for automated testing Starting from $100/hr" [ref=e199] [cursor=pointer]:
+          - /url: /artist/90026
+          - generic [ref=e200]:
+            - img [ref=e202]
+            - generic [ref=e208]:
+              - heading "Test Artist 431977-370947" [level=3] [ref=e209]
+              - paragraph [ref=e210]: Test artist bio for automated testing
+              - generic [ref=e211]:
+                - generic [ref=e212]: Starting from
+                - generic [ref=e213]: $100/hr
+        - link "Test Artist 236076-939714 Test artist bio for automated testing Starting from $100/hr" [ref=e214] [cursor=pointer]:
+          - /url: /artist/90025
+          - generic [ref=e215]:
+            - img [ref=e217]
+            - generic [ref=e223]:
+              - heading "Test Artist 236076-939714" [level=3] [ref=e224]
+              - paragraph [ref=e225]: Test artist bio for automated testing
+              - generic [ref=e226]:
+                - generic [ref=e227]: Starting from
+                - generic [ref=e228]: $100/hr
+        - link "Test Client 10 Test artist bio for automated testing Starting from $100/hr" [ref=e229] [cursor=pointer]:
+          - /url: /artist/90024
+          - generic [ref=e230]:
+            - img [ref=e232]
+            - generic [ref=e238]:
+              - heading "Test Client 10" [level=3] [ref=e239]
+              - paragraph [ref=e240]: Test artist bio for automated testing
+              - generic [ref=e241]:
+                - generic [ref=e242]: Starting from
+                - generic [ref=e243]: $100/hr
+    - generic [ref=e248]:
+      - img [ref=e249]
+      - heading "Elevate Your Creative Vision" [level=2] [ref=e252]
+      - paragraph [ref=e253]: Join a distinguished community where exceptional artistry meets discerning clientele. Whether showcasing your portfolio or commissioning bespoke work, Solely Art is your gateway to excellence.
+      - generic [ref=e254]:
+        - link "Apply as Artist" [ref=e255] [cursor=pointer]:
+          - /url: /become-artist
+        - link "Explore Portfolio" [ref=e256] [cursor=pointer]:
+          - /url: /browse
+    - contentinfo [ref=e257]:
+      - generic [ref=e258]:
+        - generic [ref=e259]:
+          - generic [ref=e260]:
+            - generic [ref=e261]:
+              - img [ref=e262]
+              - generic [ref=e268]: Solely Art
+            - paragraph [ref=e269]: Curating exceptional creative talent for discerning clients worldwide.
+          - generic [ref=e270]:
+            - heading "For Artists" [level=3] [ref=e271]
+            - list [ref=e272]:
+              - listitem [ref=e273]:
+                - link "Join as Artist" [ref=e274] [cursor=pointer]:
+                  - /url: /become-artist
+              - listitem [ref=e275]:
+                - link "Dashboard" [ref=e276] [cursor=pointer]:
+                  - /url: /dashboard
+          - generic [ref=e277]:
+            - heading "For Clients" [level=3] [ref=e278]
+            - list [ref=e279]:
+              - listitem [ref=e280]:
+                - link "Browse Artists" [ref=e281] [cursor=pointer]:
+                  - /url: /browse
+              - listitem [ref=e282]:
+                - link "My Commissions" [ref=e283] [cursor=pointer]:
+                  - /url: /dashboard
+          - generic [ref=e284]:
+            - heading "Connect" [level=3] [ref=e285]
+            - paragraph [ref=e286]: Join our global network of distinguished creative professionals.
+        - paragraph [ref=e288]: © 2024 Solely Art. Celebrating exceptional artistry worldwide.
 ```

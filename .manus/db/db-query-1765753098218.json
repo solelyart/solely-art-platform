@@ -1,0 +1,31 @@
+{
+  "query": "SELECT id, email, openId, name, role FROM users WHERE email LIKE '%playwright%'",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user dQ3VUcXRRX4nqcF.755c6100da67 --database b8XDdB8n6irgSrJYrYA6i8 --execute SELECT id, email, openId, name, role FROM users WHERE email LIKE '%playwright%'",
+  "rows": [
+    {
+      "id": "990004",
+      "email": "playwright-client@test.com",
+      "openId": "test-client-openid-12345",
+      "name": "Test Client",
+      "role": "user"
+    },
+    {
+      "id": "990005",
+      "email": "playwright-artist@test.com",
+      "openId": "test-artist-openid-67890",
+      "name": "Test Artist",
+      "role": "user"
+    },
+    {
+      "id": "990006",
+      "email": "playwright-admin@test.com",
+      "openId": "test-admin-openid-11111",
+      "name": "Test Admin",
+      "role": "admin"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\temail\topenId\tname\trole\n990004\tplaywright-client@test.com\ttest-client-openid-12345\tTest Client\tuser\n990005\tplaywright-artist@test.com\ttest-artist-openid-67890\tTest Artist\tuser\n990006\tplaywright-admin@test.com\ttest-admin-openid-11111\tTest Admin\tadmin\n",
+  "stderr": "",
+  "execution_time_ms": 181
+}

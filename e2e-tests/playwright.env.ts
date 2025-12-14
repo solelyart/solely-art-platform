@@ -7,8 +7,8 @@
 
 export const testConfig = {
   // Application URLs
-  baseUrl: process.env.BASE_URL || 'https://3001-i2n72hz3d5qj5wiu5d2aq-60e4fd42.manusvm.computer',
-  apiUrl: process.env.API_URL || 'https://3001-i2n72hz3d5qj5wiu5d2aq-60e4fd42.manusvm.computer/api',
+  baseUrl: process.env.BASE_URL || 'http://localhost:3000',
+  apiUrl: process.env.API_URL || 'http://localhost:3000/api',
   
   // Test User Credentials
   // TODO: Create these test users in the platform before running tests
@@ -16,11 +16,13 @@ export const testConfig = {
     client: {
       email: process.env.TEST_CLIENT_EMAIL || 'playwright-client@test.com',
       password: process.env.TEST_CLIENT_PASSWORD || 'TestClient123!',
+      openId: process.env.TEST_CLIENT_OPENID || 'test-client-openid-12345',
       name: 'Test Client',
     },
     artist: {
       email: process.env.TEST_ARTIST_EMAIL || 'playwright-artist@test.com',
       password: process.env.TEST_ARTIST_PASSWORD || 'TestArtist123!',
+      openId: process.env.TEST_ARTIST_OPENID || 'test-artist-openid-67890',
       name: 'Test Artist',
       displayName: 'Test Artist',
       bio: 'Professional test artist for automated testing',
@@ -30,6 +32,7 @@ export const testConfig = {
     admin: {
       email: process.env.TEST_ADMIN_EMAIL || 'playwright-admin@test.com',
       password: process.env.TEST_ADMIN_PASSWORD || 'TestAdmin123!',
+      openId: process.env.TEST_ADMIN_OPENID || 'test-admin-openid-11111',
       name: 'Test Admin',
     },
   },

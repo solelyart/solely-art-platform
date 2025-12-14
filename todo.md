@@ -350,3 +350,12 @@
 - [x] Update performance tests to use new auth fixtures
 - [x] Run full Playwright test suite (7/49 tests passing - 14.3%)
 - [x] Document test coverage improvements (see TEST_RESULTS_SUMMARY.md)
+
+## Regression Suite Analysis (Current Session)
+- [x] Run full Playwright test suite with all scenarios (7/16 passing - 43.8%)
+- [x] Analyze test results and categorize failures by root cause
+- [x] Create detailed failure analysis document with fix recommendations (REGRESSION_TEST_ANALYSIS.md)
+- [x] Document passing tests and working features
+- [x] Generate actionable roadmap for achieving 80%+ pass rate
+- [x] Fix critical authentication blocker (test-auth endpoint now working)
+- [x] Update auth fixtures to use openId instead of email

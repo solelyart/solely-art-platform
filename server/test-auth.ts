@@ -11,10 +11,12 @@ import { Router } from 'express';
 import { getDb } from './db';
 import { users } from '../drizzle/schema';
 import { eq } from 'drizzle-orm';
-import jwt from 'jsonwebtoken';
-import { ENV } from './_core/env';
+import { sdk } from './_core/sdk';
+import { getSessionCookieOptions } from './_core/cookies';
 
 const router = Router();
+const COOKIE_NAME = "session";
+const ONE_YEAR_MS = 365 * 24 * 60 * 60 * 1000;
 
 // Only enable in test/development
 const isTestEnvironment = process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'development';
@@ -53,24 +55,15 @@ if (isTestEnvironment) {
         return res.status(404).json({ error: 'User not found' });
       }
 
-      // Create JWT token (same as OAuth flow)
-      const token = jwt.sign(
-        {
-          openId: user.openId,
-          name: user.name,
-          email: user.email,
-        },
-        ENV.cookieSecret, // JWT_SECRET is stored as cookieSecret in ENV
-        { expiresIn: '7d' }
-      );
+      // Create session token using Manus SDK (same as OAuth flow)
+      const sessionToken = await sdk.createSessionToken(user.openId, {
+        name: user.name || "",
+        expiresInMs: ONE_YEAR_MS,
+      });
 
       // Set session cookie (same as OAuth callback)
-      res.cookie('session', token, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'lax',
-        maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
-      });
+      const cookieOptions = getSessionCookieOptions(req);
+      res.cookie(COOKIE_NAME, sessionToken, { ...cookieOptions, maxAge: ONE_YEAR_MS });
 
       return res.json({
         success: true,
@@ -94,7 +87,7 @@ if (isTestEnvironment) {
    * Clears the session cookie
    */
   router.post('/logout', (req, res) => {
-    res.clearCookie('session');
+    res.clearCookie(COOKIE_NAME);
     return res.json({ success: true });
   });
 

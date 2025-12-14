@@ -124,9 +124,6 @@ importers:
       '@trpc/server':
         specifier: ^11.6.0
         version: 11.6.0(typescript@5.9.3)
-      '@types/jsonwebtoken':
-        specifier: ^9.0.10
-        version: 9.0.10
       axios:
         specifier: ^1.12.0
         version: 1.12.2
@@ -242,6 +239,9 @@ importers:
       '@types/google.maps':
         specifier: ^3.58.1
         version: 3.58.1
+      '@types/jsonwebtoken':
+        specifier: ^9.0.10
+        version: 9.0.10
       '@types/node':
         specifier: ^24.7.0
         version: 24.7.0
