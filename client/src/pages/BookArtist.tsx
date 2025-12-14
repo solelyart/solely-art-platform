@@ -251,6 +251,7 @@ export default function BookArtist() {
               </p>
             </div>
             <BookingCalendar
+              data-testid="availability-calendar"
               artistId={artistId}
               serviceDuration={selectedService.durationMinutes}
               onSlotSelect={handleSlotSelect}
@@ -277,6 +278,7 @@ export default function BookArtist() {
                   <div>
                     <Label htmlFor="budget">Budget (Optional)</Label>
                     <Input
+                      data-testid="budget-input"
                       id="budget"
                       type="number"
                       placeholder="Enter your budget in dollars"
@@ -292,6 +294,7 @@ export default function BookArtist() {
                   <div>
                     <Label htmlFor="notes">Special Requests or Notes</Label>
                     <Textarea
+                      data-testid="special-requests"
                       id="notes"
                       placeholder="Any specific requirements, questions, or details the artist should know..."
                       value={notes}
@@ -302,16 +305,16 @@ export default function BookArtist() {
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card data-testid="booking-summary">
                 <CardHeader>
                   <CardTitle>Booking Summary</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <div>
+                  <div data-testid="summary-service">
                     <p className="text-sm text-muted-foreground">Service</p>
                     <p className="font-semibold">{selectedService?.name}</p>
                   </div>
-                  <div>
+                  <div data-testid="summary-date">
                     <p className="text-sm text-muted-foreground">Date</p>
                     <p className="font-semibold">
                       {new Date(selectedDate + 'T00:00:00').toLocaleDateString('en-US', {
@@ -322,23 +325,24 @@ export default function BookArtist() {
                       })}
                     </p>
                   </div>
-                  <div>
+                  <div data-testid="summary-time">
                     <p className="text-sm text-muted-foreground">Time</p>
                     <p className="font-semibold">
                       {formatTime(selectedStartTime)} - {formatTime(selectedEndTime)}
                     </p>
                   </div>
-                  <div>
+                  <div data-testid="summary-duration">
                     <p className="text-sm text-muted-foreground">Duration</p>
                     <p className="font-semibold">{selectedService?.durationMinutes} minutes</p>
                   </div>
-                  <div className="pt-4 border-t">
+                  <div className="pt-4 border-t" data-testid="summary-total">
                     <p className="text-sm text-muted-foreground">Price</p>
                     <p className="text-2xl font-bold text-primary">
                       ${(selectedService?.price / 100).toFixed(0)}
                     </p>
                   </div>
                   <Button
+                    data-testid="confirm-booking"
                     onClick={handleSubmitBooking}
                     disabled={createBooking.isPending}
                     className="w-full btn-cta"
@@ -360,7 +364,7 @@ export default function BookArtist() {
         )}
 
         {step === 'confirm' && (
-          <Card className="max-w-2xl mx-auto">
+          <Card className="max-w-2xl mx-auto" data-testid="confirmation-message">
             <CardContent className="p-12 text-center">
               <CheckCircle2 className="h-16 w-16 text-green-500 mx-auto mb-6" />
               <h2 className="text-3xl font-bold mb-4">Booking Request Sent!</h2>

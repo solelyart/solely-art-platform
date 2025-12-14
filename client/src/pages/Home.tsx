@@ -35,12 +35,12 @@ export default function Home() {
           </Link>
           
           <nav className="flex items-center gap-6">
-            <Link href="/browse" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+            <Link href="/browse" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors" data-testid="nav-browse">
               Browse Artists
             </Link>
             {isAuthenticated ? (
               <>
-                <Link href="/dashboard" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+                <Link href="/dashboard" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors" data-testid="nav-dashboard">
                   Dashboard
                 </Link>
                        <Link href="/availability" className="text-foreground/80 hover:text-foreground transition-colors">
@@ -52,11 +52,12 @@ export default function Home() {
               <Link href="/messages" className="text-foreground/80 hover:text-foreground transition-colors">
                 Messages
               </Link>
-                <Button variant="outline" size="sm" asChild className="border-primary/20 hover:bg-primary/5">
+                <Button variant="outline" size="sm" asChild className="border-primary/20 hover:bg-primary/5" data-testid="nav-become-artist">
                   <Link href="/become-artist">Become an Artist</Link>
                 </Button>
                 <LogoutButton />
                 <button
+                  data-testid="user-menu"
                   onClick={() => window.location.href = '/dashboard'}
                   className="cursor-pointer transition-transform hover:scale-105"
                   aria-label="Go to dashboard"
@@ -65,7 +66,7 @@ export default function Home() {
                 </button>
               </>
             ) : (
-              <Button size="sm" asChild className="gradient-hero text-white hover:opacity-90 transition-opacity">
+              <Button size="sm" asChild className="gradient-hero text-white hover:opacity-90 transition-opacity" data-testid="login-button">
                 <a href={getLoginUrl()}>Sign In</a>
               </Button>
             )}
@@ -88,7 +89,7 @@ export default function Home() {
               <span>Curated Global Talent</span>
             </div>
             
-            <h1 className="mb-8 text-6xl font-semibold leading-[1.1] md:text-7xl lg:text-8xl">
+            <h1 data-testid="hero-title" className="mb-8 text-6xl font-semibold leading-[1.1] md:text-7xl lg:text-8xl">
               Discover
               <br />
               <span className="text-gradient">Exceptional Artists</span>
@@ -103,13 +104,14 @@ export default function Home() {
               <div className="relative flex-1">
                 <Search className="absolute left-5 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
                 <Input
+                  data-testid="search-input"
                   placeholder="Search artists, services, or locations..."
                   className="h-16 pl-14 text-base border-2 border-border/50 focus:border-primary/50 shadow-elegant bg-card/80 backdrop-blur-sm"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
               </div>
-              <Button size="lg" asChild className="h-16 px-10 gradient-hero text-white hover:opacity-90 transition-opacity shadow-elegant">
+              <Button size="lg" asChild className="h-16 px-10 gradient-hero text-white hover:opacity-90 transition-opacity shadow-elegant" data-testid="search-button">
                 <Link href={`/browse?q=${encodeURIComponent(searchTerm)}`}>
                   Search
                 </Link>
@@ -157,7 +159,7 @@ export default function Home() {
               const Icon = categoryIcons[category.slug] || Palette;
               return (
                 <Link key={category.id} href={`/browse?category=${category.slug}`}>
-                  <Card className="group hover-lift border-border/50 bg-card/80 backdrop-blur-sm shadow-elegant">
+                  <Card data-testid="category-card" className="group hover-lift border-border/50 bg-card/80 backdrop-blur-sm shadow-elegant">
                     <CardContent className="p-10 text-center">
                       <div className="mb-6 inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-primary/5 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
                         <Icon className="h-10 w-10" />
@@ -201,7 +203,7 @@ export default function Home() {
               
               return (
               <Link key={artist.id} href={`/artist/${artist.id}`}>
-                <Card className="group overflow-hidden hover-lift border-border/50 bg-card/80 backdrop-blur-sm shadow-elegant">
+                <Card data-testid="featured-artist-card" className="group overflow-hidden hover-lift border-border/50 bg-card/80 backdrop-blur-sm shadow-elegant">
                   {portfolioImages && portfolioImages.length > 0 ? (
                     <div className="aspect-[4/3] overflow-hidden bg-muted relative">
                       <img

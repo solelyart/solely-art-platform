@@ -141,7 +141,7 @@ export default function Dashboard() {
               </Card>
             ) : bookings && bookings.length > 0 ? (
               bookings.map((booking) => (
-                <Card key={booking.id}>
+                <Card key={booking.id} data-testid="dashboard-booking-card">
                   <CardContent className="p-6">
                     <div className="flex items-start justify-between">
                       <div className="flex-1">

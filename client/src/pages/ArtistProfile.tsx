@@ -148,7 +148,7 @@ export default function ArtistProfile() {
               </Avatar>
               
               <div className="flex-1">
-                <h1 className="text-4xl font-bold mb-3">{artist.displayName}</h1>
+                <h1 data-testid="artist-name" className="text-4xl font-bold mb-3">{artist.displayName}</h1>
                 
                 <div className="flex flex-wrap items-center gap-4 mb-4 text-muted-foreground">
                   {artist.location && (
@@ -165,7 +165,7 @@ export default function ArtistProfile() {
                     </div>
                   )}
                   {artist.hourlyRate && (
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2" data-testid="hourly-rate">
                       <DollarSign className="h-4 w-4" />
                       <span className="font-semibold">${(artist.hourlyRate / 100).toFixed(0)}/hour</span>
                     </div>
@@ -183,12 +183,12 @@ export default function ArtistProfile() {
                 )}
 
                 {artist.bio && (
-                  <p className="text-muted-foreground leading-relaxed">{artist.bio}</p>
+                  <p data-testid="artist-bio" className="text-muted-foreground leading-relaxed">{artist.bio}</p>
                 )}
               </div>
 
               <div className="flex flex-col gap-3">
-                <Button size="lg" className="btn-cta" asChild>
+                <Button size="lg" className="btn-cta" asChild data-testid="book-now-button">
                   <Link href={`/book/${artist.id}`}>
                     <Calendar className="h-4 w-4 mr-2" />
                     Book Now
@@ -203,10 +203,12 @@ export default function ArtistProfile() {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
             {/* Portfolio Gallery */}
-            <PortfolioDisplay artistId={artistId} />
+            <div data-testid="artist-portfolio">
+              <PortfolioDisplay artistId={artistId} />
+            </div>
 
             {/* Services */}
-            <Card className="shadow-elegant">
+            <Card className="shadow-elegant" data-testid="artist-services">
               <CardHeader>
                 <CardTitle className="text-2xl">Services</CardTitle>
               </CardHeader>

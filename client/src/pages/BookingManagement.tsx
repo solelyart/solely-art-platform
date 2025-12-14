@@ -244,7 +244,7 @@ export function BookingManagement() {
               const bookingDate = new Date(booking.requestedDate);
               
               return (
-                <Card key={booking.id} className="p-6">
+                <Card key={booking.id} className="p-6" data-testid="booking-card">
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                     <div className="flex-1">
                       <div className="flex items-start gap-3 mb-3">
@@ -300,6 +300,7 @@ export function BookingManagement() {
                       {isArtist && booking.status === "pending" && (
                         <>
                           <Button
+                            data-testid="accept-booking"
                             size="sm"
                             onClick={() => handleAccept(booking.id)}
                             disabled={updateStatus.isPending}
@@ -308,6 +309,7 @@ export function BookingManagement() {
                             Accept
                           </Button>
                           <Button
+                            data-testid="decline-booking"
                             variant="outline"
                             size="sm"
                             onClick={() => handleDecline(booking.id)}
@@ -321,6 +323,7 @@ export function BookingManagement() {
                       
                       {!isArtist && (booking.status === "pending" || booking.status === "accepted") && (
                         <Button
+                          data-testid="cancel-booking"
                           variant="outline"
                           size="sm"
                           onClick={() => handleCancel(booking.id)}

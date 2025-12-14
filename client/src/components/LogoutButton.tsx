@@ -12,6 +12,7 @@ export function LogoutButton() {
 
   return (
     <Button
+      data-testid="logout-button"
       variant="ghost"
       size="sm"
       onClick={() => logoutMutation.mutate()}

@@ -1,0 +1,41 @@
+{
+  "name": "solelyart-playwright-tests",
+  "version": "1.0.0",
+  "description": "Comprehensive Playwright testing suite for Solely Art Platform",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:unit": "playwright test tests/unit",
+    "test:integration": "playwright test tests/integration",
+    "test:functional": "playwright test tests/functional",
+    "test:regression": "playwright test tests/regression",
+    "test:performance": "playwright test tests/performance",
+    "test:e2e": "playwright test tests/e2e",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:chromium": "playwright test --project=chromium",
+    "test:firefox": "playwright test --project=firefox",
+    "test:webkit": "playwright test --project=webkit",
+    "test:mobile": "playwright test --project=mobile-chrome --project=mobile-safari",
+    "test:ci": "playwright test --reporter=html,json,junit",
+    "report": "playwright show-report reports/html",
+    "codegen": "playwright codegen",
+    "install:browsers": "playwright install"
+  },
+  "keywords": [
+    "playwright",
+    "testing",
+    "e2e",
+    "automation",
+    "qa"
+  ],
+  "author": "Solely Art Platform Team",
+  "license": "ISC",
+  "packageManager": "pnpm@10.25.0",
+  "devDependencies": {
+    "@axe-core/playwright": "^4.11.0",
+    "@playwright/test": "^1.57.0",
+    "dotenv": "^17.2.3",
+    "playwright": "^1.57.0"
+  }
+}

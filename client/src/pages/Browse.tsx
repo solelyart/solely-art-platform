@@ -227,7 +227,7 @@ export default function Browse() {
               </div>
 
               {/* Apply Filters Button */}
-              <Button onClick={handleSearch} className="w-full btn-cta">
+              <Button onClick={handleSearch} className="w-full btn-cta" data-testid="apply-filters">
                 Apply Filters
               </Button>
             </div>
@@ -297,7 +297,7 @@ export default function Browse() {
                   
                   return (
                     <Link key={artist.id} href={`/artist/${artist.id}`}>
-                      <Card className="overflow-hidden hover-lift shadow-elegant">
+                      <Card data-testid="artist-card" className="overflow-hidden hover-lift shadow-elegant">
                         <div className="aspect-[4/3] overflow-hidden bg-muted">
                           {firstImage ? (
                             <img
