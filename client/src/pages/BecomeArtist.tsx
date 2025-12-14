@@ -124,11 +124,12 @@ export default function BecomeArtist() {
             <CardTitle>Artist Profile Information</CardTitle>
           </CardHeader>
           <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6" data-testid="artist-profile-form">
               <div className="space-y-2">
                 <Label htmlFor="displayName">Display Name *</Label>
                 <Input
                   id="displayName"
+                  data-testid="artist-display-name-input"
                   value={form.displayName}
                   onChange={(e) => setForm({ ...form, displayName: e.target.value })}
                   placeholder="Your artist name"
@@ -140,6 +141,7 @@ export default function BecomeArtist() {
                 <Label htmlFor="bio">Bio</Label>
                 <Textarea
                   id="bio"
+                  data-testid="artist-bio-input"
                   value={form.bio}
                   onChange={(e) => setForm({ ...form, bio: e.target.value })}
                   placeholder="Tell clients about yourself and your work..."
@@ -151,6 +153,7 @@ export default function BecomeArtist() {
                 <Label htmlFor="location">Location</Label>
                 <Input
                   id="location"
+                  data-testid="artist-location-input"
                   value={form.location}
                   onChange={(e) => setForm({ ...form, location: e.target.value })}
                   placeholder="City, State"
@@ -161,6 +164,7 @@ export default function BecomeArtist() {
                 <Label htmlFor="hourlyRate">Hourly Rate (USD)</Label>
                 <Input
                   id="hourlyRate"
+                  data-testid="artist-hourly-rate-input"
                   type="number"
                   value={form.hourlyRate}
                   onChange={(e) => setForm({ ...form, hourlyRate: e.target.value })}
@@ -179,6 +183,7 @@ export default function BecomeArtist() {
                     <div key={category.id} className="flex items-center space-x-2">
                       <Checkbox
                         id={`cat-${category.id}`}
+                        data-testid="category-checkbox"
                         checked={form.categories.includes(category.id)}
                         onCheckedChange={() => toggleCategory(category.id)}
                       />
@@ -195,6 +200,7 @@ export default function BecomeArtist() {
 
               <Button
                 type="submit"
+                data-testid="create-profile-button"
                 className="w-full"
                 disabled={createProfileMutation.isPending}
               >

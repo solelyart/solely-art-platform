@@ -230,7 +230,7 @@ export default function PortfolioBuilder() {
             <h2 className="text-xl font-semibold">Collections</h2>
             <Dialog open={isCreateDialogOpen} onOpenChange={setIsCreateDialogOpen}>
               <DialogTrigger asChild>
-                <Button size="sm">
+                <Button size="sm" data-testid="new-collection-button">
                   <Plus className="w-4 h-4 mr-1" />
                   New
                 </Button>
@@ -244,6 +244,7 @@ export default function PortfolioBuilder() {
                     <Label htmlFor="title">Title</Label>
                     <Input
                       id="title"
+                      data-testid="collection-title-input"
                       value={newCollectionTitle}
                       onChange={(e) => setNewCollectionTitle(e.target.value)}
                       placeholder="e.g., Portrait Photography"
@@ -253,12 +254,14 @@ export default function PortfolioBuilder() {
                     <Label htmlFor="description">Description</Label>
                     <Textarea
                       id="description"
+                      data-testid="collection-description-input"
                       value={newCollectionDesc}
                       onChange={(e) => setNewCollectionDesc(e.target.value)}
                       placeholder="Describe this collection..."
                     />
                   </div>
                   <Button
+                    data-testid="create-collection-button"
                     onClick={() => {
                       if (newCollectionTitle.trim()) {
                         createCollectionMutation.mutate({
@@ -316,7 +319,7 @@ export default function PortfolioBuilder() {
                     <p className="text-sm text-muted-foreground">{selectedCollectionData.description}</p>
                   )}
                 </div>
-                <Button size="sm">
+                <Button size="sm" data-testid="add-image-button">
                   <Upload className="w-4 h-4 mr-1" />
                   Add Image
                 </Button>

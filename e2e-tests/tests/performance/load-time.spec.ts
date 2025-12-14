@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from '../../fixtures/auth.fixture';
 import { measurePageLoadTime, measureAPIResponseTime } from '../../utils/helpers';
 
 /**
@@ -295,13 +295,8 @@ test.describe('Performance Tests', () => {
     expect(cachedResources.cacheRate).toBeGreaterThan(50);
   });
 
-  test('should handle booking flow without performance degradation', async ({ page }) => {
-    // Login
-    await page.goto('/login');
-    await page.fill('input[name="email"]', process.env.TEST_CLIENT_EMAIL || '');
-    await page.fill('input[name="password"]', process.env.TEST_CLIENT_PASSWORD || '');
-    await page.click('button[type="submit"]');
-    await page.waitForURL('**/dashboard');
+  test('should handle booking flow without performance degradation', async ({ authenticatedClientPage: page }) => {
+    // Already authenticated via fixture
 
     // Measure each step of booking flow
     const timings: Record<string, number> = {};

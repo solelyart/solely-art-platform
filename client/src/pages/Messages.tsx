@@ -71,6 +71,7 @@ export default function Messages() {
                   {conversations.map((conv) => (
                     <button
                       key={conv.id}
+                      data-testid="conversation-item"
                       onClick={() => handleSelectConversation(conv.id)}
                       className={`w-full text-left p-3 rounded-lg transition-colors ${
                         selectedConversationId === conv.id
@@ -141,6 +142,7 @@ export default function Messages() {
                         return (
                           <div
                             key={msg.id}
+                            data-testid="message-item"
                             className={`flex ${isSentByMe ? "justify-end" : "justify-start"}`}
                           >
                             <div
@@ -168,12 +170,14 @@ export default function Messages() {
                 {/* Input */}
                 <form onSubmit={handleSendMessage} className="flex gap-2">
                   <Input
+                    data-testid="message-input"
                     value={messageInput}
                     onChange={(e) => setMessageInput(e.target.value)}
                     placeholder="Type a message..."
                     className="flex-1"
                   />
                   <Button 
+                    data-testid="send-message-button"
                     type="submit" 
                     disabled={!messageInput.trim() || sendMessageMutation.isPending}
                   >

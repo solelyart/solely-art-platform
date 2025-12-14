@@ -342,3 +342,11 @@
 - [x] Update auth fixtures to use test auth endpoint
 - [ ] Add remaining test IDs to Messages, BecomeArtist, PortfolioBuilder
 - [ ] Re-run tests and achieve 80%+ P0 test pass rate
+
+## Complete Test Instrumentation
+- [x] Add test IDs to Messages.tsx component (4 test IDs)
+- [x] Add test IDs to BecomeArtist.tsx component (7 test IDs)
+- [x] Add test IDs to PortfolioBuilder.tsx component (5 test IDs)
+- [x] Update performance tests to use new auth fixtures
+- [x] Run full Playwright test suite (7/49 tests passing - 14.3%)
+- [x] Document test coverage improvements (see TEST_RESULTS_SUMMARY.md)
