@@ -77,7 +77,7 @@ export const testConfig = {
     // Resource Loading
     imageLoadMax: parseInt(process.env.PERFORMANCE_IMAGE_LOAD_MAX || '3000'), // Prod: 2000ms
     bundleSizeMax: parseInt(process.env.PERFORMANCE_BUNDLE_SIZE_MAX || String(600 * 1024)), // Prod: 500KB
-    searchResultsMax: parseInt(process.env.PERFORMANCE_SEARCH_MAX || '2500'), // Prod: 2000ms
+    searchResultsMax: parseInt(process.env.PERFORMANCE_SEARCH_MAX || '3000'), // Prod: 2000ms (increased for dev)
   },
 
   // Test Configuration

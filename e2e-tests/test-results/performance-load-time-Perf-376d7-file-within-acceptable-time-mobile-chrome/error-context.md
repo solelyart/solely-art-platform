@@ -1,0 +1,3919 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - region "Notifications alt+T"
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - link "Solely Art" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - img [ref=e7]
+          - generic [ref=e13]: Solely Art
+        - navigation [ref=e14]:
+          - link "Home" [ref=e15] [cursor=pointer]:
+            - /url: /
+    - generic [ref=e17]:
+      - complementary [ref=e18]:
+        - generic [ref=e19]:
+          - heading "Filters" [level=2] [ref=e21]:
+            - img [ref=e22]
+            - text: Filters
+          - generic [ref=e23]:
+            - generic [ref=e24]: Search
+            - generic [ref=e25]:
+              - img [ref=e26]
+              - textbox "Search" [ref=e29]:
+                - /placeholder: Search artists...
+          - generic [ref=e30]:
+            - generic [ref=e31]: Categories
+            - generic [ref=e32]:
+              - generic [ref=e33] [cursor=pointer]: Crafts & Handmade
+              - generic [ref=e34] [cursor=pointer]: Digital Art & Design
+              - generic [ref=e35] [cursor=pointer]: Music & Performance
+              - generic [ref=e36] [cursor=pointer]: Painting & Drawing
+              - generic [ref=e37] [cursor=pointer]: Photography
+              - generic [ref=e38] [cursor=pointer]: Sculpture & 3D Art
+              - generic [ref=e39] [cursor=pointer]: Videography & Film
+              - generic [ref=e40] [cursor=pointer]: Writing & Poetry
+          - generic [ref=e41]:
+            - generic [ref=e42]: Location
+            - generic [ref=e43]:
+              - img [ref=e44]
+              - textbox "Location" [ref=e47]:
+                - /placeholder: City or region
+          - generic [ref=e48]:
+            - generic [ref=e49]: Hourly Rate ($0 - $500)
+            - generic [ref=e50]:
+              - slider "Minimum" [ref=e54]
+              - slider "Maximum" [ref=e56]
+            - generic [ref=e57]:
+              - generic [ref=e58]: $0
+              - generic [ref=e59]: $500+
+          - generic [ref=e60]:
+            - generic [ref=e61] [cursor=pointer]: Available Now
+            - switch "Available Now" [ref=e62] [cursor=pointer]
+          - button "Apply Filters" [ref=e63] [cursor=pointer]
+      - main [ref=e64]:
+        - button "Hide Filters" [ref=e66] [cursor=pointer]:
+          - img
+          - text: Hide Filters
+        - generic [ref=e68]:
+          - heading "Discover Artists" [level=1] [ref=e69]
+          - paragraph [ref=e70]: 383 artists found
+        - generic [ref=e71]:
+          - link "Jane Doe Jane Doe New York, NY Talented artist specializing in portrait photography and digital art. Available for commissions and custom projects. $120 /hour" [ref=e72] [cursor=pointer]:
+            - /url: /artist/150001
+            - generic [ref=e73]:
+              - img "Jane Doe" [ref=e75]
+              - generic [ref=e76]:
+                - heading "Jane Doe" [level=3] [ref=e77]
+                - paragraph [ref=e78]:
+                  - img [ref=e79]
+                  - text: New York, NY
+                - paragraph [ref=e82]: Talented artist specializing in portrait photography and digital art. Available for commissions and custom projects.
+                - generic [ref=e83]:
+                  - generic [ref=e84]: $120
+                  - generic [ref=e85]: /hour
+          - link "Test Artist Test Artist Raleigh, NC Professional test artist for automated Playwright testing. This profile is used exclusively for E2E test scenarios and should not be used for production bookings. $100 /hour" [ref=e86] [cursor=pointer]:
+            - /url: /artist/120001
+            - generic [ref=e87]:
+              - img "Test Artist" [ref=e89]
+              - generic [ref=e90]:
+                - heading "Test Artist" [level=3] [ref=e91]
+                - paragraph [ref=e92]:
+                  - img [ref=e93]
+                  - text: Raleigh, NC
+                - paragraph [ref=e96]: Professional test artist for automated Playwright testing. This profile is used exclusively for E2E test scenarios and should not be used for production bookings.
+                - generic [ref=e97]:
+                  - generic [ref=e98]: $100
+                  - generic [ref=e99]: /hour
+          - link "Test Artist 430268-252085 Test artist bio for automated testing $100 /hour" [ref=e100] [cursor=pointer]:
+            - /url: /artist/90028
+            - generic [ref=e101]:
+              - img [ref=e104]
+              - generic [ref=e110]:
+                - heading "Test Artist 430268-252085" [level=3] [ref=e111]
+                - paragraph [ref=e112]: Test artist bio for automated testing
+                - generic [ref=e113]:
+                  - generic [ref=e114]: $100
+                  - generic [ref=e115]: /hour
+          - link "Test Artist 275907-568654 Test artist bio for automated testing $100 /hour" [ref=e116] [cursor=pointer]:
+            - /url: /artist/90027
+            - generic [ref=e117]:
+              - img [ref=e120]
+              - generic [ref=e126]:
+                - heading "Test Artist 275907-568654" [level=3] [ref=e127]
+                - paragraph [ref=e128]: Test artist bio for automated testing
+                - generic [ref=e129]:
+                  - generic [ref=e130]: $100
+                  - generic [ref=e131]: /hour
+          - link "Test Artist 431977-370947 Test artist bio for automated testing $100 /hour" [ref=e132] [cursor=pointer]:
+            - /url: /artist/90026
+            - generic [ref=e133]:
+              - img [ref=e136]
+              - generic [ref=e142]:
+                - heading "Test Artist 431977-370947" [level=3] [ref=e143]
+                - paragraph [ref=e144]: Test artist bio for automated testing
+                - generic [ref=e145]:
+                  - generic [ref=e146]: $100
+                  - generic [ref=e147]: /hour
+          - link "Test Artist 236076-939714 Test artist bio for automated testing $100 /hour" [ref=e148] [cursor=pointer]:
+            - /url: /artist/90025
+            - generic [ref=e149]:
+              - img [ref=e152]
+              - generic [ref=e158]:
+                - heading "Test Artist 236076-939714" [level=3] [ref=e159]
+                - paragraph [ref=e160]: Test artist bio for automated testing
+                - generic [ref=e161]:
+                  - generic [ref=e162]: $100
+                  - generic [ref=e163]: /hour
+          - link "Test Client 10 Test artist bio for automated testing $100 /hour" [ref=e164] [cursor=pointer]:
+            - /url: /artist/90024
+            - generic [ref=e165]:
+              - img [ref=e168]
+              - generic [ref=e174]:
+                - heading "Test Client 10" [level=3] [ref=e175]
+                - paragraph [ref=e176]: Test artist bio for automated testing
+                - generic [ref=e177]:
+                  - generic [ref=e178]: $100
+                  - generic [ref=e179]: /hour
+          - link "Test Client 9 Test artist bio for automated testing $100 /hour" [ref=e180] [cursor=pointer]:
+            - /url: /artist/90023
+            - generic [ref=e181]:
+              - img [ref=e184]
+              - generic [ref=e190]:
+                - heading "Test Client 9" [level=3] [ref=e191]
+                - paragraph [ref=e192]: Test artist bio for automated testing
+                - generic [ref=e193]:
+                  - generic [ref=e194]: $100
+                  - generic [ref=e195]: /hour
+          - link "Test Client 8 Test artist bio for automated testing $100 /hour" [ref=e196] [cursor=pointer]:
+            - /url: /artist/90022
+            - generic [ref=e197]:
+              - img [ref=e200]
+              - generic [ref=e206]:
+                - heading "Test Client 8" [level=3] [ref=e207]
+                - paragraph [ref=e208]: Test artist bio for automated testing
+                - generic [ref=e209]:
+                  - generic [ref=e210]: $100
+                  - generic [ref=e211]: /hour
+          - link "Multi-booking Client Test artist bio for automated testing $100 /hour" [ref=e212] [cursor=pointer]:
+            - /url: /artist/90021
+            - generic [ref=e213]:
+              - img [ref=e216]
+              - generic [ref=e222]:
+                - heading "Multi-booking Client" [level=3] [ref=e223]
+                - paragraph [ref=e224]: Test artist bio for automated testing
+                - generic [ref=e225]:
+                  - generic [ref=e226]: $100
+                  - generic [ref=e227]: /hour
+          - link "Test Client 7 Test artist bio for automated testing $100 /hour" [ref=e228] [cursor=pointer]:
+            - /url: /artist/90020
+            - generic [ref=e229]:
+              - img [ref=e232]
+              - generic [ref=e238]:
+                - heading "Test Client 7" [level=3] [ref=e239]
+                - paragraph [ref=e240]: Test artist bio for automated testing
+                - generic [ref=e241]:
+                  - generic [ref=e242]: $100
+                  - generic [ref=e243]: /hour
+          - link "Multi-booking Artist Test artist bio for automated testing $100 /hour" [ref=e244] [cursor=pointer]:
+            - /url: /artist/90019
+            - generic [ref=e245]:
+              - img [ref=e248]
+              - generic [ref=e254]:
+                - heading "Multi-booking Artist" [level=3] [ref=e255]
+                - paragraph [ref=e256]: Test artist bio for automated testing
+                - generic [ref=e257]:
+                  - generic [ref=e258]: $100
+                  - generic [ref=e259]: /hour
+          - link "Test Client 6 Test artist bio for automated testing $100 /hour" [ref=e260] [cursor=pointer]:
+            - /url: /artist/90018
+            - generic [ref=e261]:
+              - img [ref=e264]
+              - generic [ref=e270]:
+                - heading "Test Client 6" [level=3] [ref=e271]
+                - paragraph [ref=e272]: Test artist bio for automated testing
+                - generic [ref=e273]:
+                  - generic [ref=e274]: $100
+                  - generic [ref=e275]: /hour
+          - link "Test Client 5 Test artist bio for automated testing $100 /hour" [ref=e276] [cursor=pointer]:
+            - /url: /artist/90017
+            - generic [ref=e277]:
+              - img [ref=e280]
+              - generic [ref=e286]:
+                - heading "Test Client 5" [level=3] [ref=e287]
+                - paragraph [ref=e288]: Test artist bio for automated testing
+                - generic [ref=e289]:
+                  - generic [ref=e290]: $100
+                  - generic [ref=e291]: /hour
+          - link "E2E Test Client Test artist bio for automated testing $100 /hour" [ref=e292] [cursor=pointer]:
+            - /url: /artist/90016
+            - generic [ref=e293]:
+              - img [ref=e296]
+              - generic [ref=e302]:
+                - heading "E2E Test Client" [level=3] [ref=e303]
+                - paragraph [ref=e304]: Test artist bio for automated testing
+                - generic [ref=e305]:
+                  - generic [ref=e306]: $100
+                  - generic [ref=e307]: /hour
+          - link "Test Client 4 Test artist bio for automated testing $100 /hour" [ref=e308] [cursor=pointer]:
+            - /url: /artist/90015
+            - generic [ref=e309]:
+              - img [ref=e312]
+              - generic [ref=e318]:
+                - heading "Test Client 4" [level=3] [ref=e319]
+                - paragraph [ref=e320]: Test artist bio for automated testing
+                - generic [ref=e321]:
+                  - generic [ref=e322]: $100
+                  - generic [ref=e323]: /hour
+          - link "E2E Test Artist Test artist bio for automated testing $100 /hour" [ref=e324] [cursor=pointer]:
+            - /url: /artist/90014
+            - generic [ref=e325]:
+              - img [ref=e328]
+              - generic [ref=e334]:
+                - heading "E2E Test Artist" [level=3] [ref=e335]
+                - paragraph [ref=e336]: Test artist bio for automated testing
+                - generic [ref=e337]:
+                  - generic [ref=e338]: $100
+                  - generic [ref=e339]: /hour
+          - link "Test Client 3 Test artist bio for automated testing $100 /hour" [ref=e340] [cursor=pointer]:
+            - /url: /artist/90013
+            - generic [ref=e341]:
+              - img [ref=e344]
+              - generic [ref=e350]:
+                - heading "Test Client 3" [level=3] [ref=e351]
+                - paragraph [ref=e352]: Test artist bio for automated testing
+                - generic [ref=e353]:
+                  - generic [ref=e354]: $100
+                  - generic [ref=e355]: /hour
+          - link "Test Client 2 Test artist bio for automated testing $100 /hour" [ref=e356] [cursor=pointer]:
+            - /url: /artist/90012
+            - generic [ref=e357]:
+              - img [ref=e360]
+              - generic [ref=e366]:
+                - heading "Test Client 2" [level=3] [ref=e367]
+                - paragraph [ref=e368]: Test artist bio for automated testing
+                - generic [ref=e369]:
+                  - generic [ref=e370]: $100
+                  - generic [ref=e371]: /hour
+          - link "Test Client 1 Test artist bio for automated testing $100 /hour" [ref=e372] [cursor=pointer]:
+            - /url: /artist/90011
+            - generic [ref=e373]:
+              - img [ref=e376]
+              - generic [ref=e382]:
+                - heading "Test Client 1" [level=3] [ref=e383]
+                - paragraph [ref=e384]: Test artist bio for automated testing
+                - generic [ref=e385]:
+                  - generic [ref=e386]: $100
+                  - generic [ref=e387]: /hour
+          - link "Test Artist - Race Conditions Test artist bio for automated testing $100 /hour" [ref=e388] [cursor=pointer]:
+            - /url: /artist/90010
+            - generic [ref=e389]:
+              - img [ref=e392]
+              - generic [ref=e398]:
+                - heading "Test Artist - Race Conditions" [level=3] [ref=e399]
+                - paragraph [ref=e400]: Test artist bio for automated testing
+                - generic [ref=e401]:
+                  - generic [ref=e402]: $100
+                  - generic [ref=e403]: /hour
+          - link "Test Client - Lifecycle Test artist bio for automated testing $100 /hour" [ref=e404] [cursor=pointer]:
+            - /url: /artist/90009
+            - generic [ref=e405]:
+              - img [ref=e408]
+              - generic [ref=e414]:
+                - heading "Test Client - Lifecycle" [level=3] [ref=e415]
+                - paragraph [ref=e416]: Test artist bio for automated testing
+                - generic [ref=e417]:
+                  - generic [ref=e418]: $100
+                  - generic [ref=e419]: /hour
+          - link "Test Artist - Lifecycle Test artist bio for automated testing $100 /hour" [ref=e420] [cursor=pointer]:
+            - /url: /artist/90008
+            - generic [ref=e421]:
+              - img [ref=e424]
+              - generic [ref=e430]:
+                - heading "Test Artist - Lifecycle" [level=3] [ref=e431]
+                - paragraph [ref=e432]: Test artist bio for automated testing
+                - generic [ref=e433]:
+                  - generic [ref=e434]: $100
+                  - generic [ref=e435]: /hour
+          - link "Test Client 2 Test artist bio for automated testing $100 /hour" [ref=e436] [cursor=pointer]:
+            - /url: /artist/90007
+            - generic [ref=e437]:
+              - img [ref=e440]
+              - generic [ref=e446]:
+                - heading "Test Client 2" [level=3] [ref=e447]
+                - paragraph [ref=e448]: Test artist bio for automated testing
+                - generic [ref=e449]:
+                  - generic [ref=e450]: $100
+                  - generic [ref=e451]: /hour
+          - link "Pacific Artist Test artist bio for automated testing $100 /hour" [ref=e452] [cursor=pointer]:
+            - /url: /artist/90006
+            - generic [ref=e453]:
+              - img [ref=e456]
+              - generic [ref=e462]:
+                - heading "Pacific Artist" [level=3] [ref=e463]
+                - paragraph [ref=e464]: Test artist bio for automated testing
+                - generic [ref=e465]:
+                  - generic [ref=e466]: $100
+                  - generic [ref=e467]: /hour
+          - link "Test Client 1 Test artist bio for automated testing $100 /hour" [ref=e468] [cursor=pointer]:
+            - /url: /artist/90005
+            - generic [ref=e469]:
+              - img [ref=e472]
+              - generic [ref=e478]:
+                - heading "Test Client 1" [level=3] [ref=e479]
+                - paragraph [ref=e480]: Test artist bio for automated testing
+                - generic [ref=e481]:
+                  - generic [ref=e482]: $100
+                  - generic [ref=e483]: /hour
+          - link "Test Artist - Double Booking Test artist bio for automated testing $100 /hour" [ref=e484] [cursor=pointer]:
+            - /url: /artist/90004
+            - generic [ref=e485]:
+              - img [ref=e488]
+              - generic [ref=e494]:
+                - heading "Test Artist - Double Booking" [level=3] [ref=e495]
+                - paragraph [ref=e496]: Test artist bio for automated testing
+                - generic [ref=e497]:
+                  - generic [ref=e498]: $100
+                  - generic [ref=e499]: /hour
+          - link "Calendar Test Artist Test artist bio for automated testing $100 /hour" [ref=e500] [cursor=pointer]:
+            - /url: /artist/90003
+            - generic [ref=e501]:
+              - img [ref=e504]
+              - generic [ref=e510]:
+                - heading "Calendar Test Artist" [level=3] [ref=e511]
+                - paragraph [ref=e512]: Test artist bio for automated testing
+                - generic [ref=e513]:
+                  - generic [ref=e514]: $100
+                  - generic [ref=e515]: /hour
+          - link "Test Client - Availability Test artist bio for automated testing $100 /hour" [ref=e516] [cursor=pointer]:
+            - /url: /artist/90002
+            - generic [ref=e517]:
+              - img [ref=e520]
+              - generic [ref=e526]:
+                - heading "Test Client - Availability" [level=3] [ref=e527]
+                - paragraph [ref=e528]: Test artist bio for automated testing
+                - generic [ref=e529]:
+                  - generic [ref=e530]: $100
+                  - generic [ref=e531]: /hour
+          - link "Test Artist - Availability Test artist bio for automated testing $100 /hour" [ref=e532] [cursor=pointer]:
+            - /url: /artist/90001
+            - generic [ref=e533]:
+              - img [ref=e536]
+              - generic [ref=e542]:
+                - heading "Test Artist - Availability" [level=3] [ref=e543]
+                - paragraph [ref=e544]: Test artist bio for automated testing
+                - generic [ref=e545]:
+                  - generic [ref=e546]: $100
+                  - generic [ref=e547]: /hour
+          - link "Test Artist 9906 Test artist bio for automated testing $100 /hour" [ref=e548] [cursor=pointer]:
+            - /url: /artist/60311
+            - generic [ref=e549]:
+              - img [ref=e552]
+              - generic [ref=e558]:
+                - heading "Test Artist 9906" [level=3] [ref=e559]
+                - paragraph [ref=e560]: Test artist bio for automated testing
+                - generic [ref=e561]:
+                  - generic [ref=e562]: $100
+                  - generic [ref=e563]: /hour
+          - link "Test Artist 724 Test artist bio for automated testing $100 /hour" [ref=e564] [cursor=pointer]:
+            - /url: /artist/60310
+            - generic [ref=e565]:
+              - img [ref=e568]
+              - generic [ref=e574]:
+                - heading "Test Artist 724" [level=3] [ref=e575]
+                - paragraph [ref=e576]: Test artist bio for automated testing
+                - generic [ref=e577]:
+                  - generic [ref=e578]: $100
+                  - generic [ref=e579]: /hour
+          - link "Test Artist 1867 Test artist bio for automated testing $100 /hour" [ref=e580] [cursor=pointer]:
+            - /url: /artist/60309
+            - generic [ref=e581]:
+              - img [ref=e584]
+              - generic [ref=e590]:
+                - heading "Test Artist 1867" [level=3] [ref=e591]
+                - paragraph [ref=e592]: Test artist bio for automated testing
+                - generic [ref=e593]:
+                  - generic [ref=e594]: $100
+                  - generic [ref=e595]: /hour
+          - link "Test Artist 8997 Test artist bio for automated testing $100 /hour" [ref=e596] [cursor=pointer]:
+            - /url: /artist/60308
+            - generic [ref=e597]:
+              - img [ref=e600]
+              - generic [ref=e606]:
+                - heading "Test Artist 8997" [level=3] [ref=e607]
+                - paragraph [ref=e608]: Test artist bio for automated testing
+                - generic [ref=e609]:
+                  - generic [ref=e610]: $100
+                  - generic [ref=e611]: /hour
+          - link "Test Client 10 Test artist bio for automated testing $100 /hour" [ref=e612] [cursor=pointer]:
+            - /url: /artist/60307
+            - generic [ref=e613]:
+              - img [ref=e616]
+              - generic [ref=e622]:
+                - heading "Test Client 10" [level=3] [ref=e623]
+                - paragraph [ref=e624]: Test artist bio for automated testing
+                - generic [ref=e625]:
+                  - generic [ref=e626]: $100
+                  - generic [ref=e627]: /hour
+          - link "Test Client 9 Test artist bio for automated testing $100 /hour" [ref=e628] [cursor=pointer]:
+            - /url: /artist/60306
+            - generic [ref=e629]:
+              - img [ref=e632]
+              - generic [ref=e638]:
+                - heading "Test Client 9" [level=3] [ref=e639]
+                - paragraph [ref=e640]: Test artist bio for automated testing
+                - generic [ref=e641]:
+                  - generic [ref=e642]: $100
+                  - generic [ref=e643]: /hour
+          - link "Test Client 8 Test artist bio for automated testing $100 /hour" [ref=e644] [cursor=pointer]:
+            - /url: /artist/60305
+            - generic [ref=e645]:
+              - img [ref=e648]
+              - generic [ref=e654]:
+                - heading "Test Client 8" [level=3] [ref=e655]
+                - paragraph [ref=e656]: Test artist bio for automated testing
+                - generic [ref=e657]:
+                  - generic [ref=e658]: $100
+                  - generic [ref=e659]: /hour
+          - link "Test Client 7 Test artist bio for automated testing $100 /hour" [ref=e660] [cursor=pointer]:
+            - /url: /artist/60304
+            - generic [ref=e661]:
+              - img [ref=e664]
+              - generic [ref=e670]:
+                - heading "Test Client 7" [level=3] [ref=e671]
+                - paragraph [ref=e672]: Test artist bio for automated testing
+                - generic [ref=e673]:
+                  - generic [ref=e674]: $100
+                  - generic [ref=e675]: /hour
+          - link "Multi-booking Client Test artist bio for automated testing $100 /hour" [ref=e676] [cursor=pointer]:
+            - /url: /artist/60303
+            - generic [ref=e677]:
+              - img [ref=e680]
+              - generic [ref=e686]:
+                - heading "Multi-booking Client" [level=3] [ref=e687]
+                - paragraph [ref=e688]: Test artist bio for automated testing
+                - generic [ref=e689]:
+                  - generic [ref=e690]: $100
+                  - generic [ref=e691]: /hour
+          - link "Multi-booking Artist Test artist bio for automated testing $100 /hour" [ref=e692] [cursor=pointer]:
+            - /url: /artist/60302
+            - generic [ref=e693]:
+              - img [ref=e696]
+              - generic [ref=e702]:
+                - heading "Multi-booking Artist" [level=3] [ref=e703]
+                - paragraph [ref=e704]: Test artist bio for automated testing
+                - generic [ref=e705]:
+                  - generic [ref=e706]: $100
+                  - generic [ref=e707]: /hour
+          - link "Test Client 6 Test artist bio for automated testing $100 /hour" [ref=e708] [cursor=pointer]:
+            - /url: /artist/60301
+            - generic [ref=e709]:
+              - img [ref=e712]
+              - generic [ref=e718]:
+                - heading "Test Client 6" [level=3] [ref=e719]
+                - paragraph [ref=e720]: Test artist bio for automated testing
+                - generic [ref=e721]:
+                  - generic [ref=e722]: $100
+                  - generic [ref=e723]: /hour
+          - link "Test Client 5 Test artist bio for automated testing $100 /hour" [ref=e724] [cursor=pointer]:
+            - /url: /artist/60300
+            - generic [ref=e725]:
+              - img [ref=e728]
+              - generic [ref=e734]:
+                - heading "Test Client 5" [level=3] [ref=e735]
+                - paragraph [ref=e736]: Test artist bio for automated testing
+                - generic [ref=e737]:
+                  - generic [ref=e738]: $100
+                  - generic [ref=e739]: /hour
+          - link "Test Client 4 Test artist bio for automated testing $100 /hour" [ref=e740] [cursor=pointer]:
+            - /url: /artist/60299
+            - generic [ref=e741]:
+              - img [ref=e744]
+              - generic [ref=e750]:
+                - heading "Test Client 4" [level=3] [ref=e751]
+                - paragraph [ref=e752]: Test artist bio for automated testing
+                - generic [ref=e753]:
+                  - generic [ref=e754]: $100
+                  - generic [ref=e755]: /hour
+          - link "E2E Test Client Test artist bio for automated testing $100 /hour" [ref=e756] [cursor=pointer]:
+            - /url: /artist/60298
+            - generic [ref=e757]:
+              - img [ref=e760]
+              - generic [ref=e766]:
+                - heading "E2E Test Client" [level=3] [ref=e767]
+                - paragraph [ref=e768]: Test artist bio for automated testing
+                - generic [ref=e769]:
+                  - generic [ref=e770]: $100
+                  - generic [ref=e771]: /hour
+          - link "Test Client 3 Test artist bio for automated testing $100 /hour" [ref=e772] [cursor=pointer]:
+            - /url: /artist/60297
+            - generic [ref=e773]:
+              - img [ref=e776]
+              - generic [ref=e782]:
+                - heading "Test Client 3" [level=3] [ref=e783]
+                - paragraph [ref=e784]: Test artist bio for automated testing
+                - generic [ref=e785]:
+                  - generic [ref=e786]: $100
+                  - generic [ref=e787]: /hour
+          - link "E2E Test Artist Test artist bio for automated testing $100 /hour" [ref=e788] [cursor=pointer]:
+            - /url: /artist/60296
+            - generic [ref=e789]:
+              - img [ref=e792]
+              - generic [ref=e798]:
+                - heading "E2E Test Artist" [level=3] [ref=e799]
+                - paragraph [ref=e800]: Test artist bio for automated testing
+                - generic [ref=e801]:
+                  - generic [ref=e802]: $100
+                  - generic [ref=e803]: /hour
+          - link "Test Client 2 Test artist bio for automated testing $100 /hour" [ref=e804] [cursor=pointer]:
+            - /url: /artist/60295
+            - generic [ref=e805]:
+              - img [ref=e808]
+              - generic [ref=e814]:
+                - heading "Test Client 2" [level=3] [ref=e815]
+                - paragraph [ref=e816]: Test artist bio for automated testing
+                - generic [ref=e817]:
+                  - generic [ref=e818]: $100
+                  - generic [ref=e819]: /hour
+          - link "Test Client 1 Test artist bio for automated testing $100 /hour" [ref=e820] [cursor=pointer]:
+            - /url: /artist/60294
+            - generic [ref=e821]:
+              - img [ref=e824]
+              - generic [ref=e830]:
+                - heading "Test Client 1" [level=3] [ref=e831]
+                - paragraph [ref=e832]: Test artist bio for automated testing
+                - generic [ref=e833]:
+                  - generic [ref=e834]: $100
+                  - generic [ref=e835]: /hour
+          - link "Test Artist - Race Conditions Test artist bio for automated testing $100 /hour" [ref=e836] [cursor=pointer]:
+            - /url: /artist/60293
+            - generic [ref=e837]:
+              - img [ref=e840]
+              - generic [ref=e846]:
+                - heading "Test Artist - Race Conditions" [level=3] [ref=e847]
+                - paragraph [ref=e848]: Test artist bio for automated testing
+                - generic [ref=e849]:
+                  - generic [ref=e850]: $100
+                  - generic [ref=e851]: /hour
+          - link "Test Client - Lifecycle Test artist bio for automated testing $100 /hour" [ref=e852] [cursor=pointer]:
+            - /url: /artist/60292
+            - generic [ref=e853]:
+              - img [ref=e856]
+              - generic [ref=e862]:
+                - heading "Test Client - Lifecycle" [level=3] [ref=e863]
+                - paragraph [ref=e864]: Test artist bio for automated testing
+                - generic [ref=e865]:
+                  - generic [ref=e866]: $100
+                  - generic [ref=e867]: /hour
+          - link "Test Artist - Lifecycle Test artist bio for automated testing $100 /hour" [ref=e868] [cursor=pointer]:
+            - /url: /artist/60291
+            - generic [ref=e869]:
+              - img [ref=e872]
+              - generic [ref=e878]:
+                - heading "Test Artist - Lifecycle" [level=3] [ref=e879]
+                - paragraph [ref=e880]: Test artist bio for automated testing
+                - generic [ref=e881]:
+                  - generic [ref=e882]: $100
+                  - generic [ref=e883]: /hour
+          - link "Test Client 2 Test artist bio for automated testing $100 /hour" [ref=e884] [cursor=pointer]:
+            - /url: /artist/60290
+            - generic [ref=e885]:
+              - img [ref=e888]
+              - generic [ref=e894]:
+                - heading "Test Client 2" [level=3] [ref=e895]
+                - paragraph [ref=e896]: Test artist bio for automated testing
+                - generic [ref=e897]:
+                  - generic [ref=e898]: $100
+                  - generic [ref=e899]: /hour
+          - link "Pacific Artist Test artist bio for automated testing $100 /hour" [ref=e900] [cursor=pointer]:
+            - /url: /artist/60289
+            - generic [ref=e901]:
+              - img [ref=e904]
+              - generic [ref=e910]:
+                - heading "Pacific Artist" [level=3] [ref=e911]
+                - paragraph [ref=e912]: Test artist bio for automated testing
+                - generic [ref=e913]:
+                  - generic [ref=e914]: $100
+                  - generic [ref=e915]: /hour
+          - link "Test Client 1 Test artist bio for automated testing $100 /hour" [ref=e916] [cursor=pointer]:
+            - /url: /artist/60288
+            - generic [ref=e917]:
+              - img [ref=e920]
+              - generic [ref=e926]:
+                - heading "Test Client 1" [level=3] [ref=e927]
+                - paragraph [ref=e928]: Test artist bio for automated testing
+                - generic [ref=e929]:
+                  - generic [ref=e930]: $100
+                  - generic [ref=e931]: /hour
+          - link "Test Artist - Double Booking Test artist bio for automated testing $100 /hour" [ref=e932] [cursor=pointer]:
+            - /url: /artist/60287
+            - generic [ref=e933]:
+              - img [ref=e936]
+              - generic [ref=e942]:
+                - heading "Test Artist - Double Booking" [level=3] [ref=e943]
+                - paragraph [ref=e944]: Test artist bio for automated testing
+                - generic [ref=e945]:
+                  - generic [ref=e946]: $100
+                  - generic [ref=e947]: /hour
+          - link "Test Client - Availability Test artist bio for automated testing $100 /hour" [ref=e948] [cursor=pointer]:
+            - /url: /artist/60286
+            - generic [ref=e949]:
+              - img [ref=e952]
+              - generic [ref=e958]:
+                - heading "Test Client - Availability" [level=3] [ref=e959]
+                - paragraph [ref=e960]: Test artist bio for automated testing
+                - generic [ref=e961]:
+                  - generic [ref=e962]: $100
+                  - generic [ref=e963]: /hour
+          - link "Test Artist - Availability Test artist bio for automated testing $100 /hour" [ref=e964] [cursor=pointer]:
+            - /url: /artist/60284
+            - generic [ref=e965]:
+              - img [ref=e968]
+              - generic [ref=e974]:
+                - heading "Test Artist - Availability" [level=3] [ref=e975]
+                - paragraph [ref=e976]: Test artist bio for automated testing
+                - generic [ref=e977]:
+                  - generic [ref=e978]: $100
+                  - generic [ref=e979]: /hour
+          - link "Test Artist 7423 Test artist bio for automated testing $100 /hour" [ref=e980] [cursor=pointer]:
+            - /url: /artist/60283
+            - generic [ref=e981]:
+              - img [ref=e984]
+              - generic [ref=e990]:
+                - heading "Test Artist 7423" [level=3] [ref=e991]
+                - paragraph [ref=e992]: Test artist bio for automated testing
+                - generic [ref=e993]:
+                  - generic [ref=e994]: $100
+                  - generic [ref=e995]: /hour
+          - link "Test Artist 545 Test artist bio for automated testing $100 /hour" [ref=e996] [cursor=pointer]:
+            - /url: /artist/60282
+            - generic [ref=e997]:
+              - img [ref=e1000]
+              - generic [ref=e1006]:
+                - heading "Test Artist 545" [level=3] [ref=e1007]
+                - paragraph [ref=e1008]: Test artist bio for automated testing
+                - generic [ref=e1009]:
+                  - generic [ref=e1010]: $100
+                  - generic [ref=e1011]: /hour
+          - link "Test Artist 8480 Test artist bio for automated testing $100 /hour" [ref=e1012] [cursor=pointer]:
+            - /url: /artist/60281
+            - generic [ref=e1013]:
+              - img [ref=e1016]
+              - generic [ref=e1022]:
+                - heading "Test Artist 8480" [level=3] [ref=e1023]
+                - paragraph [ref=e1024]: Test artist bio for automated testing
+                - generic [ref=e1025]:
+                  - generic [ref=e1026]: $100
+                  - generic [ref=e1027]: /hour
+          - link "Test Client 10 Test artist bio for automated testing $100 /hour" [ref=e1028] [cursor=pointer]:
+            - /url: /artist/60280
+            - generic [ref=e1029]:
+              - img [ref=e1032]
+              - generic [ref=e1038]:
+                - heading "Test Client 10" [level=3] [ref=e1039]
+                - paragraph [ref=e1040]: Test artist bio for automated testing
+                - generic [ref=e1041]:
+                  - generic [ref=e1042]: $100
+                  - generic [ref=e1043]: /hour
+          - link "Test Artist 5250 Test artist bio for automated testing $100 /hour" [ref=e1044] [cursor=pointer]:
+            - /url: /artist/60279
+            - generic [ref=e1045]:
+              - img [ref=e1048]
+              - generic [ref=e1054]:
+                - heading "Test Artist 5250" [level=3] [ref=e1055]
+                - paragraph [ref=e1056]: Test artist bio for automated testing
+                - generic [ref=e1057]:
+                  - generic [ref=e1058]: $100
+                  - generic [ref=e1059]: /hour
+          - link "Test Client 9 Test artist bio for automated testing $100 /hour" [ref=e1060] [cursor=pointer]:
+            - /url: /artist/60278
+            - generic [ref=e1061]:
+              - img [ref=e1064]
+              - generic [ref=e1070]:
+                - heading "Test Client 9" [level=3] [ref=e1071]
+                - paragraph [ref=e1072]: Test artist bio for automated testing
+                - generic [ref=e1073]:
+                  - generic [ref=e1074]: $100
+                  - generic [ref=e1075]: /hour
+          - link "Test Client 8 Test artist bio for automated testing $100 /hour" [ref=e1076] [cursor=pointer]:
+            - /url: /artist/60277
+            - generic [ref=e1077]:
+              - img [ref=e1080]
+              - generic [ref=e1086]:
+                - heading "Test Client 8" [level=3] [ref=e1087]
+                - paragraph [ref=e1088]: Test artist bio for automated testing
+                - generic [ref=e1089]:
+                  - generic [ref=e1090]: $100
+                  - generic [ref=e1091]: /hour
+          - link "Test Client 7 Test artist bio for automated testing $100 /hour" [ref=e1092] [cursor=pointer]:
+            - /url: /artist/60276
+            - generic [ref=e1093]:
+              - img [ref=e1096]
+              - generic [ref=e1102]:
+                - heading "Test Client 7" [level=3] [ref=e1103]
+                - paragraph [ref=e1104]: Test artist bio for automated testing
+                - generic [ref=e1105]:
+                  - generic [ref=e1106]: $100
+                  - generic [ref=e1107]: /hour
+          - link "Test Client 6 Test artist bio for automated testing $100 /hour" [ref=e1108] [cursor=pointer]:
+            - /url: /artist/60275
+            - generic [ref=e1109]:
+              - img [ref=e1112]
+              - generic [ref=e1118]:
+                - heading "Test Client 6" [level=3] [ref=e1119]
+                - paragraph [ref=e1120]: Test artist bio for automated testing
+                - generic [ref=e1121]:
+                  - generic [ref=e1122]: $100
+                  - generic [ref=e1123]: /hour
+          - link "Multi-booking Client Test artist bio for automated testing $100 /hour" [ref=e1124] [cursor=pointer]:
+            - /url: /artist/60274
+            - generic [ref=e1125]:
+              - img [ref=e1128]
+              - generic [ref=e1134]:
+                - heading "Multi-booking Client" [level=3] [ref=e1135]
+                - paragraph [ref=e1136]: Test artist bio for automated testing
+                - generic [ref=e1137]:
+                  - generic [ref=e1138]: $100
+                  - generic [ref=e1139]: /hour
+          - link "Test Client 5 Test artist bio for automated testing $100 /hour" [ref=e1140] [cursor=pointer]:
+            - /url: /artist/60273
+            - generic [ref=e1141]:
+              - img [ref=e1144]
+              - generic [ref=e1150]:
+                - heading "Test Client 5" [level=3] [ref=e1151]
+                - paragraph [ref=e1152]: Test artist bio for automated testing
+                - generic [ref=e1153]:
+                  - generic [ref=e1154]: $100
+                  - generic [ref=e1155]: /hour
+          - link "Multi-booking Artist Test artist bio for automated testing $100 /hour" [ref=e1156] [cursor=pointer]:
+            - /url: /artist/60272
+            - generic [ref=e1157]:
+              - img [ref=e1160]
+              - generic [ref=e1166]:
+                - heading "Multi-booking Artist" [level=3] [ref=e1167]
+                - paragraph [ref=e1168]: Test artist bio for automated testing
+                - generic [ref=e1169]:
+                  - generic [ref=e1170]: $100
+                  - generic [ref=e1171]: /hour
+          - link "Test Client 4 Test artist bio for automated testing $100 /hour" [ref=e1172] [cursor=pointer]:
+            - /url: /artist/60271
+            - generic [ref=e1173]:
+              - img [ref=e1176]
+              - generic [ref=e1182]:
+                - heading "Test Client 4" [level=3] [ref=e1183]
+                - paragraph [ref=e1184]: Test artist bio for automated testing
+                - generic [ref=e1185]:
+                  - generic [ref=e1186]: $100
+                  - generic [ref=e1187]: /hour
+          - link "Test Client 3 Test artist bio for automated testing $100 /hour" [ref=e1188] [cursor=pointer]:
+            - /url: /artist/60270
+            - generic [ref=e1189]:
+              - img [ref=e1192]
+              - generic [ref=e1198]:
+                - heading "Test Client 3" [level=3] [ref=e1199]
+                - paragraph [ref=e1200]: Test artist bio for automated testing
+                - generic [ref=e1201]:
+                  - generic [ref=e1202]: $100
+                  - generic [ref=e1203]: /hour
+          - link "Test Client 2 Test artist bio for automated testing $100 /hour" [ref=e1204] [cursor=pointer]:
+            - /url: /artist/60269
+            - generic [ref=e1205]:
+              - img [ref=e1208]
+              - generic [ref=e1214]:
+                - heading "Test Client 2" [level=3] [ref=e1215]
+                - paragraph [ref=e1216]: Test artist bio for automated testing
+                - generic [ref=e1217]:
+                  - generic [ref=e1218]: $100
+                  - generic [ref=e1219]: /hour
+          - link "E2E Test Client Test artist bio for automated testing $100 /hour" [ref=e1220] [cursor=pointer]:
+            - /url: /artist/60268
+            - generic [ref=e1221]:
+              - img [ref=e1224]
+              - generic [ref=e1230]:
+                - heading "E2E Test Client" [level=3] [ref=e1231]
+                - paragraph [ref=e1232]: Test artist bio for automated testing
+                - generic [ref=e1233]:
+                  - generic [ref=e1234]: $100
+                  - generic [ref=e1235]: /hour
+          - link "Test Client 1 Test artist bio for automated testing $100 /hour" [ref=e1236] [cursor=pointer]:
+            - /url: /artist/60267
+            - generic [ref=e1237]:
+              - img [ref=e1240]
+              - generic [ref=e1246]:
+                - heading "Test Client 1" [level=3] [ref=e1247]
+                - paragraph [ref=e1248]: Test artist bio for automated testing
+                - generic [ref=e1249]:
+                  - generic [ref=e1250]: $100
+                  - generic [ref=e1251]: /hour
+          - link "E2E Test Artist Test artist bio for automated testing $100 /hour" [ref=e1252] [cursor=pointer]:
+            - /url: /artist/60266
+            - generic [ref=e1253]:
+              - img [ref=e1256]
+              - generic [ref=e1262]:
+                - heading "E2E Test Artist" [level=3] [ref=e1263]
+                - paragraph [ref=e1264]: Test artist bio for automated testing
+                - generic [ref=e1265]:
+                  - generic [ref=e1266]: $100
+                  - generic [ref=e1267]: /hour
+          - link "Test Artist - Race Conditions Test artist bio for automated testing $100 /hour" [ref=e1268] [cursor=pointer]:
+            - /url: /artist/60265
+            - generic [ref=e1269]:
+              - img [ref=e1272]
+              - generic [ref=e1278]:
+                - heading "Test Artist - Race Conditions" [level=3] [ref=e1279]
+                - paragraph [ref=e1280]: Test artist bio for automated testing
+                - generic [ref=e1281]:
+                  - generic [ref=e1282]: $100
+                  - generic [ref=e1283]: /hour
+          - link "Test Client 2 Test artist bio for automated testing $100 /hour" [ref=e1284] [cursor=pointer]:
+            - /url: /artist/60264
+            - generic [ref=e1285]:
+              - img [ref=e1288]
+              - generic [ref=e1294]:
+                - heading "Test Client 2" [level=3] [ref=e1295]
+                - paragraph [ref=e1296]: Test artist bio for automated testing
+                - generic [ref=e1297]:
+                  - generic [ref=e1298]: $100
+                  - generic [ref=e1299]: /hour
+          - link "Test Client - Lifecycle Test artist bio for automated testing $100 /hour" [ref=e1300] [cursor=pointer]:
+            - /url: /artist/60263
+            - generic [ref=e1301]:
+              - img [ref=e1304]
+              - generic [ref=e1310]:
+                - heading "Test Client - Lifecycle" [level=3] [ref=e1311]
+                - paragraph [ref=e1312]: Test artist bio for automated testing
+                - generic [ref=e1313]:
+                  - generic [ref=e1314]: $100
+                  - generic [ref=e1315]: /hour
+          - link "Test Client 1 Test artist bio for automated testing $100 /hour" [ref=e1316] [cursor=pointer]:
+            - /url: /artist/60262
+            - generic [ref=e1317]:
+              - img [ref=e1320]
+              - generic [ref=e1326]:
+                - heading "Test Client 1" [level=3] [ref=e1327]
+                - paragraph [ref=e1328]: Test artist bio for automated testing
+                - generic [ref=e1329]:
+                  - generic [ref=e1330]: $100
+                  - generic [ref=e1331]: /hour
+          - link "Test Artist - Lifecycle Test artist bio for automated testing $100 /hour" [ref=e1332] [cursor=pointer]:
+            - /url: /artist/60261
+            - generic [ref=e1333]:
+              - img [ref=e1336]
+              - generic [ref=e1342]:
+                - heading "Test Artist - Lifecycle" [level=3] [ref=e1343]
+                - paragraph [ref=e1344]: Test artist bio for automated testing
+                - generic [ref=e1345]:
+                  - generic [ref=e1346]: $100
+                  - generic [ref=e1347]: /hour
+          - link "Test Artist - Double Booking Test artist bio for automated testing $100 /hour" [ref=e1348] [cursor=pointer]:
+            - /url: /artist/60260
+            - generic [ref=e1349]:
+              - img [ref=e1352]
+              - generic [ref=e1358]:
+                - heading "Test Artist - Double Booking" [level=3] [ref=e1359]
+                - paragraph [ref=e1360]: Test artist bio for automated testing
+                - generic [ref=e1361]:
+                  - generic [ref=e1362]: $100
+                  - generic [ref=e1363]: /hour
+          - link "Calendar Test Artist Test artist bio for automated testing $100 /hour" [ref=e1364] [cursor=pointer]:
+            - /url: /artist/60259
+            - generic [ref=e1365]:
+              - img [ref=e1368]
+              - generic [ref=e1374]:
+                - heading "Calendar Test Artist" [level=3] [ref=e1375]
+                - paragraph [ref=e1376]: Test artist bio for automated testing
+                - generic [ref=e1377]:
+                  - generic [ref=e1378]: $100
+                  - generic [ref=e1379]: /hour
+          - link "Multi-booking Client Test artist bio for automated testing $100 /hour" [ref=e1380] [cursor=pointer]:
+            - /url: /artist/60257
+            - generic [ref=e1381]:
+              - img [ref=e1384]
+              - generic [ref=e1390]:
+                - heading "Multi-booking Client" [level=3] [ref=e1391]
+                - paragraph [ref=e1392]: Test artist bio for automated testing
+                - generic [ref=e1393]:
+                  - generic [ref=e1394]: $100
+                  - generic [ref=e1395]: /hour
+          - link "Multi-booking Artist Test artist bio for automated testing $100 /hour" [ref=e1396] [cursor=pointer]:
+            - /url: /artist/60256
+            - generic [ref=e1397]:
+              - img [ref=e1400]
+              - generic [ref=e1406]:
+                - heading "Multi-booking Artist" [level=3] [ref=e1407]
+                - paragraph [ref=e1408]: Test artist bio for automated testing
+                - generic [ref=e1409]:
+                  - generic [ref=e1410]: $100
+                  - generic [ref=e1411]: /hour
+          - link "Test Artist 8855 Test artist bio for automated testing $100 /hour" [ref=e1412] [cursor=pointer]:
+            - /url: /artist/60255
+            - generic [ref=e1413]:
+              - img [ref=e1416]
+              - generic [ref=e1422]:
+                - heading "Test Artist 8855" [level=3] [ref=e1423]
+                - paragraph [ref=e1424]: Test artist bio for automated testing
+                - generic [ref=e1425]:
+                  - generic [ref=e1426]: $100
+                  - generic [ref=e1427]: /hour
+          - link "Test Client 10 Test artist bio for automated testing $100 /hour" [ref=e1428] [cursor=pointer]:
+            - /url: /artist/60254
+            - generic [ref=e1429]:
+              - img [ref=e1432]
+              - generic [ref=e1438]:
+                - heading "Test Client 10" [level=3] [ref=e1439]
+                - paragraph [ref=e1440]: Test artist bio for automated testing
+                - generic [ref=e1441]:
+                  - generic [ref=e1442]: $100
+                  - generic [ref=e1443]: /hour
+          - link "Test Client 9 Test artist bio for automated testing $100 /hour" [ref=e1444] [cursor=pointer]:
+            - /url: /artist/60253
+            - generic [ref=e1445]:
+              - img [ref=e1448]
+              - generic [ref=e1454]:
+                - heading "Test Client 9" [level=3] [ref=e1455]
+                - paragraph [ref=e1456]: Test artist bio for automated testing
+                - generic [ref=e1457]:
+                  - generic [ref=e1458]: $100
+                  - generic [ref=e1459]: /hour
+          - link "E2E Test Client Test artist bio for automated testing $100 /hour" [ref=e1460] [cursor=pointer]:
+            - /url: /artist/60252
+            - generic [ref=e1461]:
+              - img [ref=e1464]
+              - generic [ref=e1470]:
+                - heading "E2E Test Client" [level=3] [ref=e1471]
+                - paragraph [ref=e1472]: Test artist bio for automated testing
+                - generic [ref=e1473]:
+                  - generic [ref=e1474]: $100
+                  - generic [ref=e1475]: /hour
+          - link "Test Client 8 Test artist bio for automated testing $100 /hour" [ref=e1476] [cursor=pointer]:
+            - /url: /artist/60251
+            - generic [ref=e1477]:
+              - img [ref=e1480]
+              - generic [ref=e1486]:
+                - heading "Test Client 8" [level=3] [ref=e1487]
+                - paragraph [ref=e1488]: Test artist bio for automated testing
+                - generic [ref=e1489]:
+                  - generic [ref=e1490]: $100
+                  - generic [ref=e1491]: /hour
+          - link "Test Artist 1027 Test artist bio for automated testing $100 /hour" [ref=e1492] [cursor=pointer]:
+            - /url: /artist/60250
+            - generic [ref=e1493]:
+              - img [ref=e1496]
+              - generic [ref=e1502]:
+                - heading "Test Artist 1027" [level=3] [ref=e1503]
+                - paragraph [ref=e1504]: Test artist bio for automated testing
+                - generic [ref=e1505]:
+                  - generic [ref=e1506]: $100
+                  - generic [ref=e1507]: /hour
+          - link "Test Client 7 Test artist bio for automated testing $100 /hour" [ref=e1508] [cursor=pointer]:
+            - /url: /artist/60249
+            - generic [ref=e1509]:
+              - img [ref=e1512]
+              - generic [ref=e1518]:
+                - heading "Test Client 7" [level=3] [ref=e1519]
+                - paragraph [ref=e1520]: Test artist bio for automated testing
+                - generic [ref=e1521]:
+                  - generic [ref=e1522]: $100
+                  - generic [ref=e1523]: /hour
+          - link "E2E Test Artist Test artist bio for automated testing $100 /hour" [ref=e1524] [cursor=pointer]:
+            - /url: /artist/60248
+            - generic [ref=e1525]:
+              - img [ref=e1528]
+              - generic [ref=e1534]:
+                - heading "E2E Test Artist" [level=3] [ref=e1535]
+                - paragraph [ref=e1536]: Test artist bio for automated testing
+                - generic [ref=e1537]:
+                  - generic [ref=e1538]: $100
+                  - generic [ref=e1539]: /hour
+          - link "Test Artist 5727 Test artist bio for automated testing $100 /hour" [ref=e1540] [cursor=pointer]:
+            - /url: /artist/60247
+            - generic [ref=e1541]:
+              - img [ref=e1544]
+              - generic [ref=e1550]:
+                - heading "Test Artist 5727" [level=3] [ref=e1551]
+                - paragraph [ref=e1552]: Test artist bio for automated testing
+                - generic [ref=e1553]:
+                  - generic [ref=e1554]: $100
+                  - generic [ref=e1555]: /hour
+          - link "Test Client 6 Test artist bio for automated testing $100 /hour" [ref=e1556] [cursor=pointer]:
+            - /url: /artist/60246
+            - generic [ref=e1557]:
+              - img [ref=e1560]
+              - generic [ref=e1566]:
+                - heading "Test Client 6" [level=3] [ref=e1567]
+                - paragraph [ref=e1568]: Test artist bio for automated testing
+                - generic [ref=e1569]:
+                  - generic [ref=e1570]: $100
+                  - generic [ref=e1571]: /hour
+          - link "Test Client 5 Test artist bio for automated testing $100 /hour" [ref=e1572] [cursor=pointer]:
+            - /url: /artist/60245
+            - generic [ref=e1573]:
+              - img [ref=e1576]
+              - generic [ref=e1582]:
+                - heading "Test Client 5" [level=3] [ref=e1583]
+                - paragraph [ref=e1584]: Test artist bio for automated testing
+                - generic [ref=e1585]:
+                  - generic [ref=e1586]: $100
+                  - generic [ref=e1587]: /hour
+          - link "Test Client 4 Test artist bio for automated testing $100 /hour" [ref=e1588] [cursor=pointer]:
+            - /url: /artist/60244
+            - generic [ref=e1589]:
+              - img [ref=e1592]
+              - generic [ref=e1598]:
+                - heading "Test Client 4" [level=3] [ref=e1599]
+                - paragraph [ref=e1600]: Test artist bio for automated testing
+                - generic [ref=e1601]:
+                  - generic [ref=e1602]: $100
+                  - generic [ref=e1603]: /hour
+          - link "Test Client 3 Test artist bio for automated testing $100 /hour" [ref=e1604] [cursor=pointer]:
+            - /url: /artist/60243
+            - generic [ref=e1605]:
+              - img [ref=e1608]
+              - generic [ref=e1614]:
+                - heading "Test Client 3" [level=3] [ref=e1615]
+                - paragraph [ref=e1616]: Test artist bio for automated testing
+                - generic [ref=e1617]:
+                  - generic [ref=e1618]: $100
+                  - generic [ref=e1619]: /hour
+          - link "Test Client 2 Test artist bio for automated testing $100 /hour" [ref=e1620] [cursor=pointer]:
+            - /url: /artist/60242
+            - generic [ref=e1621]:
+              - img [ref=e1624]
+              - generic [ref=e1630]:
+                - heading "Test Client 2" [level=3] [ref=e1631]
+                - paragraph [ref=e1632]: Test artist bio for automated testing
+                - generic [ref=e1633]:
+                  - generic [ref=e1634]: $100
+                  - generic [ref=e1635]: /hour
+          - link "Test Client 1 Test artist bio for automated testing $100 /hour" [ref=e1636] [cursor=pointer]:
+            - /url: /artist/60241
+            - generic [ref=e1637]:
+              - img [ref=e1640]
+              - generic [ref=e1646]:
+                - heading "Test Client 1" [level=3] [ref=e1647]
+                - paragraph [ref=e1648]: Test artist bio for automated testing
+                - generic [ref=e1649]:
+                  - generic [ref=e1650]: $100
+                  - generic [ref=e1651]: /hour
+          - link "Test Artist - Race Conditions Test artist bio for automated testing $100 /hour" [ref=e1652] [cursor=pointer]:
+            - /url: /artist/60240
+            - generic [ref=e1653]:
+              - img [ref=e1656]
+              - generic [ref=e1662]:
+                - heading "Test Artist - Race Conditions" [level=3] [ref=e1663]
+                - paragraph [ref=e1664]: Test artist bio for automated testing
+                - generic [ref=e1665]:
+                  - generic [ref=e1666]: $100
+                  - generic [ref=e1667]: /hour
+          - link "Test Client - Lifecycle Test artist bio for automated testing $100 /hour" [ref=e1668] [cursor=pointer]:
+            - /url: /artist/60239
+            - generic [ref=e1669]:
+              - img [ref=e1672]
+              - generic [ref=e1678]:
+                - heading "Test Client - Lifecycle" [level=3] [ref=e1679]
+                - paragraph [ref=e1680]: Test artist bio for automated testing
+                - generic [ref=e1681]:
+                  - generic [ref=e1682]: $100
+                  - generic [ref=e1683]: /hour
+          - link "Test Artist - Lifecycle Test artist bio for automated testing $100 /hour" [ref=e1684] [cursor=pointer]:
+            - /url: /artist/60238
+            - generic [ref=e1685]:
+              - img [ref=e1688]
+              - generic [ref=e1694]:
+                - heading "Test Artist - Lifecycle" [level=3] [ref=e1695]
+                - paragraph [ref=e1696]: Test artist bio for automated testing
+                - generic [ref=e1697]:
+                  - generic [ref=e1698]: $100
+                  - generic [ref=e1699]: /hour
+          - link "Pacific Artist Test artist bio for automated testing $100 /hour" [ref=e1700] [cursor=pointer]:
+            - /url: /artist/60237
+            - generic [ref=e1701]:
+              - img [ref=e1704]
+              - generic [ref=e1710]:
+                - heading "Pacific Artist" [level=3] [ref=e1711]
+                - paragraph [ref=e1712]: Test artist bio for automated testing
+                - generic [ref=e1713]:
+                  - generic [ref=e1714]: $100
+                  - generic [ref=e1715]: /hour
+          - link "Test Artist 7762 Test artist bio for automated testing $100 /hour" [ref=e1716] [cursor=pointer]:
+            - /url: /artist/60236
+            - generic [ref=e1717]:
+              - img [ref=e1720]
+              - generic [ref=e1726]:
+                - heading "Test Artist 7762" [level=3] [ref=e1727]
+                - paragraph [ref=e1728]: Test artist bio for automated testing
+                - generic [ref=e1729]:
+                  - generic [ref=e1730]: $100
+                  - generic [ref=e1731]: /hour
+          - link "Test Client 2 Test artist bio for automated testing $100 /hour" [ref=e1732] [cursor=pointer]:
+            - /url: /artist/60235
+            - generic [ref=e1733]:
+              - img [ref=e1736]
+              - generic [ref=e1742]:
+                - heading "Test Client 2" [level=3] [ref=e1743]
+                - paragraph [ref=e1744]: Test artist bio for automated testing
+                - generic [ref=e1745]:
+                  - generic [ref=e1746]: $100
+                  - generic [ref=e1747]: /hour
+          - link "Calendar Test Artist Test artist bio for automated testing $100 /hour" [ref=e1748] [cursor=pointer]:
+            - /url: /artist/60234
+            - generic [ref=e1749]:
+              - img [ref=e1752]
+              - generic [ref=e1758]:
+                - heading "Calendar Test Artist" [level=3] [ref=e1759]
+                - paragraph [ref=e1760]: Test artist bio for automated testing
+                - generic [ref=e1761]:
+                  - generic [ref=e1762]: $100
+                  - generic [ref=e1763]: /hour
+          - link "Test Client 1 Test artist bio for automated testing $100 /hour" [ref=e1764] [cursor=pointer]:
+            - /url: /artist/60233
+            - generic [ref=e1765]:
+              - img [ref=e1768]
+              - generic [ref=e1774]:
+                - heading "Test Client 1" [level=3] [ref=e1775]
+                - paragraph [ref=e1776]: Test artist bio for automated testing
+                - generic [ref=e1777]:
+                  - generic [ref=e1778]: $100
+                  - generic [ref=e1779]: /hour
+          - link "Test Artist - Double Booking Test artist bio for automated testing $100 /hour" [ref=e1780] [cursor=pointer]:
+            - /url: /artist/60232
+            - generic [ref=e1781]:
+              - img [ref=e1784]
+              - generic [ref=e1790]:
+                - heading "Test Artist - Double Booking" [level=3] [ref=e1791]
+                - paragraph [ref=e1792]: Test artist bio for automated testing
+                - generic [ref=e1793]:
+                  - generic [ref=e1794]: $100
+                  - generic [ref=e1795]: /hour
+          - link "Test Client - Availability Test artist bio for automated testing $100 /hour" [ref=e1796] [cursor=pointer]:
+            - /url: /artist/60231
+            - generic [ref=e1797]:
+              - img [ref=e1800]
+              - generic [ref=e1806]:
+                - heading "Test Client - Availability" [level=3] [ref=e1807]
+                - paragraph [ref=e1808]: Test artist bio for automated testing
+                - generic [ref=e1809]:
+                  - generic [ref=e1810]: $100
+                  - generic [ref=e1811]: /hour
+          - link "Test Artist - Availability Test artist bio for automated testing $100 /hour" [ref=e1812] [cursor=pointer]:
+            - /url: /artist/60230
+            - generic [ref=e1813]:
+              - img [ref=e1816]
+              - generic [ref=e1822]:
+                - heading "Test Artist - Availability" [level=3] [ref=e1823]
+                - paragraph [ref=e1824]: Test artist bio for automated testing
+                - generic [ref=e1825]:
+                  - generic [ref=e1826]: $100
+                  - generic [ref=e1827]: /hour
+          - link "Test Artist 7414 Test artist bio for automated testing $100 /hour" [ref=e1828] [cursor=pointer]:
+            - /url: /artist/60229
+            - generic [ref=e1829]:
+              - img [ref=e1832]
+              - generic [ref=e1838]:
+                - heading "Test Artist 7414" [level=3] [ref=e1839]
+                - paragraph [ref=e1840]: Test artist bio for automated testing
+                - generic [ref=e1841]:
+                  - generic [ref=e1842]: $100
+                  - generic [ref=e1843]: /hour
+          - link "Test Artist 9725 Test artist bio for automated testing $100 /hour" [ref=e1844] [cursor=pointer]:
+            - /url: /artist/60228
+            - generic [ref=e1845]:
+              - img [ref=e1848]
+              - generic [ref=e1854]:
+                - heading "Test Artist 9725" [level=3] [ref=e1855]
+                - paragraph [ref=e1856]: Test artist bio for automated testing
+                - generic [ref=e1857]:
+                  - generic [ref=e1858]: $100
+                  - generic [ref=e1859]: /hour
+          - link "Multi-booking Client Test artist bio for automated testing $100 /hour" [ref=e1860] [cursor=pointer]:
+            - /url: /artist/60227
+            - generic [ref=e1861]:
+              - img [ref=e1864]
+              - generic [ref=e1870]:
+                - heading "Multi-booking Client" [level=3] [ref=e1871]
+                - paragraph [ref=e1872]: Test artist bio for automated testing
+                - generic [ref=e1873]:
+                  - generic [ref=e1874]: $100
+                  - generic [ref=e1875]: /hour
+          - link "Multi-booking Artist Test artist bio for automated testing $100 /hour" [ref=e1876] [cursor=pointer]:
+            - /url: /artist/60226
+            - generic [ref=e1877]:
+              - img [ref=e1880]
+              - generic [ref=e1886]:
+                - heading "Multi-booking Artist" [level=3] [ref=e1887]
+                - paragraph [ref=e1888]: Test artist bio for automated testing
+                - generic [ref=e1889]:
+                  - generic [ref=e1890]: $100
+                  - generic [ref=e1891]: /hour
+          - link "Test Artist 6563 Test artist bio for automated testing $100 /hour" [ref=e1892] [cursor=pointer]:
+            - /url: /artist/60225
+            - generic [ref=e1893]:
+              - img [ref=e1896]
+              - generic [ref=e1902]:
+                - heading "Test Artist 6563" [level=3] [ref=e1903]
+                - paragraph [ref=e1904]: Test artist bio for automated testing
+                - generic [ref=e1905]:
+                  - generic [ref=e1906]: $100
+                  - generic [ref=e1907]: /hour
+          - link "Test Client 10 Test artist bio for automated testing $100 /hour" [ref=e1908] [cursor=pointer]:
+            - /url: /artist/60224
+            - generic [ref=e1909]:
+              - img [ref=e1912]
+              - generic [ref=e1918]:
+                - heading "Test Client 10" [level=3] [ref=e1919]
+                - paragraph [ref=e1920]: Test artist bio for automated testing
+                - generic [ref=e1921]:
+                  - generic [ref=e1922]: $100
+                  - generic [ref=e1923]: /hour
+          - link "Test Client 9 Test artist bio for automated testing $100 /hour" [ref=e1924] [cursor=pointer]:
+            - /url: /artist/60223
+            - generic [ref=e1925]:
+              - img [ref=e1928]
+              - generic [ref=e1934]:
+                - heading "Test Client 9" [level=3] [ref=e1935]
+                - paragraph [ref=e1936]: Test artist bio for automated testing
+                - generic [ref=e1937]:
+                  - generic [ref=e1938]: $100
+                  - generic [ref=e1939]: /hour
+          - link "E2E Test Client Test artist bio for automated testing $100 /hour" [ref=e1940] [cursor=pointer]:
+            - /url: /artist/60222
+            - generic [ref=e1941]:
+              - img [ref=e1944]
+              - generic [ref=e1950]:
+                - heading "E2E Test Client" [level=3] [ref=e1951]
+                - paragraph [ref=e1952]: Test artist bio for automated testing
+                - generic [ref=e1953]:
+                  - generic [ref=e1954]: $100
+                  - generic [ref=e1955]: /hour
+          - link "Test Client 8 Test artist bio for automated testing $100 /hour" [ref=e1956] [cursor=pointer]:
+            - /url: /artist/60221
+            - generic [ref=e1957]:
+              - img [ref=e1960]
+              - generic [ref=e1966]:
+                - heading "Test Client 8" [level=3] [ref=e1967]
+                - paragraph [ref=e1968]: Test artist bio for automated testing
+                - generic [ref=e1969]:
+                  - generic [ref=e1970]: $100
+                  - generic [ref=e1971]: /hour
+          - link "E2E Test Artist Test artist bio for automated testing $100 /hour" [ref=e1972] [cursor=pointer]:
+            - /url: /artist/60220
+            - generic [ref=e1973]:
+              - img [ref=e1976]
+              - generic [ref=e1982]:
+                - heading "E2E Test Artist" [level=3] [ref=e1983]
+                - paragraph [ref=e1984]: Test artist bio for automated testing
+                - generic [ref=e1985]:
+                  - generic [ref=e1986]: $100
+                  - generic [ref=e1987]: /hour
+          - link "Test Client 7 Test artist bio for automated testing $100 /hour" [ref=e1988] [cursor=pointer]:
+            - /url: /artist/60219
+            - generic [ref=e1989]:
+              - img [ref=e1992]
+              - generic [ref=e1998]:
+                - heading "Test Client 7" [level=3] [ref=e1999]
+                - paragraph [ref=e2000]: Test artist bio for automated testing
+                - generic [ref=e2001]:
+                  - generic [ref=e2002]: $100
+                  - generic [ref=e2003]: /hour
+          - link "Test Client 6 Test artist bio for automated testing $100 /hour" [ref=e2004] [cursor=pointer]:
+            - /url: /artist/60218
+            - generic [ref=e2005]:
+              - img [ref=e2008]
+              - generic [ref=e2014]:
+                - heading "Test Client 6" [level=3] [ref=e2015]
+                - paragraph [ref=e2016]: Test artist bio for automated testing
+                - generic [ref=e2017]:
+                  - generic [ref=e2018]: $100
+                  - generic [ref=e2019]: /hour
+          - link "Test Client 5 Test artist bio for automated testing $100 /hour" [ref=e2020] [cursor=pointer]:
+            - /url: /artist/60217
+            - generic [ref=e2021]:
+              - img [ref=e2024]
+              - generic [ref=e2030]:
+                - heading "Test Client 5" [level=3] [ref=e2031]
+                - paragraph [ref=e2032]: Test artist bio for automated testing
+                - generic [ref=e2033]:
+                  - generic [ref=e2034]: $100
+                  - generic [ref=e2035]: /hour
+          - link "Test Client 4 Test artist bio for automated testing $100 /hour" [ref=e2036] [cursor=pointer]:
+            - /url: /artist/60216
+            - generic [ref=e2037]:
+              - img [ref=e2040]
+              - generic [ref=e2046]:
+                - heading "Test Client 4" [level=3] [ref=e2047]
+                - paragraph [ref=e2048]: Test artist bio for automated testing
+                - generic [ref=e2049]:
+                  - generic [ref=e2050]: $100
+                  - generic [ref=e2051]: /hour
+          - link "Test Client 3 Test artist bio for automated testing $100 /hour" [ref=e2052] [cursor=pointer]:
+            - /url: /artist/60215
+            - generic [ref=e2053]:
+              - img [ref=e2056]
+              - generic [ref=e2062]:
+                - heading "Test Client 3" [level=3] [ref=e2063]
+                - paragraph [ref=e2064]: Test artist bio for automated testing
+                - generic [ref=e2065]:
+                  - generic [ref=e2066]: $100
+                  - generic [ref=e2067]: /hour
+          - link "Test Client 2 Test artist bio for automated testing $100 /hour" [ref=e2068] [cursor=pointer]:
+            - /url: /artist/60214
+            - generic [ref=e2069]:
+              - img [ref=e2072]
+              - generic [ref=e2078]:
+                - heading "Test Client 2" [level=3] [ref=e2079]
+                - paragraph [ref=e2080]: Test artist bio for automated testing
+                - generic [ref=e2081]:
+                  - generic [ref=e2082]: $100
+                  - generic [ref=e2083]: /hour
+          - link "Test Client 1 Test artist bio for automated testing $100 /hour" [ref=e2084] [cursor=pointer]:
+            - /url: /artist/60213
+            - generic [ref=e2085]:
+              - img [ref=e2088]
+              - generic [ref=e2094]:
+                - heading "Test Client 1" [level=3] [ref=e2095]
+                - paragraph [ref=e2096]: Test artist bio for automated testing
+                - generic [ref=e2097]:
+                  - generic [ref=e2098]: $100
+                  - generic [ref=e2099]: /hour
+          - link "Test Client - Lifecycle Test artist bio for automated testing $100 /hour" [ref=e2100] [cursor=pointer]:
+            - /url: /artist/60212
+            - generic [ref=e2101]:
+              - img [ref=e2104]
+              - generic [ref=e2110]:
+                - heading "Test Client - Lifecycle" [level=3] [ref=e2111]
+                - paragraph [ref=e2112]: Test artist bio for automated testing
+                - generic [ref=e2113]:
+                  - generic [ref=e2114]: $100
+                  - generic [ref=e2115]: /hour
+          - link "Test Artist - Race Conditions Test artist bio for automated testing $100 /hour" [ref=e2116] [cursor=pointer]:
+            - /url: /artist/60211
+            - generic [ref=e2117]:
+              - img [ref=e2120]
+              - generic [ref=e2126]:
+                - heading "Test Artist - Race Conditions" [level=3] [ref=e2127]
+                - paragraph [ref=e2128]: Test artist bio for automated testing
+                - generic [ref=e2129]:
+                  - generic [ref=e2130]: $100
+                  - generic [ref=e2131]: /hour
+          - link "Test Artist - Lifecycle Test artist bio for automated testing $100 /hour" [ref=e2132] [cursor=pointer]:
+            - /url: /artist/60210
+            - generic [ref=e2133]:
+              - img [ref=e2136]
+              - generic [ref=e2142]:
+                - heading "Test Artist - Lifecycle" [level=3] [ref=e2143]
+                - paragraph [ref=e2144]: Test artist bio for automated testing
+                - generic [ref=e2145]:
+                  - generic [ref=e2146]: $100
+                  - generic [ref=e2147]: /hour
+          - link "Test Artist 4784 Test artist bio for automated testing $100 /hour" [ref=e2148] [cursor=pointer]:
+            - /url: /artist/60209
+            - generic [ref=e2149]:
+              - img [ref=e2152]
+              - generic [ref=e2158]:
+                - heading "Test Artist 4784" [level=3] [ref=e2159]
+                - paragraph [ref=e2160]: Test artist bio for automated testing
+                - generic [ref=e2161]:
+                  - generic [ref=e2162]: $100
+                  - generic [ref=e2163]: /hour
+          - link "Pacific Artist Test artist bio for automated testing $100 /hour" [ref=e2164] [cursor=pointer]:
+            - /url: /artist/60208
+            - generic [ref=e2165]:
+              - img [ref=e2168]
+              - generic [ref=e2174]:
+                - heading "Pacific Artist" [level=3] [ref=e2175]
+                - paragraph [ref=e2176]: Test artist bio for automated testing
+                - generic [ref=e2177]:
+                  - generic [ref=e2178]: $100
+                  - generic [ref=e2179]: /hour
+          - link "Test Client 2 Test artist bio for automated testing $100 /hour" [ref=e2180] [cursor=pointer]:
+            - /url: /artist/60207
+            - generic [ref=e2181]:
+              - img [ref=e2184]
+              - generic [ref=e2190]:
+                - heading "Test Client 2" [level=3] [ref=e2191]
+                - paragraph [ref=e2192]: Test artist bio for automated testing
+                - generic [ref=e2193]:
+                  - generic [ref=e2194]: $100
+                  - generic [ref=e2195]: /hour
+          - link "Test Client - Availability Test artist bio for automated testing $100 /hour" [ref=e2196] [cursor=pointer]:
+            - /url: /artist/60206
+            - generic [ref=e2197]:
+              - img [ref=e2200]
+              - generic [ref=e2206]:
+                - heading "Test Client - Availability" [level=3] [ref=e2207]
+                - paragraph [ref=e2208]: Test artist bio for automated testing
+                - generic [ref=e2209]:
+                  - generic [ref=e2210]: $100
+                  - generic [ref=e2211]: /hour
+          - link "Test Client 1 Test artist bio for automated testing $100 /hour" [ref=e2212] [cursor=pointer]:
+            - /url: /artist/60205
+            - generic [ref=e2213]:
+              - img [ref=e2216]
+              - generic [ref=e2222]:
+                - heading "Test Client 1" [level=3] [ref=e2223]
+                - paragraph [ref=e2224]: Test artist bio for automated testing
+                - generic [ref=e2225]:
+                  - generic [ref=e2226]: $100
+                  - generic [ref=e2227]: /hour
+          - link "Test Artist - Availability Test artist bio for automated testing $100 /hour" [ref=e2228] [cursor=pointer]:
+            - /url: /artist/60204
+            - generic [ref=e2229]:
+              - img [ref=e2232]
+              - generic [ref=e2238]:
+                - heading "Test Artist - Availability" [level=3] [ref=e2239]
+                - paragraph [ref=e2240]: Test artist bio for automated testing
+                - generic [ref=e2241]:
+                  - generic [ref=e2242]: $100
+                  - generic [ref=e2243]: /hour
+          - link "Test Artist - Double Booking Test artist bio for automated testing $100 /hour" [ref=e2244] [cursor=pointer]:
+            - /url: /artist/60203
+            - generic [ref=e2245]:
+              - img [ref=e2248]
+              - generic [ref=e2254]:
+                - heading "Test Artist - Double Booking" [level=3] [ref=e2255]
+                - paragraph [ref=e2256]: Test artist bio for automated testing
+                - generic [ref=e2257]:
+                  - generic [ref=e2258]: $100
+                  - generic [ref=e2259]: /hour
+          - link "Calendar Test Artist Test artist bio for automated testing $100 /hour" [ref=e2260] [cursor=pointer]:
+            - /url: /artist/60202
+            - generic [ref=e2261]:
+              - img [ref=e2264]
+              - generic [ref=e2270]:
+                - heading "Calendar Test Artist" [level=3] [ref=e2271]
+                - paragraph [ref=e2272]: Test artist bio for automated testing
+                - generic [ref=e2273]:
+                  - generic [ref=e2274]: $100
+                  - generic [ref=e2275]: /hour
+          - link "Test Artist 8769 Test artist bio for automated testing $100 /hour" [ref=e2276] [cursor=pointer]:
+            - /url: /artist/60201
+            - generic [ref=e2277]:
+              - img [ref=e2280]
+              - generic [ref=e2286]:
+                - heading "Test Artist 8769" [level=3] [ref=e2287]
+                - paragraph [ref=e2288]: Test artist bio for automated testing
+                - generic [ref=e2289]:
+                  - generic [ref=e2290]: $100
+                  - generic [ref=e2291]: /hour
+          - link "Test Artist 3964 Test artist bio for automated testing $100 /hour" [ref=e2292] [cursor=pointer]:
+            - /url: /artist/60200
+            - generic [ref=e2293]:
+              - img [ref=e2296]
+              - generic [ref=e2302]:
+                - heading "Test Artist 3964" [level=3] [ref=e2303]
+                - paragraph [ref=e2304]: Test artist bio for automated testing
+                - generic [ref=e2305]:
+                  - generic [ref=e2306]: $100
+                  - generic [ref=e2307]: /hour
+          - link "Test Artist 8243 Test artist bio for automated testing $100 /hour" [ref=e2308] [cursor=pointer]:
+            - /url: /artist/60199
+            - generic [ref=e2309]:
+              - img [ref=e2312]
+              - generic [ref=e2318]:
+                - heading "Test Artist 8243" [level=3] [ref=e2319]
+                - paragraph [ref=e2320]: Test artist bio for automated testing
+                - generic [ref=e2321]:
+                  - generic [ref=e2322]: $100
+                  - generic [ref=e2323]: /hour
+          - link "Test Artist 6929 Test artist bio for automated testing $100 /hour" [ref=e2324] [cursor=pointer]:
+            - /url: /artist/60198
+            - generic [ref=e2325]:
+              - img [ref=e2328]
+              - generic [ref=e2334]:
+                - heading "Test Artist 6929" [level=3] [ref=e2335]
+                - paragraph [ref=e2336]: Test artist bio for automated testing
+                - generic [ref=e2337]:
+                  - generic [ref=e2338]: $100
+                  - generic [ref=e2339]: /hour
+          - link "Test Artist 5119 Test artist bio for automated testing $100 /hour" [ref=e2340] [cursor=pointer]:
+            - /url: /artist/60197
+            - generic [ref=e2341]:
+              - img [ref=e2344]
+              - generic [ref=e2350]:
+                - heading "Test Artist 5119" [level=3] [ref=e2351]
+                - paragraph [ref=e2352]: Test artist bio for automated testing
+                - generic [ref=e2353]:
+                  - generic [ref=e2354]: $100
+                  - generic [ref=e2355]: /hour
+          - link "Test Artist 4276 Test artist bio for automated testing $100 /hour" [ref=e2356] [cursor=pointer]:
+            - /url: /artist/60196
+            - generic [ref=e2357]:
+              - img [ref=e2360]
+              - generic [ref=e2366]:
+                - heading "Test Artist 4276" [level=3] [ref=e2367]
+                - paragraph [ref=e2368]: Test artist bio for automated testing
+                - generic [ref=e2369]:
+                  - generic [ref=e2370]: $100
+                  - generic [ref=e2371]: /hour
+          - link "Test Artist 674 Test artist bio for automated testing $100 /hour" [ref=e2372] [cursor=pointer]:
+            - /url: /artist/60195
+            - generic [ref=e2373]:
+              - img [ref=e2376]
+              - generic [ref=e2382]:
+                - heading "Test Artist 674" [level=3] [ref=e2383]
+                - paragraph [ref=e2384]: Test artist bio for automated testing
+                - generic [ref=e2385]:
+                  - generic [ref=e2386]: $100
+                  - generic [ref=e2387]: /hour
+          - link "Test Artist 8436 Test artist bio for automated testing $100 /hour" [ref=e2388] [cursor=pointer]:
+            - /url: /artist/60194
+            - generic [ref=e2389]:
+              - img [ref=e2392]
+              - generic [ref=e2398]:
+                - heading "Test Artist 8436" [level=3] [ref=e2399]
+                - paragraph [ref=e2400]: Test artist bio for automated testing
+                - generic [ref=e2401]:
+                  - generic [ref=e2402]: $100
+                  - generic [ref=e2403]: /hour
+          - link "Test Artist 846 Test artist bio for automated testing $100 /hour" [ref=e2404] [cursor=pointer]:
+            - /url: /artist/60193
+            - generic [ref=e2405]:
+              - img [ref=e2408]
+              - generic [ref=e2414]:
+                - heading "Test Artist 846" [level=3] [ref=e2415]
+                - paragraph [ref=e2416]: Test artist bio for automated testing
+                - generic [ref=e2417]:
+                  - generic [ref=e2418]: $100
+                  - generic [ref=e2419]: /hour
+          - link "Test Artist 5653 Test artist bio for automated testing $100 /hour" [ref=e2420] [cursor=pointer]:
+            - /url: /artist/60192
+            - generic [ref=e2421]:
+              - img [ref=e2424]
+              - generic [ref=e2430]:
+                - heading "Test Artist 5653" [level=3] [ref=e2431]
+                - paragraph [ref=e2432]: Test artist bio for automated testing
+                - generic [ref=e2433]:
+                  - generic [ref=e2434]: $100
+                  - generic [ref=e2435]: /hour
+          - link "Test Artist 9407 Test artist bio for automated testing $100 /hour" [ref=e2436] [cursor=pointer]:
+            - /url: /artist/60191
+            - generic [ref=e2437]:
+              - img [ref=e2440]
+              - generic [ref=e2446]:
+                - heading "Test Artist 9407" [level=3] [ref=e2447]
+                - paragraph [ref=e2448]: Test artist bio for automated testing
+                - generic [ref=e2449]:
+                  - generic [ref=e2450]: $100
+                  - generic [ref=e2451]: /hour
+          - link "Test Artist 4068 Test artist bio for automated testing $100 /hour" [ref=e2452] [cursor=pointer]:
+            - /url: /artist/60190
+            - generic [ref=e2453]:
+              - img [ref=e2456]
+              - generic [ref=e2462]:
+                - heading "Test Artist 4068" [level=3] [ref=e2463]
+                - paragraph [ref=e2464]: Test artist bio for automated testing
+                - generic [ref=e2465]:
+                  - generic [ref=e2466]: $100
+                  - generic [ref=e2467]: /hour
+          - link "Multi-booking Client Test artist bio for automated testing $100 /hour" [ref=e2468] [cursor=pointer]:
+            - /url: /artist/60189
+            - generic [ref=e2469]:
+              - img [ref=e2472]
+              - generic [ref=e2478]:
+                - heading "Multi-booking Client" [level=3] [ref=e2479]
+                - paragraph [ref=e2480]: Test artist bio for automated testing
+                - generic [ref=e2481]:
+                  - generic [ref=e2482]: $100
+                  - generic [ref=e2483]: /hour
+          - link "Multi-booking Artist Test artist bio for automated testing $100 /hour" [ref=e2484] [cursor=pointer]:
+            - /url: /artist/60188
+            - generic [ref=e2485]:
+              - img [ref=e2488]
+              - generic [ref=e2494]:
+                - heading "Multi-booking Artist" [level=3] [ref=e2495]
+                - paragraph [ref=e2496]: Test artist bio for automated testing
+                - generic [ref=e2497]:
+                  - generic [ref=e2498]: $100
+                  - generic [ref=e2499]: /hour
+          - link "Test Client 10 Test artist bio for automated testing $100 /hour" [ref=e2500] [cursor=pointer]:
+            - /url: /artist/60187
+            - generic [ref=e2501]:
+              - img [ref=e2504]
+              - generic [ref=e2510]:
+                - heading "Test Client 10" [level=3] [ref=e2511]
+                - paragraph [ref=e2512]: Test artist bio for automated testing
+                - generic [ref=e2513]:
+                  - generic [ref=e2514]: $100
+                  - generic [ref=e2515]: /hour
+          - link "Test Client 9 Test artist bio for automated testing $100 /hour" [ref=e2516] [cursor=pointer]:
+            - /url: /artist/60186
+            - generic [ref=e2517]:
+              - img [ref=e2520]
+              - generic [ref=e2526]:
+                - heading "Test Client 9" [level=3] [ref=e2527]
+                - paragraph [ref=e2528]: Test artist bio for automated testing
+                - generic [ref=e2529]:
+                  - generic [ref=e2530]: $100
+                  - generic [ref=e2531]: /hour
+          - link "E2E Test Client Test artist bio for automated testing $100 /hour" [ref=e2532] [cursor=pointer]:
+            - /url: /artist/60185
+            - generic [ref=e2533]:
+              - img [ref=e2536]
+              - generic [ref=e2542]:
+                - heading "E2E Test Client" [level=3] [ref=e2543]
+                - paragraph [ref=e2544]: Test artist bio for automated testing
+                - generic [ref=e2545]:
+                  - generic [ref=e2546]: $100
+                  - generic [ref=e2547]: /hour
+          - link "Test Client 8 Test artist bio for automated testing $100 /hour" [ref=e2548] [cursor=pointer]:
+            - /url: /artist/60184
+            - generic [ref=e2549]:
+              - img [ref=e2552]
+              - generic [ref=e2558]:
+                - heading "Test Client 8" [level=3] [ref=e2559]
+                - paragraph [ref=e2560]: Test artist bio for automated testing
+                - generic [ref=e2561]:
+                  - generic [ref=e2562]: $100
+                  - generic [ref=e2563]: /hour
+          - link "E2E Test Artist Test artist bio for automated testing $100 /hour" [ref=e2564] [cursor=pointer]:
+            - /url: /artist/60183
+            - generic [ref=e2565]:
+              - img [ref=e2568]
+              - generic [ref=e2574]:
+                - heading "E2E Test Artist" [level=3] [ref=e2575]
+                - paragraph [ref=e2576]: Test artist bio for automated testing
+                - generic [ref=e2577]:
+                  - generic [ref=e2578]: $100
+                  - generic [ref=e2579]: /hour
+          - link "Test Client 7 Test artist bio for automated testing $100 /hour" [ref=e2580] [cursor=pointer]:
+            - /url: /artist/60182
+            - generic [ref=e2581]:
+              - img [ref=e2584]
+              - generic [ref=e2590]:
+                - heading "Test Client 7" [level=3] [ref=e2591]
+                - paragraph [ref=e2592]: Test artist bio for automated testing
+                - generic [ref=e2593]:
+                  - generic [ref=e2594]: $100
+                  - generic [ref=e2595]: /hour
+          - link "Calendar Test Artist Test artist bio for automated testing $100 /hour" [ref=e2596] [cursor=pointer]:
+            - /url: /artist/60167
+            - generic [ref=e2597]:
+              - img [ref=e2600]
+              - generic [ref=e2606]:
+                - heading "Calendar Test Artist" [level=3] [ref=e2607]
+                - paragraph [ref=e2608]: Test artist bio for automated testing
+                - generic [ref=e2609]:
+                  - generic [ref=e2610]: $100
+                  - generic [ref=e2611]: /hour
+          - link "Test Client 6 Test artist bio for automated testing $100 /hour" [ref=e2612] [cursor=pointer]:
+            - /url: /artist/60181
+            - generic [ref=e2613]:
+              - img [ref=e2616]
+              - generic [ref=e2622]:
+                - heading "Test Client 6" [level=3] [ref=e2623]
+                - paragraph [ref=e2624]: Test artist bio for automated testing
+                - generic [ref=e2625]:
+                  - generic [ref=e2626]: $100
+                  - generic [ref=e2627]: /hour
+          - link "Test Client 5 Test artist bio for automated testing $100 /hour" [ref=e2628] [cursor=pointer]:
+            - /url: /artist/60180
+            - generic [ref=e2629]:
+              - img [ref=e2632]
+              - generic [ref=e2638]:
+                - heading "Test Client 5" [level=3] [ref=e2639]
+                - paragraph [ref=e2640]: Test artist bio for automated testing
+                - generic [ref=e2641]:
+                  - generic [ref=e2642]: $100
+                  - generic [ref=e2643]: /hour
+          - link "Test Client 4 Test artist bio for automated testing $100 /hour" [ref=e2644] [cursor=pointer]:
+            - /url: /artist/60178
+            - generic [ref=e2645]:
+              - img [ref=e2648]
+              - generic [ref=e2654]:
+                - heading "Test Client 4" [level=3] [ref=e2655]
+                - paragraph [ref=e2656]: Test artist bio for automated testing
+                - generic [ref=e2657]:
+                  - generic [ref=e2658]: $100
+                  - generic [ref=e2659]: /hour
+          - link "Test Artist - Lifecycle Test artist bio for automated testing $100 /hour" [ref=e2660] [cursor=pointer]:
+            - /url: /artist/60177
+            - generic [ref=e2661]:
+              - img [ref=e2664]
+              - generic [ref=e2670]:
+                - heading "Test Artist - Lifecycle" [level=3] [ref=e2671]
+                - paragraph [ref=e2672]: Test artist bio for automated testing
+                - generic [ref=e2673]:
+                  - generic [ref=e2674]: $100
+                  - generic [ref=e2675]: /hour
+          - link "Test Client 3 Test artist bio for automated testing $100 /hour" [ref=e2676] [cursor=pointer]:
+            - /url: /artist/60176
+            - generic [ref=e2677]:
+              - img [ref=e2680]
+              - generic [ref=e2686]:
+                - heading "Test Client 3" [level=3] [ref=e2687]
+                - paragraph [ref=e2688]: Test artist bio for automated testing
+                - generic [ref=e2689]:
+                  - generic [ref=e2690]: $100
+                  - generic [ref=e2691]: /hour
+          - link "Test Client 2 Test artist bio for automated testing $100 /hour" [ref=e2692] [cursor=pointer]:
+            - /url: /artist/60175
+            - generic [ref=e2693]:
+              - img [ref=e2696]
+              - generic [ref=e2702]:
+                - heading "Test Client 2" [level=3] [ref=e2703]
+                - paragraph [ref=e2704]: Test artist bio for automated testing
+                - generic [ref=e2705]:
+                  - generic [ref=e2706]: $100
+                  - generic [ref=e2707]: /hour
+          - link "Test Client 1 Test artist bio for automated testing $100 /hour" [ref=e2708] [cursor=pointer]:
+            - /url: /artist/60174
+            - generic [ref=e2709]:
+              - img [ref=e2712]
+              - generic [ref=e2718]:
+                - heading "Test Client 1" [level=3] [ref=e2719]
+                - paragraph [ref=e2720]: Test artist bio for automated testing
+                - generic [ref=e2721]:
+                  - generic [ref=e2722]: $100
+                  - generic [ref=e2723]: /hour
+          - link "Pacific Artist Test artist bio for automated testing $100 /hour" [ref=e2724] [cursor=pointer]:
+            - /url: /artist/60173
+            - generic [ref=e2725]:
+              - img [ref=e2728]
+              - generic [ref=e2734]:
+                - heading "Pacific Artist" [level=3] [ref=e2735]
+                - paragraph [ref=e2736]: Test artist bio for automated testing
+                - generic [ref=e2737]:
+                  - generic [ref=e2738]: $100
+                  - generic [ref=e2739]: /hour
+          - link "Test Artist - Race Conditions Test artist bio for automated testing $100 /hour" [ref=e2740] [cursor=pointer]:
+            - /url: /artist/60172
+            - generic [ref=e2741]:
+              - img [ref=e2744]
+              - generic [ref=e2750]:
+                - heading "Test Artist - Race Conditions" [level=3] [ref=e2751]
+                - paragraph [ref=e2752]: Test artist bio for automated testing
+                - generic [ref=e2753]:
+                  - generic [ref=e2754]: $100
+                  - generic [ref=e2755]: /hour
+          - link "Test Client - Availability Test artist bio for automated testing $100 /hour" [ref=e2756] [cursor=pointer]:
+            - /url: /artist/60170
+            - generic [ref=e2757]:
+              - img [ref=e2760]
+              - generic [ref=e2766]:
+                - heading "Test Client - Availability" [level=3] [ref=e2767]
+                - paragraph [ref=e2768]: Test artist bio for automated testing
+                - generic [ref=e2769]:
+                  - generic [ref=e2770]: $100
+                  - generic [ref=e2771]: /hour
+          - link "Test Artist - Double Booking Test artist bio for automated testing $100 /hour" [ref=e2772] [cursor=pointer]:
+            - /url: /artist/60169
+            - generic [ref=e2773]:
+              - img [ref=e2776]
+              - generic [ref=e2782]:
+                - heading "Test Artist - Double Booking" [level=3] [ref=e2783]
+                - paragraph [ref=e2784]: Test artist bio for automated testing
+                - generic [ref=e2785]:
+                  - generic [ref=e2786]: $100
+                  - generic [ref=e2787]: /hour
+          - link "Test Artist - Availability Test artist bio for automated testing $100 /hour" [ref=e2788] [cursor=pointer]:
+            - /url: /artist/60168
+            - generic [ref=e2789]:
+              - img [ref=e2792]
+              - generic [ref=e2798]:
+                - heading "Test Artist - Availability" [level=3] [ref=e2799]
+                - paragraph [ref=e2800]: Test artist bio for automated testing
+                - generic [ref=e2801]:
+                  - generic [ref=e2802]: $100
+                  - generic [ref=e2803]: /hour
+          - link "Test Artist - Availability Test artist bio for automated testing $100 /hour" [ref=e2804] [cursor=pointer]:
+            - /url: /artist/60145
+            - generic [ref=e2805]:
+              - img [ref=e2808]
+              - generic [ref=e2814]:
+                - heading "Test Artist - Availability" [level=3] [ref=e2815]
+                - paragraph [ref=e2816]: Test artist bio for automated testing
+                - generic [ref=e2817]:
+                  - generic [ref=e2818]: $100
+                  - generic [ref=e2819]: /hour
+          - link "Test Client 8 Test artist bio for automated testing $100 /hour" [ref=e2820] [cursor=pointer]:
+            - /url: /artist/60160
+            - generic [ref=e2821]:
+              - img [ref=e2824]
+              - generic [ref=e2830]:
+                - heading "Test Client 8" [level=3] [ref=e2831]
+                - paragraph [ref=e2832]: Test artist bio for automated testing
+                - generic [ref=e2833]:
+                  - generic [ref=e2834]: $100
+                  - generic [ref=e2835]: /hour
+          - link "Calendar Test Artist Test artist bio for automated testing $100 /hour" [ref=e2836] [cursor=pointer]:
+            - /url: /artist/60146
+            - generic [ref=e2837]:
+              - img [ref=e2840]
+              - generic [ref=e2846]:
+                - heading "Calendar Test Artist" [level=3] [ref=e2847]
+                - paragraph [ref=e2848]: Test artist bio for automated testing
+                - generic [ref=e2849]:
+                  - generic [ref=e2850]: $100
+                  - generic [ref=e2851]: /hour
+          - link "Test Client 2 Test artist bio for automated testing $100 /hour" [ref=e2852] [cursor=pointer]:
+            - /url: /artist/60147
+            - generic [ref=e2853]:
+              - img [ref=e2856]
+              - generic [ref=e2862]:
+                - heading "Test Client 2" [level=3] [ref=e2863]
+                - paragraph [ref=e2864]: Test artist bio for automated testing
+                - generic [ref=e2865]:
+                  - generic [ref=e2866]: $100
+                  - generic [ref=e2867]: /hour
+          - link "Multi-booking Client Test artist bio for automated testing $100 /hour" [ref=e2868] [cursor=pointer]:
+            - /url: /artist/60166
+            - generic [ref=e2869]:
+              - img [ref=e2872]
+              - generic [ref=e2878]:
+                - heading "Multi-booking Client" [level=3] [ref=e2879]
+                - paragraph [ref=e2880]: Test artist bio for automated testing
+                - generic [ref=e2881]:
+                  - generic [ref=e2882]: $100
+                  - generic [ref=e2883]: /hour
+          - link "Multi-booking Artist Test artist bio for automated testing $100 /hour" [ref=e2884] [cursor=pointer]:
+            - /url: /artist/60165
+            - generic [ref=e2885]:
+              - img [ref=e2888]
+              - generic [ref=e2894]:
+                - heading "Multi-booking Artist" [level=3] [ref=e2895]
+                - paragraph [ref=e2896]: Test artist bio for automated testing
+                - generic [ref=e2897]:
+                  - generic [ref=e2898]: $100
+                  - generic [ref=e2899]: /hour
+          - link "E2E Test Client Test artist bio for automated testing $100 /hour" [ref=e2900] [cursor=pointer]:
+            - /url: /artist/60164
+            - generic [ref=e2901]:
+              - img [ref=e2904]
+              - generic [ref=e2910]:
+                - heading "E2E Test Client" [level=3] [ref=e2911]
+                - paragraph [ref=e2912]: Test artist bio for automated testing
+                - generic [ref=e2913]:
+                  - generic [ref=e2914]: $100
+                  - generic [ref=e2915]: /hour
+          - link "E2E Test Artist Test artist bio for automated testing $100 /hour" [ref=e2916] [cursor=pointer]:
+            - /url: /artist/60163
+            - generic [ref=e2917]:
+              - img [ref=e2920]
+              - generic [ref=e2926]:
+                - heading "E2E Test Artist" [level=3] [ref=e2927]
+                - paragraph [ref=e2928]: Test artist bio for automated testing
+                - generic [ref=e2929]:
+                  - generic [ref=e2930]: $100
+                  - generic [ref=e2931]: /hour
+          - link "Test Client 10 Test artist bio for automated testing $100 /hour" [ref=e2932] [cursor=pointer]:
+            - /url: /artist/60162
+            - generic [ref=e2933]:
+              - img [ref=e2936]
+              - generic [ref=e2942]:
+                - heading "Test Client 10" [level=3] [ref=e2943]
+                - paragraph [ref=e2944]: Test artist bio for automated testing
+                - generic [ref=e2945]:
+                  - generic [ref=e2946]: $100
+                  - generic [ref=e2947]: /hour
+          - link "Test Client 9 Test artist bio for automated testing $100 /hour" [ref=e2948] [cursor=pointer]:
+            - /url: /artist/60161
+            - generic [ref=e2949]:
+              - img [ref=e2952]
+              - generic [ref=e2958]:
+                - heading "Test Client 9" [level=3] [ref=e2959]
+                - paragraph [ref=e2960]: Test artist bio for automated testing
+                - generic [ref=e2961]:
+                  - generic [ref=e2962]: $100
+                  - generic [ref=e2963]: /hour
+          - link "Test Client 1 Test artist bio for automated testing $100 /hour" [ref=e2964] [cursor=pointer]:
+            - /url: /artist/60144
+            - generic [ref=e2965]:
+              - img [ref=e2968]
+              - generic [ref=e2974]:
+                - heading "Test Client 1" [level=3] [ref=e2975]
+                - paragraph [ref=e2976]: Test artist bio for automated testing
+                - generic [ref=e2977]:
+                  - generic [ref=e2978]: $100
+                  - generic [ref=e2979]: /hour
+          - link "Test Client 7 Test artist bio for automated testing $100 /hour" [ref=e2980] [cursor=pointer]:
+            - /url: /artist/60159
+            - generic [ref=e2981]:
+              - img [ref=e2984]
+              - generic [ref=e2990]:
+                - heading "Test Client 7" [level=3] [ref=e2991]
+                - paragraph [ref=e2992]: Test artist bio for automated testing
+                - generic [ref=e2993]:
+                  - generic [ref=e2994]: $100
+                  - generic [ref=e2995]: /hour
+          - link "Test Client 6 Test artist bio for automated testing $100 /hour" [ref=e2996] [cursor=pointer]:
+            - /url: /artist/60158
+            - generic [ref=e2997]:
+              - img [ref=e3000]
+              - generic [ref=e3006]:
+                - heading "Test Client 6" [level=3] [ref=e3007]
+                - paragraph [ref=e3008]: Test artist bio for automated testing
+                - generic [ref=e3009]:
+                  - generic [ref=e3010]: $100
+                  - generic [ref=e3011]: /hour
+          - link "Test Client 5 Test artist bio for automated testing $100 /hour" [ref=e3012] [cursor=pointer]:
+            - /url: /artist/60157
+            - generic [ref=e3013]:
+              - img [ref=e3016]
+              - generic [ref=e3022]:
+                - heading "Test Client 5" [level=3] [ref=e3023]
+                - paragraph [ref=e3024]: Test artist bio for automated testing
+                - generic [ref=e3025]:
+                  - generic [ref=e3026]: $100
+                  - generic [ref=e3027]: /hour
+          - link "Test Client 4 Test artist bio for automated testing $100 /hour" [ref=e3028] [cursor=pointer]:
+            - /url: /artist/60156
+            - generic [ref=e3029]:
+              - img [ref=e3032]
+              - generic [ref=e3038]:
+                - heading "Test Client 4" [level=3] [ref=e3039]
+                - paragraph [ref=e3040]: Test artist bio for automated testing
+                - generic [ref=e3041]:
+                  - generic [ref=e3042]: $100
+                  - generic [ref=e3043]: /hour
+          - link "Test Client 3 Test artist bio for automated testing $100 /hour" [ref=e3044] [cursor=pointer]:
+            - /url: /artist/60155
+            - generic [ref=e3045]:
+              - img [ref=e3048]
+              - generic [ref=e3054]:
+                - heading "Test Client 3" [level=3] [ref=e3055]
+                - paragraph [ref=e3056]: Test artist bio for automated testing
+                - generic [ref=e3057]:
+                  - generic [ref=e3058]: $100
+                  - generic [ref=e3059]: /hour
+          - link "Test Client - Lifecycle Test artist bio for automated testing $100 /hour" [ref=e3060] [cursor=pointer]:
+            - /url: /artist/60154
+            - generic [ref=e3061]:
+              - img [ref=e3064]
+              - generic [ref=e3070]:
+                - heading "Test Client - Lifecycle" [level=3] [ref=e3071]
+                - paragraph [ref=e3072]: Test artist bio for automated testing
+                - generic [ref=e3073]:
+                  - generic [ref=e3074]: $100
+                  - generic [ref=e3075]: /hour
+          - link "Test Client 2 Test artist bio for automated testing $100 /hour" [ref=e3076] [cursor=pointer]:
+            - /url: /artist/60153
+            - generic [ref=e3077]:
+              - img [ref=e3080]
+              - generic [ref=e3086]:
+                - heading "Test Client 2" [level=3] [ref=e3087]
+                - paragraph [ref=e3088]: Test artist bio for automated testing
+                - generic [ref=e3089]:
+                  - generic [ref=e3090]: $100
+                  - generic [ref=e3091]: /hour
+          - link "Test Artist - Lifecycle Test artist bio for automated testing $100 /hour" [ref=e3092] [cursor=pointer]:
+            - /url: /artist/60152
+            - generic [ref=e3093]:
+              - img [ref=e3096]
+              - generic [ref=e3102]:
+                - heading "Test Artist - Lifecycle" [level=3] [ref=e3103]
+                - paragraph [ref=e3104]: Test artist bio for automated testing
+                - generic [ref=e3105]:
+                  - generic [ref=e3106]: $100
+                  - generic [ref=e3107]: /hour
+          - link "Test Client - Availability Test artist bio for automated testing $100 /hour" [ref=e3108] [cursor=pointer]:
+            - /url: /artist/60148
+            - generic [ref=e3109]:
+              - img [ref=e3112]
+              - generic [ref=e3118]:
+                - heading "Test Client - Availability" [level=3] [ref=e3119]
+                - paragraph [ref=e3120]: Test artist bio for automated testing
+                - generic [ref=e3121]:
+                  - generic [ref=e3122]: $100
+                  - generic [ref=e3123]: /hour
+          - link "Pacific Artist Test artist bio for automated testing $100 /hour" [ref=e3124] [cursor=pointer]:
+            - /url: /artist/60149
+            - generic [ref=e3125]:
+              - img [ref=e3128]
+              - generic [ref=e3134]:
+                - heading "Pacific Artist" [level=3] [ref=e3135]
+                - paragraph [ref=e3136]: Test artist bio for automated testing
+                - generic [ref=e3137]:
+                  - generic [ref=e3138]: $100
+                  - generic [ref=e3139]: /hour
+          - link "Test Artist - Race Conditions Test artist bio for automated testing $100 /hour" [ref=e3140] [cursor=pointer]:
+            - /url: /artist/60150
+            - generic [ref=e3141]:
+              - img [ref=e3144]
+              - generic [ref=e3150]:
+                - heading "Test Artist - Race Conditions" [level=3] [ref=e3151]
+                - paragraph [ref=e3152]: Test artist bio for automated testing
+                - generic [ref=e3153]:
+                  - generic [ref=e3154]: $100
+                  - generic [ref=e3155]: /hour
+          - link "Test Client 1 Test artist bio for automated testing $100 /hour" [ref=e3156] [cursor=pointer]:
+            - /url: /artist/60151
+            - generic [ref=e3157]:
+              - img [ref=e3160]
+              - generic [ref=e3166]:
+                - heading "Test Client 1" [level=3] [ref=e3167]
+                - paragraph [ref=e3168]: Test artist bio for automated testing
+                - generic [ref=e3169]:
+                  - generic [ref=e3170]: $100
+                  - generic [ref=e3171]: /hour
+          - link "Test Artist - Double Booking Test artist bio for automated testing $100 /hour" [ref=e3172] [cursor=pointer]:
+            - /url: /artist/60143
+            - generic [ref=e3173]:
+              - img [ref=e3176]
+              - generic [ref=e3182]:
+                - heading "Test Artist - Double Booking" [level=3] [ref=e3183]
+                - paragraph [ref=e3184]: Test artist bio for automated testing
+                - generic [ref=e3185]:
+                  - generic [ref=e3186]: $100
+                  - generic [ref=e3187]: /hour
+          - link "Pacific Artist Test artist bio for automated testing $100 /hour" [ref=e3188] [cursor=pointer]:
+            - /url: /artist/60130
+            - generic [ref=e3189]:
+              - img [ref=e3192]
+              - generic [ref=e3198]:
+                - heading "Pacific Artist" [level=3] [ref=e3199]
+                - paragraph [ref=e3200]: Test artist bio for automated testing
+                - generic [ref=e3201]:
+                  - generic [ref=e3202]: $100
+                  - generic [ref=e3203]: /hour
+          - link "E2E Test Artist Test artist bio for automated testing $100 /hour" [ref=e3204] [cursor=pointer]:
+            - /url: /artist/60139
+            - generic [ref=e3205]:
+              - img [ref=e3208]
+              - generic [ref=e3214]:
+                - heading "E2E Test Artist" [level=3] [ref=e3215]
+                - paragraph [ref=e3216]: Test artist bio for automated testing
+                - generic [ref=e3217]:
+                  - generic [ref=e3218]: $100
+                  - generic [ref=e3219]: /hour
+          - link "Test Client 4 Test artist bio for automated testing $100 /hour" [ref=e3220] [cursor=pointer]:
+            - /url: /artist/60137
+            - generic [ref=e3221]:
+              - img [ref=e3224]
+              - generic [ref=e3230]:
+                - heading "Test Client 4" [level=3] [ref=e3231]
+                - paragraph [ref=e3232]: Test artist bio for automated testing
+                - generic [ref=e3233]:
+                  - generic [ref=e3234]: $100
+                  - generic [ref=e3235]: /hour
+          - link "Test Client 3 Test artist bio for automated testing $100 /hour" [ref=e3236] [cursor=pointer]:
+            - /url: /artist/60136
+            - generic [ref=e3237]:
+              - img [ref=e3240]
+              - generic [ref=e3246]:
+                - heading "Test Client 3" [level=3] [ref=e3247]
+                - paragraph [ref=e3248]: Test artist bio for automated testing
+                - generic [ref=e3249]:
+                  - generic [ref=e3250]: $100
+                  - generic [ref=e3251]: /hour
+          - link "Test Client 2 Test artist bio for automated testing $100 /hour" [ref=e3252] [cursor=pointer]:
+            - /url: /artist/60135
+            - generic [ref=e3253]:
+              - img [ref=e3256]
+              - generic [ref=e3262]:
+                - heading "Test Client 2" [level=3] [ref=e3263]
+                - paragraph [ref=e3264]: Test artist bio for automated testing
+                - generic [ref=e3265]:
+                  - generic [ref=e3266]: $100
+                  - generic [ref=e3267]: /hour
+          - link "Test Client 1 Test artist bio for automated testing $100 /hour" [ref=e3268] [cursor=pointer]:
+            - /url: /artist/60134
+            - generic [ref=e3269]:
+              - img [ref=e3272]
+              - generic [ref=e3278]:
+                - heading "Test Client 1" [level=3] [ref=e3279]
+                - paragraph [ref=e3280]: Test artist bio for automated testing
+                - generic [ref=e3281]:
+                  - generic [ref=e3282]: $100
+                  - generic [ref=e3283]: /hour
+          - link "Test Client - Lifecycle Test artist bio for automated testing $100 /hour" [ref=e3284] [cursor=pointer]:
+            - /url: /artist/60133
+            - generic [ref=e3285]:
+              - img [ref=e3288]
+              - generic [ref=e3294]:
+                - heading "Test Client - Lifecycle" [level=3] [ref=e3295]
+                - paragraph [ref=e3296]: Test artist bio for automated testing
+                - generic [ref=e3297]:
+                  - generic [ref=e3298]: $100
+                  - generic [ref=e3299]: /hour
+          - link "Test Artist - Race Conditions Test artist bio for automated testing $100 /hour" [ref=e3300] [cursor=pointer]:
+            - /url: /artist/60132
+            - generic [ref=e3301]:
+              - img [ref=e3304]
+              - generic [ref=e3310]:
+                - heading "Test Artist - Race Conditions" [level=3] [ref=e3311]
+                - paragraph [ref=e3312]: Test artist bio for automated testing
+                - generic [ref=e3313]:
+                  - generic [ref=e3314]: $100
+                  - generic [ref=e3315]: /hour
+          - link "Multi-booking Artist Test artist bio for automated testing $100 /hour" [ref=e3316] [cursor=pointer]:
+            - /url: /artist/60141
+            - generic [ref=e3317]:
+              - img [ref=e3320]
+              - generic [ref=e3326]:
+                - heading "Multi-booking Artist" [level=3] [ref=e3327]
+                - paragraph [ref=e3328]: Test artist bio for automated testing
+                - generic [ref=e3329]:
+                  - generic [ref=e3330]: $100
+                  - generic [ref=e3331]: /hour
+          - link "Test Artist - Lifecycle Test artist bio for automated testing $100 /hour" [ref=e3332] [cursor=pointer]:
+            - /url: /artist/60131
+            - generic [ref=e3333]:
+              - img [ref=e3336]
+              - generic [ref=e3342]:
+                - heading "Test Artist - Lifecycle" [level=3] [ref=e3343]
+                - paragraph [ref=e3344]: Test artist bio for automated testing
+                - generic [ref=e3345]:
+                  - generic [ref=e3346]: $100
+                  - generic [ref=e3347]: /hour
+          - link "Test Client - Availability Test artist bio for automated testing $100 /hour" [ref=e3348] [cursor=pointer]:
+            - /url: /artist/60127
+            - generic [ref=e3349]:
+              - img [ref=e3352]
+              - generic [ref=e3358]:
+                - heading "Test Client - Availability" [level=3] [ref=e3359]
+                - paragraph [ref=e3360]: Test artist bio for automated testing
+                - generic [ref=e3361]:
+                  - generic [ref=e3362]: $100
+                  - generic [ref=e3363]: /hour
+          - link "Test Client 1 Test artist bio for automated testing $100 /hour" [ref=e3364] [cursor=pointer]:
+            - /url: /artist/60128
+            - generic [ref=e3365]:
+              - img [ref=e3368]
+              - generic [ref=e3374]:
+                - heading "Test Client 1" [level=3] [ref=e3375]
+                - paragraph [ref=e3376]: Test artist bio for automated testing
+                - generic [ref=e3377]:
+                  - generic [ref=e3378]: $100
+                  - generic [ref=e3379]: /hour
+          - link "Test Client 2 Test artist bio for automated testing $100 /hour" [ref=e3380] [cursor=pointer]:
+            - /url: /artist/60129
+            - generic [ref=e3381]:
+              - img [ref=e3384]
+              - generic [ref=e3390]:
+                - heading "Test Client 2" [level=3] [ref=e3391]
+                - paragraph [ref=e3392]: Test artist bio for automated testing
+                - generic [ref=e3393]:
+                  - generic [ref=e3394]: $100
+                  - generic [ref=e3395]: /hour
+          - link "E2E Test Client Test artist bio for automated testing $100 /hour" [ref=e3396] [cursor=pointer]:
+            - /url: /artist/60140
+            - generic [ref=e3397]:
+              - img [ref=e3400]
+              - generic [ref=e3406]:
+                - heading "E2E Test Client" [level=3] [ref=e3407]
+                - paragraph [ref=e3408]: Test artist bio for automated testing
+                - generic [ref=e3409]:
+                  - generic [ref=e3410]: $100
+                  - generic [ref=e3411]: /hour
+          - link "Multi-booking Client Test artist bio for automated testing $100 /hour" [ref=e3412] [cursor=pointer]:
+            - /url: /artist/60142
+            - generic [ref=e3413]:
+              - img [ref=e3416]
+              - generic [ref=e3422]:
+                - heading "Multi-booking Client" [level=3] [ref=e3423]
+                - paragraph [ref=e3424]: Test artist bio for automated testing
+                - generic [ref=e3425]:
+                  - generic [ref=e3426]: $100
+                  - generic [ref=e3427]: /hour
+          - link "Test Artist - Double Booking Test artist bio for automated testing $100 /hour" [ref=e3428] [cursor=pointer]:
+            - /url: /artist/60126
+            - generic [ref=e3429]:
+              - img [ref=e3432]
+              - generic [ref=e3438]:
+                - heading "Test Artist - Double Booking" [level=3] [ref=e3439]
+                - paragraph [ref=e3440]: Test artist bio for automated testing
+                - generic [ref=e3441]:
+                  - generic [ref=e3442]: $100
+                  - generic [ref=e3443]: /hour
+          - link "Test Artist - Availability Test artist bio for automated testing $100 /hour" [ref=e3444] [cursor=pointer]:
+            - /url: /artist/60125
+            - generic [ref=e3445]:
+              - img [ref=e3448]
+              - generic [ref=e3454]:
+                - heading "Test Artist - Availability" [level=3] [ref=e3455]
+                - paragraph [ref=e3456]: Test artist bio for automated testing
+                - generic [ref=e3457]:
+                  - generic [ref=e3458]: $100
+                  - generic [ref=e3459]: /hour
+          - link "Calendar Test Artist Test artist bio for automated testing $100 /hour" [ref=e3460] [cursor=pointer]:
+            - /url: /artist/60124
+            - generic [ref=e3461]:
+              - img [ref=e3464]
+              - generic [ref=e3470]:
+                - heading "Calendar Test Artist" [level=3] [ref=e3471]
+                - paragraph [ref=e3472]: Test artist bio for automated testing
+                - generic [ref=e3473]:
+                  - generic [ref=e3474]: $100
+                  - generic [ref=e3475]: /hour
+          - link "Multi-booking Client Test artist bio for automated testing $100 /hour" [ref=e3476] [cursor=pointer]:
+            - /url: /artist/60123
+            - generic [ref=e3477]:
+              - img [ref=e3480]
+              - generic [ref=e3486]:
+                - heading "Multi-booking Client" [level=3] [ref=e3487]
+                - paragraph [ref=e3488]: Test artist bio for automated testing
+                - generic [ref=e3489]:
+                  - generic [ref=e3490]: $100
+                  - generic [ref=e3491]: /hour
+          - link "Multi-booking Artist Test artist bio for automated testing $100 /hour" [ref=e3492] [cursor=pointer]:
+            - /url: /artist/60122
+            - generic [ref=e3493]:
+              - img [ref=e3496]
+              - generic [ref=e3502]:
+                - heading "Multi-booking Artist" [level=3] [ref=e3503]
+                - paragraph [ref=e3504]: Test artist bio for automated testing
+                - generic [ref=e3505]:
+                  - generic [ref=e3506]: $100
+                  - generic [ref=e3507]: /hour
+          - link "Test Client - Availability Test artist bio for automated testing $100 /hour" [ref=e3508] [cursor=pointer]:
+            - /url: /artist/60116
+            - generic [ref=e3509]:
+              - img [ref=e3512]
+              - generic [ref=e3518]:
+                - heading "Test Client - Availability" [level=3] [ref=e3519]
+                - paragraph [ref=e3520]: Test artist bio for automated testing
+                - generic [ref=e3521]:
+                  - generic [ref=e3522]: $100
+                  - generic [ref=e3523]: /hour
+          - link "E2E Test Artist Test artist bio for automated testing $100 /hour" [ref=e3524] [cursor=pointer]:
+            - /url: /artist/60120
+            - generic [ref=e3525]:
+              - img [ref=e3528]
+              - generic [ref=e3534]:
+                - heading "E2E Test Artist" [level=3] [ref=e3535]
+                - paragraph [ref=e3536]: Test artist bio for automated testing
+                - generic [ref=e3537]:
+                  - generic [ref=e3538]: $100
+                  - generic [ref=e3539]: /hour
+          - link "Test Client - Lifecycle Test artist bio for automated testing $100 /hour" [ref=e3540] [cursor=pointer]:
+            - /url: /artist/60119
+            - generic [ref=e3541]:
+              - img [ref=e3544]
+              - generic [ref=e3550]:
+                - heading "Test Client - Lifecycle" [level=3] [ref=e3551]
+                - paragraph [ref=e3552]: Test artist bio for automated testing
+                - generic [ref=e3553]:
+                  - generic [ref=e3554]: $100
+                  - generic [ref=e3555]: /hour
+          - link "Test Artist - Lifecycle Test artist bio for automated testing $100 /hour" [ref=e3556] [cursor=pointer]:
+            - /url: /artist/60118
+            - generic [ref=e3557]:
+              - img [ref=e3560]
+              - generic [ref=e3566]:
+                - heading "Test Artist - Lifecycle" [level=3] [ref=e3567]
+                - paragraph [ref=e3568]: Test artist bio for automated testing
+                - generic [ref=e3569]:
+                  - generic [ref=e3570]: $100
+                  - generic [ref=e3571]: /hour
+          - link "Pacific Artist Test artist bio for automated testing $100 /hour" [ref=e3572] [cursor=pointer]:
+            - /url: /artist/60117
+            - generic [ref=e3573]:
+              - img [ref=e3576]
+              - generic [ref=e3582]:
+                - heading "Pacific Artist" [level=3] [ref=e3583]
+                - paragraph [ref=e3584]: Test artist bio for automated testing
+                - generic [ref=e3585]:
+                  - generic [ref=e3586]: $100
+                  - generic [ref=e3587]: /hour
+          - link "E2E Test Client Test artist bio for automated testing $100 /hour" [ref=e3588] [cursor=pointer]:
+            - /url: /artist/60121
+            - generic [ref=e3589]:
+              - img [ref=e3592]
+              - generic [ref=e3598]:
+                - heading "E2E Test Client" [level=3] [ref=e3599]
+                - paragraph [ref=e3600]: Test artist bio for automated testing
+                - generic [ref=e3601]:
+                  - generic [ref=e3602]: $100
+                  - generic [ref=e3603]: /hour
+          - link "Test Artist - Availability Test artist bio for automated testing $100 /hour" [ref=e3604] [cursor=pointer]:
+            - /url: /artist/60115
+            - generic [ref=e3605]:
+              - img [ref=e3608]
+              - generic [ref=e3614]:
+                - heading "Test Artist - Availability" [level=3] [ref=e3615]
+                - paragraph [ref=e3616]: Test artist bio for automated testing
+                - generic [ref=e3617]:
+                  - generic [ref=e3618]: $100
+                  - generic [ref=e3619]: /hour
+          - link "Multi-booking Client Test artist bio for automated testing $100 /hour" [ref=e3620] [cursor=pointer]:
+            - /url: /artist/60114
+            - generic [ref=e3621]:
+              - img [ref=e3624]
+              - generic [ref=e3630]:
+                - heading "Multi-booking Client" [level=3] [ref=e3631]
+                - paragraph [ref=e3632]: Test artist bio for automated testing
+                - generic [ref=e3633]:
+                  - generic [ref=e3634]: $100
+                  - generic [ref=e3635]: /hour
+          - link "Multi-booking Artist Test artist bio for automated testing $100 /hour" [ref=e3636] [cursor=pointer]:
+            - /url: /artist/60113
+            - generic [ref=e3637]:
+              - img [ref=e3640]
+              - generic [ref=e3646]:
+                - heading "Multi-booking Artist" [level=3] [ref=e3647]
+                - paragraph [ref=e3648]: Test artist bio for automated testing
+                - generic [ref=e3649]:
+                  - generic [ref=e3650]: $100
+                  - generic [ref=e3651]: /hour
+          - link "E2E Test Client Test artist bio for automated testing $100 /hour" [ref=e3652] [cursor=pointer]:
+            - /url: /artist/60112
+            - generic [ref=e3653]:
+              - img [ref=e3656]
+              - generic [ref=e3662]:
+                - heading "E2E Test Client" [level=3] [ref=e3663]
+                - paragraph [ref=e3664]: Test artist bio for automated testing
+                - generic [ref=e3665]:
+                  - generic [ref=e3666]: $100
+                  - generic [ref=e3667]: /hour
+          - link "E2E Test Artist Test artist bio for automated testing $100 /hour" [ref=e3668] [cursor=pointer]:
+            - /url: /artist/60111
+            - generic [ref=e3669]:
+              - img [ref=e3672]
+              - generic [ref=e3678]:
+                - heading "E2E Test Artist" [level=3] [ref=e3679]
+                - paragraph [ref=e3680]: Test artist bio for automated testing
+                - generic [ref=e3681]:
+                  - generic [ref=e3682]: $100
+                  - generic [ref=e3683]: /hour
+          - link "Test Client - Lifecycle Test artist bio for automated testing $100 /hour" [ref=e3684] [cursor=pointer]:
+            - /url: /artist/60110
+            - generic [ref=e3685]:
+              - img [ref=e3688]
+              - generic [ref=e3694]:
+                - heading "Test Client - Lifecycle" [level=3] [ref=e3695]
+                - paragraph [ref=e3696]: Test artist bio for automated testing
+                - generic [ref=e3697]:
+                  - generic [ref=e3698]: $100
+                  - generic [ref=e3699]: /hour
+          - link "Test Artist - Lifecycle Test artist bio for automated testing $100 /hour" [ref=e3700] [cursor=pointer]:
+            - /url: /artist/60109
+            - generic [ref=e3701]:
+              - img [ref=e3704]
+              - generic [ref=e3710]:
+                - heading "Test Artist - Lifecycle" [level=3] [ref=e3711]
+                - paragraph [ref=e3712]: Test artist bio for automated testing
+                - generic [ref=e3713]:
+                  - generic [ref=e3714]: $100
+                  - generic [ref=e3715]: /hour
+          - link "Pacific Artist Test artist bio for automated testing $100 /hour" [ref=e3716] [cursor=pointer]:
+            - /url: /artist/60108
+            - generic [ref=e3717]:
+              - img [ref=e3720]
+              - generic [ref=e3726]:
+                - heading "Pacific Artist" [level=3] [ref=e3727]
+                - paragraph [ref=e3728]: Test artist bio for automated testing
+                - generic [ref=e3729]:
+                  - generic [ref=e3730]: $100
+                  - generic [ref=e3731]: /hour
+          - link "Test Client - Availability Test artist bio for automated testing $100 /hour" [ref=e3732] [cursor=pointer]:
+            - /url: /artist/60107
+            - generic [ref=e3733]:
+              - img [ref=e3736]
+              - generic [ref=e3742]:
+                - heading "Test Client - Availability" [level=3] [ref=e3743]
+                - paragraph [ref=e3744]: Test artist bio for automated testing
+                - generic [ref=e3745]:
+                  - generic [ref=e3746]: $100
+                  - generic [ref=e3747]: /hour
+          - link "Test Artist - Availability Test artist bio for automated testing $100 /hour" [ref=e3748] [cursor=pointer]:
+            - /url: /artist/60106
+            - generic [ref=e3749]:
+              - img [ref=e3752]
+              - generic [ref=e3758]:
+                - heading "Test Artist - Availability" [level=3] [ref=e3759]
+                - paragraph [ref=e3760]: Test artist bio for automated testing
+                - generic [ref=e3761]:
+                  - generic [ref=e3762]: $100
+                  - generic [ref=e3763]: /hour
+          - link "Test Client 3 Test artist bio for automated testing $100 /hour" [ref=e3764] [cursor=pointer]:
+            - /url: /artist/60093
+            - generic [ref=e3765]:
+              - img [ref=e3768]
+              - generic [ref=e3774]:
+                - heading "Test Client 3" [level=3] [ref=e3775]
+                - paragraph [ref=e3776]: Test artist bio for automated testing
+                - generic [ref=e3777]:
+                  - generic [ref=e3778]: $100
+                  - generic [ref=e3779]: /hour
+          - link "Test Client 2 Test artist bio for automated testing $100 /hour" [ref=e3780] [cursor=pointer]:
+            - /url: /artist/60085
+            - generic [ref=e3781]:
+              - img [ref=e3784]
+              - generic [ref=e3790]:
+                - heading "Test Client 2" [level=3] [ref=e3791]
+                - paragraph [ref=e3792]: Test artist bio for automated testing
+                - generic [ref=e3793]:
+                  - generic [ref=e3794]: $100
+                  - generic [ref=e3795]: /hour
+          - link "Test Client 10 Test artist bio for automated testing $100 /hour" [ref=e3796] [cursor=pointer]:
+            - /url: /artist/60102
+            - generic [ref=e3797]:
+              - img [ref=e3800]
+              - generic [ref=e3806]:
+                - heading "Test Client 10" [level=3] [ref=e3807]
+                - paragraph [ref=e3808]: Test artist bio for automated testing
+                - generic [ref=e3809]:
+                  - generic [ref=e3810]: $100
+                  - generic [ref=e3811]: /hour
+          - link "Test Client 9 Test artist bio for automated testing $100 /hour" [ref=e3812] [cursor=pointer]:
+            - /url: /artist/60101
+            - generic [ref=e3813]:
+              - img [ref=e3816]
+              - generic [ref=e3822]:
+                - heading "Test Client 9" [level=3] [ref=e3823]
+                - paragraph [ref=e3824]: Test artist bio for automated testing
+                - generic [ref=e3825]:
+                  - generic [ref=e3826]: $100
+                  - generic [ref=e3827]: /hour
+          - link "Test Client 8 Test artist bio for automated testing $100 /hour" [ref=e3828] [cursor=pointer]:
+            - /url: /artist/60100
+            - generic [ref=e3829]:
+              - img [ref=e3832]
+              - generic [ref=e3838]:
+                - heading "Test Client 8" [level=3] [ref=e3839]
+                - paragraph [ref=e3840]: Test artist bio for automated testing
+                - generic [ref=e3841]:
+                  - generic [ref=e3842]: $100
+                  - generic [ref=e3843]: /hour
+          - link "Test Client 7 Test artist bio for automated testing $100 /hour" [ref=e3844] [cursor=pointer]:
+            - /url: /artist/60099
+            - generic [ref=e3845]:
+              - img [ref=e3848]
+              - generic [ref=e3854]:
+                - heading "Test Client 7" [level=3] [ref=e3855]
+                - paragraph [ref=e3856]: Test artist bio for automated testing
+                - generic [ref=e3857]:
+                  - generic [ref=e3858]: $100
+                  - generic [ref=e3859]: /hour
+          - link "Test Client 6 Test artist bio for automated testing $100 /hour" [ref=e3860] [cursor=pointer]:
+            - /url: /artist/60098
+            - generic [ref=e3861]:
+              - img [ref=e3864]
+              - generic [ref=e3870]:
+                - heading "Test Client 6" [level=3] [ref=e3871]
+                - paragraph [ref=e3872]: Test artist bio for automated testing
+                - generic [ref=e3873]:
+                  - generic [ref=e3874]: $100
+                  - generic [ref=e3875]: /hour
+          - link "Test Client 5 Test artist bio for automated testing $100 /hour" [ref=e3876] [cursor=pointer]:
+            - /url: /artist/60097
+            - generic [ref=e3877]:
+              - img [ref=e3880]
+              - generic [ref=e3886]:
+                - heading "Test Client 5" [level=3] [ref=e3887]
+                - paragraph [ref=e3888]: Test artist bio for automated testing
+                - generic [ref=e3889]:
+                  - generic [ref=e3890]: $100
+                  - generic [ref=e3891]: /hour
+          - link "Test Client - Lifecycle Test artist bio for automated testing $100 /hour" [ref=e3892] [cursor=pointer]:
+            - /url: /artist/60096
+            - generic [ref=e3893]:
+              - img [ref=e3896]
+              - generic [ref=e3902]:
+                - heading "Test Client - Lifecycle" [level=3] [ref=e3903]
+                - paragraph [ref=e3904]: Test artist bio for automated testing
+                - generic [ref=e3905]:
+                  - generic [ref=e3906]: $100
+                  - generic [ref=e3907]: /hour
+          - link "Test Client 4 Test artist bio for automated testing $100 /hour" [ref=e3908] [cursor=pointer]:
+            - /url: /artist/60095
+            - generic [ref=e3909]:
+              - img [ref=e3912]
+              - generic [ref=e3918]:
+                - heading "Test Client 4" [level=3] [ref=e3919]
+                - paragraph [ref=e3920]: Test artist bio for automated testing
+                - generic [ref=e3921]:
+                  - generic [ref=e3922]: $100
+                  - generic [ref=e3923]: /hour
+          - link "Test Artist - Lifecycle Test artist bio for automated testing $100 /hour" [ref=e3924] [cursor=pointer]:
+            - /url: /artist/60094
+            - generic [ref=e3925]:
+              - img [ref=e3928]
+              - generic [ref=e3934]:
+                - heading "Test Artist - Lifecycle" [level=3] [ref=e3935]
+                - paragraph [ref=e3936]: Test artist bio for automated testing
+                - generic [ref=e3937]:
+                  - generic [ref=e3938]: $100
+                  - generic [ref=e3939]: /hour
+          - link "Multi-booking Client Test artist bio for automated testing $100 /hour" [ref=e3940] [cursor=pointer]:
+            - /url: /artist/60105
+            - generic [ref=e3941]:
+              - img [ref=e3944]
+              - generic [ref=e3950]:
+                - heading "Multi-booking Client" [level=3] [ref=e3951]
+                - paragraph [ref=e3952]: Test artist bio for automated testing
+                - generic [ref=e3953]:
+                  - generic [ref=e3954]: $100
+                  - generic [ref=e3955]: /hour
+          - link "Test Client 2 Test artist bio for automated testing $100 /hour" [ref=e3956] [cursor=pointer]:
+            - /url: /artist/60092
+            - generic [ref=e3957]:
+              - img [ref=e3960]
+              - generic [ref=e3966]:
+                - heading "Test Client 2" [level=3] [ref=e3967]
+                - paragraph [ref=e3968]: Test artist bio for automated testing
+                - generic [ref=e3969]:
+                  - generic [ref=e3970]: $100
+                  - generic [ref=e3971]: /hour
+          - link "Test Client 1 Test artist bio for automated testing $100 /hour" [ref=e3972] [cursor=pointer]:
+            - /url: /artist/60091
+            - generic [ref=e3973]:
+              - img [ref=e3976]
+              - generic [ref=e3982]:
+                - heading "Test Client 1" [level=3] [ref=e3983]
+                - paragraph [ref=e3984]: Test artist bio for automated testing
+                - generic [ref=e3985]:
+                  - generic [ref=e3986]: $100
+                  - generic [ref=e3987]: /hour
+          - link "Pacific Artist Test artist bio for automated testing $100 /hour" [ref=e3988] [cursor=pointer]:
+            - /url: /artist/60090
+            - generic [ref=e3989]:
+              - img [ref=e3992]
+              - generic [ref=e3998]:
+                - heading "Pacific Artist" [level=3] [ref=e3999]
+                - paragraph [ref=e4000]: Test artist bio for automated testing
+                - generic [ref=e4001]:
+                  - generic [ref=e4002]: $100
+                  - generic [ref=e4003]: /hour
+          - link "Test Artist - Race Conditions Test artist bio for automated testing $100 /hour" [ref=e4004] [cursor=pointer]:
+            - /url: /artist/60089
+            - generic [ref=e4005]:
+              - img [ref=e4008]
+              - generic [ref=e4014]:
+                - heading "Test Artist - Race Conditions" [level=3] [ref=e4015]
+                - paragraph [ref=e4016]: Test artist bio for automated testing
+                - generic [ref=e4017]:
+                  - generic [ref=e4018]: $100
+                  - generic [ref=e4019]: /hour
+          - link "Test Client - Availability Test artist bio for automated testing $100 /hour" [ref=e4020] [cursor=pointer]:
+            - /url: /artist/60088
+            - generic [ref=e4021]:
+              - img [ref=e4024]
+              - generic [ref=e4030]:
+                - heading "Test Client - Availability" [level=3] [ref=e4031]
+                - paragraph [ref=e4032]: Test artist bio for automated testing
+                - generic [ref=e4033]:
+                  - generic [ref=e4034]: $100
+                  - generic [ref=e4035]: /hour
+          - link "Calendar Test Artist Test artist bio for automated testing $100 /hour" [ref=e4036] [cursor=pointer]:
+            - /url: /artist/60087
+            - generic [ref=e4037]:
+              - img [ref=e4040]
+              - generic [ref=e4046]:
+                - heading "Calendar Test Artist" [level=3] [ref=e4047]
+                - paragraph [ref=e4048]: Test artist bio for automated testing
+                - generic [ref=e4049]:
+                  - generic [ref=e4050]: $100
+                  - generic [ref=e4051]: /hour
+          - link "Test Artist - Availability Test artist bio for automated testing $100 /hour" [ref=e4052] [cursor=pointer]:
+            - /url: /artist/60086
+            - generic [ref=e4053]:
+              - img [ref=e4056]
+              - generic [ref=e4062]:
+                - heading "Test Artist - Availability" [level=3] [ref=e4063]
+                - paragraph [ref=e4064]: Test artist bio for automated testing
+                - generic [ref=e4065]:
+                  - generic [ref=e4066]: $100
+                  - generic [ref=e4067]: /hour
+          - link "Multi-booking Artist Test artist bio for automated testing $100 /hour" [ref=e4068] [cursor=pointer]:
+            - /url: /artist/60104
+            - generic [ref=e4069]:
+              - img [ref=e4072]
+              - generic [ref=e4078]:
+                - heading "Multi-booking Artist" [level=3] [ref=e4079]
+                - paragraph [ref=e4080]: Test artist bio for automated testing
+                - generic [ref=e4081]:
+                  - generic [ref=e4082]: $100
+                  - generic [ref=e4083]: /hour
+          - link "Test Client 1 Test artist bio for automated testing $100 /hour" [ref=e4084] [cursor=pointer]:
+            - /url: /artist/60084
+            - generic [ref=e4085]:
+              - img [ref=e4088]
+              - generic [ref=e4094]:
+                - heading "Test Client 1" [level=3] [ref=e4095]
+                - paragraph [ref=e4096]: Test artist bio for automated testing
+                - generic [ref=e4097]:
+                  - generic [ref=e4098]: $100
+                  - generic [ref=e4099]: /hour
+          - link "Test Artist - Double Booking Test artist bio for automated testing $100 /hour" [ref=e4100] [cursor=pointer]:
+            - /url: /artist/60083
+            - generic [ref=e4101]:
+              - img [ref=e4104]
+              - generic [ref=e4110]:
+                - heading "Test Artist - Double Booking" [level=3] [ref=e4111]
+                - paragraph [ref=e4112]: Test artist bio for automated testing
+                - generic [ref=e4113]:
+                  - generic [ref=e4114]: $100
+                  - generic [ref=e4115]: /hour
+          - link "E2E Test Client Test artist bio for automated testing $100 /hour" [ref=e4116] [cursor=pointer]:
+            - /url: /artist/60077
+            - generic [ref=e4117]:
+              - img [ref=e4120]
+              - generic [ref=e4126]:
+                - heading "E2E Test Client" [level=3] [ref=e4127]
+                - paragraph [ref=e4128]: Test artist bio for automated testing
+                - generic [ref=e4129]:
+                  - generic [ref=e4130]: $100
+                  - generic [ref=e4131]: /hour
+          - link "Test Client 5 Test artist bio for automated testing $100 /hour" [ref=e4132] [cursor=pointer]:
+            - /url: /artist/60073
+            - generic [ref=e4133]:
+              - img [ref=e4136]
+              - generic [ref=e4142]:
+                - heading "Test Client 5" [level=3] [ref=e4143]
+                - paragraph [ref=e4144]: Test artist bio for automated testing
+                - generic [ref=e4145]:
+                  - generic [ref=e4146]: $100
+                  - generic [ref=e4147]: /hour
+          - link "Test Client 10 Test artist bio for automated testing $100 /hour" [ref=e4148] [cursor=pointer]:
+            - /url: /artist/60081
+            - generic [ref=e4149]:
+              - img [ref=e4152]
+              - generic [ref=e4158]:
+                - heading "Test Client 10" [level=3] [ref=e4159]
+                - paragraph [ref=e4160]: Test artist bio for automated testing
+                - generic [ref=e4161]:
+                  - generic [ref=e4162]: $100
+                  - generic [ref=e4163]: /hour
+          - link "Multi-booking Artist Test artist bio for automated testing $100 /hour" [ref=e4164] [cursor=pointer]:
+            - /url: /artist/60080
+            - generic [ref=e4165]:
+              - img [ref=e4168]
+              - generic [ref=e4174]:
+                - heading "Multi-booking Artist" [level=3] [ref=e4175]
+                - paragraph [ref=e4176]: Test artist bio for automated testing
+                - generic [ref=e4177]:
+                  - generic [ref=e4178]: $100
+                  - generic [ref=e4179]: /hour
+          - link "Test Client 9 Test artist bio for automated testing $100 /hour" [ref=e4180] [cursor=pointer]:
+            - /url: /artist/60079
+            - generic [ref=e4181]:
+              - img [ref=e4184]
+              - generic [ref=e4190]:
+                - heading "Test Client 9" [level=3] [ref=e4191]
+                - paragraph [ref=e4192]: Test artist bio for automated testing
+                - generic [ref=e4193]:
+                  - generic [ref=e4194]: $100
+                  - generic [ref=e4195]: /hour
+          - link "Test Client 8 Test artist bio for automated testing $100 /hour" [ref=e4196] [cursor=pointer]:
+            - /url: /artist/60078
+            - generic [ref=e4197]:
+              - img [ref=e4200]
+              - generic [ref=e4206]:
+                - heading "Test Client 8" [level=3] [ref=e4207]
+                - paragraph [ref=e4208]: Test artist bio for automated testing
+                - generic [ref=e4209]:
+                  - generic [ref=e4210]: $100
+                  - generic [ref=e4211]: /hour
+          - link "Multi-booking Client Test artist bio for automated testing $100 /hour" [ref=e4212] [cursor=pointer]:
+            - /url: /artist/60082
+            - generic [ref=e4213]:
+              - img [ref=e4216]
+              - generic [ref=e4222]:
+                - heading "Multi-booking Client" [level=3] [ref=e4223]
+                - paragraph [ref=e4224]: Test artist bio for automated testing
+                - generic [ref=e4225]:
+                  - generic [ref=e4226]: $100
+                  - generic [ref=e4227]: /hour
+          - link "Test Client 6 Test artist bio for automated testing $100 /hour" [ref=e4228] [cursor=pointer]:
+            - /url: /artist/60075
+            - generic [ref=e4229]:
+              - img [ref=e4232]
+              - generic [ref=e4238]:
+                - heading "Test Client 6" [level=3] [ref=e4239]
+                - paragraph [ref=e4240]: Test artist bio for automated testing
+                - generic [ref=e4241]:
+                  - generic [ref=e4242]: $100
+                  - generic [ref=e4243]: /hour
+          - link "Test Artist - Race Conditions Test artist bio for automated testing $100 /hour" [ref=e4244] [cursor=pointer]:
+            - /url: /artist/60068
+            - generic [ref=e4245]:
+              - img [ref=e4248]
+              - generic [ref=e4254]:
+                - heading "Test Artist - Race Conditions" [level=3] [ref=e4255]
+                - paragraph [ref=e4256]: Test artist bio for automated testing
+                - generic [ref=e4257]:
+                  - generic [ref=e4258]: $100
+                  - generic [ref=e4259]: /hour
+          - link "E2E Test Artist Test artist bio for automated testing $100 /hour" [ref=e4260] [cursor=pointer]:
+            - /url: /artist/60074
+            - generic [ref=e4261]:
+              - img [ref=e4264]
+              - generic [ref=e4270]:
+                - heading "E2E Test Artist" [level=3] [ref=e4271]
+                - paragraph [ref=e4272]: Test artist bio for automated testing
+                - generic [ref=e4273]:
+                  - generic [ref=e4274]: $100
+                  - generic [ref=e4275]: /hour
+          - link "Test Client 7 Test artist bio for automated testing $100 /hour" [ref=e4276] [cursor=pointer]:
+            - /url: /artist/60076
+            - generic [ref=e4277]:
+              - img [ref=e4280]
+              - generic [ref=e4286]:
+                - heading "Test Client 7" [level=3] [ref=e4287]
+                - paragraph [ref=e4288]: Test artist bio for automated testing
+                - generic [ref=e4289]:
+                  - generic [ref=e4290]: $100
+                  - generic [ref=e4291]: /hour
+          - link "Test Client 4 Test artist bio for automated testing $100 /hour" [ref=e4292] [cursor=pointer]:
+            - /url: /artist/60072
+            - generic [ref=e4293]:
+              - img [ref=e4296]
+              - generic [ref=e4302]:
+                - heading "Test Client 4" [level=3] [ref=e4303]
+                - paragraph [ref=e4304]: Test artist bio for automated testing
+                - generic [ref=e4305]:
+                  - generic [ref=e4306]: $100
+                  - generic [ref=e4307]: /hour
+          - link "Test Client 3 Test artist bio for automated testing $100 /hour" [ref=e4308] [cursor=pointer]:
+            - /url: /artist/60071
+            - generic [ref=e4309]:
+              - img [ref=e4312]
+              - generic [ref=e4318]:
+                - heading "Test Client 3" [level=3] [ref=e4319]
+                - paragraph [ref=e4320]: Test artist bio for automated testing
+                - generic [ref=e4321]:
+                  - generic [ref=e4322]: $100
+                  - generic [ref=e4323]: /hour
+          - link "Test Client 2 Test artist bio for automated testing $100 /hour" [ref=e4324] [cursor=pointer]:
+            - /url: /artist/60070
+            - generic [ref=e4325]:
+              - img [ref=e4328]
+              - generic [ref=e4334]:
+                - heading "Test Client 2" [level=3] [ref=e4335]
+                - paragraph [ref=e4336]: Test artist bio for automated testing
+                - generic [ref=e4337]:
+                  - generic [ref=e4338]: $100
+                  - generic [ref=e4339]: /hour
+          - link "Test Client 1 Test artist bio for automated testing $100 /hour" [ref=e4340] [cursor=pointer]:
+            - /url: /artist/60069
+            - generic [ref=e4341]:
+              - img [ref=e4344]
+              - generic [ref=e4350]:
+                - heading "Test Client 1" [level=3] [ref=e4351]
+                - paragraph [ref=e4352]: Test artist bio for automated testing
+                - generic [ref=e4353]:
+                  - generic [ref=e4354]: $100
+                  - generic [ref=e4355]: /hour
+          - link "Test Artist - Availability Test artist bio for automated testing $100 /hour" [ref=e4356] [cursor=pointer]:
+            - /url: /artist/60060
+            - generic [ref=e4357]:
+              - img [ref=e4360]
+              - generic [ref=e4366]:
+                - heading "Test Artist - Availability" [level=3] [ref=e4367]
+                - paragraph [ref=e4368]: Test artist bio for automated testing
+                - generic [ref=e4369]:
+                  - generic [ref=e4370]: $100
+                  - generic [ref=e4371]: /hour
+          - link "Test Artist - Lifecycle Test artist bio for automated testing $100 /hour" [ref=e4372] [cursor=pointer]:
+            - /url: /artist/60066
+            - generic [ref=e4373]:
+              - img [ref=e4376]
+              - generic [ref=e4382]:
+                - heading "Test Artist - Lifecycle" [level=3] [ref=e4383]
+                - paragraph [ref=e4384]: Test artist bio for automated testing
+                - generic [ref=e4385]:
+                  - generic [ref=e4386]: $100
+                  - generic [ref=e4387]: /hour
+          - link "Test Client 2 Test artist bio for automated testing $100 /hour" [ref=e4388] [cursor=pointer]:
+            - /url: /artist/60065
+            - generic [ref=e4389]:
+              - img [ref=e4392]
+              - generic [ref=e4398]:
+                - heading "Test Client 2" [level=3] [ref=e4399]
+                - paragraph [ref=e4400]: Test artist bio for automated testing
+                - generic [ref=e4401]:
+                  - generic [ref=e4402]: $100
+                  - generic [ref=e4403]: /hour
+          - link "Test Client 1 Test artist bio for automated testing $100 /hour" [ref=e4404] [cursor=pointer]:
+            - /url: /artist/60064
+            - generic [ref=e4405]:
+              - img [ref=e4408]
+              - generic [ref=e4414]:
+                - heading "Test Client 1" [level=3] [ref=e4415]
+                - paragraph [ref=e4416]: Test artist bio for automated testing
+                - generic [ref=e4417]:
+                  - generic [ref=e4418]: $100
+                  - generic [ref=e4419]: /hour
+          - link "Pacific Artist Test artist bio for automated testing $100 /hour" [ref=e4420] [cursor=pointer]:
+            - /url: /artist/60063
+            - generic [ref=e4421]:
+              - img [ref=e4424]
+              - generic [ref=e4430]:
+                - heading "Pacific Artist" [level=3] [ref=e4431]
+                - paragraph [ref=e4432]: Test artist bio for automated testing
+                - generic [ref=e4433]:
+                  - generic [ref=e4434]: $100
+                  - generic [ref=e4435]: /hour
+          - link "Test Artist - Double Booking Test artist bio for automated testing $100 /hour" [ref=e4436] [cursor=pointer]:
+            - /url: /artist/60062
+            - generic [ref=e4437]:
+              - img [ref=e4440]
+              - generic [ref=e4446]:
+                - heading "Test Artist - Double Booking" [level=3] [ref=e4447]
+                - paragraph [ref=e4448]: Test artist bio for automated testing
+                - generic [ref=e4449]:
+                  - generic [ref=e4450]: $100
+                  - generic [ref=e4451]: /hour
+          - link "Test Client - Availability Test artist bio for automated testing $100 /hour" [ref=e4452] [cursor=pointer]:
+            - /url: /artist/60061
+            - generic [ref=e4453]:
+              - img [ref=e4456]
+              - generic [ref=e4462]:
+                - heading "Test Client - Availability" [level=3] [ref=e4463]
+                - paragraph [ref=e4464]: Test artist bio for automated testing
+                - generic [ref=e4465]:
+                  - generic [ref=e4466]: $100
+                  - generic [ref=e4467]: /hour
+          - link "Test Client - Lifecycle Test artist bio for automated testing $100 /hour" [ref=e4468] [cursor=pointer]:
+            - /url: /artist/60067
+            - generic [ref=e4469]:
+              - img [ref=e4472]
+              - generic [ref=e4478]:
+                - heading "Test Client - Lifecycle" [level=3] [ref=e4479]
+                - paragraph [ref=e4480]: Test artist bio for automated testing
+                - generic [ref=e4481]:
+                  - generic [ref=e4482]: $100
+                  - generic [ref=e4483]: /hour
+          - link "Test Client 9 Test artist bio for automated testing $100 /hour" [ref=e4484] [cursor=pointer]:
+            - /url: /artist/60056
+            - generic [ref=e4485]:
+              - img [ref=e4488]
+              - generic [ref=e4494]:
+                - heading "Test Client 9" [level=3] [ref=e4495]
+                - paragraph [ref=e4496]: Test artist bio for automated testing
+                - generic [ref=e4497]:
+                  - generic [ref=e4498]: $100
+                  - generic [ref=e4499]: /hour
+          - link "Multi-booking Client Test artist bio for automated testing $100 /hour" [ref=e4500] [cursor=pointer]:
+            - /url: /artist/60059
+            - generic [ref=e4501]:
+              - img [ref=e4504]
+              - generic [ref=e4510]:
+                - heading "Multi-booking Client" [level=3] [ref=e4511]
+                - paragraph [ref=e4512]: Test artist bio for automated testing
+                - generic [ref=e4513]:
+                  - generic [ref=e4514]: $100
+                  - generic [ref=e4515]: /hour
+          - link "Test Client 10 Test artist bio for automated testing $100 /hour" [ref=e4516] [cursor=pointer]:
+            - /url: /artist/60058
+            - generic [ref=e4517]:
+              - img [ref=e4520]
+              - generic [ref=e4526]:
+                - heading "Test Client 10" [level=3] [ref=e4527]
+                - paragraph [ref=e4528]: Test artist bio for automated testing
+                - generic [ref=e4529]:
+                  - generic [ref=e4530]: $100
+                  - generic [ref=e4531]: /hour
+          - link "Multi-booking Artist Test artist bio for automated testing $100 /hour" [ref=e4532] [cursor=pointer]:
+            - /url: /artist/60057
+            - generic [ref=e4533]:
+              - img [ref=e4536]
+              - generic [ref=e4542]:
+                - heading "Multi-booking Artist" [level=3] [ref=e4543]
+                - paragraph [ref=e4544]: Test artist bio for automated testing
+                - generic [ref=e4545]:
+                  - generic [ref=e4546]: $100
+                  - generic [ref=e4547]: /hour
+          - link "Test Artist - Lifecycle Test artist bio for automated testing $100 /hour" [ref=e4548] [cursor=pointer]:
+            - /url: /artist/60043
+            - generic [ref=e4549]:
+              - img [ref=e4552]
+              - generic [ref=e4558]:
+                - heading "Test Artist - Lifecycle" [level=3] [ref=e4559]
+                - paragraph [ref=e4560]: Test artist bio for automated testing
+                - generic [ref=e4561]:
+                  - generic [ref=e4562]: $100
+                  - generic [ref=e4563]: /hour
+          - link "Test Artist - Availability Test artist bio for automated testing $100 /hour" [ref=e4564] [cursor=pointer]:
+            - /url: /artist/60037
+            - generic [ref=e4565]:
+              - img [ref=e4568]
+              - generic [ref=e4574]:
+                - heading "Test Artist - Availability" [level=3] [ref=e4575]
+                - paragraph [ref=e4576]: Test artist bio for automated testing
+                - generic [ref=e4577]:
+                  - generic [ref=e4578]: $100
+                  - generic [ref=e4579]: /hour
+          - link "E2E Test Client Test artist bio for automated testing $100 /hour" [ref=e4580] [cursor=pointer]:
+            - /url: /artist/60054
+            - generic [ref=e4581]:
+              - img [ref=e4584]
+              - generic [ref=e4590]:
+                - heading "E2E Test Client" [level=3] [ref=e4591]
+                - paragraph [ref=e4592]: Test artist bio for automated testing
+                - generic [ref=e4593]:
+                  - generic [ref=e4594]: $100
+                  - generic [ref=e4595]: /hour
+          - link "Test Client 7 Test artist bio for automated testing $100 /hour" [ref=e4596] [cursor=pointer]:
+            - /url: /artist/60053
+            - generic [ref=e4597]:
+              - img [ref=e4600]
+              - generic [ref=e4606]:
+                - heading "Test Client 7" [level=3] [ref=e4607]
+                - paragraph [ref=e4608]: Test artist bio for automated testing
+                - generic [ref=e4609]:
+                  - generic [ref=e4610]: $100
+                  - generic [ref=e4611]: /hour
+          - link "Test Client 6 Test artist bio for automated testing $100 /hour" [ref=e4612] [cursor=pointer]:
+            - /url: /artist/60052
+            - generic [ref=e4613]:
+              - img [ref=e4616]
+              - generic [ref=e4622]:
+                - heading "Test Client 6" [level=3] [ref=e4623]
+                - paragraph [ref=e4624]: Test artist bio for automated testing
+                - generic [ref=e4625]:
+                  - generic [ref=e4626]: $100
+                  - generic [ref=e4627]: /hour
+          - link "E2E Test Artist Test artist bio for automated testing $100 /hour" [ref=e4628] [cursor=pointer]:
+            - /url: /artist/60051
+            - generic [ref=e4629]:
+              - img [ref=e4632]
+              - generic [ref=e4638]:
+                - heading "E2E Test Artist" [level=3] [ref=e4639]
+                - paragraph [ref=e4640]: Test artist bio for automated testing
+                - generic [ref=e4641]:
+                  - generic [ref=e4642]: $100
+                  - generic [ref=e4643]: /hour
+          - link "Test Client 5 Test artist bio for automated testing $100 /hour" [ref=e4644] [cursor=pointer]:
+            - /url: /artist/60050
+            - generic [ref=e4645]:
+              - img [ref=e4648]
+              - generic [ref=e4654]:
+                - heading "Test Client 5" [level=3] [ref=e4655]
+                - paragraph [ref=e4656]: Test artist bio for automated testing
+                - generic [ref=e4657]:
+                  - generic [ref=e4658]: $100
+                  - generic [ref=e4659]: /hour
+          - link "Test Client 4 Test artist bio for automated testing $100 /hour" [ref=e4660] [cursor=pointer]:
+            - /url: /artist/60049
+            - generic [ref=e4661]:
+              - img [ref=e4664]
+              - generic [ref=e4670]:
+                - heading "Test Client 4" [level=3] [ref=e4671]
+                - paragraph [ref=e4672]: Test artist bio for automated testing
+                - generic [ref=e4673]:
+                  - generic [ref=e4674]: $100
+                  - generic [ref=e4675]: /hour
+          - link "Test Client 3 Test artist bio for automated testing $100 /hour" [ref=e4676] [cursor=pointer]:
+            - /url: /artist/60048
+            - generic [ref=e4677]:
+              - img [ref=e4680]
+              - generic [ref=e4686]:
+                - heading "Test Client 3" [level=3] [ref=e4687]
+                - paragraph [ref=e4688]: Test artist bio for automated testing
+                - generic [ref=e4689]:
+                  - generic [ref=e4690]: $100
+                  - generic [ref=e4691]: /hour
+          - link "Test Client 2 Test artist bio for automated testing $100 /hour" [ref=e4692] [cursor=pointer]:
+            - /url: /artist/60047
+            - generic [ref=e4693]:
+              - img [ref=e4696]
+              - generic [ref=e4702]:
+                - heading "Test Client 2" [level=3] [ref=e4703]
+                - paragraph [ref=e4704]: Test artist bio for automated testing
+                - generic [ref=e4705]:
+                  - generic [ref=e4706]: $100
+                  - generic [ref=e4707]: /hour
+          - link "Test Client 1 Test artist bio for automated testing $100 /hour" [ref=e4708] [cursor=pointer]:
+            - /url: /artist/60046
+            - generic [ref=e4709]:
+              - img [ref=e4712]
+              - generic [ref=e4718]:
+                - heading "Test Client 1" [level=3] [ref=e4719]
+                - paragraph [ref=e4720]: Test artist bio for automated testing
+                - generic [ref=e4721]:
+                  - generic [ref=e4722]: $100
+                  - generic [ref=e4723]: /hour
+          - link "Test Artist - Race Conditions Test artist bio for automated testing $100 /hour" [ref=e4724] [cursor=pointer]:
+            - /url: /artist/60045
+            - generic [ref=e4725]:
+              - img [ref=e4728]
+              - generic [ref=e4734]:
+                - heading "Test Artist - Race Conditions" [level=3] [ref=e4735]
+                - paragraph [ref=e4736]: Test artist bio for automated testing
+                - generic [ref=e4737]:
+                  - generic [ref=e4738]: $100
+                  - generic [ref=e4739]: /hour
+          - link "Test Client - Lifecycle Test artist bio for automated testing $100 /hour" [ref=e4740] [cursor=pointer]:
+            - /url: /artist/60044
+            - generic [ref=e4741]:
+              - img [ref=e4744]
+              - generic [ref=e4750]:
+                - heading "Test Client - Lifecycle" [level=3] [ref=e4751]
+                - paragraph [ref=e4752]: Test artist bio for automated testing
+                - generic [ref=e4753]:
+                  - generic [ref=e4754]: $100
+                  - generic [ref=e4755]: /hour
+          - link "Test Client 8 Test artist bio for automated testing $100 /hour" [ref=e4756] [cursor=pointer]:
+            - /url: /artist/60055
+            - generic [ref=e4757]:
+              - img [ref=e4760]
+              - generic [ref=e4766]:
+                - heading "Test Client 8" [level=3] [ref=e4767]
+                - paragraph [ref=e4768]: Test artist bio for automated testing
+                - generic [ref=e4769]:
+                  - generic [ref=e4770]: $100
+                  - generic [ref=e4771]: /hour
+          - link "Pacific Artist Test artist bio for automated testing $100 /hour" [ref=e4772] [cursor=pointer]:
+            - /url: /artist/60042
+            - generic [ref=e4773]:
+              - img [ref=e4776]
+              - generic [ref=e4782]:
+                - heading "Pacific Artist" [level=3] [ref=e4783]
+                - paragraph [ref=e4784]: Test artist bio for automated testing
+                - generic [ref=e4785]:
+                  - generic [ref=e4786]: $100
+                  - generic [ref=e4787]: /hour
+          - link "Test Client 2 Test artist bio for automated testing $100 /hour" [ref=e4788] [cursor=pointer]:
+            - /url: /artist/60041
+            - generic [ref=e4789]:
+              - img [ref=e4792]
+              - generic [ref=e4798]:
+                - heading "Test Client 2" [level=3] [ref=e4799]
+                - paragraph [ref=e4800]: Test artist bio for automated testing
+                - generic [ref=e4801]:
+                  - generic [ref=e4802]: $100
+                  - generic [ref=e4803]: /hour
+          - link "Test Client 1 Test artist bio for automated testing $100 /hour" [ref=e4804] [cursor=pointer]:
+            - /url: /artist/60040
+            - generic [ref=e4805]:
+              - img [ref=e4808]
+              - generic [ref=e4814]:
+                - heading "Test Client 1" [level=3] [ref=e4815]
+                - paragraph [ref=e4816]: Test artist bio for automated testing
+                - generic [ref=e4817]:
+                  - generic [ref=e4818]: $100
+                  - generic [ref=e4819]: /hour
+          - link "Test Client - Availability Test artist bio for automated testing $100 /hour" [ref=e4820] [cursor=pointer]:
+            - /url: /artist/60039
+            - generic [ref=e4821]:
+              - img [ref=e4824]
+              - generic [ref=e4830]:
+                - heading "Test Client - Availability" [level=3] [ref=e4831]
+                - paragraph [ref=e4832]: Test artist bio for automated testing
+                - generic [ref=e4833]:
+                  - generic [ref=e4834]: $100
+                  - generic [ref=e4835]: /hour
+          - link "Test Artist - Double Booking Test artist bio for automated testing $100 /hour" [ref=e4836] [cursor=pointer]:
+            - /url: /artist/60038
+            - generic [ref=e4837]:
+              - img [ref=e4840]
+              - generic [ref=e4846]:
+                - heading "Test Artist - Double Booking" [level=3] [ref=e4847]
+                - paragraph [ref=e4848]: Test artist bio for automated testing
+                - generic [ref=e4849]:
+                  - generic [ref=e4850]: $100
+                  - generic [ref=e4851]: /hour
+          - link "Test Client - Availability Test artist bio for automated testing $100 /hour" [ref=e4852] [cursor=pointer]:
+            - /url: /artist/60029
+            - generic [ref=e4853]:
+              - img [ref=e4856]
+              - generic [ref=e4862]:
+                - heading "Test Client - Availability" [level=3] [ref=e4863]
+                - paragraph [ref=e4864]: Test artist bio for automated testing
+                - generic [ref=e4865]:
+                  - generic [ref=e4866]: $100
+                  - generic [ref=e4867]: /hour
+          - link "Test Artist - Availability Test artist bio for automated testing $100 /hour" [ref=e4868] [cursor=pointer]:
+            - /url: /artist/60028
+            - generic [ref=e4869]:
+              - img [ref=e4872]
+              - generic [ref=e4878]:
+                - heading "Test Artist - Availability" [level=3] [ref=e4879]
+                - paragraph [ref=e4880]: Test artist bio for automated testing
+                - generic [ref=e4881]:
+                  - generic [ref=e4882]: $100
+                  - generic [ref=e4883]: /hour
+          - link "Multi-booking Artist Test artist bio for automated testing $100 /hour" [ref=e4884] [cursor=pointer]:
+            - /url: /artist/60035
+            - generic [ref=e4885]:
+              - img [ref=e4888]
+              - generic [ref=e4894]:
+                - heading "Multi-booking Artist" [level=3] [ref=e4895]
+                - paragraph [ref=e4896]: Test artist bio for automated testing
+                - generic [ref=e4897]:
+                  - generic [ref=e4898]: $100
+                  - generic [ref=e4899]: /hour
+          - link "E2E Test Client Test artist bio for automated testing $100 /hour" [ref=e4900] [cursor=pointer]:
+            - /url: /artist/60034
+            - generic [ref=e4901]:
+              - img [ref=e4904]
+              - generic [ref=e4910]:
+                - heading "E2E Test Client" [level=3] [ref=e4911]
+                - paragraph [ref=e4912]: Test artist bio for automated testing
+                - generic [ref=e4913]:
+                  - generic [ref=e4914]: $100
+                  - generic [ref=e4915]: /hour
+          - link "E2E Test Artist Test artist bio for automated testing $100 /hour" [ref=e4916] [cursor=pointer]:
+            - /url: /artist/60033
+            - generic [ref=e4917]:
+              - img [ref=e4920]
+              - generic [ref=e4926]:
+                - heading "E2E Test Artist" [level=3] [ref=e4927]
+                - paragraph [ref=e4928]: Test artist bio for automated testing
+                - generic [ref=e4929]:
+                  - generic [ref=e4930]: $100
+                  - generic [ref=e4931]: /hour
+          - link "Test Client - Lifecycle Test artist bio for automated testing $100 /hour" [ref=e4932] [cursor=pointer]:
+            - /url: /artist/60032
+            - generic [ref=e4933]:
+              - img [ref=e4936]
+              - generic [ref=e4942]:
+                - heading "Test Client - Lifecycle" [level=3] [ref=e4943]
+                - paragraph [ref=e4944]: Test artist bio for automated testing
+                - generic [ref=e4945]:
+                  - generic [ref=e4946]: $100
+                  - generic [ref=e4947]: /hour
+          - link "Test Artist - Lifecycle Test artist bio for automated testing $100 /hour" [ref=e4948] [cursor=pointer]:
+            - /url: /artist/60031
+            - generic [ref=e4949]:
+              - img [ref=e4952]
+              - generic [ref=e4958]:
+                - heading "Test Artist - Lifecycle" [level=3] [ref=e4959]
+                - paragraph [ref=e4960]: Test artist bio for automated testing
+                - generic [ref=e4961]:
+                  - generic [ref=e4962]: $100
+                  - generic [ref=e4963]: /hour
+          - link "Pacific Artist Test artist bio for automated testing $100 /hour" [ref=e4964] [cursor=pointer]:
+            - /url: /artist/60030
+            - generic [ref=e4965]:
+              - img [ref=e4968]
+              - generic [ref=e4974]:
+                - heading "Pacific Artist" [level=3] [ref=e4975]
+                - paragraph [ref=e4976]: Test artist bio for automated testing
+                - generic [ref=e4977]:
+                  - generic [ref=e4978]: $100
+                  - generic [ref=e4979]: /hour
+          - link "Multi-booking Client Test artist bio for automated testing $100 /hour" [ref=e4980] [cursor=pointer]:
+            - /url: /artist/60036
+            - generic [ref=e4981]:
+              - img [ref=e4984]
+              - generic [ref=e4990]:
+                - heading "Multi-booking Client" [level=3] [ref=e4991]
+                - paragraph [ref=e4992]: Test artist bio for automated testing
+                - generic [ref=e4993]:
+                  - generic [ref=e4994]: $100
+                  - generic [ref=e4995]: /hour
+          - link "Multi-booking Client Test artist bio for automated testing $100 /hour" [ref=e4996] [cursor=pointer]:
+            - /url: /artist/60027
+            - generic [ref=e4997]:
+              - img [ref=e5000]
+              - generic [ref=e5006]:
+                - heading "Multi-booking Client" [level=3] [ref=e5007]
+                - paragraph [ref=e5008]: Test artist bio for automated testing
+                - generic [ref=e5009]:
+                  - generic [ref=e5010]: $100
+                  - generic [ref=e5011]: /hour
+          - link "Multi-booking Artist Test artist bio for automated testing $100 /hour" [ref=e5012] [cursor=pointer]:
+            - /url: /artist/60026
+            - generic [ref=e5013]:
+              - img [ref=e5016]
+              - generic [ref=e5022]:
+                - heading "Multi-booking Artist" [level=3] [ref=e5023]
+                - paragraph [ref=e5024]: Test artist bio for automated testing
+                - generic [ref=e5025]:
+                  - generic [ref=e5026]: $100
+                  - generic [ref=e5027]: /hour
+          - link "E2E Test Client Test artist bio for automated testing $100 /hour" [ref=e5028] [cursor=pointer]:
+            - /url: /artist/60025
+            - generic [ref=e5029]:
+              - img [ref=e5032]
+              - generic [ref=e5038]:
+                - heading "E2E Test Client" [level=3] [ref=e5039]
+                - paragraph [ref=e5040]: Test artist bio for automated testing
+                - generic [ref=e5041]:
+                  - generic [ref=e5042]: $100
+                  - generic [ref=e5043]: /hour
+          - link "E2E Test Artist Test artist bio for automated testing $100 /hour" [ref=e5044] [cursor=pointer]:
+            - /url: /artist/60024
+            - generic [ref=e5045]:
+              - img [ref=e5048]
+              - generic [ref=e5054]:
+                - heading "E2E Test Artist" [level=3] [ref=e5055]
+                - paragraph [ref=e5056]: Test artist bio for automated testing
+                - generic [ref=e5057]:
+                  - generic [ref=e5058]: $100
+                  - generic [ref=e5059]: /hour
+          - link "Test Artist - Availability Test artist bio for automated testing $100 /hour" [ref=e5060] [cursor=pointer]:
+            - /url: /artist/60019
+            - generic [ref=e5061]:
+              - img [ref=e5064]
+              - generic [ref=e5070]:
+                - heading "Test Artist - Availability" [level=3] [ref=e5071]
+                - paragraph [ref=e5072]: Test artist bio for automated testing
+                - generic [ref=e5073]:
+                  - generic [ref=e5074]: $100
+                  - generic [ref=e5075]: /hour
+          - link "Test Client - Lifecycle Test artist bio for automated testing $100 /hour" [ref=e5076] [cursor=pointer]:
+            - /url: /artist/60023
+            - generic [ref=e5077]:
+              - img [ref=e5080]
+              - generic [ref=e5086]:
+                - heading "Test Client - Lifecycle" [level=3] [ref=e5087]
+                - paragraph [ref=e5088]: Test artist bio for automated testing
+                - generic [ref=e5089]:
+                  - generic [ref=e5090]: $100
+                  - generic [ref=e5091]: /hour
+          - link "Test Artist - Lifecycle Test artist bio for automated testing $100 /hour" [ref=e5092] [cursor=pointer]:
+            - /url: /artist/60022
+            - generic [ref=e5093]:
+              - img [ref=e5096]
+              - generic [ref=e5102]:
+                - heading "Test Artist - Lifecycle" [level=3] [ref=e5103]
+                - paragraph [ref=e5104]: Test artist bio for automated testing
+                - generic [ref=e5105]:
+                  - generic [ref=e5106]: $100
+                  - generic [ref=e5107]: /hour
+          - link "Pacific Artist Test artist bio for automated testing $100 /hour" [ref=e5108] [cursor=pointer]:
+            - /url: /artist/60021
+            - generic [ref=e5109]:
+              - img [ref=e5112]
+              - generic [ref=e5118]:
+                - heading "Pacific Artist" [level=3] [ref=e5119]
+                - paragraph [ref=e5120]: Test artist bio for automated testing
+                - generic [ref=e5121]:
+                  - generic [ref=e5122]: $100
+                  - generic [ref=e5123]: /hour
+          - link "Test Client - Availability Test artist bio for automated testing $100 /hour" [ref=e5124] [cursor=pointer]:
+            - /url: /artist/60020
+            - generic [ref=e5125]:
+              - img [ref=e5128]
+              - generic [ref=e5134]:
+                - heading "Test Client - Availability" [level=3] [ref=e5135]
+                - paragraph [ref=e5136]: Test artist bio for automated testing
+                - generic [ref=e5137]:
+                  - generic [ref=e5138]: $100
+                  - generic [ref=e5139]: /hour
+          - link "Test Client - Availability Test artist bio for automated testing $100 /hour" [ref=e5140] [cursor=pointer]:
+            - /url: /artist/60011
+            - generic [ref=e5141]:
+              - img [ref=e5144]
+              - generic [ref=e5150]:
+                - heading "Test Client - Availability" [level=3] [ref=e5151]
+                - paragraph [ref=e5152]: Test artist bio for automated testing
+                - generic [ref=e5153]:
+                  - generic [ref=e5154]: $100
+                  - generic [ref=e5155]: /hour
+          - link "Test Artist - Availability Test artist bio for automated testing $100 /hour" [ref=e5156] [cursor=pointer]:
+            - /url: /artist/60010
+            - generic [ref=e5157]:
+              - img [ref=e5160]
+              - generic [ref=e5166]:
+                - heading "Test Artist - Availability" [level=3] [ref=e5167]
+                - paragraph [ref=e5168]: Test artist bio for automated testing
+                - generic [ref=e5169]:
+                  - generic [ref=e5170]: $100
+                  - generic [ref=e5171]: /hour
+          - link "Multi-booking Artist Test artist bio for automated testing $100 /hour" [ref=e5172] [cursor=pointer]:
+            - /url: /artist/60017
+            - generic [ref=e5173]:
+              - img [ref=e5176]
+              - generic [ref=e5182]:
+                - heading "Multi-booking Artist" [level=3] [ref=e5183]
+                - paragraph [ref=e5184]: Test artist bio for automated testing
+                - generic [ref=e5185]:
+                  - generic [ref=e5186]: $100
+                  - generic [ref=e5187]: /hour
+          - link "E2E Test Client Test artist bio for automated testing $100 /hour" [ref=e5188] [cursor=pointer]:
+            - /url: /artist/60016
+            - generic [ref=e5189]:
+              - img [ref=e5192]
+              - generic [ref=e5198]:
+                - heading "E2E Test Client" [level=3] [ref=e5199]
+                - paragraph [ref=e5200]: Test artist bio for automated testing
+                - generic [ref=e5201]:
+                  - generic [ref=e5202]: $100
+                  - generic [ref=e5203]: /hour
+          - link "E2E Test Artist Test artist bio for automated testing $100 /hour" [ref=e5204] [cursor=pointer]:
+            - /url: /artist/60015
+            - generic [ref=e5205]:
+              - img [ref=e5208]
+              - generic [ref=e5214]:
+                - heading "E2E Test Artist" [level=3] [ref=e5215]
+                - paragraph [ref=e5216]: Test artist bio for automated testing
+                - generic [ref=e5217]:
+                  - generic [ref=e5218]: $100
+                  - generic [ref=e5219]: /hour
+          - link "Test Client - Lifecycle Test artist bio for automated testing $100 /hour" [ref=e5220] [cursor=pointer]:
+            - /url: /artist/60014
+            - generic [ref=e5221]:
+              - img [ref=e5224]
+              - generic [ref=e5230]:
+                - heading "Test Client - Lifecycle" [level=3] [ref=e5231]
+                - paragraph [ref=e5232]: Test artist bio for automated testing
+                - generic [ref=e5233]:
+                  - generic [ref=e5234]: $100
+                  - generic [ref=e5235]: /hour
+          - link "Test Artist - Lifecycle Test artist bio for automated testing $100 /hour" [ref=e5236] [cursor=pointer]:
+            - /url: /artist/60013
+            - generic [ref=e5237]:
+              - img [ref=e5240]
+              - generic [ref=e5246]:
+                - heading "Test Artist - Lifecycle" [level=3] [ref=e5247]
+                - paragraph [ref=e5248]: Test artist bio for automated testing
+                - generic [ref=e5249]:
+                  - generic [ref=e5250]: $100
+                  - generic [ref=e5251]: /hour
+          - link "Pacific Artist Test artist bio for automated testing $100 /hour" [ref=e5252] [cursor=pointer]:
+            - /url: /artist/60012
+            - generic [ref=e5253]:
+              - img [ref=e5256]
+              - generic [ref=e5262]:
+                - heading "Pacific Artist" [level=3] [ref=e5263]
+                - paragraph [ref=e5264]: Test artist bio for automated testing
+                - generic [ref=e5265]:
+                  - generic [ref=e5266]: $100
+                  - generic [ref=e5267]: /hour
+          - link "Multi-booking Client Test artist bio for automated testing $100 /hour" [ref=e5268] [cursor=pointer]:
+            - /url: /artist/60018
+            - generic [ref=e5269]:
+              - img [ref=e5272]
+              - generic [ref=e5278]:
+                - heading "Multi-booking Client" [level=3] [ref=e5279]
+                - paragraph [ref=e5280]: Test artist bio for automated testing
+                - generic [ref=e5281]:
+                  - generic [ref=e5282]: $100
+                  - generic [ref=e5283]: /hour
+          - link "Test Artist - Lifecycle Test artist bio for automated testing $100 /hour" [ref=e5284] [cursor=pointer]:
+            - /url: /artist/60004
+            - generic [ref=e5285]:
+              - img [ref=e5288]
+              - generic [ref=e5294]:
+                - heading "Test Artist - Lifecycle" [level=3] [ref=e5295]
+                - paragraph [ref=e5296]: Test artist bio for automated testing
+                - generic [ref=e5297]:
+                  - generic [ref=e5298]: $100
+                  - generic [ref=e5299]: /hour
+          - link "Multi-booking Artist Test artist bio for automated testing $100 /hour" [ref=e5300] [cursor=pointer]:
+            - /url: /artist/60008
+            - generic [ref=e5301]:
+              - img [ref=e5304]
+              - generic [ref=e5310]:
+                - heading "Multi-booking Artist" [level=3] [ref=e5311]
+                - paragraph [ref=e5312]: Test artist bio for automated testing
+                - generic [ref=e5313]:
+                  - generic [ref=e5314]: $100
+                  - generic [ref=e5315]: /hour
+          - link "E2E Test Client Test artist bio for automated testing $100 /hour" [ref=e5316] [cursor=pointer]:
+            - /url: /artist/60007
+            - generic [ref=e5317]:
+              - img [ref=e5320]
+              - generic [ref=e5326]:
+                - heading "E2E Test Client" [level=3] [ref=e5327]
+                - paragraph [ref=e5328]: Test artist bio for automated testing
+                - generic [ref=e5329]:
+                  - generic [ref=e5330]: $100
+                  - generic [ref=e5331]: /hour
+          - link "E2E Test Artist Test artist bio for automated testing $100 /hour" [ref=e5332] [cursor=pointer]:
+            - /url: /artist/60006
+            - generic [ref=e5333]:
+              - img [ref=e5336]
+              - generic [ref=e5342]:
+                - heading "E2E Test Artist" [level=3] [ref=e5343]
+                - paragraph [ref=e5344]: Test artist bio for automated testing
+                - generic [ref=e5345]:
+                  - generic [ref=e5346]: $100
+                  - generic [ref=e5347]: /hour
+          - link "Test Client - Lifecycle Test artist bio for automated testing $100 /hour" [ref=e5348] [cursor=pointer]:
+            - /url: /artist/60005
+            - generic [ref=e5349]:
+              - img [ref=e5352]
+              - generic [ref=e5358]:
+                - heading "Test Client - Lifecycle" [level=3] [ref=e5359]
+                - paragraph [ref=e5360]: Test artist bio for automated testing
+                - generic [ref=e5361]:
+                  - generic [ref=e5362]: $100
+                  - generic [ref=e5363]: /hour
+          - link "Multi-booking Client Test artist bio for automated testing $100 /hour" [ref=e5364] [cursor=pointer]:
+            - /url: /artist/60009
+            - generic [ref=e5365]:
+              - img [ref=e5368]
+              - generic [ref=e5374]:
+                - heading "Multi-booking Client" [level=3] [ref=e5375]
+                - paragraph [ref=e5376]: Test artist bio for automated testing
+                - generic [ref=e5377]:
+                  - generic [ref=e5378]: $100
+                  - generic [ref=e5379]: /hour
+          - link "Pacific Artist Test artist bio for automated testing $100 /hour" [ref=e5380] [cursor=pointer]:
+            - /url: /artist/60003
+            - generic [ref=e5381]:
+              - img [ref=e5384]
+              - generic [ref=e5390]:
+                - heading "Pacific Artist" [level=3] [ref=e5391]
+                - paragraph [ref=e5392]: Test artist bio for automated testing
+                - generic [ref=e5393]:
+                  - generic [ref=e5394]: $100
+                  - generic [ref=e5395]: /hour
+          - link "Test Client - Availability Test artist bio for automated testing $100 /hour" [ref=e5396] [cursor=pointer]:
+            - /url: /artist/60002
+            - generic [ref=e5397]:
+              - img [ref=e5400]
+              - generic [ref=e5406]:
+                - heading "Test Client - Availability" [level=3] [ref=e5407]
+                - paragraph [ref=e5408]: Test artist bio for automated testing
+                - generic [ref=e5409]:
+                  - generic [ref=e5410]: $100
+                  - generic [ref=e5411]: /hour
+          - link "Test Artist - Availability Test artist bio for automated testing $100 /hour" [ref=e5412] [cursor=pointer]:
+            - /url: /artist/60001
+            - generic [ref=e5413]:
+              - img [ref=e5416]
+              - generic [ref=e5422]:
+                - heading "Test Artist - Availability" [level=3] [ref=e5423]
+                - paragraph [ref=e5424]: Test artist bio for automated testing
+                - generic [ref=e5425]:
+                  - generic [ref=e5426]: $100
+                  - generic [ref=e5427]: /hour
+          - link "Test Client 9 Test artist bio for automated testing $100 /hour" [ref=e5428] [cursor=pointer]:
+            - /url: /artist/30041
+            - generic [ref=e5429]:
+              - img [ref=e5432]
+              - generic [ref=e5438]:
+                - heading "Test Client 9" [level=3] [ref=e5439]
+                - paragraph [ref=e5440]: Test artist bio for automated testing
+                - generic [ref=e5441]:
+                  - generic [ref=e5442]: $100
+                  - generic [ref=e5443]: /hour
+          - link "Test Client 4 Test artist bio for automated testing $100 /hour" [ref=e5444] [cursor=pointer]:
+            - /url: /artist/30036
+            - generic [ref=e5445]:
+              - img [ref=e5448]
+              - generic [ref=e5454]:
+                - heading "Test Client 4" [level=3] [ref=e5455]
+                - paragraph [ref=e5456]: Test artist bio for automated testing
+                - generic [ref=e5457]:
+                  - generic [ref=e5458]: $100
+                  - generic [ref=e5459]: /hour
+          - link "Test Artist - Double Booking Test artist bio for automated testing $100 /hour" [ref=e5460] [cursor=pointer]:
+            - /url: /artist/30029
+            - generic [ref=e5461]:
+              - img [ref=e5464]
+              - generic [ref=e5470]:
+                - heading "Test Artist - Double Booking" [level=3] [ref=e5471]
+                - paragraph [ref=e5472]: Test artist bio for automated testing
+                - generic [ref=e5473]:
+                  - generic [ref=e5474]: $100
+                  - generic [ref=e5475]: /hour
+          - link "Test Client 8 Test artist bio for automated testing $100 /hour" [ref=e5476] [cursor=pointer]:
+            - /url: /artist/30040
+            - generic [ref=e5477]:
+              - img [ref=e5480]
+              - generic [ref=e5486]:
+                - heading "Test Client 8" [level=3] [ref=e5487]
+                - paragraph [ref=e5488]: Test artist bio for automated testing
+                - generic [ref=e5489]:
+                  - generic [ref=e5490]: $100
+                  - generic [ref=e5491]: /hour
+          - link "Test Client 7 Test artist bio for automated testing $100 /hour" [ref=e5492] [cursor=pointer]:
+            - /url: /artist/30039
+            - generic [ref=e5493]:
+              - img [ref=e5496]
+              - generic [ref=e5502]:
+                - heading "Test Client 7" [level=3] [ref=e5503]
+                - paragraph [ref=e5504]: Test artist bio for automated testing
+                - generic [ref=e5505]:
+                  - generic [ref=e5506]: $100
+                  - generic [ref=e5507]: /hour
+          - link "Test Client 6 Test artist bio for automated testing $100 /hour" [ref=e5508] [cursor=pointer]:
+            - /url: /artist/30038
+            - generic [ref=e5509]:
+              - img [ref=e5512]
+              - generic [ref=e5518]:
+                - heading "Test Client 6" [level=3] [ref=e5519]
+                - paragraph [ref=e5520]: Test artist bio for automated testing
+                - generic [ref=e5521]:
+                  - generic [ref=e5522]: $100
+                  - generic [ref=e5523]: /hour
+          - link "Test Client 5 Test artist bio for automated testing $100 /hour" [ref=e5524] [cursor=pointer]:
+            - /url: /artist/30037
+            - generic [ref=e5525]:
+              - img [ref=e5528]
+              - generic [ref=e5534]:
+                - heading "Test Client 5" [level=3] [ref=e5535]
+                - paragraph [ref=e5536]: Test artist bio for automated testing
+                - generic [ref=e5537]:
+                  - generic [ref=e5538]: $100
+                  - generic [ref=e5539]: /hour
+          - link "Test Client 10 Test artist bio for automated testing $100 /hour" [ref=e5540] [cursor=pointer]:
+            - /url: /artist/30042
+            - generic [ref=e5541]:
+              - img [ref=e5544]
+              - generic [ref=e5550]:
+                - heading "Test Client 10" [level=3] [ref=e5551]
+                - paragraph [ref=e5552]: Test artist bio for automated testing
+                - generic [ref=e5553]:
+                  - generic [ref=e5554]: $100
+                  - generic [ref=e5555]: /hour
+          - link "Test Client 3 Test artist bio for automated testing $100 /hour" [ref=e5556] [cursor=pointer]:
+            - /url: /artist/30035
+            - generic [ref=e5557]:
+              - img [ref=e5560]
+              - generic [ref=e5566]:
+                - heading "Test Client 3" [level=3] [ref=e5567]
+                - paragraph [ref=e5568]: Test artist bio for automated testing
+                - generic [ref=e5569]:
+                  - generic [ref=e5570]: $100
+                  - generic [ref=e5571]: /hour
+          - link "Test Client 2 Test artist bio for automated testing $100 /hour" [ref=e5572] [cursor=pointer]:
+            - /url: /artist/30034
+            - generic [ref=e5573]:
+              - img [ref=e5576]
+              - generic [ref=e5582]:
+                - heading "Test Client 2" [level=3] [ref=e5583]
+                - paragraph [ref=e5584]: Test artist bio for automated testing
+                - generic [ref=e5585]:
+                  - generic [ref=e5586]: $100
+                  - generic [ref=e5587]: /hour
+          - link "Test Client 1 Test artist bio for automated testing $100 /hour" [ref=e5588] [cursor=pointer]:
+            - /url: /artist/30033
+            - generic [ref=e5589]:
+              - img [ref=e5592]
+              - generic [ref=e5598]:
+                - heading "Test Client 1" [level=3] [ref=e5599]
+                - paragraph [ref=e5600]: Test artist bio for automated testing
+                - generic [ref=e5601]:
+                  - generic [ref=e5602]: $100
+                  - generic [ref=e5603]: /hour
+          - link "Test Artist - Race Conditions Test artist bio for automated testing $100 /hour" [ref=e5604] [cursor=pointer]:
+            - /url: /artist/30032
+            - generic [ref=e5605]:
+              - img [ref=e5608]
+              - generic [ref=e5614]:
+                - heading "Test Artist - Race Conditions" [level=3] [ref=e5615]
+                - paragraph [ref=e5616]: Test artist bio for automated testing
+                - generic [ref=e5617]:
+                  - generic [ref=e5618]: $100
+                  - generic [ref=e5619]: /hour
+          - link "Test Client 2 Test artist bio for automated testing $100 /hour" [ref=e5620] [cursor=pointer]:
+            - /url: /artist/30031
+            - generic [ref=e5621]:
+              - img [ref=e5624]
+              - generic [ref=e5630]:
+                - heading "Test Client 2" [level=3] [ref=e5631]
+                - paragraph [ref=e5632]: Test artist bio for automated testing
+                - generic [ref=e5633]:
+                  - generic [ref=e5634]: $100
+                  - generic [ref=e5635]: /hour
+          - link "Test Client 1 Test artist bio for automated testing $100 /hour" [ref=e5636] [cursor=pointer]:
+            - /url: /artist/30030
+            - generic [ref=e5637]:
+              - img [ref=e5640]
+              - generic [ref=e5646]:
+                - heading "Test Client 1" [level=3] [ref=e5647]
+                - paragraph [ref=e5648]: Test artist bio for automated testing
+                - generic [ref=e5649]:
+                  - generic [ref=e5650]: $100
+                  - generic [ref=e5651]: /hour
+          - link "Test Client 10 Test artist bio for automated testing $100 /hour" [ref=e5652] [cursor=pointer]:
+            - /url: /artist/30028
+            - generic [ref=e5653]:
+              - img [ref=e5656]
+              - generic [ref=e5662]:
+                - heading "Test Client 10" [level=3] [ref=e5663]
+                - paragraph [ref=e5664]: Test artist bio for automated testing
+                - generic [ref=e5665]:
+                  - generic [ref=e5666]: $100
+                  - generic [ref=e5667]: /hour
+          - link "Test Client 5 Test artist bio for automated testing $100 /hour" [ref=e5668] [cursor=pointer]:
+            - /url: /artist/30023
+            - generic [ref=e5669]:
+              - img [ref=e5672]
+              - generic [ref=e5678]:
+                - heading "Test Client 5" [level=3] [ref=e5679]
+                - paragraph [ref=e5680]: Test artist bio for automated testing
+                - generic [ref=e5681]:
+                  - generic [ref=e5682]: $100
+                  - generic [ref=e5683]: /hour
+          - link "Test Client 9 Test artist bio for automated testing $100 /hour" [ref=e5684] [cursor=pointer]:
+            - /url: /artist/30027
+            - generic [ref=e5685]:
+              - img [ref=e5688]
+              - generic [ref=e5694]:
+                - heading "Test Client 9" [level=3] [ref=e5695]
+                - paragraph [ref=e5696]: Test artist bio for automated testing
+                - generic [ref=e5697]:
+                  - generic [ref=e5698]: $100
+                  - generic [ref=e5699]: /hour
+          - link "Test Client 8 Test artist bio for automated testing $100 /hour" [ref=e5700] [cursor=pointer]:
+            - /url: /artist/30026
+            - generic [ref=e5701]:
+              - img [ref=e5704]
+              - generic [ref=e5710]:
+                - heading "Test Client 8" [level=3] [ref=e5711]
+                - paragraph [ref=e5712]: Test artist bio for automated testing
+                - generic [ref=e5713]:
+                  - generic [ref=e5714]: $100
+                  - generic [ref=e5715]: /hour
+          - link "Test Client 7 Test artist bio for automated testing $100 /hour" [ref=e5716] [cursor=pointer]:
+            - /url: /artist/30025
+            - generic [ref=e5717]:
+              - img [ref=e5720]
+              - generic [ref=e5726]:
+                - heading "Test Client 7" [level=3] [ref=e5727]
+                - paragraph [ref=e5728]: Test artist bio for automated testing
+                - generic [ref=e5729]:
+                  - generic [ref=e5730]: $100
+                  - generic [ref=e5731]: /hour
+          - link "Test Client 6 Test artist bio for automated testing $100 /hour" [ref=e5732] [cursor=pointer]:
+            - /url: /artist/30024
+            - generic [ref=e5733]:
+              - img [ref=e5736]
+              - generic [ref=e5742]:
+                - heading "Test Client 6" [level=3] [ref=e5743]
+                - paragraph [ref=e5744]: Test artist bio for automated testing
+                - generic [ref=e5745]:
+                  - generic [ref=e5746]: $100
+                  - generic [ref=e5747]: /hour
+          - link "Test Client 4 Test artist bio for automated testing $100 /hour" [ref=e5748] [cursor=pointer]:
+            - /url: /artist/30022
+            - generic [ref=e5749]:
+              - img [ref=e5752]
+              - generic [ref=e5758]:
+                - heading "Test Client 4" [level=3] [ref=e5759]
+                - paragraph [ref=e5760]: Test artist bio for automated testing
+                - generic [ref=e5761]:
+                  - generic [ref=e5762]: $100
+                  - generic [ref=e5763]: /hour
+          - link "Test Artist - Double Booking Test artist bio for automated testing $100 /hour" [ref=e5764] [cursor=pointer]:
+            - /url: /artist/30015
+            - generic [ref=e5765]:
+              - img [ref=e5768]
+              - generic [ref=e5774]:
+                - heading "Test Artist - Double Booking" [level=3] [ref=e5775]
+                - paragraph [ref=e5776]: Test artist bio for automated testing
+                - generic [ref=e5777]:
+                  - generic [ref=e5778]: $100
+                  - generic [ref=e5779]: /hour
+          - link "Test Client 3 Test artist bio for automated testing $100 /hour" [ref=e5780] [cursor=pointer]:
+            - /url: /artist/30021
+            - generic [ref=e5781]:
+              - img [ref=e5784]
+              - generic [ref=e5790]:
+                - heading "Test Client 3" [level=3] [ref=e5791]
+                - paragraph [ref=e5792]: Test artist bio for automated testing
+                - generic [ref=e5793]:
+                  - generic [ref=e5794]: $100
+                  - generic [ref=e5795]: /hour
+          - link "Test Client 2 Test artist bio for automated testing $100 /hour" [ref=e5796] [cursor=pointer]:
+            - /url: /artist/30020
+            - generic [ref=e5797]:
+              - img [ref=e5800]
+              - generic [ref=e5806]:
+                - heading "Test Client 2" [level=3] [ref=e5807]
+                - paragraph [ref=e5808]: Test artist bio for automated testing
+                - generic [ref=e5809]:
+                  - generic [ref=e5810]: $100
+                  - generic [ref=e5811]: /hour
+          - link "Test Client 1 Test artist bio for automated testing $100 /hour" [ref=e5812] [cursor=pointer]:
+            - /url: /artist/30019
+            - generic [ref=e5813]:
+              - img [ref=e5816]
+              - generic [ref=e5822]:
+                - heading "Test Client 1" [level=3] [ref=e5823]
+                - paragraph [ref=e5824]: Test artist bio for automated testing
+                - generic [ref=e5825]:
+                  - generic [ref=e5826]: $100
+                  - generic [ref=e5827]: /hour
+          - link "Test Artist - Race Conditions Test artist bio for automated testing $100 /hour" [ref=e5828] [cursor=pointer]:
+            - /url: /artist/30018
+            - generic [ref=e5829]:
+              - img [ref=e5832]
+              - generic [ref=e5838]:
+                - heading "Test Artist - Race Conditions" [level=3] [ref=e5839]
+                - paragraph [ref=e5840]: Test artist bio for automated testing
+                - generic [ref=e5841]:
+                  - generic [ref=e5842]: $100
+                  - generic [ref=e5843]: /hour
+          - link "Test Client 2 Test artist bio for automated testing $100 /hour" [ref=e5844] [cursor=pointer]:
+            - /url: /artist/30017
+            - generic [ref=e5845]:
+              - img [ref=e5848]
+              - generic [ref=e5854]:
+                - heading "Test Client 2" [level=3] [ref=e5855]
+                - paragraph [ref=e5856]: Test artist bio for automated testing
+                - generic [ref=e5857]:
+                  - generic [ref=e5858]: $100
+                  - generic [ref=e5859]: /hour
+          - link "Test Client 1 Test artist bio for automated testing $100 /hour" [ref=e5860] [cursor=pointer]:
+            - /url: /artist/30016
+            - generic [ref=e5861]:
+              - img [ref=e5864]
+              - generic [ref=e5870]:
+                - heading "Test Client 1" [level=3] [ref=e5871]
+                - paragraph [ref=e5872]: Test artist bio for automated testing
+                - generic [ref=e5873]:
+                  - generic [ref=e5874]: $100
+                  - generic [ref=e5875]: /hour
+          - link "Test Client 8 Test artist bio for automated testing $100 /hour" [ref=e5876] [cursor=pointer]:
+            - /url: /artist/30012
+            - generic [ref=e5877]:
+              - img [ref=e5880]
+              - generic [ref=e5886]:
+                - heading "Test Client 8" [level=3] [ref=e5887]
+                - paragraph [ref=e5888]: Test artist bio for automated testing
+                - generic [ref=e5889]:
+                  - generic [ref=e5890]: $100
+                  - generic [ref=e5891]: /hour
+          - link "Test Client 2 Test artist bio for automated testing $100 /hour" [ref=e5892] [cursor=pointer]:
+            - /url: /artist/30006
+            - generic [ref=e5893]:
+              - img [ref=e5896]
+              - generic [ref=e5902]:
+                - heading "Test Client 2" [level=3] [ref=e5903]
+                - paragraph [ref=e5904]: Test artist bio for automated testing
+                - generic [ref=e5905]:
+                  - generic [ref=e5906]: $100
+                  - generic [ref=e5907]: /hour
+          - link "Test Client 9 Test artist bio for automated testing $100 /hour" [ref=e5908] [cursor=pointer]:
+            - /url: /artist/30013
+            - generic [ref=e5909]:
+              - img [ref=e5912]
+              - generic [ref=e5918]:
+                - heading "Test Client 9" [level=3] [ref=e5919]
+                - paragraph [ref=e5920]: Test artist bio for automated testing
+                - generic [ref=e5921]:
+                  - generic [ref=e5922]: $100
+                  - generic [ref=e5923]: /hour
+          - link "Test Client 10 Test artist bio for automated testing $100 /hour" [ref=e5924] [cursor=pointer]:
+            - /url: /artist/30014
+            - generic [ref=e5925]:
+              - img [ref=e5928]
+              - generic [ref=e5934]:
+                - heading "Test Client 10" [level=3] [ref=e5935]
+                - paragraph [ref=e5936]: Test artist bio for automated testing
+                - generic [ref=e5937]:
+                  - generic [ref=e5938]: $100
+                  - generic [ref=e5939]: /hour
+          - link "Test Client 7 Test artist bio for automated testing $100 /hour" [ref=e5940] [cursor=pointer]:
+            - /url: /artist/30011
+            - generic [ref=e5941]:
+              - img [ref=e5944]
+              - generic [ref=e5950]:
+                - heading "Test Client 7" [level=3] [ref=e5951]
+                - paragraph [ref=e5952]: Test artist bio for automated testing
+                - generic [ref=e5953]:
+                  - generic [ref=e5954]: $100
+                  - generic [ref=e5955]: /hour
+          - link "Test Client 6 Test artist bio for automated testing $100 /hour" [ref=e5956] [cursor=pointer]:
+            - /url: /artist/30010
+            - generic [ref=e5957]:
+              - img [ref=e5960]
+              - generic [ref=e5966]:
+                - heading "Test Client 6" [level=3] [ref=e5967]
+                - paragraph [ref=e5968]: Test artist bio for automated testing
+                - generic [ref=e5969]:
+                  - generic [ref=e5970]: $100
+                  - generic [ref=e5971]: /hour
+          - link "Test Client 5 Test artist bio for automated testing $100 /hour" [ref=e5972] [cursor=pointer]:
+            - /url: /artist/30009
+            - generic [ref=e5973]:
+              - img [ref=e5976]
+              - generic [ref=e5982]:
+                - heading "Test Client 5" [level=3] [ref=e5983]
+                - paragraph [ref=e5984]: Test artist bio for automated testing
+                - generic [ref=e5985]:
+                  - generic [ref=e5986]: $100
+                  - generic [ref=e5987]: /hour
+          - link "Test Client 4 Test artist bio for automated testing $100 /hour" [ref=e5988] [cursor=pointer]:
+            - /url: /artist/30008
+            - generic [ref=e5989]:
+              - img [ref=e5992]
+              - generic [ref=e5998]:
+                - heading "Test Client 4" [level=3] [ref=e5999]
+                - paragraph [ref=e6000]: Test artist bio for automated testing
+                - generic [ref=e6001]:
+                  - generic [ref=e6002]: $100
+                  - generic [ref=e6003]: /hour
+          - link "Test Client 3 Test artist bio for automated testing $100 /hour" [ref=e6004] [cursor=pointer]:
+            - /url: /artist/30007
+            - generic [ref=e6005]:
+              - img [ref=e6008]
+              - generic [ref=e6014]:
+                - heading "Test Client 3" [level=3] [ref=e6015]
+                - paragraph [ref=e6016]: Test artist bio for automated testing
+                - generic [ref=e6017]:
+                  - generic [ref=e6018]: $100
+                  - generic [ref=e6019]: /hour
+          - link "Test Client 1 Test artist bio for automated testing $100 /hour" [ref=e6020] [cursor=pointer]:
+            - /url: /artist/30005
+            - generic [ref=e6021]:
+              - img [ref=e6024]
+              - generic [ref=e6030]:
+                - heading "Test Client 1" [level=3] [ref=e6031]
+                - paragraph [ref=e6032]: Test artist bio for automated testing
+                - generic [ref=e6033]:
+                  - generic [ref=e6034]: $100
+                  - generic [ref=e6035]: /hour
+          - link "Test Artist - Race Conditions Test artist bio for automated testing $100 /hour" [ref=e6036] [cursor=pointer]:
+            - /url: /artist/30004
+            - generic [ref=e6037]:
+              - img [ref=e6040]
+              - generic [ref=e6046]:
+                - heading "Test Artist - Race Conditions" [level=3] [ref=e6047]
+                - paragraph [ref=e6048]: Test artist bio for automated testing
+                - generic [ref=e6049]:
+                  - generic [ref=e6050]: $100
+                  - generic [ref=e6051]: /hour
+          - link "Test Client 2 Test artist bio for automated testing $100 /hour" [ref=e6052] [cursor=pointer]:
+            - /url: /artist/30003
+            - generic [ref=e6053]:
+              - img [ref=e6056]
+              - generic [ref=e6062]:
+                - heading "Test Client 2" [level=3] [ref=e6063]
+                - paragraph [ref=e6064]: Test artist bio for automated testing
+                - generic [ref=e6065]:
+                  - generic [ref=e6066]: $100
+                  - generic [ref=e6067]: /hour
+          - link "Test Client 1 Test artist bio for automated testing $100 /hour" [ref=e6068] [cursor=pointer]:
+            - /url: /artist/30002
+            - generic [ref=e6069]:
+              - img [ref=e6072]
+              - generic [ref=e6078]:
+                - heading "Test Client 1" [level=3] [ref=e6079]
+                - paragraph [ref=e6080]: Test artist bio for automated testing
+                - generic [ref=e6081]:
+                  - generic [ref=e6082]: $100
+                  - generic [ref=e6083]: /hour
+          - link "Test Artist - Double Booking Test artist bio for automated testing $100 /hour" [ref=e6084] [cursor=pointer]:
+            - /url: /artist/30001
+            - generic [ref=e6085]:
+              - img [ref=e6088]
+              - generic [ref=e6094]:
+                - heading "Test Artist - Double Booking" [level=3] [ref=e6095]
+                - paragraph [ref=e6096]: Test artist bio for automated testing
+                - generic [ref=e6097]:
+                  - generic [ref=e6098]: $100
+                  - generic [ref=e6099]: /hour
+          - link "Oliver Kim Oliver Kim Portland, OR Calligrapher and lettering artist specializing in modern calligraphy, hand-lettering, and custom typography. I bring elegance and personality to every piece through the art of beautiful writing. $90 /hour" [ref=e6100] [cursor=pointer]:
+            - /url: /artist/6
+            - generic [ref=e6101]:
+              - img "Oliver Kim" [ref=e6103]
+              - generic [ref=e6104]:
+                - heading "Oliver Kim" [level=3] [ref=e6105]
+                - paragraph [ref=e6106]:
+                  - img [ref=e6107]
+                  - text: Portland, OR
+                - paragraph [ref=e6110]: Calligrapher and lettering artist specializing in modern calligraphy, hand-lettering, and custom typography. I bring elegance and personality to every piece through the art of beautiful writing.
+                - generic [ref=e6111]:
+                  - generic [ref=e6112]: $90
+                  - generic [ref=e6113]: /hour
+          - link "Aria Thompson Aria Thompson Nashville, TN Multi-disciplinary artist and creative director with expertise in music production, visual arts, and performance. I blend different art forms to create immersive, unforgettable experiences. $110 /hour" [ref=e6114] [cursor=pointer]:
+            - /url: /artist/5
+            - generic [ref=e6115]:
+              - img "Aria Thompson" [ref=e6117]
+              - generic [ref=e6118]:
+                - heading "Aria Thompson" [level=3] [ref=e6119]
+                - paragraph [ref=e6120]:
+                  - img [ref=e6121]
+                  - text: Nashville, TN
+                - paragraph [ref=e6124]: Multi-disciplinary artist and creative director with expertise in music production, visual arts, and performance. I blend different art forms to create immersive, unforgettable experiences.
+                - generic [ref=e6125]:
+                  - generic [ref=e6126]: $110
+                  - generic [ref=e6127]: /hour
+          - link "Elena Martinez Elena Martinez Brooklyn, NY Contemporary painter specializing in abstract expressionism and mixed media. My work explores the intersection of emotion and color, creating pieces that evoke deep feelings and contemplation. $120 /hour" [ref=e6128] [cursor=pointer]:
+            - /url: /artist/1
+            - generic [ref=e6129]:
+              - img "Elena Martinez" [ref=e6131]
+              - generic [ref=e6132]:
+                - heading "Elena Martinez" [level=3] [ref=e6133]
+                - paragraph [ref=e6134]:
+                  - img [ref=e6135]
+                  - text: Brooklyn, NY
+                - paragraph [ref=e6138]: Contemporary painter specializing in abstract expressionism and mixed media. My work explores the intersection of emotion and color, creating pieces that evoke deep feelings and contemplation.
+                - generic [ref=e6139]:
+                  - generic [ref=e6140]: $120
+                  - generic [ref=e6141]: /hour
+          - link "James Rodriguez James Rodriguez Chicago, IL Sculptor and 3D artist working with clay, metal, and digital mediums. I create both traditional sculptures and cutting-edge 3D printed art pieces that push the boundaries of form and material. $130 /hour" [ref=e6142] [cursor=pointer]:
+            - /url: /artist/4
+            - generic [ref=e6143]:
+              - img "James Rodriguez" [ref=e6145]
+              - generic [ref=e6146]:
+                - heading "James Rodriguez" [level=3] [ref=e6147]
+                - paragraph [ref=e6148]:
+                  - img [ref=e6149]
+                  - text: Chicago, IL
+                - paragraph [ref=e6152]: Sculptor and 3D artist working with clay, metal, and digital mediums. I create both traditional sculptures and cutting-edge 3D printed art pieces that push the boundaries of form and material.
+                - generic [ref=e6153]:
+                  - generic [ref=e6154]: $130
+                  - generic [ref=e6155]: /hour
+          - link "Sophia Anderson Sophia Anderson Austin, TX Digital illustrator and graphic designer creating vibrant, eye-catching visuals for brands and publications. Specializing in editorial illustration, character design, and brand identity. $100 /hour" [ref=e6156] [cursor=pointer]:
+            - /url: /artist/3
+            - generic [ref=e6157]:
+              - img "Sophia Anderson" [ref=e6159]
+              - generic [ref=e6160]:
+                - heading "Sophia Anderson" [level=3] [ref=e6161]
+                - paragraph [ref=e6162]:
+                  - img [ref=e6163]
+                  - text: Austin, TX
+                - paragraph [ref=e6166]: Digital illustrator and graphic designer creating vibrant, eye-catching visuals for brands and publications. Specializing in editorial illustration, character design, and brand identity.
+                - generic [ref=e6167]:
+                  - generic [ref=e6168]: $100
+                  - generic [ref=e6169]: /hour
+          - link "Marcus Chen Marcus Chen Los Angeles, CA Award-winning photographer with 15+ years of experience in portrait, fashion, and editorial photography. I capture authentic moments and create timeless images that tell your story. $150 /hour" [ref=e6170] [cursor=pointer]:
+            - /url: /artist/2
+            - generic [ref=e6171]:
+              - img "Marcus Chen" [ref=e6173]
+              - generic [ref=e6174]:
+                - heading "Marcus Chen" [level=3] [ref=e6175]
+                - paragraph [ref=e6176]:
+                  - img [ref=e6177]
+                  - text: Los Angeles, CA
+                - paragraph [ref=e6180]: Award-winning photographer with 15+ years of experience in portrait, fashion, and editorial photography. I capture authentic moments and create timeless images that tell your story.
+                - generic [ref=e6181]:
+                  - generic [ref=e6182]: $150
+                  - generic [ref=e6183]: /hour
+```

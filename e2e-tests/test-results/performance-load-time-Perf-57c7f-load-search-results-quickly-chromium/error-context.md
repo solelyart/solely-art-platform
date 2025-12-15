@@ -1,0 +1,75 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - region "Notifications alt+T"
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - link "Solely Art" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - img [ref=e7]
+          - generic [ref=e13]: Solely Art
+        - navigation [ref=e14]:
+          - link "Home" [ref=e15] [cursor=pointer]:
+            - /url: /
+    - generic [ref=e17]:
+      - complementary [ref=e18]:
+        - generic [ref=e19]:
+          - heading "Filters" [level=2] [ref=e21]:
+            - img [ref=e22]
+            - text: Filters
+          - generic [ref=e23]:
+            - generic [ref=e24]: Search
+            - generic [ref=e25]:
+              - img [ref=e26]
+              - textbox "Search" [active] [ref=e29]:
+                - /placeholder: Search artists...
+                - text: Jane
+          - generic [ref=e30]:
+            - generic [ref=e31]: Categories
+            - generic [ref=e32]:
+              - generic [ref=e33] [cursor=pointer]: Crafts & Handmade
+              - generic [ref=e34] [cursor=pointer]: Digital Art & Design
+              - generic [ref=e35] [cursor=pointer]: Music & Performance
+              - generic [ref=e36] [cursor=pointer]: Painting & Drawing
+              - generic [ref=e37] [cursor=pointer]: Photography
+              - generic [ref=e38] [cursor=pointer]: Sculpture & 3D Art
+              - generic [ref=e39] [cursor=pointer]: Videography & Film
+              - generic [ref=e40] [cursor=pointer]: Writing & Poetry
+          - generic [ref=e41]:
+            - generic [ref=e42]: Location
+            - generic [ref=e43]:
+              - img [ref=e44]
+              - textbox "Location" [ref=e47]:
+                - /placeholder: City or region
+          - generic [ref=e48]:
+            - generic [ref=e49]: Hourly Rate ($0 - $500)
+            - generic [ref=e50]:
+              - slider "Minimum" [ref=e54]
+              - slider "Maximum" [ref=e56]
+            - generic [ref=e57]:
+              - generic [ref=e58]: $0
+              - generic [ref=e59]: $500+
+          - generic [ref=e60]:
+            - generic [ref=e61] [cursor=pointer]: Available Now
+            - switch "Available Now" [ref=e62] [cursor=pointer]
+          - button "Apply Filters" [ref=e63] [cursor=pointer]
+      - main [ref=e64]:
+        - generic [ref=e66]:
+          - heading "Discover Artists" [level=1] [ref=e67]
+          - paragraph [ref=e68]: 1 artist found
+        - link "Jane Doe Jane Doe New York, NY Talented artist specializing in portrait photography and digital art. Available for commissions and custom projects. $120 /hour" [ref=e70] [cursor=pointer]:
+          - /url: /artist/150001
+          - generic [ref=e71]:
+            - img "Jane Doe" [ref=e73]
+            - generic [ref=e74]:
+              - heading "Jane Doe" [level=3] [ref=e75]
+              - paragraph [ref=e76]:
+                - img [ref=e77]
+                - text: New York, NY
+              - paragraph [ref=e80]: Talented artist specializing in portrait photography and digital art. Available for commissions and custom projects.
+              - generic [ref=e81]:
+                - generic [ref=e82]: $120
+                - generic [ref=e83]: /hour
+```
