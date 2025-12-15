@@ -1,0 +1,120 @@
+{
+  "query": "SELECT * FROM services LIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user dQ3VUcXRRX4nqcF.755c6100da67 --database b8XDdB8n6irgSrJYrYA6i8 --execute SELECT * FROM services LIMIT 10;",
+  "rows": [
+    {
+      "id": "1",
+      "artistId": "1",
+      "name": "Custom Portrait Commission",
+      "description": "Hand-painted portrait in your choice of style",
+      "price": "50000",
+      "durationMinutes": "240",
+      "isActive": "1",
+      "createdAt": "2025-12-13 02:11:35",
+      "updatedAt": "2025-12-13 02:11:35"
+    },
+    {
+      "id": "2",
+      "artistId": "1",
+      "name": "Abstract Art Workshop",
+      "description": "Learn abstract painting techniques in a 2-hour session",
+      "price": "15000",
+      "durationMinutes": "120",
+      "isActive": "1",
+      "createdAt": "2025-12-13 02:11:35",
+      "updatedAt": "2025-12-13 02:11:35"
+    },
+    {
+      "id": "3",
+      "artistId": "1",
+      "name": "Art Consultation",
+      "description": "Professional advice on art collection and curation",
+      "price": "10000",
+      "durationMinutes": "60",
+      "isActive": "1",
+      "createdAt": "2025-12-13 02:11:35",
+      "updatedAt": "2025-12-13 02:11:35"
+    },
+    {
+      "id": "4",
+      "artistId": "2",
+      "name": "Portrait Photography Session",
+      "description": "Professional headshots or personal portraits",
+      "price": "35000",
+      "durationMinutes": "90",
+      "isActive": "1",
+      "createdAt": "2025-12-13 02:11:35",
+      "updatedAt": "2025-12-13 02:11:35"
+    },
+    {
+      "id": "5",
+      "artistId": "2",
+      "name": "Event Photography",
+      "description": "Full-day coverage of your special event",
+      "price": "200000",
+      "durationMinutes": "480",
+      "isActive": "1",
+      "createdAt": "2025-12-13 02:11:35",
+      "updatedAt": "2025-12-13 02:11:35"
+    },
+    {
+      "id": "6",
+      "artistId": "2",
+      "name": "Photography Mentorship",
+      "description": "One-on-one coaching for aspiring photographers",
+      "price": "12000",
+      "durationMinutes": "60",
+      "isActive": "1",
+      "createdAt": "2025-12-13 02:11:35",
+      "updatedAt": "2025-12-13 02:11:35"
+    },
+    {
+      "id": "7",
+      "artistId": "3",
+      "name": "Custom Illustration",
+      "description": "Unique digital illustration for your project",
+      "price": "40000",
+      "durationMinutes": "180",
+      "isActive": "1",
+      "createdAt": "2025-12-13 02:11:35",
+      "updatedAt": "2025-12-13 02:11:35"
+    },
+    {
+      "id": "8",
+      "artistId": "3",
+      "name": "Brand Identity Design",
+      "description": "Complete visual identity including logo and guidelines",
+      "price": "150000",
+      "durationMinutes": "600",
+      "isActive": "1",
+      "createdAt": "2025-12-13 02:11:35",
+      "updatedAt": "2025-12-13 02:11:35"
+    },
+    {
+      "id": "9",
+      "artistId": "3",
+      "name": "Design Workshop",
+      "description": "Learn digital illustration fundamentals",
+      "price": "8000",
+      "durationMinutes": "90",
+      "isActive": "1",
+      "createdAt": "2025-12-13 02:11:35",
+      "updatedAt": "2025-12-13 02:11:35"
+    },
+    {
+      "id": "10",
+      "artistId": "4",
+      "name": "Custom Sculpture Commission",
+      "description": "Bespoke sculpture in your choice of material",
+      "price": "80000",
+      "durationMinutes": "480",
+      "isActive": "1",
+      "createdAt": "2025-12-13 02:11:35",
+      "updatedAt": "2025-12-13 02:11:35"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tartistId\tname\tdescription\tprice\tdurationMinutes\tisActive\tcreatedAt\tupdatedAt\n1\t1\tCustom Portrait Commission\tHand-painted portrait in your choice of style\t50000\t240\t1\t2025-12-13 02:11:35\t2025-12-13 02:11:35\n2\t1\tAbstract Art Workshop\tLearn abstract painting techniques in a 2-hour session\t15000\t120\t1\t2025-12-13 02:11:35\t2025-12-13 02:11:35\n3\t1\tArt Consultation\tProfessional advice on art collection and curation\t10000\t60\t1\t2025-12-13 02:11:35\t2025-12-13 02:11:35\n4\t2\tPortrait Photography Session\tProfessional headshots or personal portraits\t35000\t90\t1\t2025-12-13 02:11:35\t2025-12-13 02:11:35\n5\t2\tEvent Photography\tFull-day coverage of your special event\t200000\t480\t1\t2025-12-13 02:11:35\t2025-12-13 02:11:35\n6\t2\tPhotography Mentorship\tOne-on-one coaching for aspiring photographers\t12000\t60\t1\t2025-12-13 02:11:35\t2025-12-13 02:11:35\n7\t3\tCustom Illustration\tUnique digital illustration for your project\t40000\t180\t1\t2025-12-13 02:11:35\t2025-12-13 02:11:35\n8\t3\tBrand Identity Design\tComplete visual identity including logo and guidelines\t150000\t600\t1\t2025-12-13 02:11:35\t2025-12-13 02:11:35\n9\t3\tDesign Workshop\tLearn digital illustration fundamentals\t8000\t90\t1\t2025-12-13 02:11:35\t2025-12-13 02:11:35\n10\t4\tCustom Sculpture Commission\tBespoke sculpture in your choice of material\t80000\t480\t1\t2025-12-13 02:11:35\t2025-12-13 02:11:35\n",
+  "stderr": "",
+  "execution_time_ms": 102
+}

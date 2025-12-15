@@ -321,6 +321,7 @@ export function BookingCalendar({
                   <button
                     key={`${slot.startTime}-${slot.endTime}`}
                     data-testid="time-slot"
+                    data-time={slot.startTime}
                     onClick={() => handleSlotClick(slot.startTime, slot.endTime)}
                     className={`
                       px-4 py-3 rounded-lg text-sm font-medium transition-all

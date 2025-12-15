@@ -1,0 +1,90 @@
+{
+  "query": "SELECT s.id, s.artistId, s.name, s.price, s.durationMinutes, ap.displayName FROM services s JOIN artistProfiles ap ON s.artistId = ap.id LIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user dQ3VUcXRRX4nqcF.755c6100da67 --database b8XDdB8n6irgSrJYrYA6i8 --execute SELECT s.id, s.artistId, s.name, s.price, s.durationMinutes, ap.displayName FROM services s JOIN artistProfiles ap ON s.artistId = ap.id LIMIT 10;",
+  "rows": [
+    {
+      "id": "1",
+      "artistId": "1",
+      "name": "Custom Portrait Commission",
+      "price": "50000",
+      "durationMinutes": "240",
+      "displayName": "Elena Martinez"
+    },
+    {
+      "id": "2",
+      "artistId": "1",
+      "name": "Abstract Art Workshop",
+      "price": "15000",
+      "durationMinutes": "120",
+      "displayName": "Elena Martinez"
+    },
+    {
+      "id": "3",
+      "artistId": "1",
+      "name": "Art Consultation",
+      "price": "10000",
+      "durationMinutes": "60",
+      "displayName": "Elena Martinez"
+    },
+    {
+      "id": "4",
+      "artistId": "2",
+      "name": "Portrait Photography Session",
+      "price": "35000",
+      "durationMinutes": "90",
+      "displayName": "Marcus Chen"
+    },
+    {
+      "id": "5",
+      "artistId": "2",
+      "name": "Event Photography",
+      "price": "200000",
+      "durationMinutes": "480",
+      "displayName": "Marcus Chen"
+    },
+    {
+      "id": "6",
+      "artistId": "2",
+      "name": "Photography Mentorship",
+      "price": "12000",
+      "durationMinutes": "60",
+      "displayName": "Marcus Chen"
+    },
+    {
+      "id": "7",
+      "artistId": "3",
+      "name": "Custom Illustration",
+      "price": "40000",
+      "durationMinutes": "180",
+      "displayName": "Sophia Anderson"
+    },
+    {
+      "id": "8",
+      "artistId": "3",
+      "name": "Brand Identity Design",
+      "price": "150000",
+      "durationMinutes": "600",
+      "displayName": "Sophia Anderson"
+    },
+    {
+      "id": "9",
+      "artistId": "3",
+      "name": "Design Workshop",
+      "price": "8000",
+      "durationMinutes": "90",
+      "displayName": "Sophia Anderson"
+    },
+    {
+      "id": "10",
+      "artistId": "4",
+      "name": "Custom Sculpture Commission",
+      "price": "80000",
+      "durationMinutes": "480",
+      "displayName": "James Rodriguez"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tartistId\tname\tprice\tdurationMinutes\tdisplayName\n1\t1\tCustom Portrait Commission\t50000\t240\tElena Martinez\n2\t1\tAbstract Art Workshop\t15000\t120\tElena Martinez\n3\t1\tArt Consultation\t10000\t60\tElena Martinez\n4\t2\tPortrait Photography Session\t35000\t90\tMarcus Chen\n5\t2\tEvent Photography\t200000\t480\tMarcus Chen\n6\t2\tPhotography Mentorship\t12000\t60\tMarcus Chen\n7\t3\tCustom Illustration\t40000\t180\tSophia Anderson\n8\t3\tBrand Identity Design\t150000\t600\tSophia Anderson\n9\t3\tDesign Workshop\t8000\t90\tSophia Anderson\n10\t4\tCustom Sculpture Commission\t80000\t480\tJames Rodriguez\n",
+  "stderr": "",
+  "execution_time_ms": 53
+}

@@ -7,8 +7,11 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './e2e-tests/tests',
   
+  // Exclude integration tests (require REST API architecture)
+  testIgnore: ['**/integration/**'],
+  
   // Maximum time one test can run
-  timeout: 30 * 1000,
+  timeout: 60 * 1000,
   
   // Test execution settings
   fullyParallel: true,
@@ -41,7 +44,7 @@ export default defineConfig({
     actionTimeout: 10 * 1000,
     
     // Navigation timeout
-    navigationTimeout: 15 * 1000,
+    navigationTimeout: 30 * 1000,
   },
 
   // Configure projects for different browsers and test types

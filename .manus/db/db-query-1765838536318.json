@@ -1,0 +1,110 @@
+{
+  "query": "SELECT id, userId, displayName FROM artistProfiles LIMIT 20;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user dQ3VUcXRRX4nqcF.755c6100da67 --database b8XDdB8n6irgSrJYrYA6i8 --execute SELECT id, userId, displayName FROM artistProfiles LIMIT 20;",
+  "rows": [
+    {
+      "id": "1",
+      "userId": "150007",
+      "displayName": "Elena Martinez"
+    },
+    {
+      "id": "2",
+      "userId": "150008",
+      "displayName": "Marcus Chen"
+    },
+    {
+      "id": "3",
+      "userId": "150009",
+      "displayName": "Sophia Anderson"
+    },
+    {
+      "id": "4",
+      "userId": "150010",
+      "displayName": "James Rodriguez"
+    },
+    {
+      "id": "5",
+      "userId": "150011",
+      "displayName": "Aria Thompson"
+    },
+    {
+      "id": "6",
+      "userId": "150012",
+      "displayName": "Oliver Kim"
+    },
+    {
+      "id": "30001",
+      "userId": "1765661628",
+      "displayName": "Test Artist - Double Booking"
+    },
+    {
+      "id": "30002",
+      "userId": "1765662309",
+      "displayName": "Test Client 1"
+    },
+    {
+      "id": "30003",
+      "userId": "1765659820",
+      "displayName": "Test Client 2"
+    },
+    {
+      "id": "30004",
+      "userId": "1765660097",
+      "displayName": "Test Artist - Race Conditions"
+    },
+    {
+      "id": "30005",
+      "userId": "1765660355",
+      "displayName": "Test Client 1"
+    },
+    {
+      "id": "30006",
+      "userId": "1765662331",
+      "displayName": "Test Client 2"
+    },
+    {
+      "id": "30007",
+      "userId": "1765662577",
+      "displayName": "Test Client 3"
+    },
+    {
+      "id": "30008",
+      "userId": "1765662142",
+      "displayName": "Test Client 4"
+    },
+    {
+      "id": "30009",
+      "userId": "1765661947",
+      "displayName": "Test Client 5"
+    },
+    {
+      "id": "30010",
+      "userId": "1765657436",
+      "displayName": "Test Client 6"
+    },
+    {
+      "id": "30011",
+      "userId": "1765655424",
+      "displayName": "Test Client 7"
+    },
+    {
+      "id": "30012",
+      "userId": "1765657129",
+      "displayName": "Test Client 8"
+    },
+    {
+      "id": "30013",
+      "userId": "1765657880",
+      "displayName": "Test Client 9"
+    },
+    {
+      "id": "30014",
+      "userId": "1765659092",
+      "displayName": "Test Client 10"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tuserId\tdisplayName\n1\t150007\tElena Martinez\n2\t150008\tMarcus Chen\n3\t150009\tSophia Anderson\n4\t150010\tJames Rodriguez\n5\t150011\tAria Thompson\n6\t150012\tOliver Kim\n30001\t1765661628\tTest Artist - Double Booking\n30002\t1765662309\tTest Client 1\n30003\t1765659820\tTest Client 2\n30004\t1765660097\tTest Artist - Race Conditions\n30005\t1765660355\tTest Client 1\n30006\t1765662331\tTest Client 2\n30007\t1765662577\tTest Client 3\n30008\t1765662142\tTest Client 4\n30009\t1765661947\tTest Client 5\n30010\t1765657436\tTest Client 6\n30011\t1765655424\tTest Client 7\n30012\t1765657129\tTest Client 8\n30013\t1765657880\tTest Client 9\n30014\t1765659092\tTest Client 10\n",
+  "stderr": "",
+  "execution_time_ms": 69
+}

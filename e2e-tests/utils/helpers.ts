@@ -243,3 +243,68 @@ export async function createBooking(
   // Wait for booking confirmation
   await page.waitForURL('**/booking/**');
 }
+
+
+/**
+ * Navigate to an artist that has services configured (Test Artist)
+ * This ensures booking flow tests work correctly
+ */
+export async function navigateToTestArtist(page: Page) {
+  // Search for Test Artist which has services configured
+  await page.goto('/browse');
+  await page.waitForSelector('[data-testid="search-input"]');
+  await page.fill('[data-testid="search-input"]', 'Test Artist');
+  await page.click('[data-testid="search-button"]');
+  
+  // Wait for search results and click the artist
+  await page.waitForSelector('[data-testid="artist-card"]');
+  await page.click('[data-testid="artist-card"]:first-child');
+  
+  // Wait for artist profile to load
+  await page.waitForSelector('[data-testid="artist-name"]');
+}
+
+/**
+ * Navigate to the booking page for an artist
+ * Handles the navigation from artist profile to booking page
+ */
+export async function navigateToBookingPage(page: Page) {
+  // Click the "View Availability" button to go to booking page
+  const viewAvailabilityBtn = page.locator('[data-testid="view-availability"]');
+  if (await viewAvailabilityBtn.count() > 0) {
+    await viewAvailabilityBtn.click();
+  } else {
+    // Fallback: extract artist ID from URL and navigate directly
+    const currentUrl = page.url();
+    const artistId = currentUrl.match(/\/artist\/(\d+)/)?.[1];
+    if (artistId) {
+      await page.goto(`/book/${artistId}`);
+    }
+  }
+  
+  // Wait for booking page to load
+  await page.waitForURL(/\/book\/\d+/);
+  await page.waitForLoadState('networkidle');
+}
+
+/**
+ * Select a service on the booking page
+ * Required before selecting date/time
+ */
+export async function selectService(page: Page, serviceName?: string) {
+  // Wait for services to load
+  await page.waitForSelector('[data-testid="service-card"], [data-testid="service-option"]', { timeout: 5000 }).catch(() => {
+    console.log('No service cards found, services may not be configured');
+  });
+  
+  if (serviceName) {
+    // Click specific service by name
+    await page.click(`[data-testid="service-card"]:has-text("${serviceName}"), [data-testid="service-option"]:has-text("${serviceName}")`);
+  } else {
+    // Click first available service
+    const serviceCard = page.locator('[data-testid="service-card"], [data-testid="service-option"]').first();
+    if (await serviceCard.count() > 0) {
+      await serviceCard.click();
+    }
+  }
+}

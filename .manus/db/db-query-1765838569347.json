@@ -1,0 +1,70 @@
+{
+  "query": "SELECT ap.id, ap.displayName, ap.userId, COUNT(s.id) as serviceCount FROM artistProfiles ap LEFT JOIN services s ON s.artistId = ap.id GROUP BY ap.id ORDER BY serviceCount DESC LIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user dQ3VUcXRRX4nqcF.755c6100da67 --database b8XDdB8n6irgSrJYrYA6i8 --execute SELECT ap.id, ap.displayName, ap.userId, COUNT(s.id) as serviceCount FROM artistProfiles ap LEFT JOIN services s ON s.artistId = ap.id GROUP BY ap.id ORDER BY serviceCount DESC LIMIT 10;",
+  "rows": [
+    {
+      "id": "1",
+      "displayName": "Elena Martinez",
+      "userId": "150007",
+      "serviceCount": "3"
+    },
+    {
+      "id": "4",
+      "displayName": "James Rodriguez",
+      "userId": "150010",
+      "serviceCount": "3"
+    },
+    {
+      "id": "6",
+      "displayName": "Oliver Kim",
+      "userId": "150012",
+      "serviceCount": "3"
+    },
+    {
+      "id": "2",
+      "displayName": "Marcus Chen",
+      "userId": "150008",
+      "serviceCount": "3"
+    },
+    {
+      "id": "3",
+      "displayName": "Sophia Anderson",
+      "userId": "150009",
+      "serviceCount": "3"
+    },
+    {
+      "id": "5",
+      "displayName": "Aria Thompson",
+      "userId": "150011",
+      "serviceCount": "3"
+    },
+    {
+      "id": "120001",
+      "displayName": "Test Artist",
+      "userId": "990005",
+      "serviceCount": "2"
+    },
+    {
+      "id": "60107",
+      "displayName": "Test Client - Availability",
+      "userId": "1765659942",
+      "serviceCount": "0"
+    },
+    {
+      "id": "60161",
+      "displayName": "Test Client 9",
+      "userId": "1765660149",
+      "serviceCount": "0"
+    },
+    {
+      "id": "60225",
+      "displayName": "Test Artist 6563",
+      "userId": "1765662006",
+      "serviceCount": "0"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tdisplayName\tuserId\tserviceCount\n1\tElena Martinez\t150007\t3\n4\tJames Rodriguez\t150010\t3\n6\tOliver Kim\t150012\t3\n2\tMarcus Chen\t150008\t3\n3\tSophia Anderson\t150009\t3\n5\tAria Thompson\t150011\t3\n120001\tTest Artist\t990005\t2\n60107\tTest Client - Availability\t1765659942\t0\n60161\tTest Client 9\t1765660149\t0\n60225\tTest Artist 6563\t1765662006\t0\n",
+  "stderr": "",
+  "execution_time_ms": 50
+}
