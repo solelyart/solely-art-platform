@@ -101,65 +101,68 @@
         - heading "Distinguished Creators" [level=2] [ref=e151]
         - paragraph [ref=e152]: Meet the exceptional artists shaping creative excellence worldwide
       - generic [ref=e153]:
-        - link "Test Artist Test Artist Raleigh, NC Professional test artist for automated Playwright testing. This profile is used exclusively for E2E test scenarios and should not be used for production bookings. Starting from $100/hr" [ref=e154] [cursor=pointer]:
-          - /url: /artist/120001
+        - link "Jane Doe Jane Doe New York, NY Talented artist specializing in portrait photography and digital art. Available for commissions and custom projects. Starting from $120/hr" [ref=e154] [cursor=pointer]:
+          - /url: /artist/150001
           - generic [ref=e155]:
-            - img "Test Artist" [ref=e157]
+            - img "Jane Doe" [ref=e157]
             - generic [ref=e159]:
-              - heading "Test Artist" [level=3] [ref=e160]
+              - heading "Jane Doe" [level=3] [ref=e160]
               - paragraph [ref=e161]:
                 - img [ref=e162]
-                - text: Raleigh, NC
-              - paragraph [ref=e165]: Professional test artist for automated Playwright testing. This profile is used exclusively for E2E test scenarios and should not be used for production bookings.
+                - text: New York, NY
+              - paragraph [ref=e165]: Talented artist specializing in portrait photography and digital art. Available for commissions and custom projects.
               - generic [ref=e166]:
                 - generic [ref=e167]: Starting from
-                - generic [ref=e168]: $100/hr
-        - link "Test Artist 430268-252085 Test artist bio for automated testing Starting from $100/hr" [ref=e169] [cursor=pointer]:
-          - /url: /artist/90028
+                - generic [ref=e168]: $120/hr
+        - link "Test Artist Test Artist Raleigh, NC Professional test artist for automated Playwright testing. This profile is used exclusively for E2E test scenarios and should not be used for production bookings. Starting from $100/hr" [ref=e169] [cursor=pointer]:
+          - /url: /artist/120001
           - generic [ref=e170]:
-            - img [ref=e172]
-            - generic [ref=e178]:
-              - heading "Test Artist 430268-252085" [level=3] [ref=e179]
-              - paragraph [ref=e180]: Test artist bio for automated testing
+            - img "Test Artist" [ref=e172]
+            - generic [ref=e174]:
+              - heading "Test Artist" [level=3] [ref=e175]
+              - paragraph [ref=e176]:
+                - img [ref=e177]
+                - text: Raleigh, NC
+              - paragraph [ref=e180]: Professional test artist for automated Playwright testing. This profile is used exclusively for E2E test scenarios and should not be used for production bookings.
               - generic [ref=e181]:
                 - generic [ref=e182]: Starting from
                 - generic [ref=e183]: $100/hr
-        - link "Test Artist 275907-568654 Test artist bio for automated testing Starting from $100/hr" [ref=e184] [cursor=pointer]:
-          - /url: /artist/90027
+        - link "Test Artist 430268-252085 Test artist bio for automated testing Starting from $100/hr" [ref=e184] [cursor=pointer]:
+          - /url: /artist/90028
           - generic [ref=e185]:
             - img [ref=e187]
             - generic [ref=e193]:
-              - heading "Test Artist 275907-568654" [level=3] [ref=e194]
+              - heading "Test Artist 430268-252085" [level=3] [ref=e194]
               - paragraph [ref=e195]: Test artist bio for automated testing
               - generic [ref=e196]:
                 - generic [ref=e197]: Starting from
                 - generic [ref=e198]: $100/hr
-        - link "Test Artist 431977-370947 Test artist bio for automated testing Starting from $100/hr" [ref=e199] [cursor=pointer]:
-          - /url: /artist/90026
+        - link "Test Artist 275907-568654 Test artist bio for automated testing Starting from $100/hr" [ref=e199] [cursor=pointer]:
+          - /url: /artist/90027
           - generic [ref=e200]:
             - img [ref=e202]
             - generic [ref=e208]:
-              - heading "Test Artist 431977-370947" [level=3] [ref=e209]
+              - heading "Test Artist 275907-568654" [level=3] [ref=e209]
               - paragraph [ref=e210]: Test artist bio for automated testing
               - generic [ref=e211]:
                 - generic [ref=e212]: Starting from
                 - generic [ref=e213]: $100/hr
-        - link "Test Artist 236076-939714 Test artist bio for automated testing Starting from $100/hr" [ref=e214] [cursor=pointer]:
-          - /url: /artist/90025
+        - link "Test Artist 431977-370947 Test artist bio for automated testing Starting from $100/hr" [ref=e214] [cursor=pointer]:
+          - /url: /artist/90026
           - generic [ref=e215]:
             - img [ref=e217]
             - generic [ref=e223]:
-              - heading "Test Artist 236076-939714" [level=3] [ref=e224]
+              - heading "Test Artist 431977-370947" [level=3] [ref=e224]
               - paragraph [ref=e225]: Test artist bio for automated testing
               - generic [ref=e226]:
                 - generic [ref=e227]: Starting from
                 - generic [ref=e228]: $100/hr
-        - link "Test Client 10 Test artist bio for automated testing Starting from $100/hr" [ref=e229] [cursor=pointer]:
-          - /url: /artist/90024
+        - link "Test Artist 236076-939714 Test artist bio for automated testing Starting from $100/hr" [ref=e229] [cursor=pointer]:
+          - /url: /artist/90025
           - generic [ref=e230]:
             - img [ref=e232]
             - generic [ref=e238]:
-              - heading "Test Client 10" [level=3] [ref=e239]
+              - heading "Test Artist 236076-939714" [level=3] [ref=e239]
               - paragraph [ref=e240]: Test artist bio for automated testing
               - generic [ref=e241]:
                 - generic [ref=e242]: Starting from

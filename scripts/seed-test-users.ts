@@ -24,6 +24,12 @@ const TEST_USERS = {
     openId: 'test-artist-openid-67890',
     role: 'user' as const,
   },
+  janeDoe: {
+    email: 'jane.doe@test.com',
+    name: 'Jane Doe',
+    openId: 'jane-doe-openid-99999',
+    role: 'user' as const,
+  },
   admin: {
     email: 'playwright-admin@test.com',
     name: 'Test Admin',
@@ -42,6 +48,19 @@ const ARTIST_PROFILE = {
     'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=800',
     'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800',
     'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=800',
+  ]),
+  isAvailable: true,
+};
+
+const JANE_DOE_PROFILE = {
+  displayName: 'Jane Doe',
+  bio: 'Talented artist specializing in portrait photography and digital art. Available for commissions and custom projects.',
+  location: 'New York, NY',
+  hourlyRate: 12000, // $120.00 in cents
+  categories: JSON.stringify([1, 3]), // Different categories
+  portfolioImages: JSON.stringify([
+    'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800',
+    'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800',
   ]),
   isAvailable: true,
 };
@@ -151,7 +170,45 @@ async function seedTestUsers() {
       });
     }
 
-    // 5. Create Test Admin User
+    // 5. Create Jane Doe Artist User
+    console.log('\nCreating Jane Doe artist user...');
+    const [existingJaneDoe] = await db
+      .select()
+      .from(users)
+      .where(eq(users.email, TEST_USERS.janeDoe.email))
+      .limit(1);
+
+    let janeDoeUser;
+    if (existingJaneDoe) {
+      console.log('  ⚠️  Jane Doe user already exists, skipping...');
+      janeDoeUser = existingJaneDoe;
+    } else {
+      await db.insert(users).values(TEST_USERS.janeDoe);
+      [janeDoeUser] = await db.select().from(users).where(eq(users.email, TEST_USERS.janeDoe.email)).limit(1);
+      console.log('  ✅ Jane Doe user created:', TEST_USERS.janeDoe.email);
+    }
+
+    // 6. Create Jane Doe Artist Profile
+    console.log('\nCreating Jane Doe artist profile...');
+    const [existingJaneDoeProfile] = await db
+      .select()
+      .from(artistProfiles)
+      .where(eq(artistProfiles.userId, janeDoeUser.id))
+      .limit(1);
+
+    if (existingJaneDoeProfile) {
+      console.log('  ⚠️  Jane Doe profile already exists, skipping...');
+    } else {
+      await db
+        .insert(artistProfiles)
+        .values({
+          ...JANE_DOE_PROFILE,
+          userId: janeDoeUser.id,
+        });
+      console.log('  ✅ Jane Doe artist profile created');
+    }
+
+    // 7. Create Test Admin User
     console.log('\nCreating test admin user...');
     const [existingAdmin] = await db
       .select()

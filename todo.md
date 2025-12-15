@@ -384,3 +384,30 @@
 - [x] Added search-link test-id to Home page navigation
 - [ ] Debug remaining auth fixture failures in performance tests
 - [ ] Achieve 90% pass rate (blocked by auth fixture issues)
+
+## Achieve 90% Test Pass Rate (Current Session)
+- [x] Fix auth fixture to wait for tRPC auth.me response (added waitForResponse)
+- [x] Debug why session cookie doesn't trigger auth state update (fixed by waiting for tRPC response)
+- [x] Fixed search-button test-id on Browse page
+- [x] Implement backend artist search by name filtering (already implemented in db.ts)
+- [x] Added Jane Doe test artist to seed script for search tests
+- [x] Implement backend category filtering in search query (already implemented - line 187-189 in db.ts, frontend passes selectedCategories[0])
+- [x] Debug booking creation flow end-to-end (auth fixture fixed with cookie verification)
+- [x] Added artist-name test-id to Browse page artist cards
+- [x] Enhanced auth fixture with detailed logging and cookie verification
+- [x] Improved auth fixture wait strategy (3s for slow responses)
+- [ ] Run full regression suite (in progress)
+- [ ] Validate 90% pass rate achieved (pending full regression results)
+
+## Deep Research: Playwright Cookie Authentication Issue (Current Session)
+- [x] Research Playwright cookie handling best practices and common pitfalls
+- [x] Confirmed page.request DOES share cookies with browser context
+- [x] Identified that Set-Cookie headers should automatically update browser cookies
+- [x] Investigate cookie domain/path/SameSite configuration issues (all correct)
+- [x] Debug why tRPC requests don't include session cookie (cookie WAS being sent)
+- [x] Test cookie persistence across page navigations in Playwright (working)
+- [x] Identify root cause of auth.me returning null despite cookie being set (COOKIE NAME MISMATCH!)
+- [x] Fixed cookie name mismatch (session → app_session_id)
+- [x] Test pass rate improved from 22.4% to 56% (9/16 passing)
+- [ ] Implement and validate fix
+- [ ] Document findings and solution

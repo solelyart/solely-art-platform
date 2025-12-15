@@ -13,9 +13,9 @@ import { users } from '../drizzle/schema';
 import { eq } from 'drizzle-orm';
 import { sdk } from './_core/sdk';
 import { getSessionCookieOptions } from './_core/cookies';
+import { COOKIE_NAME } from '@shared/const';
 
 const router = Router();
-const COOKIE_NAME = "session";
 const ONE_YEAR_MS = 365 * 24 * 60 * 60 * 1000;
 
 // Only enable in test/development

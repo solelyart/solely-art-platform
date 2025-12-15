@@ -23,7 +23,7 @@
             - generic [ref=e24]: Search
             - generic [ref=e25]:
               - img [ref=e26]
-              - textbox "Search" [active] [ref=e29]:
+              - textbox "Search" [ref=e29]:
                 - /placeholder: Search artists...
                 - text: Jane
           - generic [ref=e30]:
@@ -54,13 +54,22 @@
           - generic [ref=e60]:
             - generic [ref=e61] [cursor=pointer]: Available Now
             - switch "Available Now" [ref=e62] [cursor=pointer]
-          - button "Apply Filters" [ref=e63] [cursor=pointer]
+          - button "Apply Filters" [active] [ref=e63] [cursor=pointer]
       - main [ref=e64]:
         - generic [ref=e66]:
           - heading "Discover Artists" [level=1] [ref=e67]
-          - paragraph [ref=e68]: 0 artists found
-        - generic [ref=e69]:
-          - img [ref=e71]
-          - heading "No Artists Found" [level=3] [ref=e74]
-          - paragraph [ref=e75]: We couldn't find any artists matching your criteria. Try adjusting your filters or search terms.
+          - paragraph [ref=e68]: 1 artist found
+        - link "Jane Doe Jane Doe New York, NY Talented artist specializing in portrait photography and digital art. Available for commissions and custom projects. $120 /hour" [ref=e70] [cursor=pointer]:
+          - /url: /artist/150001
+          - generic [ref=e71]:
+            - img "Jane Doe" [ref=e73]
+            - generic [ref=e74]:
+              - heading "Jane Doe" [level=3] [ref=e75]
+              - paragraph [ref=e76]:
+                - img [ref=e77]
+                - text: New York, NY
+              - paragraph [ref=e80]: Talented artist specializing in portrait photography and digital art. Available for commissions and custom projects.
+              - generic [ref=e81]:
+                - generic [ref=e82]: $120
+                - generic [ref=e83]: /hour
 ```

@@ -229,7 +229,7 @@ export default function Browse() {
               </div>
 
               {/* Apply Filters Button */}
-              <Button onClick={handleSearch} className="w-full btn-cta" data-testid="apply-filters" data-testid-alt="search-button">
+              <Button onClick={handleSearch} className="w-full btn-cta" data-testid="search-button">
                 Apply Filters
               </Button>
             </div>
@@ -314,7 +314,7 @@ export default function Browse() {
                           )}
                         </div>
                         <CardContent className="p-6">
-                          <h3 className="mb-2 text-xl font-semibold">{artist.displayName}</h3>
+                          <h3 className="mb-2 text-xl font-semibold" data-testid="artist-name">{artist.displayName}</h3>
                           {artist.location && (
                             <p className="mb-3 flex items-center gap-1 text-sm text-muted-foreground">
                               <MapPin className="h-4 w-4" />
