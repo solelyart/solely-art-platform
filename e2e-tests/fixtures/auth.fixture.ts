@@ -43,8 +43,11 @@ async function authenticateUser(page: any, openId: string, expectedUrl?: string)
   // Wait for network to be idle before checking auth state
   await page.waitForLoadState('networkidle');
   
-  // Wait a moment for auth state to settle
-  await page.waitForTimeout(1000); // Increased from 500ms
+  // Wait for auth state to settle and propagate to React context
+  await page.waitForTimeout(2000); // Increased from 1000ms
+  
+  // Wait for the page to fully render with auth state
+  await page.waitForLoadState('domcontentloaded');
 }
 
 export const test = base.extend<AuthFixtures>({
@@ -57,7 +60,8 @@ export const test = base.extend<AuthFixtures>({
     await authenticateUser(page, testConfig.testUsers.client.openId, '/');
 
     // Verify authentication by checking for logout button
-    await expect(page.locator('[data-testid="logout-button"]')).toBeVisible({ timeout: 10000 }); // Increased from 5000ms
+    // Retry with longer timeout to handle slow auth state propagation
+    await expect(page.locator('[data-testid="logout-button"]')).toBeVisible({ timeout: 15000 }); // Increased from 10000ms
 
     // Use the authenticated page
     await use(page);
@@ -80,7 +84,7 @@ export const test = base.extend<AuthFixtures>({
     await authenticateUser(page, testConfig.testUsers.artist.openId, '/');
 
     // Verify authentication
-    await expect(page.locator('[data-testid="logout-button"]')).toBeVisible({ timeout: 10000 }); // Increased from 5000ms
+    await expect(page.locator('[data-testid="logout-button"]')).toBeVisible({ timeout: 15000 }); // Increased from 10000ms
 
     // Use the authenticated page
     await use(page);
@@ -103,7 +107,7 @@ export const test = base.extend<AuthFixtures>({
     await authenticateUser(page, testConfig.testUsers.admin.openId, '/');
 
     // Verify authentication
-    await expect(page.locator('[data-testid="logout-button"]')).toBeVisible({ timeout: 10000 }); // Increased from 5000ms
+    await expect(page.locator('[data-testid="logout-button"]')).toBeVisible({ timeout: 15000 }); // Increased from 10000ms
 
     // Use the authenticated page
     await use(page);

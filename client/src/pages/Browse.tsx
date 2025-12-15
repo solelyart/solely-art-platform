@@ -140,6 +140,7 @@ export default function Browse() {
                   <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                   <Input
                     id="search"
+                    data-testid="search-input"
                     placeholder="Search artists..."
                     className="pl-10"
                     value={filters.searchTerm}
@@ -172,6 +173,7 @@ export default function Browse() {
                               : "hover:border-primary hover:text-primary"
                           }`}
                           onClick={() => toggleCategory(cat.slug)}
+                          data-testid="category-option"
                         >
                           {cat.name}
                         </Badge>
@@ -227,7 +229,7 @@ export default function Browse() {
               </div>
 
               {/* Apply Filters Button */}
-              <Button onClick={handleSearch} className="w-full btn-cta" data-testid="apply-filters">
+              <Button onClick={handleSearch} className="w-full btn-cta" data-testid="apply-filters" data-testid-alt="search-button">
                 Apply Filters
               </Button>
             </div>
@@ -288,7 +290,7 @@ export default function Browse() {
                 ))}
               </div>
             ) : filteredArtists && filteredArtists.length > 0 ? (
-              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" data-testid="search-results">
                 {filteredArtists.map((artist) => {
                   const portfolioImages = typeof artist.portfolioImages === 'string'
                     ? JSON.parse(artist.portfolioImages)

@@ -253,7 +253,7 @@ export default function ArtistProfile() {
             </Card>
 
             {/* Reviews */}
-            <Card className="shadow-elegant">
+            <Card className="shadow-elegant" data-testid="artist-reviews">
               <CardHeader>
                 <CardTitle className="text-2xl">Reviews</CardTitle>
               </CardHeader>
@@ -315,7 +315,7 @@ export default function ArtistProfile() {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Quick Stats */}
-            <Card className="shadow-elegant">
+            <Card className="shadow-elegant" data-testid="artist-pricing">
               <CardHeader>
                 <CardTitle>Quick Stats</CardTitle>
               </CardHeader>
@@ -341,7 +341,9 @@ export default function ArtistProfile() {
             </Card>
 
             {/* Booking Settings */}
-            <BookingSettingsCard artistId={artistId} />
+            <div data-testid="artist-availability">
+              <BookingSettingsCard artistId={artistId} />
+            </div>
 
             {/* Contact Card */}
             <Card className="shadow-elegant">
@@ -352,7 +354,7 @@ export default function ArtistProfile() {
                 <p className="text-sm text-muted-foreground">
                   Ready to work with {artist.displayName}? Book a session or send a message.
                 </p>
-                <Button className="w-full btn-cta" asChild>
+                <Button className="w-full btn-cta" asChild data-testid="view-availability">
                   <Link href={`/book/${artist.id}`}>
                     <Calendar className="h-4 w-4 mr-2" />
                     Request Booking

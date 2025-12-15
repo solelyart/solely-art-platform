@@ -35,7 +35,7 @@ export default function Home() {
           </Link>
           
           <nav className="flex items-center gap-6">
-            <Link href="/browse" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors" data-testid="nav-browse">
+            <Link href="/browse" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors" data-testid="search-link">
               Browse Artists
             </Link>
             {isAuthenticated ? (
