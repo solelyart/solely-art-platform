@@ -1,5 +1,13 @@
 import { Button } from "@/components/ui/button";
-import { LucideIcon } from "lucide-react";
+import { 
+  Search,
+  Briefcase,
+  Calendar,
+  Star,
+  Image,
+  CalendarX,
+  LucideIcon 
+} from "lucide-react";
 
 interface EmptyStateProps {
   icon: LucideIcon;
@@ -32,7 +40,7 @@ export function EmptyState({ icon: Icon, title, description, action }: EmptyStat
 export function NoArtistsFound() {
   return (
     <EmptyState
-      icon={require("lucide-react").Search}
+      icon={Search}
       title="No Artists Found"
       description="We couldn't find any artists matching your criteria. Try adjusting your filters or search terms."
     />
@@ -42,7 +50,7 @@ export function NoArtistsFound() {
 export function NoServicesYet() {
   return (
     <EmptyState
-      icon={require("lucide-react").Briefcase}
+      icon={Briefcase}
       title="No Services Yet"
       description="This artist hasn't added any services yet. Check back soon!"
     />
@@ -52,7 +60,7 @@ export function NoServicesYet() {
 export function NoBookingsYet() {
   return (
     <EmptyState
-      icon={require("lucide-react").Calendar}
+      icon={Calendar}
       title="No Bookings Yet"
       description="You don't have any bookings yet. Browse artists and book your first session!"
     />
@@ -62,7 +70,7 @@ export function NoBookingsYet() {
 export function NoReviewsYet() {
   return (
     <EmptyState
-      icon={require("lucide-react").Star}
+      icon={Star}
       title="No Reviews Yet"
       description="This artist hasn't received any reviews yet. Be the first to book and leave a review!"
     />
@@ -72,7 +80,7 @@ export function NoReviewsYet() {
 export function NoPortfolioYet() {
   return (
     <EmptyState
-      icon={require("lucide-react").Image}
+      icon={Image}
       title="No Portfolio Images"
       description="This artist hasn't uploaded any portfolio images yet."
     />
@@ -82,7 +90,7 @@ export function NoPortfolioYet() {
 export function NoAvailability() {
   return (
     <EmptyState
-      icon={require("lucide-react").CalendarX}
+      icon={CalendarX}
       title="No Availability Set"
       description="This artist hasn't set their availability yet. Please check back later or contact them directly."
     />

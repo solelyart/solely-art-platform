@@ -1,0 +1,130 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - region "Notifications alt+T"
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - link "Solely Art" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - img [ref=e7]
+          - generic [ref=e13]: Solely Art
+        - navigation [ref=e14]:
+          - link "Browse Artists" [ref=e15] [cursor=pointer]:
+            - /url: /browse
+    - generic [ref=e16]:
+      - generic [ref=e19]:
+        - generic [ref=e21]: J
+        - generic [ref=e22]:
+          - heading "Jane Doe" [level=1] [ref=e23]
+          - generic [ref=e24]:
+            - generic [ref=e25]:
+              - img [ref=e26]
+              - generic [ref=e29]: New York, NY
+            - generic [ref=e30]:
+              - img [ref=e31]
+              - generic [ref=e33]: $120/hour
+          - generic [ref=e34]:
+            - generic [ref=e35]: Music & Performance
+            - generic [ref=e36]: Painting & Drawing
+          - paragraph [ref=e37]: Talented artist specializing in portrait photography and digital art. Available for commissions and custom projects.
+        - link "Book Now" [ref=e39] [cursor=pointer]:
+          - /url: /book/150001
+          - img
+          - text: Book Now
+      - generic [ref=e40]:
+        - generic [ref=e41]:
+          - generic [ref=e43]:
+            - generic [ref=e45]: Portfolio
+            - generic [ref=e47]:
+              - img [ref=e49]
+              - heading "No Portfolio Images" [level=3] [ref=e53]
+              - paragraph [ref=e54]: This artist hasn't uploaded any portfolio images yet.
+          - generic [ref=e55]:
+            - generic [ref=e57]: Services
+            - generic [ref=e59]:
+              - img [ref=e61]
+              - heading "No Services Yet" [level=3] [ref=e64]
+              - paragraph [ref=e65]: This artist hasn't added any services yet. Check back soon!
+          - generic [ref=e66]:
+            - generic [ref=e68]: Reviews
+            - generic [ref=e70]:
+              - img [ref=e72]
+              - heading "No Reviews Yet" [level=3] [ref=e74]
+              - paragraph [ref=e75]: This artist hasn't received any reviews yet. Be the first to book and leave a review!
+        - generic [ref=e76]:
+          - generic [ref=e77]:
+            - generic [ref=e79]: Quick Stats
+            - generic [ref=e80]:
+              - generic [ref=e81]:
+                - generic [ref=e82]: Response Time
+                - generic [ref=e83]: Within 24h
+              - generic [ref=e84]:
+                - generic [ref=e85]: Total Reviews
+                - generic [ref=e86]: "0"
+          - generic [ref=e88]:
+            - generic [ref=e90]:
+              - img [ref=e91]
+              - text: Check Availability
+            - generic [ref=e93]:
+              - generic [ref=e94]:
+                - button "‹" [ref=e95] [cursor=pointer]
+                - generic [ref=e96]: December 2025
+                - button "›" [ref=e97] [cursor=pointer]
+              - generic [ref=e98]:
+                - generic [ref=e99]: Su
+                - generic [ref=e100]: Mo
+                - generic [ref=e101]: Tu
+                - generic [ref=e102]: We
+                - generic [ref=e103]: Th
+                - generic [ref=e104]: Fr
+                - generic [ref=e105]: Sa
+                - button "1" [disabled] [ref=e107]
+                - button "2" [disabled] [ref=e108]
+                - button "3" [disabled] [ref=e109]
+                - button "4" [disabled] [ref=e110]
+                - button "5" [disabled] [ref=e111]
+                - button "6" [disabled] [ref=e112]
+                - button "7" [disabled] [ref=e113]
+                - button "8" [disabled] [ref=e114]
+                - button "9" [disabled] [ref=e115]
+                - button "10" [disabled] [ref=e116]
+                - button "11" [disabled] [ref=e117]
+                - button "12" [disabled] [ref=e118]
+                - button "13" [disabled] [ref=e119]
+                - button "14" [ref=e120] [cursor=pointer]
+                - button "15" [ref=e121] [cursor=pointer]
+                - button "16" [active] [ref=e122] [cursor=pointer]
+                - button "17" [ref=e123] [cursor=pointer]
+                - button "18" [ref=e124] [cursor=pointer]
+                - button "19" [ref=e125] [cursor=pointer]
+                - button "20" [ref=e126] [cursor=pointer]
+                - button "21" [ref=e127] [cursor=pointer]
+                - button "22" [ref=e128] [cursor=pointer]
+                - button "23" [ref=e129] [cursor=pointer]
+                - button "24" [ref=e130] [cursor=pointer]
+                - button "25" [ref=e131] [cursor=pointer]
+                - button "26" [ref=e132] [cursor=pointer]
+                - button "27" [ref=e133] [cursor=pointer]
+                - button "28" [ref=e134] [cursor=pointer]
+                - button "29" [ref=e135] [cursor=pointer]
+                - button "30" [ref=e136] [cursor=pointer]
+                - button "31" [ref=e137] [cursor=pointer]
+              - generic [ref=e138]:
+                - paragraph [ref=e139]: Tuesday, December 16
+                - paragraph [ref=e140]: No availability for this date
+                - link "Book Now" [ref=e141] [cursor=pointer]:
+                  - /url: /book/150001?date=2025-12-16
+                  - img
+                  - text: Book Now
+          - generic [ref=e142]:
+            - generic [ref=e144]: Get in Touch
+            - generic [ref=e145]:
+              - paragraph [ref=e146]: Ready to work with Jane Doe? Book a session or send a message.
+              - link "Request Booking" [ref=e147] [cursor=pointer]:
+                - /url: /book/150001
+                - img
+                - text: Request Booking
+              - button "Send Message" [ref=e148] [cursor=pointer]
+```

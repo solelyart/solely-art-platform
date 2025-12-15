@@ -5,7 +5,7 @@ import { defineConfig, devices } from '@playwright/test';
  * Covers E2E, functional, regression, and performance testing
  */
 export default defineConfig({
-  testDir: './tests',
+  testDir: './e2e-tests/tests',
   
   // Maximum time one test can run
   timeout: 30 * 1000,
@@ -18,7 +18,7 @@ export default defineConfig({
   
   // Reporter configuration
   reporter: [
-    ['html', { outputFolder: 'test-results/html' }],
+    ['html', { outputFolder: 'playwright-report' }],
     ['json', { outputFile: 'test-results/results.json' }],
     ['list'],
   ],
@@ -26,7 +26,7 @@ export default defineConfig({
   // Shared settings for all tests
   use: {
     // Base URL for tests
-    baseURL: process.env.TEST_BASE_URL || 'http://localhost:3001',
+    baseURL: process.env.TEST_BASE_URL || 'http://localhost:3000',
     
     // Collect trace on failure
     trace: 'on-first-retry',
@@ -46,21 +46,12 @@ export default defineConfig({
 
   // Configure projects for different browsers and test types
   projects: [
-    // Setup project for authentication
-    {
-      name: 'setup',
-      testMatch: /.*\.setup\.ts/,
-    },
-
     // Chromium - Desktop
     {
       name: 'chromium',
       use: { 
         ...devices['Desktop Chrome'],
-        // Use authenticated state from setup
-        storageState: 'test-results/.auth/user.json',
       },
-      dependencies: ['setup'],
     },
 
     // Firefox - Desktop
@@ -68,9 +59,7 @@ export default defineConfig({
       name: 'firefox',
       use: { 
         ...devices['Desktop Firefox'],
-        storageState: 'test-results/.auth/user.json',
       },
-      dependencies: ['setup'],
     },
 
     // WebKit - Desktop
@@ -78,9 +67,7 @@ export default defineConfig({
       name: 'webkit',
       use: { 
         ...devices['Desktop Safari'],
-        storageState: 'test-results/.auth/user.json',
       },
-      dependencies: ['setup'],
     },
 
     // Mobile Chrome
@@ -88,9 +75,7 @@ export default defineConfig({
       name: 'Mobile Chrome',
       use: { 
         ...devices['Pixel 5'],
-        storageState: 'test-results/.auth/user.json',
       },
-      dependencies: ['setup'],
     },
 
     // Mobile Safari
@@ -98,9 +83,7 @@ export default defineConfig({
       name: 'Mobile Safari',
       use: { 
         ...devices['iPhone 12'],
-        storageState: 'test-results/.auth/user.json',
       },
-      dependencies: ['setup'],
     },
 
     // Performance testing project
@@ -109,16 +92,14 @@ export default defineConfig({
       testMatch: /.*\.perf\.spec\.ts/,
       use: {
         ...devices['Desktop Chrome'],
-        storageState: 'test-results/.auth/user.json',
       },
-      dependencies: ['setup'],
     },
   ],
 
   // Web server configuration
   webServer: {
     command: 'pnpm dev',
-    url: 'http://localhost:3001',
+    url: 'http://localhost:3000',
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000,
   },

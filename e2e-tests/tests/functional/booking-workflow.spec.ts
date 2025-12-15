@@ -1,4 +1,5 @@
-import { test, expect } from '../../fixtures/auth.fixture';
+import { test, waitForAuthAfterNavigation } from '../../fixtures/auth.fixture';
+import { expect } from '@playwright/test';
 import { fillForm, selectDate, selectTimeSlot } from '../../utils/helpers';
 
 /**
@@ -71,8 +72,12 @@ test.describe('Booking Workflow - Functional Tests', () => {
     await page.goto('/browse');
     await page.click('[data-testid="artist-card"]:first-child');
 
-    // Click on availability section
+    // Click on availability section (navigates to /book/:id)
     await page.click('[data-testid="view-availability"]');
+    
+    // Wait for navigation and authentication
+    await page.waitForURL(/\/book\/\d+/);
+    await waitForAuthAfterNavigation(page);
 
     // Verify calendar is displayed
     await expect(page.locator('[data-testid="availability-calendar"]')).toBeVisible();

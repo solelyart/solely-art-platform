@@ -103,7 +103,7 @@ export function AvailabilityPreview({ artistId }: AvailabilityPreviewProps) {
   };
   
   return (
-    <Card className="shadow-elegant">
+    <Card className="shadow-elegant" data-testid="availability-calendar">
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <CalendarIcon className="h-5 w-5" />
@@ -154,9 +154,13 @@ export function AvailabilityPreview({ artistId }: AvailabilityPreviewProps) {
             const selected = isSelected(day);
             const today = isToday(day);
             
+            const dateStr = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+            
             return (
               <button
                 key={day}
+                data-testid="calendar-date"
+                data-date={dateStr}
                 onClick={() => !past && handleDateClick(day)}
                 disabled={past}
                 className={`

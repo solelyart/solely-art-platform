@@ -72,6 +72,29 @@ async function authenticateUser(page: any, openId: string, expectedUrl?: string)
   await page.waitForLoadState('domcontentloaded');
 }
 
+/**
+ * Wait for authentication to complete after navigating to a new page
+ * Use this after clicking links that navigate to protected pages
+ */
+export async function waitForAuthAfterNavigation(page: Page) {
+  try {
+    // Wait for the auth.me query to complete on the new page
+    await page.waitForResponse(
+      (response) => response.url().includes('/api/trpc/auth.me'),
+      { timeout: 10000 }
+    );
+    console.log('✅ Auth check completed after navigation');
+  } catch (error) {
+    console.warn('⚠️  Warning: auth.me response not detected after navigation');
+  }
+  
+  // Wait for React to update auth state
+  await page.waitForTimeout(1000);
+  
+  // Wait for network to settle
+  await page.waitForLoadState('networkidle');
+}
+
 export const test = base.extend<AuthFixtures>({
   /**
    * Authenticated Client Page
