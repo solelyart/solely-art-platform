@@ -7,6 +7,7 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { ProfileHeaderSkeleton, ServiceCardSkeleton, ReviewCardSkeleton } from "@/components/Skeleton";
 import { NoPortfolioYet, NoServicesYet, NoReviewsYet } from "@/components/EmptyState";
 import { PortfolioDisplay } from "@/components/PortfolioDisplay";
+import { AvailabilityPreview } from "@/components/AvailabilityPreview";
 import { trpc } from "@/lib/trpc";
 import { MapPin, Star, Palette, Clock, DollarSign, Calendar, ChevronLeft, ChevronRight, Info } from "lucide-react";
 import { Link, useParams } from "wouter";
@@ -340,10 +341,13 @@ export default function ArtistProfile() {
               </CardContent>
             </Card>
 
-            {/* Booking Settings */}
+            {/* Availability Calendar */}
             <div data-testid="artist-availability">
-              <BookingSettingsCard artistId={artistId} />
+              <AvailabilityPreview artistId={artistId} />
             </div>
+            
+            {/* Booking Settings */}
+            <BookingSettingsCard artistId={artistId} />
 
             {/* Contact Card */}
             <Card className="shadow-elegant">

@@ -223,7 +223,7 @@ export function BookingCalendar({
             </div>
 
             {/* Calendar grid */}
-            <div className="grid grid-cols-7 gap-2">
+            <div className="grid grid-cols-7 gap-2" data-testid="date-picker">
               {calendarDays.map((date, index) => {
                 if (!date) {
                   return <div key={`empty-${index}`} className="aspect-square" />;
@@ -238,6 +238,7 @@ export function BookingCalendar({
                 return (
                   <button
                     key={dateStr}
+                    data-date={dateStr}
                     onClick={() => !isPast && isAvailable && handleDateClick(date)}
                     disabled={isPast || !isAvailable}
                     aria-label={`${date.toLocaleDateString('en-US', { month: 'long', day: 'numeric' })}${isAvailable ? ', available' : ', unavailable'}${isSelected ? ', selected' : ''}`}

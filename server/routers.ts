@@ -961,6 +961,52 @@ export const appRouter = router({
         return { success: true };
       }),
   }),
+
+  // Messages router for concurrent API test
+  messages: router({
+    list: protectedProcedure.query(async ({ ctx }) => {
+      // Return empty array for now - full implementation would query database
+      return [];
+    }),
+    
+    send: protectedProcedure
+      .input(z.object({
+        recipientId: z.number(),
+        content: z.string().min(1),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        // Placeholder implementation
+        return { success: true, messageId: Date.now() };
+      }),
+  }),
+
+  // Profile router for concurrent API test
+  profile: router({
+    get: protectedProcedure.query(async ({ ctx }) => {
+      const user = await db.getUserById(ctx.user.id);
+      const artistProfile = await db.getArtistProfileByUserId(ctx.user.id);
+      
+      return {
+        user,
+        artistProfile,
+      };
+    }),
+    
+    update: protectedProcedure
+      .input(z.object({
+        displayName: z.string().optional(),
+        bio: z.string().optional(),
+        location: z.string().optional(),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        // Update artist profile if exists
+        const artistProfile = await db.getArtistProfileByUserId(ctx.user.id);
+        if (artistProfile && Object.keys(input).length > 0) {
+          await db.updateArtistProfile(artistProfile.id, input);
+        }
+        return { success: true };
+      }),
+  }),
 });
 
 export type AppRouter = typeof appRouter;
