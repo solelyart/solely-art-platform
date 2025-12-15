@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
-import { Plus, GripVertical, Trash2, Upload, Star } from "lucide-react";
+import { Plus, GripVertical, Trash2, Upload, Star, Pencil } from "lucide-react";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { getLoginUrl } from "@/const";
 
@@ -30,11 +30,12 @@ type PortfolioItem = {
   isFeatured: boolean;
 };
 
-function SortableCollection({ collection, onDelete, onEdit, onClick }: {
+function SortableCollection({ collection, onDelete, onEdit, onClick, isSelected }: {
   collection: Collection;
   onDelete: () => void;
   onEdit: () => void;
   onClick: () => void;
+  isSelected?: boolean;
 }) {
   const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id: collection.id });
 
@@ -44,7 +45,11 @@ function SortableCollection({ collection, onDelete, onEdit, onClick }: {
   };
 
   return (
-    <div ref={setNodeRef} style={style} className="bg-card border border-border rounded-lg p-4">
+    <div 
+      ref={setNodeRef} 
+      style={style} 
+      className={`bg-card border rounded-lg p-4 ${isSelected ? 'border-primary ring-1 ring-primary' : 'border-border'}`}
+    >
       <div className="flex items-start gap-3">
         <button {...attributes} {...listeners} className="mt-1 cursor-grab active:cursor-grabbing">
           <GripVertical className="w-5 h-5 text-muted-foreground" />
@@ -62,7 +67,7 @@ function SortableCollection({ collection, onDelete, onEdit, onClick }: {
 
         <div className="flex gap-2">
           <Button variant="outline" size="sm" onClick={(e) => { e.stopPropagation(); onEdit(); }}>
-            Edit
+            <Pencil className="w-4 h-4" />
           </Button>
           <Button variant="outline" size="sm" onClick={(e) => { e.stopPropagation(); onDelete(); }}>
             <Trash2 className="w-4 h-4" />
@@ -106,7 +111,7 @@ function SortableItem({ item, onDelete, onEdit }: {
 
         <div className="flex gap-2">
           <Button variant="outline" size="sm" onClick={onEdit}>
-            Edit
+            <Pencil className="w-3 h-3" />
           </Button>
           <Button variant="outline" size="sm" onClick={onDelete}>
             <Trash2 className="w-3 h-3" />
@@ -124,6 +129,18 @@ export default function PortfolioBuilder() {
   const [newCollectionTitle, setNewCollectionTitle] = useState("");
   const [newCollectionDesc, setNewCollectionDesc] = useState("");
   const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
+  
+  // Edit collection state
+  const [editingCollection, setEditingCollection] = useState<Collection | null>(null);
+  const [editCollectionTitle, setEditCollectionTitle] = useState("");
+  const [editCollectionDesc, setEditCollectionDesc] = useState("");
+  const [isEditCollectionDialogOpen, setIsEditCollectionDialogOpen] = useState(false);
+  
+  // Edit item state
+  const [editingItem, setEditingItem] = useState<PortfolioItem | null>(null);
+  const [editItemTitle, setEditItemTitle] = useState("");
+  const [editItemDesc, setEditItemDesc] = useState("");
+  const [isEditItemDialogOpen, setIsEditItemDialogOpen] = useState(false);
 
   const { data: collections = [], isLoading } = trpc.portfolio.getMyCollections.useQuery(undefined, {
     enabled: isAuthenticated,
@@ -143,10 +160,32 @@ export default function PortfolioBuilder() {
     },
   });
 
+  const updateCollectionMutation = trpc.portfolio.updateCollection.useMutation({
+    onSuccess: () => {
+      utils.portfolio.getMyCollections.invalidate();
+      setIsEditCollectionDialogOpen(false);
+      setEditingCollection(null);
+    },
+  });
+
   const deleteCollectionMutation = trpc.portfolio.deleteCollection.useMutation({
     onSuccess: () => {
       utils.portfolio.getMyCollections.invalidate();
       setSelectedCollection(null);
+    },
+  });
+
+  const updateItemMutation = trpc.portfolio.updateItem.useMutation({
+    onSuccess: () => {
+      utils.portfolio.getItems.invalidate({ collectionId: selectedCollection! });
+      setIsEditItemDialogOpen(false);
+      setEditingItem(null);
+    },
+  });
+
+  const deleteItemMutation = trpc.portfolio.deleteItem.useMutation({
+    onSuccess: () => {
+      utils.portfolio.getItems.invalidate({ collectionId: selectedCollection! });
     },
   });
 
@@ -185,6 +224,46 @@ export default function PortfolioBuilder() {
       const updates = reordered.map((item, index) => ({ id: item.id, displayOrder: index }));
       
       reorderItemsMutation.mutate({ updates });
+    }
+  };
+
+  const handleEditCollection = (collection: Collection) => {
+    setEditingCollection(collection);
+    setEditCollectionTitle(collection.title);
+    setEditCollectionDesc(collection.description || "");
+    setIsEditCollectionDialogOpen(true);
+  };
+
+  const handleSaveCollection = () => {
+    if (editingCollection && editCollectionTitle.trim()) {
+      updateCollectionMutation.mutate({
+        id: editingCollection.id,
+        title: editCollectionTitle,
+        description: editCollectionDesc || undefined,
+      });
+    }
+  };
+
+  const handleEditItem = (item: PortfolioItem) => {
+    setEditingItem(item);
+    setEditItemTitle(item.title);
+    setEditItemDesc(item.description || "");
+    setIsEditItemDialogOpen(true);
+  };
+
+  const handleSaveItem = () => {
+    if (editingItem && editItemTitle.trim()) {
+      updateItemMutation.mutate({
+        id: editingItem.id,
+        title: editItemTitle,
+        description: editItemDesc || undefined,
+      });
+    }
+  };
+
+  const handleDeleteItem = (item: PortfolioItem) => {
+    if (confirm(`Delete "${item.title}"?`)) {
+      deleteItemMutation.mutate({ id: item.id });
     }
   };
 
@@ -286,10 +365,9 @@ export default function PortfolioBuilder() {
                   <SortableCollection
                     key={collection.id}
                     collection={collection}
+                    isSelected={collection.id === selectedCollection}
                     onClick={() => setSelectedCollection(collection.id)}
-                    onEdit={() => {
-                      // TODO: Implement edit dialog
-                    }}
+                    onEdit={() => handleEditCollection(collection)}
                     onDelete={() => {
                       if (confirm(`Delete "${collection.title}"?`)) {
                         deleteCollectionMutation.mutate({ id: collection.id });
@@ -332,14 +410,8 @@ export default function PortfolioBuilder() {
                       <SortableItem
                         key={item.id}
                         item={item}
-                        onEdit={() => {
-                          // TODO: Implement edit dialog
-                        }}
-                        onDelete={() => {
-                          if (confirm(`Delete "${item.title}"?`)) {
-                            // TODO: Implement delete
-                          }
-                        }}
+                        onEdit={() => handleEditItem(item)}
+                        onDelete={() => handleDeleteItem(item)}
                       />
                     ))}
                   </div>
@@ -350,17 +422,106 @@ export default function PortfolioBuilder() {
                 <Card className="p-12 text-center text-muted-foreground">
                   <Upload className="w-12 h-12 mx-auto mb-4 opacity-50" />
                   <p>No images in this collection yet.</p>
-                  <p className="text-sm mt-1">Click "Add Image" to upload your work</p>
+                  <p className="text-sm">Click "Add Image" to upload your work.</p>
                 </Card>
               )}
             </>
           ) : (
             <Card className="p-12 text-center text-muted-foreground">
-              <p>Select a collection to view and manage its images</p>
+              <p>Select a collection to view and manage its items</p>
             </Card>
           )}
         </div>
       </div>
+
+      {/* Edit Collection Dialog */}
+      <Dialog open={isEditCollectionDialogOpen} onOpenChange={setIsEditCollectionDialogOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Edit Collection</DialogTitle>
+          </DialogHeader>
+          <div className="space-y-4 mt-4">
+            <div>
+              <Label htmlFor="edit-title">Title</Label>
+              <Input
+                id="edit-title"
+                value={editCollectionTitle}
+                onChange={(e) => setEditCollectionTitle(e.target.value)}
+                placeholder="Collection title"
+              />
+            </div>
+            <div>
+              <Label htmlFor="edit-description">Description</Label>
+              <Textarea
+                id="edit-description"
+                value={editCollectionDesc}
+                onChange={(e) => setEditCollectionDesc(e.target.value)}
+                placeholder="Describe this collection..."
+              />
+            </div>
+            <div className="flex gap-2 justify-end">
+              <Button variant="outline" onClick={() => setIsEditCollectionDialogOpen(false)}>
+                Cancel
+              </Button>
+              <Button
+                onClick={handleSaveCollection}
+                disabled={!editCollectionTitle.trim() || updateCollectionMutation.isPending}
+              >
+                Save Changes
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Edit Item Dialog */}
+      <Dialog open={isEditItemDialogOpen} onOpenChange={setIsEditItemDialogOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Edit Portfolio Item</DialogTitle>
+          </DialogHeader>
+          <div className="space-y-4 mt-4">
+            {editingItem && (
+              <div className="flex justify-center">
+                <img 
+                  src={editingItem.imageUrl} 
+                  alt={editingItem.title} 
+                  className="w-40 h-40 object-cover rounded"
+                />
+              </div>
+            )}
+            <div>
+              <Label htmlFor="edit-item-title">Title</Label>
+              <Input
+                id="edit-item-title"
+                value={editItemTitle}
+                onChange={(e) => setEditItemTitle(e.target.value)}
+                placeholder="Item title"
+              />
+            </div>
+            <div>
+              <Label htmlFor="edit-item-description">Description</Label>
+              <Textarea
+                id="edit-item-description"
+                value={editItemDesc}
+                onChange={(e) => setEditItemDesc(e.target.value)}
+                placeholder="Describe this piece..."
+              />
+            </div>
+            <div className="flex gap-2 justify-end">
+              <Button variant="outline" onClick={() => setIsEditItemDialogOpen(false)}>
+                Cancel
+              </Button>
+              <Button
+                onClick={handleSaveItem}
+                disabled={!editItemTitle.trim() || updateItemMutation.isPending}
+              >
+                Save Changes
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

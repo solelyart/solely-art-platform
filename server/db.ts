@@ -765,6 +765,13 @@ export async function updateArtistSettings(artistId: number, data: {
   }
 }
 
+export async function deleteArtistSettings(artistId: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  await db.delete(artistSettings).where(eq(artistSettings.artistId, artistId));
+}
+
 // ============================================================================
 // Slot Locks
 // ============================================================================
@@ -1066,10 +1073,11 @@ export async function calculateAvailableSlots(
     }
 
     // Check if date is in blackout period
+    // Compare using date strings to avoid timezone issues
     const isBlackedOut = blackouts.some(blackout => {
-      const blackoutStart = new Date(blackout.startDate);
-      const blackoutEnd = new Date(blackout.endDate);
-      return currentDate >= blackoutStart && currentDate <= blackoutEnd;
+      const blackoutStartStr = new Date(blackout.startDate).toISOString().split('T')[0];
+      const blackoutEndStr = new Date(blackout.endDate).toISOString().split('T')[0];
+      return dateStr >= blackoutStartStr && dateStr <= blackoutEndStr;
     });
 
     if (isBlackedOut) {

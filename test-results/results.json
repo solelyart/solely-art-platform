@@ -1,0 +1,930 @@
+{
+  "config": {
+    "configFile": "/home/ubuntu/solely-art-platform/playwright.config.ts",
+    "rootDir": "/home/ubuntu/solely-art-platform/e2e-tests/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 3
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        {
+          "outputFolder": "playwright-report"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/results.json"
+        }
+      ],
+      [
+        "list",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/home/ubuntu/solely-art-platform/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/home/ubuntu/solely-art-platform/e2e-tests/tests",
+        "testIgnore": [
+          "**/integration/**"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/ubuntu/solely-art-platform/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/home/ubuntu/solely-art-platform/e2e-tests/tests",
+        "testIgnore": [
+          "**/integration/**"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/ubuntu/solely-art-platform/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/home/ubuntu/solely-art-platform/e2e-tests/tests",
+        "testIgnore": [
+          "**/integration/**"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/ubuntu/solely-art-platform/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "Mobile Chrome",
+        "name": "Mobile Chrome",
+        "testDir": "/home/ubuntu/solely-art-platform/e2e-tests/tests",
+        "testIgnore": [
+          "**/integration/**"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/ubuntu/solely-art-platform/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "Mobile Safari",
+        "name": "Mobile Safari",
+        "testDir": "/home/ubuntu/solely-art-platform/e2e-tests/tests",
+        "testIgnore": [
+          "**/integration/**"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/home/ubuntu/solely-art-platform/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "performance",
+        "name": "performance",
+        "testDir": "/home/ubuntu/solely-art-platform/e2e-tests/tests",
+        "testIgnore": [
+          "**/integration/**"
+        ],
+        "testMatch": [
+          "/.*\\.perf\\.spec\\.ts/"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.57.0",
+    "workers": 3,
+    "webServer": {
+      "command": "pnpm dev",
+      "url": "http://localhost:3000",
+      "reuseExistingServer": true,
+      "timeout": 120000
+    }
+  },
+  "suites": [
+    {
+      "title": "performance/load-time.spec.ts",
+      "file": "performance/load-time.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Performance Tests",
+          "file": "performance/load-time.spec.ts",
+          "line": 21,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should load home page within acceptable time",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1437,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Home page load time: 601ms\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-15T23:27:55.880Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "feb41230a37d32f40e23-3844126658f72d83808b",
+              "file": "performance/load-time.spec.ts",
+              "line": 35,
+              "column": 7
+            },
+            {
+              "title": "should meet Core Web Vitals standards",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 7566,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Core Web Vitals: { FCP: \u001b[33m610\u001b[39m, TTI: \u001b[33m160\u001b[39m, LCP: \u001b[33m623\u001b[39m }\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-15T23:27:55.866Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "feb41230a37d32f40e23-3d026b02b296c55387cc",
+              "file": "performance/load-time.spec.ts",
+              "line": 49,
+              "column": 7
+            },
+            {
+              "title": "should load search results quickly",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1542,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Search results load time: 556ms\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-15T23:27:55.845Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "feb41230a37d32f40e23-3292b69c919922a2e1d4",
+              "file": "performance/load-time.spec.ts",
+              "line": 100,
+              "column": 7
+            },
+            {
+              "title": "should load artist profile within acceptable time",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1900,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Artist profile load time: 6ms\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-15T23:27:57.484Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "feb41230a37d32f40e23-228da43f597d25168a9b",
+              "file": "performance/load-time.spec.ts",
+              "line": 118,
+              "column": 7
+            },
+            {
+              "title": "should fetch availability data quickly",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1940,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Availability calendar load time: 41ms\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-15T23:27:57.500Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "feb41230a37d32f40e23-12a6ab05ab5eacc2b663",
+              "file": "performance/load-time.spec.ts",
+              "line": 136,
+              "column": 7
+            },
+            {
+              "title": "should handle image loading efficiently",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2870,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Loaded 8 images\n"
+                        },
+                        {
+                          "text": "Image: https://images.unsplash.com/photo-1506794778202-ca... - 73.29999995231628ms - 221479 bytes\n"
+                        },
+                        {
+                          "text": "Image: https://images.unsplash.com/photo-1460661419201-fd... - 67.59999996423721ms - 252057 bytes\n"
+                        },
+                        {
+                          "text": "Image: https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8X... - 59.60000002384186ms - 0 bytes\n"
+                        },
+                        {
+                          "text": "Image: https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8X... - 79.59999996423721ms - 0 bytes\n"
+                        },
+                        {
+                          "text": "Image: https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8X... - 122.39999997615814ms - 0 bytes\n"
+                        },
+                        {
+                          "text": "Image: https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8X... - 90.5ms - 0 bytes\n"
+                        },
+                        {
+                          "text": "Image: https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8X... - 43.30000001192093ms - 0 bytes\n"
+                        },
+                        {
+                          "text": "Image: https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8X... - 106.30000001192093ms - 0 bytes\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-15T23:27:59.400Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "feb41230a37d32f40e23-d81302eda383065bebff",
+              "file": "performance/load-time.spec.ts",
+              "line": 164,
+              "column": 7
+            },
+            {
+              "title": "should handle concurrent API requests efficiently",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 2878,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Concurrent API requests completed in: 694ms\n"
+                        },
+                        {
+                          "text": "Request 1: 200 - http://localhost:3000/api/trpc/auth.me,categories.list,artists.search?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22searchTerm%22%3Anull%2C%22category%22%3Anull%2C%22location%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22searchTerm%22%3A%5B%22undefined%22%5D%2C%22category%22%3A%5B%22undefined%22%5D%2C%22location%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-15T23:27:59.458Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "feb41230a37d32f40e23-06933296561ec02bb8be",
+              "file": "performance/load-time.spec.ts",
+              "line": 194,
+              "column": 7
+            },
+            {
+              "title": "should maintain performance under slow network conditions",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 29574,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Page load time on slow 3G: 26972ms\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-15T23:28:02.287Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "feb41230a37d32f40e23-e58fd93557bddc2fd701",
+              "file": "performance/load-time.spec.ts",
+              "line": 226,
+              "column": 7
+            },
+            {
+              "title": "should optimize bundle size",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1470,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Total JavaScript size: 0.00 KB\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-15T23:28:02.350Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "feb41230a37d32f40e23-e03fcc7ad10ffc6ee6b4",
+              "file": "performance/load-time.spec.ts",
+              "line": 251,
+              "column": 7
+            },
+            {
+              "title": "should cache resources effectively",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 2259,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m50\u001b[39m\nReceived:   \u001b[31m49.532710280373834\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m50\u001b[39m\nReceived:   \u001b[31m49.532710280373834\u001b[39m\n    at /home/ubuntu/solely-art-platform/e2e-tests/tests/performance/load-time.spec.ts:308:39",
+                        "location": {
+                          "file": "/home/ubuntu/solely-art-platform/e2e-tests/tests/performance/load-time.spec.ts",
+                          "column": 39,
+                          "line": 308
+                        },
+                        "snippet": "  306 |\n  307 |     // Verify significant caching (at least 50% of resources)\n> 308 |     expect(cachedResources.cacheRate).toBeGreaterThan(50);\n      |                                       ^\n  309 |   });\n  310 |\n  311 |   test('should handle booking flow without performance degradation', async ({ authenticatedClientPage: page }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/ubuntu/solely-art-platform/e2e-tests/tests/performance/load-time.spec.ts",
+                            "column": 39,
+                            "line": 308
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: > \u001b[32m50\u001b[39m\nReceived:   \u001b[31m49.532710280373834\u001b[39m\n\n  306 |\n  307 |     // Verify significant caching (at least 50% of resources)\n> 308 |     expect(cachedResources.cacheRate).toBeGreaterThan(50);\n      |                                       ^\n  309 |   });\n  310 |\n  311 |   test('should handle booking flow without performance degradation', async ({ authenticatedClientPage: page }) => {\n    at /home/ubuntu/solely-art-platform/e2e-tests/tests/performance/load-time.spec.ts:308:39"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "Cache statistics: { total: \u001b[33m107\u001b[39m, cached: \u001b[33m53\u001b[39m, cacheRate: \u001b[33m49.532710280373834\u001b[39m }\n"
+                        },
+                        {
+                          "text": "  Total resources: 107\n"
+                        },
+                        {
+                          "text": "  Cached resources: 53\n"
+                        },
+                        {
+                          "text": "  Cache rate: 49.53%\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-15T23:28:03.557Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/ubuntu/solely-art-platform/test-results/performance-load-time-Perf-87192-cache-resources-effectively-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/ubuntu/solely-art-platform/test-results/performance-load-time-Perf-87192-cache-resources-effectively-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/ubuntu/solely-art-platform/test-results/performance-load-time-Perf-87192-cache-resources-effectively-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/ubuntu/solely-art-platform/e2e-tests/tests/performance/load-time.spec.ts",
+                        "column": 39,
+                        "line": 308
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "feb41230a37d32f40e23-0d40ca854e29702835f4",
+              "file": "performance/load-time.spec.ts",
+              "line": 278,
+              "column": 7
+            },
+            {
+              "title": "should handle booking flow without performance degradation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 15184,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "✅ Test-auth response: {\"success\":true,\"user\":{\"id\":990004,\"openId\":\"test-client-openid-12345\",\"name\":\"Test Client\",\"email\"\n"
+                        },
+                        {
+                          "text": "✅ Session cookie set: eyJhbGciOiJIUzI1NiIs...\n"
+                        },
+                        {
+                          "text": "   Domain: localhost\n"
+                        },
+                        {
+                          "text": "   Path: /\n"
+                        },
+                        {
+                          "text": "✅ tRPC auth.me response: [{\"result\":{\"data\":{\"json\":{\"id\":990004,\"openId\":\"test-client-openid-12345\",\"name\":\"Test Client\",\"em\n"
+                        },
+                        {
+                          "text": "Booking flow timings:\n"
+                        },
+                        {
+                          "text": "  search: 882ms\n"
+                        },
+                        {
+                          "text": "  profile: 597ms\n"
+                        },
+                        {
+                          "text": "  bookingPage: 812ms\n"
+                        },
+                        {
+                          "text": "  Total booking flow: 2291ms\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-15T23:28:03.837Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "feb41230a37d32f40e23-ec989a46b838267dd33f",
+              "file": "performance/load-time.spec.ts",
+              "line": 311,
+              "column": 7
+            },
+            {
+              "title": "should measure and report Web Vitals for monitoring",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1802,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Performance Report:\n"
+                        },
+                        {
+                          "text": "  DNS Lookup: 0ms\n"
+                        },
+                        {
+                          "text": "  TCP Connection: 1ms\n"
+                        },
+                        {
+                          "text": "  Time to First Byte: 7ms\n"
+                        },
+                        {
+                          "text": "  Download: 5ms\n"
+                        },
+                        {
+                          "text": "  DOM Processing: 427ms\n"
+                        },
+                        {
+                          "text": "  DOM Content Loaded: 439ms\n"
+                        },
+                        {
+                          "text": "  Page Load: 443ms\n"
+                        },
+                        {
+                          "text": "  Resources Loaded: 107\n"
+                        },
+                        {
+                          "text": "  JS Heap Used: 18.41 MB\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-15T23:28:06.755Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "feb41230a37d32f40e23-4cf46c6e1c6f192ed41c",
+              "file": "performance/load-time.spec.ts",
+              "line": 358,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "unit/availability-calculator.spec.ts",
+      "file": "unit/availability-calculator.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Availability Calculator - Unit Tests",
+          "file": "unit/availability-calculator.spec.ts",
+          "line": 13,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should calculate available time slots correctly",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 934,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-15T23:28:08.691Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "37827cd7b64d7ef8b4e9-2124694aa0fd18a79292",
+              "file": "unit/availability-calculator.spec.ts",
+              "line": 18,
+              "column": 7
+            },
+            {
+              "title": "should handle edge cases in availability calculation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 859,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-15T23:28:09.643Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "37827cd7b64d7ef8b4e9-0ac0fc08773d61846a08",
+              "file": "unit/availability-calculator.spec.ts",
+              "line": 107,
+              "column": 7
+            },
+            {
+              "title": "should validate booking policy rules",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 878,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-15T23:28:10.518Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "37827cd7b64d7ef8b4e9-5475e9f056f0a843dd6e",
+              "file": "unit/availability-calculator.spec.ts",
+              "line": 170,
+              "column": 7
+            },
+            {
+              "title": "should calculate booking price correctly",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 919,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-12-15T23:28:11.414Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "37827cd7b64d7ef8b4e9-6869d36ad4f7b24c5dd0",
+              "file": "unit/availability-calculator.spec.ts",
+              "line": 220,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-12-15T23:27:54.898Z",
+    "duration": 37020.21,
+    "expected": 15,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

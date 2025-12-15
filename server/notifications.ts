@@ -104,3 +104,15 @@ export async function notifyBookingReminder(params: {
     content: `Upcoming booking in ${params.hoursUntil} hours:\n\nArtist: ${params.artistName}\nClient: ${params.clientName}\nService: ${params.serviceDescription}\nDate: ${dateStr}`,
   });
 }
+
+
+export async function notifyNewMessage(params: {
+  senderName: string;
+  recipientName: string;
+  messagePreview: string;
+}) {
+  return await notifyOwner({
+    title: "New Message",
+    content: `${params.senderName} sent a message to ${params.recipientName}.\n\nPreview: "${params.messagePreview}"`,
+  });
+}

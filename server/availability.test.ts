@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeAll, beforeEach } from "vitest";
+import { describe, it, expect, beforeAll, beforeEach, afterEach } from "vitest";
 import * as db from "./db";
 import { createTestArtist } from "./test-utils";
 
@@ -84,6 +84,16 @@ describe("Availability System", () => {
   });
 
   describe("Artist Settings", () => {
+    beforeEach(async () => {
+      // Clean up any existing settings to avoid duplicate key errors
+      await db.deleteArtistSettings(testArtistId);
+    });
+
+    afterEach(async () => {
+      // Clean up after each test
+      await db.deleteArtistSettings(testArtistId);
+    });
+
     it("should create artist settings", async () => {
       await db.createArtistSettings({
         artistId: testArtistId,
@@ -173,6 +183,15 @@ describe("Availability System", () => {
 
   describe("Availability Calculation", () => {
     beforeEach(async () => {
+      // Clean up any existing data first to avoid duplicate key errors
+      await db.deleteArtistSettings(testArtistId);
+      
+      // Delete existing availability windows for this artist
+      const existingWindows = await db.getAvailabilityWindowsByArtistId(testArtistId);
+      for (const window of existingWindows) {
+        await db.deleteAvailabilityWindow(window.id);
+      }
+      
       // Set up test data: availability window for Monday 9am-5pm
       await db.createAvailabilityWindow({
         artistId: testArtistId,
@@ -188,6 +207,17 @@ describe("Availability System", () => {
         bookingBufferMinutes: 0,
         advanceBookingDays: 30,
       });
+    });
+
+    afterEach(async () => {
+      // Clean up test data to prevent duplicate key errors
+      await db.deleteArtistSettings(testArtistId);
+      
+      // Delete availability windows
+      const windows = await db.getAvailabilityWindowsByArtistId(testArtistId);
+      for (const window of windows) {
+        await db.deleteAvailabilityWindow(window.id);
+      }
     });
 
     it("should calculate available slots for a date range", async () => {

@@ -1,15 +1,24 @@
-import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
 import * as db from "./db";
-import * as notifications from "./notifications";
+
+// Import feature routers
+import {
+  artistsRouter,
+  bookingsRouter,
+  servicesRouter,
+  availabilityRouter,
+  messagingRouter,
+  portfolioRouter,
+} from "./routers/index";
 
 export const appRouter = router({
   system: systemRouter,
   
+  // Auth router - kept inline as it's small and core
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),
     logout: protectedProcedure.mutation(({ ctx }) => {
@@ -19,6 +28,7 @@ export const appRouter = router({
     }),
   }),
 
+  // User router - kept inline as it's small
   user: router({
     updateUserType: protectedProcedure
       .input(z.object({ userType: z.enum(["client", "artist", "both"]) }))
@@ -46,9 +56,6 @@ export const appRouter = router({
         // Upload to S3
         const { url } = await storagePut(fileKey, buffer, input.mimeType);
         
-        // Note: Old photo remains in S3 for now
-        // In production, implement a cleanup job to remove unused files
-        
         // Update user record
         await db.updateUserProfilePhoto(ctx.user.id, url, fileKey);
         
@@ -62,9 +69,6 @@ export const appRouter = router({
           return { success: false, message: "No profile photo to delete" };
         }
         
-        // Note: File remains in S3 for now
-        // In production, implement a cleanup job to remove unused files
-        
         // Update user record
         await db.updateUserProfilePhoto(ctx.user.id, null, null);
         
@@ -72,234 +76,14 @@ export const appRouter = router({
       }),
   }),
 
+  // Categories router - kept inline as it's tiny
   categories: router({
     list: publicProcedure.query(async () => {
       return await db.getAllCategories();
     }),
   }),
 
-  artists: router({
-    create: protectedProcedure
-      .input(z.object({
-        displayName: z.string().min(1),
-        bio: z.string().optional(),
-        location: z.string().optional(),
-        categories: z.array(z.number()),
-        hourlyRate: z.number().optional(),
-      }))
-      .mutation(async ({ ctx, input }) => {
-        // Update user type to artist if not already
-        const user = await db.getUserById(ctx.user.id);
-        if (user && user.userType === "client") {
-          await db.updateUserType(ctx.user.id, "artist");
-        }
-
-        await db.createArtistProfile({
-          userId: ctx.user.id,
-          displayName: input.displayName,
-          bio: input.bio || null,
-          location: input.location || null,
-          categories: JSON.stringify(input.categories),
-          hourlyRate: input.hourlyRate || null,
-          portfolioImages: null,
-          isAvailable: true,
-        });
-
-        return { success: true };
-      }),
-
-    update: protectedProcedure
-      .input(z.object({
-        displayName: z.string().min(1).optional(),
-        bio: z.string().optional(),
-        location: z.string().optional(),
-        categories: z.array(z.number()).optional(),
-        hourlyRate: z.number().optional(),
-        portfolioImages: z.array(z.string()).optional(),
-        isAvailable: z.boolean().optional(),
-      }))
-      .mutation(async ({ ctx, input }) => {
-        const profile = await db.getArtistProfileByUserId(ctx.user.id);
-        if (!profile) {
-          throw new TRPCError({ code: "NOT_FOUND", message: "Artist profile not found" });
-        }
-
-        const updates: any = {};
-        if (input.displayName !== undefined) updates.displayName = input.displayName;
-        if (input.bio !== undefined) updates.bio = input.bio;
-        if (input.location !== undefined) updates.location = input.location;
-        if (input.categories !== undefined) updates.categories = JSON.stringify(input.categories);
-        if (input.hourlyRate !== undefined) updates.hourlyRate = input.hourlyRate;
-        if (input.portfolioImages !== undefined) updates.portfolioImages = JSON.stringify(input.portfolioImages);
-        if (input.isAvailable !== undefined) updates.isAvailable = input.isAvailable;
-
-        await db.updateArtistProfile(profile.id, updates);
-        return { success: true };
-      }),
-
-    getMyProfile: protectedProcedure.query(async ({ ctx }) => {
-      const profile = await db.getArtistProfileByUserId(ctx.user.id);
-      if (!profile) return null;
-
-      return {
-        ...profile,
-        categories: JSON.parse(profile.categories || "[]"),
-        portfolioImages: JSON.parse(profile.portfolioImages || "[]"),
-      };
-    }),
-
-    getById: publicProcedure
-      .input(z.object({ id: z.number() }))
-      .query(async ({ input }) => {
-        const profile = await db.getArtistProfileById(input.id);
-        if (!profile) {
-          throw new TRPCError({ code: "NOT_FOUND", message: "Artist not found" });
-        }
-
-        const rating = await db.getArtistAverageRating(input.id);
-
-        return {
-          ...profile,
-          categories: JSON.parse(profile.categories || "[]"),
-          portfolioImages: JSON.parse(profile.portfolioImages || "[]"),
-          rating: rating || { average: 0, count: 0 },
-        };
-      }),
-
-    search: publicProcedure
-      .input(z.object({
-        category: z.string().optional(),
-        location: z.string().optional(),
-        searchTerm: z.string().optional(),
-      }))
-      .query(async ({ input }) => {
-        const artists = await db.searchArtists(input);
-        
-        return artists.map(artist => ({
-          ...artist,
-          categories: JSON.parse(artist.categories || "[]"),
-          portfolioImages: JSON.parse(artist.portfolioImages || "[]"),
-        }));
-      }),
-
-    list: publicProcedure.query(async () => {
-      const artists = await db.getAllArtists();
-      
-      return artists.map(artist => ({
-        ...artist,
-        categories: JSON.parse(artist.categories || "[]"),
-        portfolioImages: JSON.parse(artist.portfolioImages || "[]"),
-      }));
-    }),
-  }),
-
-  bookings: router({
-    create: protectedProcedure
-      .input(z.object({
-        artistId: z.number(),
-        serviceDescription: z.string().min(1),
-        requestedDate: z.date(),
-        budget: z.number().optional(),
-        notes: z.string().optional(),
-      }))
-      .mutation(async ({ ctx, input }) => {
-        await db.createBooking({
-          clientId: ctx.user.id,
-          artistId: input.artistId,
-          serviceDescription: input.serviceDescription,
-          requestedDate: input.requestedDate,
-          budget: input.budget || null,
-          notes: input.notes || null,
-          status: "pending",
-        });
-
-        // Send notification
-        const artist = await db.getArtistProfileById(input.artistId);
-        const client = await db.getUserById(ctx.user.id);
-        if (artist && client) {
-          await notifications.notifyBookingCreated({
-            artistName: artist.displayName!,
-            clientName: client.name!,
-            serviceDescription: input.serviceDescription,
-            requestedDate: input.requestedDate,
-            budget: input.budget || null,
-          });
-        }
-
-        return { success: true };
-      }),
-
-    getMyBookings: protectedProcedure.query(async ({ ctx }) => {
-      const user = await db.getUserById(ctx.user.id);
-      if (!user) return [];
-
-      if (user.userType === "artist" || user.userType === "both") {
-        const profile = await db.getArtistProfileByUserId(ctx.user.id);
-        if (profile) {
-          return await db.getBookingsByArtistId(profile.id);
-        }
-      }
-
-      return await db.getBookingsByClientId(ctx.user.id);
-    }),
-
-    updateStatus: protectedProcedure
-      .input(z.object({
-        bookingId: z.number(),
-        status: z.enum(["accepted", "declined", "completed", "cancelled"]),
-      }))
-      .mutation(async ({ ctx, input }) => {
-        const booking = await db.getBookingById(input.bookingId);
-        if (!booking) {
-          throw new TRPCError({ code: "NOT_FOUND", message: "Booking not found" });
-        }
-
-        // Verify user has permission to update this booking
-        const profile = await db.getArtistProfileByUserId(ctx.user.id);
-        if (booking.clientId !== ctx.user.id && (!profile || booking.artistId !== profile.id)) {
-          throw new TRPCError({ code: "FORBIDDEN", message: "Not authorized to update this booking" });
-        }
-
-        await db.updateBookingStatus(input.bookingId, input.status);
-
-        // Send notification based on status change
-        const artist = await db.getArtistProfileById(booking.artistId);
-        const client = await db.getUserById(booking.clientId);
-        if (artist && client) {
-          if (input.status === "accepted") {
-            await notifications.notifyBookingAccepted({
-              artistName: artist.displayName!,
-              clientName: client.name!,
-              serviceDescription: booking.serviceDescription!,
-              requestedDate: booking.requestedDate,
-            });
-          } else if (input.status === "declined") {
-            await notifications.notifyBookingDeclined({
-              artistName: artist.displayName!,
-              clientName: client.name!,
-              serviceDescription: booking.serviceDescription!,
-            });
-          } else if (input.status === "cancelled") {
-            const cancelledBy = profile && booking.artistId === profile.id ? "artist" : "client";
-            await notifications.notifyBookingCancelled({
-              artistName: artist.displayName!,
-              clientName: client.name!,
-              serviceDescription: booking.serviceDescription!,
-              cancelledBy,
-            });
-          } else if (input.status === "completed") {
-            await notifications.notifyBookingCompleted({
-              artistName: artist.displayName!,
-              clientName: client.name!,
-              serviceDescription: booking.serviceDescription!,
-            });
-          }
-        }
-
-        return { success: true };
-      }),
-  }),
-
+  // Reviews router - kept inline as it's small
   reviews: router({
     create: protectedProcedure
       .input(z.object({
@@ -311,15 +95,15 @@ export const appRouter = router({
       .mutation(async ({ ctx, input }) => {
         const booking = await db.getBookingById(input.bookingId);
         if (!booking) {
-          throw new TRPCError({ code: "NOT_FOUND", message: "Booking not found" });
+          throw new Error("Booking not found");
         }
 
         if (booking.clientId !== ctx.user.id) {
-          throw new TRPCError({ code: "FORBIDDEN", message: "Only the client can review this booking" });
+          throw new Error("Only the client can review this booking");
         }
 
         if (booking.status !== "completed") {
-          throw new TRPCError({ code: "BAD_REQUEST", message: "Can only review completed bookings" });
+          throw new Error("Can only review completed bookings");
         }
 
         await db.createReview({
@@ -345,627 +129,17 @@ export const appRouter = router({
       }),
   }),
 
-  services: router({
-    create: protectedProcedure
-      .input(z.object({
-        name: z.string().min(1),
-        description: z.string().optional(),
-        price: z.number().min(0),
-        durationMinutes: z.number().min(15),
-      }))
-      .mutation(async ({ ctx, input }) => {
-        const profile = await db.getArtistProfileByUserId(ctx.user.id);
-        if (!profile) {
-          throw new TRPCError({ code: "NOT_FOUND", message: "Artist profile not found" });
-        }
+  // Feature routers - imported from separate files
+  artists: artistsRouter,
+  bookings: bookingsRouter,
+  services: servicesRouter,
+  availability: availabilityRouter,
+  messaging: messagingRouter,
+  portfolio: portfolioRouter,
 
-        await db.createService({
-          artistId: profile.id,
-          name: input.name,
-          description: input.description || null,
-          price: input.price,
-          durationMinutes: input.durationMinutes,
-        });
-
-        return { success: true };
-      }),
-
-    getByArtist: publicProcedure
-      .input(z.object({ artistId: z.number() }))
-      .query(async ({ input }) => {
-        return await db.getServicesByArtistId(input.artistId);
-      }),
-
-    update: protectedProcedure
-      .input(z.object({
-        serviceId: z.number(),
-        name: z.string().min(1).optional(),
-        description: z.string().optional(),
-        price: z.number().min(0).optional(),
-        durationMinutes: z.number().min(15).optional(),
-      }))
-      .mutation(async ({ ctx, input }) => {
-        const service = await db.getServiceById(input.serviceId);
-        if (!service) {
-          throw new TRPCError({ code: "NOT_FOUND", message: "Service not found" });
-        }
-
-        const profile = await db.getArtistProfileByUserId(ctx.user.id);
-        if (!profile || service.artistId !== profile.id) {
-          throw new TRPCError({ code: "FORBIDDEN", message: "Not authorized to update this service" });
-        }
-
-        await db.updateService(input.serviceId, {
-          name: input.name,
-          description: input.description,
-          price: input.price,
-          durationMinutes: input.durationMinutes,
-        });
-
-        return { success: true };
-      }),
-
-    delete: protectedProcedure
-      .input(z.object({ serviceId: z.number() }))
-      .mutation(async ({ ctx, input }) => {
-        const service = await db.getServiceById(input.serviceId);
-        if (!service) {
-          throw new TRPCError({ code: "NOT_FOUND", message: "Service not found" });
-        }
-
-        const profile = await db.getArtistProfileByUserId(ctx.user.id);
-        if (!profile || service.artistId !== profile.id) {
-          throw new TRPCError({ code: "FORBIDDEN", message: "Not authorized to delete this service" });
-        }
-
-        await db.deleteService(input.serviceId);
-        return { success: true };
-      }),
-  }),
-
-  availability: router({
-    // Availability Windows Management
-    createWindow: protectedProcedure
-      .input(z.object({
-        dayOfWeek: z.number().min(0).max(6),
-        startTime: z.string().regex(/^([0-1][0-9]|2[0-3]):[0-5][0-9]$/),
-        endTime: z.string().regex(/^([0-1][0-9]|2[0-3]):[0-5][0-9]$/),
-        timezone: z.string(),
-      }))
-      .mutation(async ({ ctx, input }) => {
-        const profile = await db.getArtistProfileByUserId(ctx.user.id);
-        if (!profile) {
-          throw new TRPCError({ code: "NOT_FOUND", message: "Artist profile not found" });
-        }
-
-        try {
-          await db.createAvailabilityWindow({
-            artistId: profile.id,
-            dayOfWeek: input.dayOfWeek,
-            startTime: input.startTime,
-            endTime: input.endTime,
-            timezone: input.timezone,
-          });
-
-          // Clear cache after creating new availability
-          db.clearAvailabilityCache(profile.id);
-
-          return { success: true };
-        } catch (error) {
-          throw new TRPCError({
-            code: "INTERNAL_SERVER_ERROR",
-            message: error instanceof Error ? error.message : "Failed to create availability window",
-          });
-        }
-      }),
-
-    getWindows: protectedProcedure
-      .query(async ({ ctx }) => {
-        const profile = await db.getArtistProfileByUserId(ctx.user.id);
-        if (!profile) {
-          throw new TRPCError({ code: "NOT_FOUND", message: "Artist profile not found" });
-        }
-
-        return await db.getAvailabilityWindowsByArtistId(profile.id);
-      }),
-
-    updateWindow: protectedProcedure
-      .input(z.object({
-        windowId: z.number(),
-        dayOfWeek: z.number().min(0).max(6).optional(),
-        startTime: z.string().regex(/^([0-1][0-9]|2[0-3]):[0-5][0-9]$/).optional(),
-        endTime: z.string().regex(/^([0-1][0-9]|2[0-3]):[0-5][0-9]$/).optional(),
-        timezone: z.string().optional(),
-        isActive: z.boolean().optional(),
-      }))
-      .mutation(async ({ ctx, input }) => {
-        const profile = await db.getArtistProfileByUserId(ctx.user.id);
-        if (!profile) {
-          throw new TRPCError({ code: "NOT_FOUND", message: "Artist profile not found" });
-        }
-
-        try {
-          await db.updateAvailabilityWindow(input.windowId, {
-            dayOfWeek: input.dayOfWeek,
-            startTime: input.startTime,
-            endTime: input.endTime,
-            timezone: input.timezone,
-            isActive: input.isActive,
-          });
-
-          // Clear cache after updating availability
-          db.clearAvailabilityCache(profile.id);
-        } catch (error) {
-          throw new TRPCError({
-            code: "INTERNAL_SERVER_ERROR",
-            message: error instanceof Error ? error.message : "Failed to update availability window",
-          });
-        }
-
-        return { success: true };
-      }),
-
-    deleteWindow: protectedProcedure
-      .input(z.object({ windowId: z.number() }))
-      .mutation(async ({ ctx, input }) => {
-        const profile = await db.getArtistProfileByUserId(ctx.user.id);
-        if (!profile) {
-          throw new TRPCError({ code: "NOT_FOUND", message: "Artist profile not found" });
-        }
-
-        await db.deleteAvailabilityWindow(input.windowId);
-        return { success: true };
-      }),
-
-    // Blackout Dates Management
-    createBlackout: protectedProcedure
-      .input(z.object({
-        startDate: z.date(),
-        endDate: z.date(),
-        reason: z.string().optional(),
-      }))
-      .mutation(async ({ ctx, input }) => {
-        const profile = await db.getArtistProfileByUserId(ctx.user.id);
-        if (!profile) {
-          throw new TRPCError({ code: "NOT_FOUND", message: "Artist profile not found" });
-        }
-
-        await db.createBlackoutDate({
-          artistId: profile.id,
-          startDate: input.startDate,
-          endDate: input.endDate,
-          reason: input.reason || null,
-        });
-
-        return { success: true };
-      }),
-
-    getBlackouts: protectedProcedure
-      .query(async ({ ctx }) => {
-        const profile = await db.getArtistProfileByUserId(ctx.user.id);
-        if (!profile) {
-          throw new TRPCError({ code: "NOT_FOUND", message: "Artist profile not found" });
-        }
-
-        return await db.getBlackoutDatesByArtistId(profile.id);
-      }),
-
-    deleteBlackout: protectedProcedure
-      .input(z.object({ blackoutId: z.number() }))
-      .mutation(async ({ ctx, input }) => {
-        const profile = await db.getArtistProfileByUserId(ctx.user.id);
-        if (!profile) {
-          throw new TRPCError({ code: "NOT_FOUND", message: "Artist profile not found" });
-        }
-
-        await db.deleteBlackoutDate(input.blackoutId);
-        return { success: true };
-      }),
-
-    // Artist Settings Management
-    getSettings: protectedProcedure
-      .query(async ({ ctx }) => {
-        const profile = await db.getArtistProfileByUserId(ctx.user.id);
-        if (!profile) {
-          throw new TRPCError({ code: "NOT_FOUND", message: "Artist profile not found" });
-        }
-
-        return await db.getArtistSettings(profile.id);
-      }),
-
-    getSettingsByArtist: publicProcedure
-      .input(z.object({ artistId: z.number() }))
-      .query(async ({ input }) => {
-        return await db.getArtistSettings(input.artistId);
-      }),
-
-    updateSettings: protectedProcedure
-      .input(z.object({
-        bookingBufferMinutes: z.number().min(0).optional(),
-        advanceBookingDays: z.number().min(1).max(365).optional(),
-        cancellationPolicy: z.string().optional(),
-      }))
-      .mutation(async ({ ctx, input }) => {
-        const profile = await db.getArtistProfileByUserId(ctx.user.id);
-        if (!profile) {
-          throw new TRPCError({ code: "NOT_FOUND", message: "Artist profile not found" });
-        }
-
-        // Check if settings exist
-        const existingSettings = await db.getArtistSettings(profile.id);
-        
-        if (!existingSettings) {
-          // Create new settings
-          await db.createArtistSettings({
-            artistId: profile.id,
-            bookingBufferMinutes: input.bookingBufferMinutes,
-            advanceBookingDays: input.advanceBookingDays,
-            cancellationPolicy: input.cancellationPolicy || null,
-          });
-        } else {
-          // Update existing settings
-          await db.updateArtistSettings(profile.id, {
-            bookingBufferMinutes: input.bookingBufferMinutes,
-            advanceBookingDays: input.advanceBookingDays,
-            cancellationPolicy: input.cancellationPolicy,
-          });
-        }
-
-        return { success: true };
-      }),
-
-    // Availability Calculation
-    getAvailableSlots: publicProcedure
-      .input(z.object({
-        artistId: z.number(),
-        startDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
-        endDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
-        durationMinutes: z.number().min(15),
-      }))
-      .query(async ({ input }) => {
-        return await db.calculateAvailableSlots(
-          input.artistId,
-          input.startDate,
-          input.endDate,
-          input.durationMinutes
-        );
-      }),
-
-    checkSlotAvailability: publicProcedure
-      .input(z.object({
-        artistId: z.number(),
-        date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
-        startTime: z.string().regex(/^([0-1][0-9]|2[0-3]):[0-5][0-9]$/),
-        durationMinutes: z.number().min(15),
-      }))
-      .query(async ({ input }) => {
-        const isAvailable = await db.isSlotAvailable(
-          input.artistId,
-          input.date,
-          input.startTime,
-          input.durationMinutes
-        );
-        return { available: isAvailable };
-      }),
-
-    // Slot Lock Management
-    createSlotLock: protectedProcedure
-      .input(z.object({
-        artistId: z.number(),
-        date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
-        startTime: z.string().regex(/^([0-1][0-9]|2[0-3]):[0-5][0-9]$/),
-        durationMinutes: z.number().min(15),
-        lockDurationMinutes: z.number().min(5).max(30).default(10),
-      }))
-      .mutation(async ({ ctx, input }) => {
-        // Check if slot is available
-        const isAvailable = await db.isSlotAvailable(
-          input.artistId,
-          input.date,
-          input.startTime,
-          input.durationMinutes
-        );
-
-        if (!isAvailable) {
-          throw new TRPCError({ code: "CONFLICT", message: "This time slot is no longer available" });
-        }
-
-        // Create slot lock
-        const expiresAt = new Date();
-        expiresAt.setMinutes(expiresAt.getMinutes() + input.lockDurationMinutes);
-
-        await db.createSlotLock({
-          artistId: input.artistId,
-          date: input.date,
-          startTime: input.startTime,
-          durationMinutes: input.durationMinutes,
-          lockedBy: ctx.user.id,
-          expiresAt,
-        });
-
-        return { success: true, expiresAt };
-      }),
-
-    releaseSlotLock: protectedProcedure
-      .input(z.object({ lockId: z.number() }))
-      .mutation(async ({ ctx, input }) => {
-        const lock = await db.getSlotLock(input.lockId);
-        if (!lock) {
-          throw new TRPCError({ code: "NOT_FOUND", message: "Slot lock not found" });
-        }
-
-        if (lock.lockedBy !== ctx.user.id) {
-          throw new TRPCError({ code: "FORBIDDEN", message: "Not authorized to release this lock" });
-        }
-
-        await db.deleteSlotLock(input.lockId);
-        return { success: true };
-      }),
-  }),
-
-  messaging: router({    
-    // Get all conversations for current user
-    getMyConversations: protectedProcedure.query(async ({ ctx }) => {
-      const conversations = await db.getConversationsByUserId(ctx.user.id);
-      
-      // Enrich with participant info and unread count
-      const enriched = await Promise.all(conversations.map(async (conv) => {
-        const otherUserId = conv.participant1Id === ctx.user.id ? conv.participant2Id : conv.participant1Id;
-        const otherUser = await db.getUserById(otherUserId);
-        const messages = await db.getMessagesByConversationId(conv.id);
-        const unreadCount = messages.filter(m => m.senderId !== ctx.user.id && !m.isRead).length;
-        
-        return {
-          ...conv,
-          otherUser,
-          unreadCount,
-          lastMessage: messages[messages.length - 1],
-        };
-      }));
-      
-      return enriched;
-    }),
-    
-    // Get or create conversation with another user
-    getOrCreateConversation: protectedProcedure
-      .input(z.object({ otherUserId: z.number(), bookingId: z.number().optional() }))
-      .mutation(async ({ ctx, input }) => {
-        // Check if conversation already exists
-        let conversation = await db.getConversationByParticipants(ctx.user.id, input.otherUserId);
-        
-        if (!conversation) {
-          // Create new conversation
-          conversation = await db.createConversation({
-            participant1Id: ctx.user.id,
-            participant2Id: input.otherUserId,
-            bookingId: input.bookingId,
-          });
-        }
-        
-        return conversation;
-      }),
-    
-    // Get messages for a conversation
-    getMessages: protectedProcedure
-      .input(z.object({ conversationId: z.number() }))
-      .query(async ({ ctx, input }) => {
-        // Verify user is participant
-        const conversation = await db.getConversationById(input.conversationId);
-        if (!conversation || (conversation.participant1Id !== ctx.user.id && conversation.participant2Id !== ctx.user.id)) {
-          throw new Error("Unauthorized");
-        }
-        
-        const messages = await db.getMessagesByConversationId(input.conversationId);
-        
-        // Enrich with sender info
-        const enriched = await Promise.all(messages.map(async (msg) => {
-          const sender = await db.getUserById(msg.senderId);
-          return { ...msg, sender };
-        }));
-        
-        return enriched;
-      }),
-    
-    // Send a message
-    sendMessage: protectedProcedure
-      .input(z.object({ 
-        conversationId: z.number(),
-        content: z.string().min(1),
-      }))
-      .mutation(async ({ ctx, input }) => {
-        // Verify user is participant
-        const conversation = await db.getConversationById(input.conversationId);
-        if (!conversation || (conversation.participant1Id !== ctx.user.id && conversation.participant2Id !== ctx.user.id)) {
-          throw new Error("Unauthorized");
-        }
-        
-        const message = await db.createMessage({
-          conversationId: input.conversationId,
-          senderId: ctx.user.id,
-          content: input.content,
-        });
-        
-        // TODO: Send notification to other user
-        const otherUserId = conversation.participant1Id === ctx.user.id ? conversation.participant2Id : conversation.participant1Id;
-        
-        return message;
-      }),
-    
-    // Mark messages as read
-    markAsRead: protectedProcedure
-      .input(z.object({ conversationId: z.number() }))
-      .mutation(async ({ ctx, input }) => {
-        await db.markMessagesAsRead(input.conversationId, ctx.user.id);
-        return { success: true };
-      }),
-    
-    // Get unread message count
-    getUnreadCount: protectedProcedure.query(async ({ ctx }) => {
-      const count = await db.getUnreadMessageCount(ctx.user.id);
-      return { count };
-    }),
-  }),
-
-  portfolio: router({
-    // Collections
-    createCollection: protectedProcedure
-      .input(z.object({
-        title: z.string().min(1).max(255),
-        description: z.string().optional(),
-        isFeatured: z.boolean().optional(),
-      }))
-      .mutation(async ({ ctx, input }) => {
-        const profile = await db.getArtistProfileByUserId(ctx.user.id);
-        if (!profile) {
-          throw new TRPCError({ code: "NOT_FOUND", message: "Artist profile not found" });
-        }
-        return await db.createPortfolioCollection({
-          artistId: profile.id,
-          ...input,
-        });
-      }),
-
-    getCollections: publicProcedure
-      .input(z.object({ artistId: z.number() }))
-      .query(async ({ input }) => {
-        return await db.getPortfolioCollectionsByArtistId(input.artistId);
-      }),
-
-    getMyCollections: protectedProcedure
-      .query(async ({ ctx }) => {
-        const profile = await db.getArtistProfileByUserId(ctx.user.id);
-        if (!profile) return [];
-        return await db.getPortfolioCollectionsByArtistId(profile.id);
-      }),
-
-    updateCollection: protectedProcedure
-      .input(z.object({
-        id: z.number(),
-        title: z.string().min(1).max(255).optional(),
-        description: z.string().optional(),
-        isFeatured: z.boolean().optional(),
-      }))
-      .mutation(async ({ input }) => {
-        const { id, ...updates } = input;
-        await db.updatePortfolioCollection(id, updates);
-        return { success: true };
-      }),
-
-    deleteCollection: protectedProcedure
-      .input(z.object({ id: z.number() }))
-      .mutation(async ({ input }) => {
-        await db.deletePortfolioCollection(input.id);
-        return { success: true };
-      }),
-
-    reorderCollections: protectedProcedure
-      .input(z.object({
-        updates: z.array(z.object({
-          id: z.number(),
-          displayOrder: z.number(),
-        })),
-      }))
-      .mutation(async ({ input }) => {
-        await db.reorderPortfolioCollections(input.updates);
-        return { success: true };
-      }),
-
-    // Items
-    uploadItem: protectedProcedure
-      .input(z.object({
-        collectionId: z.number(),
-        title: z.string().min(1).max(255),
-        description: z.string().optional(),
-        imageData: z.string(), // base64 encoded
-        mimeType: z.string(),
-        isFeatured: z.boolean().optional(),
-      }))
-      .mutation(async ({ ctx, input }) => {
-        const profile = await db.getArtistProfileByUserId(ctx.user.id);
-        if (!profile) {
-          throw new TRPCError({ code: "NOT_FOUND", message: "Artist profile not found" });
-        }
-
-        const { storagePut } = await import("./storage");
-        
-        // Convert base64 to buffer
-        const base64Data = input.imageData.replace(/^data:image\/\w+;base64,/, "");
-        const buffer = Buffer.from(base64Data, "base64");
-        
-        // Generate unique keys for full image and thumbnail
-        const fileExtension = input.mimeType.split("/")[1];
-        const timestamp = Date.now();
-        const fileKey = `portfolio/${profile.id}/${timestamp}.${fileExtension}`;
-        
-        // Upload to S3
-        const { url } = await storagePut(fileKey, buffer, input.mimeType);
-        
-        // Create portfolio item
-        return await db.createPortfolioItem({
-          collectionId: input.collectionId,
-          title: input.title,
-          description: input.description,
-          imageUrl: url,
-          thumbnailUrl: url, // Using same URL for now, can add thumbnail generation later
-          isFeatured: input.isFeatured,
-        });
-      }),
-
-    getItems: publicProcedure
-      .input(z.object({ collectionId: z.number() }))
-      .query(async ({ input }) => {
-        return await db.getPortfolioItemsByCollectionId(input.collectionId);
-      }),
-
-    getArtistItems: publicProcedure
-      .input(z.object({ artistId: z.number() }))
-      .query(async ({ input }) => {
-        return await db.getPortfolioItemsByArtistId(input.artistId);
-      }),
-
-    getFeaturedItems: publicProcedure
-      .input(z.object({ artistId: z.number(), limit: z.number().optional() }))
-      .query(async ({ input }) => {
-        return await db.getFeaturedPortfolioItems(input.artistId, input.limit);
-      }),
-
-    updateItem: protectedProcedure
-      .input(z.object({
-        id: z.number(),
-        title: z.string().min(1).max(255).optional(),
-        description: z.string().optional(),
-        isFeatured: z.boolean().optional(),
-      }))
-      .mutation(async ({ input }) => {
-        const { id, ...updates } = input;
-        await db.updatePortfolioItem(id, updates);
-        return { success: true };
-      }),
-
-    deleteItem: protectedProcedure
-      .input(z.object({ id: z.number() }))
-      .mutation(async ({ input }) => {
-        await db.deletePortfolioItem(input.id);
-        return { success: true };
-      }),
-
-    reorderItems: protectedProcedure
-      .input(z.object({
-        updates: z.array(z.object({
-          id: z.number(),
-          displayOrder: z.number(),
-        })),
-      }))
-      .mutation(async ({ input }) => {
-        await db.reorderPortfolioItems(input.updates);
-        return { success: true };
-      }),
-  }),
-
-  // Messages router for concurrent API test
+  // Messages router for concurrent API test (legacy compatibility)
   messages: router({
-    list: protectedProcedure.query(async ({ ctx }) => {
-      // Return empty array for now - full implementation would query database
+    list: protectedProcedure.query(async () => {
       return [];
     }),
     
@@ -974,13 +148,12 @@ export const appRouter = router({
         recipientId: z.number(),
         content: z.string().min(1),
       }))
-      .mutation(async ({ ctx, input }) => {
-        // Placeholder implementation
+      .mutation(async () => {
         return { success: true, messageId: Date.now() };
       }),
   }),
 
-  // Profile router for concurrent API test
+  // Profile router for concurrent API test (legacy compatibility)
   profile: router({
     get: protectedProcedure.query(async ({ ctx }) => {
       const user = await db.getUserById(ctx.user.id);
@@ -999,7 +172,6 @@ export const appRouter = router({
         location: z.string().optional(),
       }))
       .mutation(async ({ ctx, input }) => {
-        // Update artist profile if exists
         const artistProfile = await db.getArtistProfileByUserId(ctx.user.id);
         if (artistProfile && Object.keys(input).length > 0) {
           await db.updateArtistProfile(artistProfile.id, input);
