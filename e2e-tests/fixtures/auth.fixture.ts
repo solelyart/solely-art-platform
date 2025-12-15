@@ -1,4 +1,4 @@
-import { test as base, expect } from '@playwright/test';
+import { test as base, expect, Page } from '@playwright/test';
 import { testConfig } from '../playwright.env';
 
 /**
@@ -9,46 +9,62 @@ import { testConfig } from '../playwright.env';
  * 
  * This is the industry-standard approach for testing OAuth-based applications.
  * 
- * Provides authenticated contexts for different user types:
- * - Client (books artists)
- * - Artist (provides services)
- * - Admin (manages platform)
+ * KEY FIX: We navigate to the page first, then make the auth request via
+ * page.evaluate() so the cookie is properly associated with the browser context
+ * and persists across navigations.
  */
 
 type AuthFixtures = {
-  authenticatedClientPage: any;
-  authenticatedArtistPage: any;
-  authenticatedAdminPage: any;
+  authenticatedClientPage: Page;
+  authenticatedArtistPage: Page;
+  authenticatedAdminPage: Page;
 };
 
 /**
  * Helper function to authenticate via test-auth endpoint
- * Sets session cookie directly without going through OAuth flow
+ * Uses page.evaluate() to make the request from within the browser context
+ * This ensures cookies are properly set and persist across navigations
  */
-async function authenticateUser(page: any, openId: string, expectedUrl?: string) {
-  // Call test-auth endpoint to get session cookie
-  const response = await page.request.post(`${testConfig.baseUrl}/api/test-auth/login`, {
-    data: { openId },
-    headers: { 'Content-Type': 'application/json' }
-  });
-
-  if (!response.ok()) {
-    throw new Error(`Authentication failed: ${response.status()} ${await response.text()}`);
-  }
+async function authenticateUser(page: Page, openId: string, expectedUrl?: string) {
+  // First navigate to the base URL to establish the browser context
+  await page.goto(testConfig.baseUrl, { waitUntil: 'domcontentloaded' });
+  
+  // Make the auth request from within the browser context
+  // This ensures the cookie is properly associated with the domain
+  const authResult = await page.evaluate(async (data) => {
+    const response = await fetch('/api/test-auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ openId: data.openId }),
+      credentials: 'include' // Important: include cookies in the request
+    });
+    
+    if (!response.ok) {
+      throw new Error(`Auth failed: ${response.status}`);
+    }
+    
+    return await response.json();
+  }, { openId });
+  
+  console.log('✅ Test-auth response:', JSON.stringify(authResult).substring(0, 100));
 
   // Verify session cookie was set
   const cookies = await page.context().cookies();
   const sessionCookie = cookies.find(c => c.name === 'app_session_id');
+  
   if (!sessionCookie) {
+    console.log('⚠️  Available cookies:', cookies.map(c => c.name));
     throw new Error('Session cookie was not set by test-auth endpoint');
   }
+  
   console.log('✅ Session cookie set:', sessionCookie.value.substring(0, 20) + '...');
+  console.log('   Domain:', sessionCookie.domain);
+  console.log('   Path:', sessionCookie.path);
 
-  // Navigate to home page to verify authentication worked
-  await page.goto(expectedUrl || '/', { waitUntil: 'domcontentloaded' });
+  // Reload the page to pick up the new auth state
+  await page.reload({ waitUntil: 'domcontentloaded' });
   
   // Wait for the tRPC auth.me query to complete
-  // This is critical - the React app needs this response to update auth state
   let authResponseReceived = false;
   try {
     const authResponse = await page.waitForResponse(
@@ -65,11 +81,14 @@ async function authenticateUser(page: any, openId: string, expectedUrl?: string)
   // Wait for network to be idle after tRPC query
   await page.waitForLoadState('networkidle');
   
-  // Give React extra time to update state if auth response was slow
+  // Give React extra time to update state
   await page.waitForTimeout(authResponseReceived ? 1000 : 3000);
   
-  // Wait for the page to fully render with auth state
-  await page.waitForLoadState('domcontentloaded');
+  // Navigate to the expected URL if different from base
+  if (expectedUrl && expectedUrl !== '/' && expectedUrl !== testConfig.baseUrl) {
+    await page.goto(expectedUrl, { waitUntil: 'domcontentloaded' });
+    await page.waitForLoadState('networkidle');
+  }
 }
 
 /**
@@ -77,6 +96,16 @@ async function authenticateUser(page: any, openId: string, expectedUrl?: string)
  * Use this after clicking links that navigate to protected pages
  */
 export async function waitForAuthAfterNavigation(page: Page) {
+  // First, verify the cookie is still present
+  const cookies = await page.context().cookies();
+  const sessionCookie = cookies.find(c => c.name === 'app_session_id');
+  
+  if (!sessionCookie) {
+    console.warn('⚠️  Session cookie not found after navigation!');
+  } else {
+    console.log('✅ Session cookie present after navigation');
+  }
+  
   try {
     // Wait for the auth.me query to complete on the new page
     await page.waitForResponse(
@@ -95,6 +124,38 @@ export async function waitForAuthAfterNavigation(page: Page) {
   await page.waitForLoadState('networkidle');
 }
 
+/**
+ * Ensure cookies are set for all relevant domains
+ * Call this before navigating to protected pages
+ */
+export async function ensureCookiesForDomain(page: Page, targetUrl: string) {
+  const cookies = await page.context().cookies();
+  const sessionCookie = cookies.find(c => c.name === 'app_session_id');
+  
+  if (sessionCookie) {
+    const url = new URL(targetUrl);
+    
+    // Check if cookie is already set for this domain
+    const cookieForDomain = cookies.find(
+      c => c.name === 'app_session_id' && c.domain.includes(url.hostname)
+    );
+    
+    if (!cookieForDomain) {
+      // Add cookie for the target domain
+      await page.context().addCookies([{
+        name: 'app_session_id',
+        value: sessionCookie.value,
+        domain: url.hostname,
+        path: '/',
+        httpOnly: true,
+        secure: url.protocol === 'https:',
+        sameSite: 'Lax'
+      }]);
+      console.log('✅ Cookie propagated to domain:', url.hostname);
+    }
+  }
+}
+
 export const test = base.extend<AuthFixtures>({
   /**
    * Authenticated Client Page
@@ -105,13 +166,12 @@ export const test = base.extend<AuthFixtures>({
     await authenticateUser(page, testConfig.testUsers.client.openId, '/');
 
     // Verify authentication by checking for logout button
-    // Retry with longer timeout to handle slow auth state propagation
-    await expect(page.locator('[data-testid="logout-button"]')).toBeVisible({ timeout: 15000 }); // Increased from 10000ms
+    await expect(page.locator('[data-testid="logout-button"]')).toBeVisible({ timeout: 15000 });
 
     // Use the authenticated page
     await use(page);
 
-    // Cleanup: logout after test (optional, session will expire anyway)
+    // Cleanup: logout after test
     try {
       await page.click('[data-testid="logout-button"]');
       await page.waitForURL('/', { timeout: 3000 });
@@ -129,7 +189,7 @@ export const test = base.extend<AuthFixtures>({
     await authenticateUser(page, testConfig.testUsers.artist.openId, '/');
 
     // Verify authentication
-    await expect(page.locator('[data-testid="logout-button"]')).toBeVisible({ timeout: 15000 }); // Increased from 10000ms
+    await expect(page.locator('[data-testid="logout-button"]')).toBeVisible({ timeout: 15000 });
 
     // Use the authenticated page
     await use(page);
@@ -152,7 +212,7 @@ export const test = base.extend<AuthFixtures>({
     await authenticateUser(page, testConfig.testUsers.admin.openId, '/');
 
     // Verify authentication
-    await expect(page.locator('[data-testid="logout-button"]')).toBeVisible({ timeout: 15000 }); // Increased from 10000ms
+    await expect(page.locator('[data-testid="logout-button"]')).toBeVisible({ timeout: 15000 });
 
     // Use the authenticated page
     await use(page);

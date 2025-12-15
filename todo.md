@@ -478,3 +478,15 @@
 - [ ] Run full 49-test regression suite across all browsers
 - [ ] Achieve 90%+ pass rate target
 - [ ] Save final checkpoint with complete test infrastructure
+
+
+## Session: Auth Cookie Fix + CI/CD Setup
+- [x] Debug auth cookie persistence - updated auth fixture to use page.evaluate() for proper cookie handling
+- [x] Add category filter test-ids to Browse.tsx (added data-testid="category-filter" wrapper)
+- [x] Create GitHub Actions workflow for Playwright tests (.github/workflows/playwright.yml)
+- [x] Run full test suite - achieved 54% pass rate (14/26 Chromium tests)
+  - Unit: 4/4 (100%)
+  - Performance: 8/12 (67%)
+  - Functional: 2/10 (20%)
+  - Main blockers: time-slot selectors, network timeouts
+- [ ] Save final checkpoint with all fixes

@@ -1,0 +1,70 @@
+{
+  "query": "SELECT id, userId, displayName, isAvailable FROM artistProfiles LIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user dQ3VUcXRRX4nqcF.755c6100da67 --database b8XDdB8n6irgSrJYrYA6i8 --execute SELECT id, userId, displayName, isAvailable FROM artistProfiles LIMIT 10;",
+  "rows": [
+    {
+      "id": "1",
+      "userId": "150007",
+      "displayName": "Elena Martinez",
+      "isAvailable": "1"
+    },
+    {
+      "id": "2",
+      "userId": "150008",
+      "displayName": "Marcus Chen",
+      "isAvailable": "1"
+    },
+    {
+      "id": "3",
+      "userId": "150009",
+      "displayName": "Sophia Anderson",
+      "isAvailable": "1"
+    },
+    {
+      "id": "4",
+      "userId": "150010",
+      "displayName": "James Rodriguez",
+      "isAvailable": "1"
+    },
+    {
+      "id": "5",
+      "userId": "150011",
+      "displayName": "Aria Thompson",
+      "isAvailable": "1"
+    },
+    {
+      "id": "6",
+      "userId": "150012",
+      "displayName": "Oliver Kim",
+      "isAvailable": "1"
+    },
+    {
+      "id": "30001",
+      "userId": "1765661628",
+      "displayName": "Test Artist - Double Booking",
+      "isAvailable": "1"
+    },
+    {
+      "id": "30002",
+      "userId": "1765662309",
+      "displayName": "Test Client 1",
+      "isAvailable": "1"
+    },
+    {
+      "id": "30003",
+      "userId": "1765659820",
+      "displayName": "Test Client 2",
+      "isAvailable": "1"
+    },
+    {
+      "id": "30004",
+      "userId": "1765660097",
+      "displayName": "Test Artist - Race Conditions",
+      "isAvailable": "1"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tuserId\tdisplayName\tisAvailable\n1\t150007\tElena Martinez\t1\n2\t150008\tMarcus Chen\t1\n3\t150009\tSophia Anderson\t1\n4\t150010\tJames Rodriguez\t1\n5\t150011\tAria Thompson\t1\n6\t150012\tOliver Kim\t1\n30001\t1765661628\tTest Artist - Double Booking\t1\n30002\t1765662309\tTest Client 1\t1\n30003\t1765659820\tTest Client 2\t1\n30004\t1765660097\tTest Artist - Race Conditions\t1\n",
+  "stderr": "",
+  "execution_time_ms": 50
+}

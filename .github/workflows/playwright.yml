@@ -1,79 +1,170 @@
-name: Playwright Tests
+name: Playwright E2E Tests
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [main, develop]
   pull_request:
-    branches: [ main, develop ]
+    branches: [main, develop]
+  workflow_dispatch:
+    inputs:
+      test_filter:
+        description: 'Test filter pattern (e.g., "booking" or "performance")'
+        required: false
+        default: ''
+
+env:
+  CI: true
+  NODE_ENV: test
 
 jobs:
   test:
+    name: E2E Tests
     timeout-minutes: 60
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
-    - name: Install pnpm
-      uses: pnpm/action-setup@v4
-      with:
-        version: 10
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
 
-    - name: Get pnpm store directory
-      shell: bash
-      run: |
-        echo "STORE_PATH=$(pnpm store path --silent)" >> "$GITHUB_ENV"
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> "$GITHUB_ENV"
 
-    - name: Setup pnpm cache
-      uses: actions/cache@v4
-      with:
-        path: ${{ env.STORE_PATH }}
-        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-        restore-keys: |
-          ${{ runner.os }}-pnpm-store-
+      - name: Setup pnpm cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
-    - name: Cache Playwright browsers
-      uses: actions/cache@v4
-      with:
-        path: ~/.cache/ms-playwright
-        key: ${{ runner.os }}-playwright-${{ hashFiles('**/pnpm-lock.yaml') }}
-        restore-keys: |
-          ${{ runner.os }}-playwright-
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-playwright-
 
-    - name: Install dependencies
-      run: pnpm install
+      - name: Install dependencies
+        run: pnpm install
 
-    - name: Install Playwright browsers
-      run: pnpm run install:browsers
+      - name: Install Playwright browsers
+        run: pnpm run install:browsers
 
-    - name: Run Playwright tests
-      run: pnpm test:ci
-      env:
-        CI: true
-        BASE_URL: ${{ secrets.BASE_URL || 'http://localhost:3000' }}
-        TEST_CLIENT_EMAIL: ${{ secrets.TEST_CLIENT_EMAIL }}
-        TEST_CLIENT_PASSWORD: ${{ secrets.TEST_CLIENT_PASSWORD }}
-        TEST_ARTIST_EMAIL: ${{ secrets.TEST_ARTIST_EMAIL }}
-        TEST_ARTIST_PASSWORD: ${{ secrets.TEST_ARTIST_PASSWORD }}
+      - name: Run Playwright tests
+        id: playwright
+        run: |
+          if [ -n "${{ github.event.inputs.test_filter }}" ]; then
+            pnpm test:ci --grep "${{ github.event.inputs.test_filter }}"
+          else
+            pnpm test:ci
+          fi
+        env:
+          BASE_URL: ${{ secrets.BASE_URL || 'http://localhost:3000' }}
+          TEST_CLIENT_EMAIL: ${{ secrets.TEST_CLIENT_EMAIL }}
+          TEST_CLIENT_PASSWORD: ${{ secrets.TEST_CLIENT_PASSWORD }}
+          TEST_ARTIST_EMAIL: ${{ secrets.TEST_ARTIST_EMAIL }}
+          TEST_ARTIST_PASSWORD: ${{ secrets.TEST_ARTIST_PASSWORD }}
 
-    - name: Upload test reports
-      if: always()
-      uses: actions/upload-artifact@v4
-      with:
-        name: playwright-report
-        path: reports/html/
-        retention-days: 30
+      - name: Upload HTML report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: reports/html/
+          retention-days: 30
 
-    - name: Upload test results (JSON)
-      if: always()
-      uses: actions/upload-artifact@v4
-      with:
-        name: test-results-json
-        path: reports/json/
-        retention-days: 30
+      - name: Upload JSON results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results-json
+          path: reports/json/
+          retention-days: 30
+
+      - name: Upload failed test screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: failed-test-screenshots
+          path: test-results/
+          retention-days: 7
+
+      - name: Generate test summary
+        if: always()
+        run: |
+          echo "## 🎭 Playwright Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          # Parse test results if JSON exists
+          if [ -f reports/json/results.json ]; then
+            PASSED=$(jq '.stats.expected // 0' reports/json/results.json 2>/dev/null || echo "0")
+            FAILED=$(jq '.stats.unexpected // 0' reports/json/results.json 2>/dev/null || echo "0")
+            SKIPPED=$(jq '.stats.skipped // 0' reports/json/results.json 2>/dev/null || echo "0")
+            TOTAL=$((PASSED + FAILED + SKIPPED))
+            
+            if [ "$FAILED" -eq "0" ]; then
+              echo "✅ **All tests passed!**" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "❌ **Some tests failed**" >> $GITHUB_STEP_SUMMARY
+            fi
+            
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "| Status | Count |" >> $GITHUB_STEP_SUMMARY
+            echo "|--------|-------|" >> $GITHUB_STEP_SUMMARY
+            echo "| ✅ Passed | $PASSED |" >> $GITHUB_STEP_SUMMARY
+            echo "| ❌ Failed | $FAILED |" >> $GITHUB_STEP_SUMMARY
+            echo "| ⏭️ Skipped | $SKIPPED |" >> $GITHUB_STEP_SUMMARY
+            echo "| **Total** | **$TOTAL** |" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "⚠️ Test results JSON not found" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "📊 [View full HTML report](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}#artifacts)" >> $GITHUB_STEP_SUMMARY
+
+  unit-tests:
+    name: Unit Tests (Vitest)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run unit tests
+        run: pnpm test
+        env:
+          NODE_ENV: test
+
+      - name: Generate unit test summary
+        if: always()
+        run: |
+          echo "## 🧪 Unit Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Unit tests completed. Check the logs above for details." >> $GITHUB_STEP_SUMMARY

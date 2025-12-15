@@ -93,7 +93,7 @@
                 - button "11" [disabled] [ref=e117]
                 - button "12" [disabled] [ref=e118]
                 - button "13" [disabled] [ref=e119]
-                - button "14" [ref=e120] [cursor=pointer]
+                - button "14" [disabled] [ref=e120]
                 - button "15" [ref=e121] [cursor=pointer]
                 - button "16" [active] [ref=e122] [cursor=pointer]
                 - button "17" [ref=e123] [cursor=pointer]

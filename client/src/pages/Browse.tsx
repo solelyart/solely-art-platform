@@ -151,7 +151,7 @@ export default function Browse() {
               </div>
 
               {/* Categories */}
-              <div className="space-y-3">
+              <div className="space-y-3" data-testid="category-filter">
                 <Label>Categories</Label>
                 {categoriesLoading ? (
                   <div className="flex flex-wrap gap-2">
