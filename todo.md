@@ -153,7 +153,7 @@
 - [x] Create 5-8 sample artist profiles
 - [x] Add diverse services for each artist
 - [ ] Upload artistic photos to portfolios
-- [ ] Add sample reviews for artists
+- [x] Add sample reviews for artists
 - [ ] Create sample bookingsta displays correctly
 
 ## Portfolio Images for Sample Artists
@@ -605,3 +605,11 @@
 - [x] Added data-testid to service cards for better test targeting
 - [x] Updated test helpers to navigate to artists with services
 - [x] Fixed cache resources performance test threshold (45% instead of 50%)
+
+
+## Sample Data Enhancement - December 15, 2025
+- [x] Clean up test artist profiles (keep main sample artists and Playwright test artists)
+- [x] Upload artistic photos to sample artist portfolios
+- [x] Add sample reviews for artists
+- [x] Create sample bookings to display correctly
+- [x] Verify all data displays correctly on Browse and Profile pages

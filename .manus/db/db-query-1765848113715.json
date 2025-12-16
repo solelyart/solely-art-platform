@@ -1,0 +1,610 @@
+{
+  "query": "SELECT id, name, email, role FROM users ORDER BY id LIMIT 100;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user dQ3VUcXRRX4nqcF.755c6100da67 --database b8XDdB8n6irgSrJYrYA6i8 --execute SELECT id, name, email, role FROM users ORDER BY id LIMIT 100;",
+  "rows": [
+    {
+      "id": "1",
+      "name": "Kristen  Blanks",
+      "email": "kristen.blanks@capusal.com",
+      "role": "admin"
+    },
+    {
+      "id": "150007",
+      "name": "Elena Martinez",
+      "email": "elena.martinez@solelyart.example",
+      "role": "user"
+    },
+    {
+      "id": "150008",
+      "name": "Marcus Chen",
+      "email": "marcus.chen@solelyart.example",
+      "role": "user"
+    },
+    {
+      "id": "150009",
+      "name": "Sophia Anderson",
+      "email": "sophia.anderson@solelyart.example",
+      "role": "user"
+    },
+    {
+      "id": "150010",
+      "name": "James Rodriguez",
+      "email": "james.rodriguez@solelyart.example",
+      "role": "user"
+    },
+    {
+      "id": "150011",
+      "name": "Aria Thompson",
+      "email": "aria.thompson@solelyart.example",
+      "role": "user"
+    },
+    {
+      "id": "150012",
+      "name": "Oliver Kim",
+      "email": "oliver.kim@solelyart.example",
+      "role": "user"
+    },
+    {
+      "id": "480001",
+      "name": "Test Artist - Double Booking",
+      "email": "test-artist-1765653179636-5205@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480002",
+      "name": "Test Artist - Race Conditions",
+      "email": "test-artist-1765653180708-8526@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480003",
+      "name": "Test Artist - Double Booking",
+      "email": "test-artist-1765653200465-8428@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480004",
+      "name": "Test Client 1",
+      "email": "test-artist-1765653200638-9109@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480005",
+      "name": "Test Client 2",
+      "email": "test-artist-1765653200681-6620@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480006",
+      "name": "Test Artist - Race Conditions",
+      "email": "test-artist-1765653200914-6897@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480007",
+      "name": "Test Client 1",
+      "email": "test-artist-1765653200959-7155@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480008",
+      "name": "Test Client 2",
+      "email": "test-artist-1765653200999-9131@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480009",
+      "name": "Test Client 3",
+      "email": "test-artist-1765653201037-9376@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480010",
+      "name": "Test Client 4",
+      "email": "test-artist-1765653201072-8941@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480011",
+      "name": "Test Client 5",
+      "email": "test-artist-1765653201108-8746@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480012",
+      "name": "Test Client 6",
+      "email": "test-artist-1765653201144-4235@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480013",
+      "name": "Test Client 7",
+      "email": "test-artist-1765653201185-2223@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480014",
+      "name": "Test Client 8",
+      "email": "test-artist-1765653201223-3928@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480015",
+      "name": "Test Client 9",
+      "email": "test-artist-1765653201257-4679@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480016",
+      "name": "Test Client 10",
+      "email": "test-artist-1765653201289-5891@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480017",
+      "name": "Test Artist - Double Booking",
+      "email": "test-artist-1765653227352-5737@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480018",
+      "name": "Test Client 1",
+      "email": "test-artist-1765653227531-2524@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480019",
+      "name": "Test Client 2",
+      "email": "test-artist-1765653227565-4783@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480020",
+      "name": "Test Artist - Race Conditions",
+      "email": "test-artist-1765653227824-3236@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480021",
+      "name": "Test Client 1",
+      "email": "test-artist-1765653227860-981@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480022",
+      "name": "Test Client 2",
+      "email": "test-artist-1765653227897-6388@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480023",
+      "name": "Test Client 3",
+      "email": "test-artist-1765653227931-3134@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480024",
+      "name": "Test Client 4",
+      "email": "test-artist-1765653227970-4229@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480025",
+      "name": "Test Client 5",
+      "email": "test-artist-1765653228006-962@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480026",
+      "name": "Test Client 6",
+      "email": "test-artist-1765653228040-4623@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480027",
+      "name": "Test Client 7",
+      "email": "test-artist-1765653228077-7150@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480028",
+      "name": "Test Client 8",
+      "email": "test-artist-1765653228115-6259@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480029",
+      "name": "Test Client 9",
+      "email": "test-artist-1765653228156-2792@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480030",
+      "name": "Test Client 10",
+      "email": "test-artist-1765653228192-3540@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480031",
+      "name": "Test Artist - Double Booking",
+      "email": "test-artist-1765653328125-9041@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480032",
+      "name": "Test Client 1",
+      "email": "test-artist-1765653328282-8973@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480033",
+      "name": "Test Client 2",
+      "email": "test-artist-1765653328325-994@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480034",
+      "name": "Test Artist - Race Conditions",
+      "email": "test-artist-1765653328555-1407@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480035",
+      "name": "Test Client 1",
+      "email": "test-artist-1765653328587-4080@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480036",
+      "name": "Test Client 2",
+      "email": "test-artist-1765653328628-411@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480037",
+      "name": "Test Client 3",
+      "email": "test-artist-1765653328662-5387@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480038",
+      "name": "Test Client 4",
+      "email": "test-artist-1765653328695-8733@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480039",
+      "name": "Test Client 5",
+      "email": "test-artist-1765653328728-1857@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480040",
+      "name": "Test Client 6",
+      "email": "test-artist-1765653328763-1223@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480041",
+      "name": "Test Client 7",
+      "email": "test-artist-1765653328799-4605@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480042",
+      "name": "Test Client 8",
+      "email": "test-artist-1765653328837-657@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480043",
+      "name": "Test Client 9",
+      "email": "test-artist-1765653328869-1070@test.com",
+      "role": "user"
+    },
+    {
+      "id": "480044",
+      "name": "Test Client 10",
+      "email": "test-artist-1765653328903-1195@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510001",
+      "name": "Test Artist - Availability",
+      "email": "test-artist-1765653597284-6499@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510002",
+      "name": "Test Client - Availability",
+      "email": "test-artist-1765653598039-2138@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510003",
+      "name": "Pacific Artist",
+      "email": "test-artist-1765653598143-2563@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510004",
+      "name": "Test Artist - Lifecycle",
+      "email": "test-artist-1765653598280-6720@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510005",
+      "name": "Test Client - Lifecycle",
+      "email": "test-artist-1765653598315-2636@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510006",
+      "name": "E2E Test Artist",
+      "email": "test-artist-1765653598598-4451@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510007",
+      "name": "E2E Test Client",
+      "email": "test-artist-1765653598643-1986@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510008",
+      "name": "Multi-booking Artist",
+      "email": "test-artist-1765653598732-1815@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510009",
+      "name": "Multi-booking Client",
+      "email": "test-artist-1765653598774-6732@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510010",
+      "name": "Test Artist - Availability",
+      "email": "test-artist-1765653629050-2169@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510011",
+      "name": "Test Client - Availability",
+      "email": "test-artist-1765653629209-8568@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510012",
+      "name": "Pacific Artist",
+      "email": "test-artist-1765653629312-1882@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510013",
+      "name": "Test Artist - Lifecycle",
+      "email": "test-artist-1765653629446-6576@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510014",
+      "name": "Test Client - Lifecycle",
+      "email": "test-artist-1765653629479-1774@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510015",
+      "name": "E2E Test Artist",
+      "email": "test-artist-1765653629769-1045@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510016",
+      "name": "E2E Test Client",
+      "email": "test-artist-1765653629816-3539@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510017",
+      "name": "Multi-booking Artist",
+      "email": "test-artist-1765653629913-7646@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510018",
+      "name": "Multi-booking Client",
+      "email": "test-artist-1765653629947-1395@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510019",
+      "name": "Test Artist - Availability",
+      "email": "test-artist-1765653729480-5720@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510020",
+      "name": "Test Client - Availability",
+      "email": "test-artist-1765653729664-2174@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510021",
+      "name": "Pacific Artist",
+      "email": "test-artist-1765653729788-9505@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510022",
+      "name": "Test Artist - Lifecycle",
+      "email": "test-artist-1765653729928-1252@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510023",
+      "name": "Test Client - Lifecycle",
+      "email": "test-artist-1765653729962-8878@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510024",
+      "name": "E2E Test Artist",
+      "email": "test-artist-1765653730259-8428@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510025",
+      "name": "E2E Test Client",
+      "email": "test-artist-1765653730308-6363@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510026",
+      "name": "Multi-booking Artist",
+      "email": "test-artist-1765653730404-4646@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510027",
+      "name": "Multi-booking Client",
+      "email": "test-artist-1765653730447-9712@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510028",
+      "name": "Test Artist - Availability",
+      "email": "test-artist-1765653760013-5391@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510029",
+      "name": "Test Client - Availability",
+      "email": "test-artist-1765653760162-2738@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510030",
+      "name": "Pacific Artist",
+      "email": "test-artist-1765653760256-6449@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510031",
+      "name": "Test Artist - Lifecycle",
+      "email": "test-artist-1765653760392-2114@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510032",
+      "name": "Test Client - Lifecycle",
+      "email": "test-artist-1765653760425-5195@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510033",
+      "name": "E2E Test Artist",
+      "email": "test-artist-1765653760695-2672@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510034",
+      "name": "E2E Test Client",
+      "email": "test-artist-1765653760741-3521@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510035",
+      "name": "Multi-booking Artist",
+      "email": "test-artist-1765653760825-7578@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510036",
+      "name": "Multi-booking Client",
+      "email": "test-artist-1765653760861-1430@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510037",
+      "name": "Test Artist - Availability",
+      "email": "test-artist-1765653784182-5453@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510038",
+      "name": "Test Artist - Double Booking",
+      "email": "test-artist-1765653784179-1128@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510039",
+      "name": "Test Client - Availability",
+      "email": "test-artist-1765653784352-9233@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510040",
+      "name": "Test Client 1",
+      "email": "test-artist-1765653784357-1369@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510041",
+      "name": "Test Client 2",
+      "email": "test-artist-1765653784407-1718@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510042",
+      "name": "Pacific Artist",
+      "email": "test-artist-1765653784456-2319@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510043",
+      "name": "Test Artist - Lifecycle",
+      "email": "test-artist-1765653784585-6444@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510044",
+      "name": "Test Client - Lifecycle",
+      "email": "test-artist-1765653784619-8479@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510045",
+      "name": "Test Artist - Race Conditions",
+      "email": "test-artist-1765653784642-1100@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510046",
+      "name": "Test Client 1",
+      "email": "test-artist-1765653784725-527@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510047",
+      "name": "Test Client 2",
+      "email": "test-artist-1765653784762-4811@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510048",
+      "name": "Test Client 3",
+      "email": "test-artist-1765653784802-3375@test.com",
+      "role": "user"
+    },
+    {
+      "id": "510049",
+      "name": "Test Client 4",
+      "email": "test-artist-1765653784837-7954@test.com",
+      "role": "user"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\temail\trole\n1\tKristen  Blanks\tkristen.blanks@capusal.com\tadmin\n150007\tElena Martinez\telena.martinez@solelyart.example\tuser\n150008\tMarcus Chen\tmarcus.chen@solelyart.example\tuser\n150009\tSophia Anderson\tsophia.anderson@solelyart.example\tuser\n150010\tJames Rodriguez\tjames.rodriguez@solelyart.example\tuser\n150011\tAria Thompson\taria.thompson@solelyart.example\tuser\n150012\tOliver Kim\toliver.kim@solelyart.example\tuser\n480001\tTest Artist - Double Booking\ttest-artist-1765653179636-5205@test.com\tuser\n480002\tTest Artist - Race Conditions\ttest-artist-1765653180708-8526@test.com\tuser\n480003\tTest Artist - Double Booking\ttest-artist-1765653200465-8428@test.com\tuser\n480004\tTest Client 1\ttest-artist-1765653200638-9109@test.com\tuser\n480005\tTest Client 2\ttest-artist-1765653200681-6620@test.com\tuser\n480006\tTest Artist - Race Conditions\ttest-artist-1765653200914-6897@test.com\tuser\n480007\tTest Client 1\ttest-artist-1765653200959-7155@test.com\tuser\n480008\tTest Client 2\ttest-artist-1765653200999-9131@test.com\tuser\n480009\tTest Client 3\ttest-artist-1765653201037-9376@test.com\tuser\n480010\tTest Client 4\ttest-artist-1765653201072-8941@test.com\tuser\n480011\tTest Client 5\ttest-artist-1765653201108-8746@test.com\tuser\n480012\tTest Client 6\ttest-artist-1765653201144-4235@test.com\tuser\n480013\tTest Client 7\ttest-artist-1765653201185-2223@test.com\tuser\n480014\tTest Client 8\ttest-artist-1765653201223-3928@test.com\tuser\n480015\tTest Client 9\ttest-artist-1765653201257-4679@test.com\tuser\n480016\tTest Client 10\ttest-artist-1765653201289-5891@test.com\tuser\n480017\tTest Artist - Double Booking\ttest-artist-1765653227352-5737@test.com\tuser\n480018\tTest Client 1\ttest-artist-1765653227531-2524@test.com\tuser\n480019\tTest Client 2\ttest-artist-1765653227565-4783@test.com\tuser\n480020\tTest Artist - Race Conditions\ttest-artist-1765653227824-3236@test.com\tuser\n480021\tTest Client 1\ttest-artist-1765653227860-981@test.com\tuser\n480022\tTest Client 2\ttest-artist-1765653227897-6388@test.com\tuser\n480023\tTest Client 3\ttest-artist-1765653227931-3134@test.com\tuser\n480024\tTest Client 4\ttest-artist-1765653227970-4229@test.com\tuser\n480025\tTest Client 5\ttest-artist-1765653228006-962@test.com\tuser\n480026\tTest Client 6\ttest-artist-1765653228040-4623@test.com\tuser\n480027\tTest Client 7\ttest-artist-1765653228077-7150@test.com\tuser\n480028\tTest Client 8\ttest-artist-1765653228115-6259@test.com\tuser\n480029\tTest Client 9\ttest-artist-1765653228156-2792@test.com\tuser\n480030\tTest Client 10\ttest-artist-1765653228192-3540@test.com\tuser\n480031\tTest Artist - Double Booking\ttest-artist-1765653328125-9041@test.com\tuser\n480032\tTest Client 1\ttest-artist-1765653328282-8973@test.com\tuser\n480033\tTest Client 2\ttest-artist-1765653328325-994@test.com\tuser\n480034\tTest Artist - Race Conditions\ttest-artist-1765653328555-1407@test.com\tuser\n480035\tTest Client 1\ttest-artist-1765653328587-4080@test.com\tuser\n480036\tTest Client 2\ttest-artist-1765653328628-411@test.com\tuser\n480037\tTest Client 3\ttest-artist-1765653328662-5387@test.com\tuser\n480038\tTest Client 4\ttest-artist-1765653328695-8733@test.com\tuser\n480039\tTest Client 5\ttest-artist-1765653328728-1857@test.com\tuser\n480040\tTest Client 6\ttest-artist-1765653328763-1223@test.com\tuser\n480041\tTest Client 7\ttest-artist-1765653328799-4605@test.com\tuser\n480042\tTest Client 8\ttest-artist-1765653328837-657@test.com\tuser\n480043\tTest Client 9\ttest-artist-1765653328869-1070@test.com\tuser\n480044\tTest Client 10\ttest-artist-1765653328903-1195@test.com\tuser\n510001\tTest Artist - Availability\ttest-artist-1765653597284-6499@test.com\tuser\n510002\tTest Client - Availability\ttest-artist-1765653598039-2138@test.com\tuser\n510003\tPacific Artist\ttest-artist-1765653598143-2563@test.com\tuser\n510004\tTest Artist - Lifecycle\ttest-artist-1765653598280-6720@test.com\tuser\n510005\tTest Client - Lifecycle\ttest-artist-1765653598315-2636@test.com\tuser\n510006\tE2E Test Artist\ttest-artist-1765653598598-4451@test.com\tuser\n510007\tE2E Test Client\ttest-artist-1765653598643-1986@test.com\tuser\n510008\tMulti-booking Artist\ttest-artist-1765653598732-1815@test.com\tuser\n510009\tMulti-booking Client\ttest-artist-1765653598774-6732@test.com\tuser\n510010\tTest Artist - Availability\ttest-artist-1765653629050-2169@test.com\tuser\n510011\tTest Client - Availability\ttest-artist-1765653629209-8568@test.com\tuser\n510012\tPacific Artist\ttest-artist-1765653629312-1882@test.com\tuser\n510013\tTest Artist - Lifecycle\ttest-artist-1765653629446-6576@test.com\tuser\n510014\tTest Client - Lifecycle\ttest-artist-1765653629479-1774@test.com\tuser\n510015\tE2E Test Artist\ttest-artist-1765653629769-1045@test.com\tuser\n510016\tE2E Test Client\ttest-artist-1765653629816-3539@test.com\tuser\n510017\tMulti-booking Artist\ttest-artist-1765653629913-7646@test.com\tuser\n510018\tMulti-booking Client\ttest-artist-1765653629947-1395@test.com\tuser\n510019\tTest Artist - Availability\ttest-artist-1765653729480-5720@test.com\tuser\n510020\tTest Client - Availability\ttest-artist-1765653729664-2174@test.com\tuser\n510021\tPacific Artist\ttest-artist-1765653729788-9505@test.com\tuser\n510022\tTest Artist - Lifecycle\ttest-artist-1765653729928-1252@test.com\tuser\n510023\tTest Client - Lifecycle\ttest-artist-1765653729962-8878@test.com\tuser\n510024\tE2E Test Artist\ttest-artist-1765653730259-8428@test.com\tuser\n510025\tE2E Test Client\ttest-artist-1765653730308-6363@test.com\tuser\n510026\tMulti-booking Artist\ttest-artist-1765653730404-4646@test.com\tuser\n510027\tMulti-booking Client\ttest-artist-1765653730447-9712@test.com\tuser\n510028\tTest Artist - Availability\ttest-artist-1765653760013-5391@test.com\tuser\n510029\tTest Client - Availability\ttest-artist-1765653760162-2738@test.com\tuser\n510030\tPacific Artist\ttest-artist-1765653760256-6449@test.com\tuser\n510031\tTest Artist - Lifecycle\ttest-artist-1765653760392-2114@test.com\tuser\n510032\tTest Client - Lifecycle\ttest-artist-1765653760425-5195@test.com\tuser\n510033\tE2E Test Artist\ttest-artist-1765653760695-2672@test.com\tuser\n510034\tE2E Test Client\ttest-artist-1765653760741-3521@test.com\tuser\n510035\tMulti-booking Artist\ttest-artist-1765653760825-7578@test.com\tuser\n510036\tMulti-booking Client\ttest-artist-1765653760861-1430@test.com\tuser\n510037\tTest Artist - Availability\ttest-artist-1765653784182-5453@test.com\tuser\n510038\tTest Artist - Double Booking\ttest-artist-1765653784179-1128@test.com\tuser\n510039\tTest Client - Availability\ttest-artist-1765653784352-9233@test.com\tuser\n510040\tTest Client 1\ttest-artist-1765653784357-1369@test.com\tuser\n510041\tTest Client 2\ttest-artist-1765653784407-1718@test.com\tuser\n510042\tPacific Artist\ttest-artist-1765653784456-2319@test.com\tuser\n510043\tTest Artist - Lifecycle\ttest-artist-1765653784585-6444@test.com\tuser\n510044\tTest Client - Lifecycle\ttest-artist-1765653784619-8479@test.com\tuser\n510045\tTest Artist - Race Conditions\ttest-artist-1765653784642-1100@test.com\tuser\n510046\tTest Client 1\ttest-artist-1765653784725-527@test.com\tuser\n510047\tTest Client 2\ttest-artist-1765653784762-4811@test.com\tuser\n510048\tTest Client 3\ttest-artist-1765653784802-3375@test.com\tuser\n510049\tTest Client 4\ttest-artist-1765653784837-7954@test.com\tuser\n",
+  "stderr": "",
+  "execution_time_ms": 51
+}
