@@ -617,3 +617,9 @@
 
 ## Bug Fix - December 15, 2025
 - [x] Fix old artist cards still appearing on browse page
+
+
+## Enhancements - December 15, 2025
+- [x] Add artist profile photos for all 7 artists
+- [x] Add portfolio images for Jane Doe
+- [x] Create pending/upcoming bookings for dashboard display
