@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, useSensors, DragEndEvent } from "@dnd-kit/core";
 import { arrayMove, SortableContext, sortableKeyboardCoordinates, verticalListSortingStrategy, useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
@@ -9,9 +9,10 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
-import { Plus, GripVertical, Trash2, Upload, Star, Pencil } from "lucide-react";
+import { Plus, GripVertical, Trash2, Upload, Star, Pencil, Loader2, ImagePlus } from "lucide-react";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { getLoginUrl } from "@/const";
+import { toast } from "sonner";
 
 type Collection = {
   id: number;
@@ -125,6 +126,8 @@ function SortableItem({ item, onDelete, onEdit }: {
 export default function PortfolioBuilder() {
   const { isAuthenticated } = useAuth();
   const utils = trpc.useUtils();
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  
   const [selectedCollection, setSelectedCollection] = useState<number | null>(null);
   const [newCollectionTitle, setNewCollectionTitle] = useState("");
   const [newCollectionDesc, setNewCollectionDesc] = useState("");
@@ -141,6 +144,14 @@ export default function PortfolioBuilder() {
   const [editItemTitle, setEditItemTitle] = useState("");
   const [editItemDesc, setEditItemDesc] = useState("");
   const [isEditItemDialogOpen, setIsEditItemDialogOpen] = useState(false);
+  
+  // Upload state
+  const [isUploadDialogOpen, setIsUploadDialogOpen] = useState(false);
+  const [uploadPreview, setUploadPreview] = useState<string | null>(null);
+  const [uploadFile, setUploadFile] = useState<File | null>(null);
+  const [uploadTitle, setUploadTitle] = useState("");
+  const [uploadDesc, setUploadDesc] = useState("");
+  const [uploadIsFeatured, setUploadIsFeatured] = useState(false);
 
   const { data: collections = [], isLoading } = trpc.portfolio.getMyCollections.useQuery(undefined, {
     enabled: isAuthenticated,
@@ -189,6 +200,17 @@ export default function PortfolioBuilder() {
     },
   });
 
+  const uploadItemMutation = trpc.portfolio.uploadItem.useMutation({
+    onSuccess: () => {
+      utils.portfolio.getItems.invalidate({ collectionId: selectedCollection! });
+      resetUploadState();
+      toast.success("Image uploaded successfully!");
+    },
+    onError: (error) => {
+      toast.error(`Upload failed: ${error.message}`);
+    },
+  });
+
   const reorderCollectionsMutation = trpc.portfolio.reorderCollections.useMutation();
   const reorderItemsMutation = trpc.portfolio.reorderItems.useMutation();
 
@@ -198,6 +220,71 @@ export default function PortfolioBuilder() {
       coordinateGetter: sortableKeyboardCoordinates,
     })
   );
+
+  const resetUploadState = () => {
+    setIsUploadDialogOpen(false);
+    setUploadPreview(null);
+    setUploadFile(null);
+    setUploadTitle("");
+    setUploadDesc("");
+    setUploadIsFeatured(false);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
+  };
+
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    // Validate file type
+    if (!file.type.startsWith("image/")) {
+      toast.error("Please select an image file");
+      return;
+    }
+
+    // Validate file size (max 10MB)
+    if (file.size > 10 * 1024 * 1024) {
+      toast.error("Image must be less than 10MB");
+      return;
+    }
+
+    setUploadFile(file);
+    
+    // Create preview
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      setUploadPreview(e.target?.result as string);
+    };
+    reader.readAsDataURL(file);
+    
+    // Auto-fill title from filename
+    const fileName = file.name.replace(/\.[^/.]+$/, ""); // Remove extension
+    setUploadTitle(fileName.replace(/[-_]/g, " ")); // Replace dashes/underscores with spaces
+  };
+
+  const handleUpload = async () => {
+    if (!uploadFile || !selectedCollection || !uploadTitle.trim()) {
+      toast.error("Please provide an image and title");
+      return;
+    }
+
+    // Convert file to base64
+    const reader = new FileReader();
+    reader.onload = async (e) => {
+      const base64Data = e.target?.result as string;
+      
+      uploadItemMutation.mutate({
+        collectionId: selectedCollection,
+        title: uploadTitle.trim(),
+        description: uploadDesc.trim() || undefined,
+        imageData: base64Data,
+        mimeType: uploadFile.type,
+        isFeatured: uploadIsFeatured,
+      });
+    };
+    reader.readAsDataURL(uploadFile);
+  };
 
   const handleCollectionDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
@@ -302,14 +389,14 @@ export default function PortfolioBuilder() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Collections List */}
-        <div className="lg:col-span-1">
+      <div className="grid lg:grid-cols-3 gap-8">
+        {/* Collections Sidebar */}
+        <div>
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl font-semibold">Collections</h2>
+            <h2 className="text-lg font-semibold">Collections</h2>
             <Dialog open={isCreateDialogOpen} onOpenChange={setIsCreateDialogOpen}>
               <DialogTrigger asChild>
-                <Button size="sm" data-testid="new-collection-button">
+                <Button size="sm" data-testid="create-collection-button">
                   <Plus className="w-4 h-4 mr-1" />
                   New
                 </Button>
@@ -323,24 +410,22 @@ export default function PortfolioBuilder() {
                     <Label htmlFor="title">Title</Label>
                     <Input
                       id="title"
-                      data-testid="collection-title-input"
                       value={newCollectionTitle}
                       onChange={(e) => setNewCollectionTitle(e.target.value)}
-                      placeholder="e.g., Portrait Photography"
+                      placeholder="e.g., Portrait Work"
                     />
                   </div>
                   <div>
                     <Label htmlFor="description">Description</Label>
                     <Textarea
                       id="description"
-                      data-testid="collection-description-input"
                       value={newCollectionDesc}
                       onChange={(e) => setNewCollectionDesc(e.target.value)}
                       placeholder="Describe this collection..."
                     />
                   </div>
                   <Button
-                    data-testid="create-collection-button"
+                    className="w-full"
                     onClick={() => {
                       if (newCollectionTitle.trim()) {
                         createCollectionMutation.mutate({
@@ -365,11 +450,11 @@ export default function PortfolioBuilder() {
                   <SortableCollection
                     key={collection.id}
                     collection={collection}
-                    isSelected={collection.id === selectedCollection}
+                    isSelected={selectedCollection === collection.id}
                     onClick={() => setSelectedCollection(collection.id)}
                     onEdit={() => handleEditCollection(collection)}
                     onDelete={() => {
-                      if (confirm(`Delete "${collection.title}"?`)) {
+                      if (confirm(`Delete "${collection.title}" and all its items?`)) {
                         deleteCollectionMutation.mutate({ id: collection.id });
                       }
                     }}
@@ -397,7 +482,7 @@ export default function PortfolioBuilder() {
                     <p className="text-sm text-muted-foreground">{selectedCollectionData.description}</p>
                   )}
                 </div>
-                <Button size="sm" data-testid="add-image-button">
+                <Button size="sm" data-testid="add-image-button" onClick={() => setIsUploadDialogOpen(true)}>
                   <Upload className="w-4 h-4 mr-1" />
                   Add Image
                 </Button>
@@ -433,6 +518,116 @@ export default function PortfolioBuilder() {
           )}
         </div>
       </div>
+
+      {/* Upload Image Dialog */}
+      <Dialog open={isUploadDialogOpen} onOpenChange={(open) => {
+        if (!open) resetUploadState();
+        else setIsUploadDialogOpen(true);
+      }}>
+        <DialogContent className="sm:max-w-lg">
+          <DialogHeader>
+            <DialogTitle>Upload Image</DialogTitle>
+          </DialogHeader>
+          <div className="space-y-4 mt-4">
+            {/* Hidden file input */}
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              className="hidden"
+              onChange={handleFileSelect}
+            />
+            
+            {/* Image preview or upload area */}
+            {uploadPreview ? (
+              <div className="relative">
+                <img 
+                  src={uploadPreview} 
+                  alt="Preview" 
+                  className="w-full h-64 object-contain rounded-lg bg-muted"
+                />
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="absolute top-2 right-2"
+                  onClick={() => {
+                    setUploadPreview(null);
+                    setUploadFile(null);
+                    if (fileInputRef.current) fileInputRef.current.value = "";
+                  }}
+                >
+                  Change
+                </Button>
+              </div>
+            ) : (
+              <div
+                className="border-2 border-dashed border-muted-foreground/25 rounded-lg p-12 text-center cursor-pointer hover:border-muted-foreground/50 transition-colors"
+                onClick={() => fileInputRef.current?.click()}
+              >
+                <ImagePlus className="w-12 h-12 mx-auto mb-4 text-muted-foreground" />
+                <p className="text-muted-foreground">Click to select an image</p>
+                <p className="text-xs text-muted-foreground mt-1">PNG, JPG, GIF up to 10MB</p>
+              </div>
+            )}
+
+            <div>
+              <Label htmlFor="upload-title">Title *</Label>
+              <Input
+                id="upload-title"
+                value={uploadTitle}
+                onChange={(e) => setUploadTitle(e.target.value)}
+                placeholder="Give your work a title"
+              />
+            </div>
+
+            <div>
+              <Label htmlFor="upload-desc">Description</Label>
+              <Textarea
+                id="upload-desc"
+                value={uploadDesc}
+                onChange={(e) => setUploadDesc(e.target.value)}
+                placeholder="Describe this piece (optional)"
+                rows={2}
+              />
+            </div>
+
+            <div className="flex items-center gap-2">
+              <input
+                type="checkbox"
+                id="upload-featured"
+                checked={uploadIsFeatured}
+                onChange={(e) => setUploadIsFeatured(e.target.checked)}
+                className="rounded border-muted-foreground"
+              />
+              <Label htmlFor="upload-featured" className="text-sm font-normal cursor-pointer">
+                Mark as featured work
+              </Label>
+            </div>
+
+            <div className="flex gap-2 justify-end pt-2">
+              <Button variant="outline" onClick={resetUploadState}>
+                Cancel
+              </Button>
+              <Button
+                onClick={handleUpload}
+                disabled={!uploadFile || !uploadTitle.trim() || uploadItemMutation.isPending}
+              >
+                {uploadItemMutation.isPending ? (
+                  <>
+                    <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                    Uploading...
+                  </>
+                ) : (
+                  <>
+                    <Upload className="w-4 h-4 mr-2" />
+                    Upload
+                  </>
+                )}
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
 
       {/* Edit Collection Dialog */}
       <Dialog open={isEditCollectionDialogOpen} onOpenChange={setIsEditCollectionDialogOpen}>

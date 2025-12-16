@@ -670,6 +670,16 @@ export async function deleteBlackoutDate(id: number) {
   await db.delete(blackoutDates).where(eq(blackoutDates.id, id));
 }
 
+/**
+ * Delete all blackout dates for an artist (used for test cleanup)
+ */
+export async function deleteBlackoutDatesByArtistId(artistId: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  await db.delete(blackoutDates).where(eq(blackoutDates.artistId, artistId));
+}
+
 // ============================================================================
 // Artist Settings
 // ============================================================================

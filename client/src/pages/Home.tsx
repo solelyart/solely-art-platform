@@ -214,8 +214,13 @@ export default function Home() {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
                   ) : (
-                    <div className="aspect-[4/3] bg-gradient-to-br from-primary/5 to-accent/5 flex items-center justify-center">
-                      <Palette className="h-20 w-20 text-primary/20" />
+                    <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20 flex items-center justify-center">
+                      <div className="flex flex-col items-center gap-3">
+                        <div className="flex h-24 w-24 items-center justify-center rounded-full bg-primary/20 text-4xl font-bold text-primary">
+                          {artist.displayName.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase()}
+                        </div>
+                        <Palette className="h-8 w-8 text-muted-foreground/40" />
+                      </div>
                     </div>
                   )}
                   <CardContent className="p-8">

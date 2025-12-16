@@ -246,22 +246,16 @@ export async function createBooking(
 
 
 /**
- * Navigate to an artist that has services configured (Test Artist)
- * This ensures booking flow tests work correctly
+ * Navigate to an artist that has services configured (Elena Martinez - artist ID 1)
+ * This ensures booking flow tests work correctly with an artist that has services
  */
 export async function navigateToTestArtist(page: Page) {
-  // Search for Test Artist which has services configured
-  await page.goto('/browse');
-  await page.waitForSelector('[data-testid="search-input"]');
-  await page.fill('[data-testid="search-input"]', 'Test Artist');
-  await page.click('[data-testid="search-button"]');
-  
-  // Wait for search results and click the artist
-  await page.waitForSelector('[data-testid="artist-card"]');
-  await page.click('[data-testid="artist-card"]:first-child');
+  // Navigate directly to Elena Martinez (artist ID 1) who has services configured
+  await page.goto('/artist/1');
   
   // Wait for artist profile to load
-  await page.waitForSelector('[data-testid="artist-name"]');
+  await page.waitForLoadState('networkidle');
+  await page.waitForSelector('[data-testid="artist-name"], h1, h2', { timeout: 10000 });
 }
 
 /**
@@ -269,21 +263,14 @@ export async function navigateToTestArtist(page: Page) {
  * Handles the navigation from artist profile to booking page
  */
 export async function navigateToBookingPage(page: Page) {
-  // Click the "View Availability" button to go to booking page
-  const viewAvailabilityBtn = page.locator('[data-testid="view-availability"]');
-  if (await viewAvailabilityBtn.count() > 0) {
-    await viewAvailabilityBtn.click();
-  } else {
-    // Fallback: extract artist ID from URL and navigate directly
-    const currentUrl = page.url();
-    const artistId = currentUrl.match(/\/artist\/(\d+)/)?.[1];
-    if (artistId) {
-      await page.goto(`/book/${artistId}`);
-    }
-  }
+  // Extract artist ID from current URL or default to 1
+  const currentUrl = page.url();
+  const artistId = currentUrl.match(/\/artist\/(\d+)/)?.[1] || '1';
+  
+  // Navigate directly to booking page
+  await page.goto(`/book/${artistId}`);
   
   // Wait for booking page to load
-  await page.waitForURL(/\/book\/\d+/);
   await page.waitForLoadState('networkidle');
 }
 

@@ -208,6 +208,7 @@ export default function BookArtist() {
                 {services.map((service: any) => (
                   <Card
                     key={service.id}
+                    data-testid="service-card"
                     className="cursor-pointer hover-lift shadow-hover transition-all"
                     onClick={() => handleServiceSelect(service)}
                   >

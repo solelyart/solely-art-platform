@@ -308,8 +308,13 @@ export default function Browse() {
                               className="h-full w-full object-cover transition-transform hover:scale-105"
                             />
                           ) : (
-                            <div className="flex h-full items-center justify-center">
-                              <Palette className="h-12 w-12 text-muted-foreground" />
+                            <div className="flex h-full items-center justify-center bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20">
+                              <div className="flex flex-col items-center gap-2">
+                                <div className="flex h-20 w-20 items-center justify-center rounded-full bg-primary/20 text-3xl font-bold text-primary">
+                                  {artist.displayName.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase()}
+                                </div>
+                                <Palette className="h-6 w-6 text-muted-foreground/50" />
+                              </div>
                             </div>
                           )}
                         </div>

@@ -1,0 +1,50 @@
+{
+  "query": "SELECT id, displayName, portfolioImages FROM artistProfiles WHERE portfolioImages IS NOT NULL AND portfolioImages != '[]' LIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user dQ3VUcXRRX4nqcF.755c6100da67 --database b8XDdB8n6irgSrJYrYA6i8 --execute SELECT id, displayName, portfolioImages FROM artistProfiles WHERE portfolioImages IS NOT NULL AND portfolioImages != '[]' LIMIT 10;",
+  "rows": [
+    {
+      "id": "1",
+      "displayName": "Elena Martinez",
+      "portfolioImages": "[\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-1/portfolio/1765592085082-KhLlRWAxlfa6.jpg\",\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-1/portfolio/1765592085259-xkb7whQBHctR.jpg\",\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-1/portfolio/1765592085370-VdQDq9hhcxLL.jpg\"]"
+    },
+    {
+      "id": "2",
+      "displayName": "Marcus Chen",
+      "portfolioImages": "[\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-2/portfolio/1765592085528-GvkcoUEMERWf.webp\",\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-2/portfolio/1765592085666-RKWS2X5Gb9RC.jpeg\",\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-2/portfolio/1765592085770-htlu2o7o6hLR.jpg\"]"
+    },
+    {
+      "id": "3",
+      "displayName": "Sophia Anderson",
+      "portfolioImages": "[\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-3/portfolio/1765592085888-FQRsm3ULLViz.png\",\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-3/portfolio/1765592086083-sDaP3VCWlyL1.jpg\",\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-3/portfolio/1765592086186-VdQDq9hhcxLL.jpg\"]"
+    },
+    {
+      "id": "4",
+      "displayName": "James Rodriguez",
+      "portfolioImages": "[\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-4/portfolio/1765592086295-sDaP3VCWlyL1.jpg\",\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-4/portfolio/1765592086435-htlu2o7o6hLR.jpg\",\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-4/portfolio/1765592086555-RKWS2X5Gb9RC.jpeg\"]"
+    },
+    {
+      "id": "5",
+      "displayName": "Aria Thompson",
+      "portfolioImages": "[\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-5/portfolio/1765592086670-GvkcoUEMERWf.webp\",\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-5/portfolio/1765592086810-KhLlRWAxlfa6.jpg\",\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-5/portfolio/1765592086981-xkb7whQBHctR.jpg\"]"
+    },
+    {
+      "id": "6",
+      "displayName": "Oliver Kim",
+      "portfolioImages": "[\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-6/portfolio/1765592087176-FQRsm3ULLViz.png\",\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-6/portfolio/1765592087303-xkb7whQBHctR.jpg\",\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-6/portfolio/1765592087443-VdQDq9hhcxLL.jpg\"]"
+    },
+    {
+      "id": "120001",
+      "displayName": "Test Artist",
+      "portfolioImages": "[\"https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=800\",\"https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800\",\"https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=800\"]"
+    },
+    {
+      "id": "150001",
+      "displayName": "Jane Doe",
+      "portfolioImages": "[\"https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800\",\"https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800\"]"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tdisplayName\tportfolioImages\n1\tElena Martinez\t[\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-1/portfolio/1765592085082-KhLlRWAxlfa6.jpg\",\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-1/portfolio/1765592085259-xkb7whQBHctR.jpg\",\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-1/portfolio/1765592085370-VdQDq9hhcxLL.jpg\"]\n2\tMarcus Chen\t[\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-2/portfolio/1765592085528-GvkcoUEMERWf.webp\",\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-2/portfolio/1765592085666-RKWS2X5Gb9RC.jpeg\",\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-2/portfolio/1765592085770-htlu2o7o6hLR.jpg\"]\n3\tSophia Anderson\t[\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-3/portfolio/1765592085888-FQRsm3ULLViz.png\",\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-3/portfolio/1765592086083-sDaP3VCWlyL1.jpg\",\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-3/portfolio/1765592086186-VdQDq9hhcxLL.jpg\"]\n4\tJames Rodriguez\t[\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-4/portfolio/1765592086295-sDaP3VCWlyL1.jpg\",\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-4/portfolio/1765592086435-htlu2o7o6hLR.jpg\",\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-4/portfolio/1765592086555-RKWS2X5Gb9RC.jpeg\"]\n5\tAria Thompson\t[\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-5/portfolio/1765592086670-GvkcoUEMERWf.webp\",\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-5/portfolio/1765592086810-KhLlRWAxlfa6.jpg\",\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-5/portfolio/1765592086981-xkb7whQBHctR.jpg\"]\n6\tOliver Kim\t[\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-6/portfolio/1765592087176-FQRsm3ULLViz.png\",\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-6/portfolio/1765592087303-xkb7whQBHctR.jpg\",\"https://d2xsxph8kpxj0f.cloudfront.net/95874016/b8XDdB8n6irgSrJYrYA6i8/artist-6/portfolio/1765592087443-VdQDq9hhcxLL.jpg\"]\n120001\tTest Artist\t[\"https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=800\",\"https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800\",\"https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=800\"]\n150001\tJane Doe\t[\"https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800\",\"https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800\"]\n",
+  "stderr": "",
+  "execution_time_ms": 49
+}
