@@ -295,26 +295,53 @@ export default function Browse() {
                   const portfolioImages = typeof artist.portfolioImages === 'string'
                     ? JSON.parse(artist.portfolioImages)
                     : (Array.isArray(artist.portfolioImages) ? artist.portfolioImages : []);
-                  const firstImage = portfolioImages[0];
+                  const displayImages = portfolioImages.slice(0, 4);
+                  const profilePhoto = (artist as any).profilePhotoUrl;
                   
                   return (
                     <Link key={artist.id} href={`/artist/${artist.id}`}>
                       <Card data-testid="artist-card" className="overflow-hidden hover-lift shadow-elegant">
-                        <div className="aspect-[4/3] overflow-hidden bg-muted">
-                          {firstImage ? (
-                            <img
-                              src={firstImage}
-                              alt={artist.displayName}
-                              className="h-full w-full object-cover transition-transform hover:scale-105"
-                            />
+                        <div className="aspect-[4/3] overflow-hidden bg-muted relative">
+                          {displayImages.length > 0 ? (
+                            <div className="grid grid-cols-2 grid-rows-2 h-full w-full">
+                              {displayImages.map((img: string, idx: number) => (
+                                <img
+                                  key={idx}
+                                  src={img}
+                                  alt={`${artist.displayName} portfolio ${idx + 1}`}
+                                  className="h-full w-full object-cover"
+                                />
+                              ))}
+                              {displayImages.length < 4 && Array.from({ length: 4 - displayImages.length }).map((_, idx) => (
+                                <div key={`empty-${idx}`} className="bg-gradient-to-br from-primary/10 to-accent/10" />
+                              ))}
+                            </div>
                           ) : (
                             <div className="flex h-full items-center justify-center bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20">
                               <div className="flex flex-col items-center gap-2">
-                                <div className="flex h-20 w-20 items-center justify-center rounded-full bg-primary/20 text-3xl font-bold text-primary">
-                                  {artist.displayName.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase()}
-                                </div>
+                                {profilePhoto ? (
+                                  <img
+                                    src={profilePhoto}
+                                    alt={artist.displayName}
+                                    className="h-24 w-24 rounded-full object-cover border-4 border-white shadow-lg"
+                                  />
+                                ) : (
+                                  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-primary/20 text-3xl font-bold text-primary">
+                                    {artist.displayName.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase()}
+                                  </div>
+                                )}
                                 <Palette className="h-6 w-6 text-muted-foreground/50" />
                               </div>
+                            </div>
+                          )}
+                          {/* Profile photo overlay */}
+                          {profilePhoto && displayImages.length > 0 && (
+                            <div className="absolute bottom-2 left-2">
+                              <img
+                                src={profilePhoto}
+                                alt={artist.displayName}
+                                className="h-12 w-12 rounded-full object-cover border-2 border-white shadow-md"
+                              />
                             </div>
                           )}
                         </div>

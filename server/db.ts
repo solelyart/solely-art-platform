@@ -203,8 +203,22 @@ export async function searchArtists(params: {
   }
 
   const results = await db
-    .select()
+    .select({
+      id: artistProfiles.id,
+      userId: artistProfiles.userId,
+      displayName: artistProfiles.displayName,
+      bio: artistProfiles.bio,
+      location: artistProfiles.location,
+      categories: artistProfiles.categories,
+      portfolioImages: artistProfiles.portfolioImages,
+      hourlyRate: artistProfiles.hourlyRate,
+      isAvailable: artistProfiles.isAvailable,
+      createdAt: artistProfiles.createdAt,
+      updatedAt: artistProfiles.updatedAt,
+      profilePhotoUrl: users.profilePhotoUrl,
+    })
     .from(artistProfiles)
+    .leftJoin(users, eq(artistProfiles.userId, users.id))
     .where(and(...conditions))
     .orderBy(desc(artistProfiles.createdAt));
   

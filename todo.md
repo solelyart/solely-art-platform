@@ -623,3 +623,9 @@
 - [x] Add artist profile photos for all 7 artists
 - [x] Add portfolio images for Jane Doe
 - [x] Create pending/upcoming bookings for dashboard display
+
+
+## Jane Doe Enhancements - December 15, 2025
+- [x] Add services for Jane Doe (portrait sessions, digital art commissions)
+- [x] Create completed bookings and reviews for Jane Doe
+- [x] Fix profile photo display on browse page to use users table
