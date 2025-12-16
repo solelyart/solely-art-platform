@@ -613,3 +613,7 @@
 - [x] Add sample reviews for artists
 - [x] Create sample bookings to display correctly
 - [x] Verify all data displays correctly on Browse and Profile pages
+
+
+## Bug Fix - December 15, 2025
+- [x] Fix old artist cards still appearing on browse page
