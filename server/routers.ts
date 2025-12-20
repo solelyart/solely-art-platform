@@ -13,6 +13,8 @@ import {
   availabilityRouter,
   messagingRouter,
   portfolioRouter,
+  contactRouter,
+  newsletterRouter,
 } from "./routers/index";
 
 export const appRouter = router({
@@ -136,6 +138,8 @@ export const appRouter = router({
   availability: availabilityRouter,
   messaging: messagingRouter,
   portfolio: portfolioRouter,
+  contact: contactRouter,
+  newsletter: newsletterRouter,
 
   // Messages router for concurrent API test (legacy compatibility)
   messages: router({

@@ -5,3 +5,5 @@ export { servicesRouter } from "./services";
 export { availabilityRouter } from "./availability";
 export { messagingRouter } from "./messaging";
 export { portfolioRouter } from "./portfolio";
+export { contactRouter } from "./contact";
+export { newsletterRouter } from "./newsletter";

@@ -9,6 +9,7 @@ import { useState } from "react";
 import { Link } from "wouter";
 import { UserAvatar } from "@/components/UserAvatar";
 import { LogoutButton } from "@/components/LogoutButton";
+import { NewsletterSignup } from "@/components/NewsletterSignup";
 
 export default function Home() {
   const { user, isAuthenticated } = useAuth();
@@ -392,6 +393,17 @@ export default function Home() {
                 <li><Link href="/terms" className="hover:text-primary transition-colors">Terms of Service</Link></li>
                 <li><Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
               </ul>
+            </div>
+          </div>
+          
+          {/* Newsletter Signup */}
+          <div className="mb-12 pt-8 border-t border-border/50">
+            <div className="max-w-xl mx-auto text-center">
+              <h3 className="font-semibold mb-3 text-lg">Join Our Community</h3>
+              <p className="text-sm text-foreground/60 font-light mb-4">
+                Get the latest artist spotlights, creative inspiration, and platform updates delivered to your inbox.
+              </p>
+              <NewsletterSignup variant="inline" className="justify-center" />
             </div>
           </div>
           <div className="pt-8 border-t border-border/50 text-center text-sm text-foreground/50 font-light">

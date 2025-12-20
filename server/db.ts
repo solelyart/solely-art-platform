@@ -22,7 +22,11 @@ import {
   messages,
   InsertMessage,
   portfolioCollections,
-  portfolioItems
+  portfolioItems,
+  newsletterSubscribers,
+  InsertNewsletterSubscriber,
+  contactSubmissions,
+  InsertContactSubmission
 } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
@@ -1548,4 +1552,151 @@ export async function reorderPortfolioItems(updates: Array<{ id: number; display
       .set({ displayOrder: update.displayOrder })
       .where(eq(portfolioItems.id, update.id));
   }
+}
+
+
+// ===== NEWSLETTER SUBSCRIBER QUERIES =====
+
+export async function createNewsletterSubscriber(data: InsertNewsletterSubscriber) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  // Check if email already exists
+  const existing = await db
+    .select()
+    .from(newsletterSubscribers)
+    .where(eq(newsletterSubscribers.email, data.email))
+    .limit(1);
+
+  if (existing.length > 0) {
+    // If exists but unsubscribed, reactivate
+    if (!existing[0].isActive) {
+      await db
+        .update(newsletterSubscribers)
+        .set({ 
+          isActive: true, 
+          unsubscribedAt: null,
+          name: data.name || existing[0].name 
+        })
+        .where(eq(newsletterSubscribers.id, existing[0].id));
+      return { ...existing[0], isActive: true, reactivated: true };
+    }
+    // Already subscribed
+    return { ...existing[0], alreadySubscribed: true };
+  }
+
+  // Create new subscriber
+  const result = await db.insert(newsletterSubscribers).values(data);
+  const insertId = result[0].insertId;
+  
+  const [newSubscriber] = await db
+    .select()
+    .from(newsletterSubscribers)
+    .where(eq(newsletterSubscribers.id, insertId));
+  
+  return newSubscriber;
+}
+
+export async function getNewsletterSubscriber(email: string) {
+  const db = await getDb();
+  if (!db) return null;
+
+  const [subscriber] = await db
+    .select()
+    .from(newsletterSubscribers)
+    .where(eq(newsletterSubscribers.email, email))
+    .limit(1);
+
+  return subscriber || null;
+}
+
+export async function unsubscribeNewsletter(email: string) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  await db
+    .update(newsletterSubscribers)
+    .set({ 
+      isActive: false, 
+      unsubscribedAt: new Date() 
+    })
+    .where(eq(newsletterSubscribers.email, email));
+}
+
+export async function getActiveSubscribers() {
+  const db = await getDb();
+  if (!db) return [];
+
+  return await db
+    .select()
+    .from(newsletterSubscribers)
+    .where(eq(newsletterSubscribers.isActive, true))
+    .orderBy(desc(newsletterSubscribers.subscribedAt));
+}
+
+export async function getSubscriberCount() {
+  const db = await getDb();
+  if (!db) return 0;
+
+  const result = await db
+    .select({ count: sql<number>`count(*)` })
+    .from(newsletterSubscribers)
+    .where(eq(newsletterSubscribers.isActive, true));
+
+  return result[0]?.count || 0;
+}
+
+// ===== CONTACT SUBMISSION QUERIES =====
+
+export async function createContactSubmission(data: InsertContactSubmission) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  const result = await db.insert(contactSubmissions).values(data);
+  const insertId = result[0].insertId;
+  
+  const [submission] = await db
+    .select()
+    .from(contactSubmissions)
+    .where(eq(contactSubmissions.id, insertId));
+  
+  return submission;
+}
+
+export async function getContactSubmissions(status?: string) {
+  const db = await getDb();
+  if (!db) return [];
+
+  if (status) {
+    return await db
+      .select()
+      .from(contactSubmissions)
+      .where(eq(contactSubmissions.status, status as any))
+      .orderBy(desc(contactSubmissions.createdAt));
+  }
+
+  return await db
+    .select()
+    .from(contactSubmissions)
+    .orderBy(desc(contactSubmissions.createdAt));
+}
+
+export async function updateContactSubmissionStatus(id: number, status: "new" | "read" | "replied" | "archived") {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  await db
+    .update(contactSubmissions)
+    .set({ status })
+    .where(eq(contactSubmissions.id, id));
+}
+
+export async function markContactEmailSent(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+
+  await db
+    .update(contactSubmissions)
+    .set({ emailSent: true })
+    .where(eq(contactSubmissions.id, id));
 }

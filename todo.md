@@ -696,3 +696,14 @@
 - [x] Prepare source code excerpts with redacted secrets (27 files)
 - [x] Collect design assets (logos, icons) - 14 logo files + 2 favicon files
 - [x] Create ZIP file with all documentation (21 MB)
+
+
+## Email Integration & Newsletter - December 20, 2025
+- [x] Set up Resend email service integration
+- [x] Create email sending helper function
+- [x] Connect contact form to send emails to inbox
+- [x] Add newsletter signup component to footer
+- [x] Create newsletter subscribers database table
+- [x] Create newsletter subscription API endpoint
+- [x] Test contact form email delivery
+- [x] Test newsletter signup flow

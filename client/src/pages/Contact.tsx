@@ -8,10 +8,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Mail, MapPin, Clock, Send, CheckCircle } from "lucide-react";
 import { toast } from "sonner";
+import { trpc } from "@/lib/trpc";
 
 export default function Contact() {
   
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -21,19 +21,39 @@ export default function Contact() {
     message: "",
   });
 
+  const submitMutation = trpc.contact.submit.useMutation({
+    onSuccess: (data) => {
+      setIsSubmitted(true);
+      toast.success("Message Sent", {
+        description: data.emailSent 
+          ? "Thank you for contacting us. We'll respond within 24-48 hours."
+          : "Your message has been received. We'll respond within 24-48 hours.",
+      });
+    },
+    onError: (error) => {
+      toast.error("Failed to send message", {
+        description: error.message || "Please try again later.",
+      });
+    },
+  });
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    
+    if (!formData.name || !formData.email || !formData.category || !formData.message) {
+      toast.error("Please fill in all required fields");
+      return;
+    }
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    toast.success("Message Sent", {
-      description: "Thank you for contacting us. We'll respond within 24-48 hours.",
+    submitMutation.mutate({
+      name: formData.name,
+      email: formData.email,
+      category: formData.category,
+      message: formData.message,
     });
   };
+
+  const isSubmitting = submitMutation.isPending;
 
   const handleChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
