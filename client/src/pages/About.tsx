@@ -50,19 +50,9 @@ export default function About() {
 
   const team = [
     {
-      name: "Alexandra Chen",
+      name: "Kobe Briant",
       role: "Founder & CEO",
-      bio: "Former gallery curator with 15 years of experience connecting artists with collectors worldwide."
-    },
-    {
-      name: "Marcus Williams",
-      role: "Chief Creative Officer",
-      bio: "Award-winning artist and designer passionate about democratizing access to creative talent."
-    },
-    {
-      name: "Sarah Mitchell",
-      role: "Head of Artist Relations",
-      bio: "Dedicated to supporting artists and ensuring they have the tools to succeed on our platform."
+      bio: "Visionary entrepreneur with a passion for connecting exceptional artists with discerning clients worldwide."
     }
   ];
 
@@ -203,17 +193,17 @@ export default function About() {
               Meet the passionate individuals driving our mission to connect artists with the world.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="flex justify-center">
             {team.map((member, index) => (
-              <div key={index} className="text-center">
-                <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 mx-auto mb-6 flex items-center justify-center">
-                  <span className="text-3xl font-serif font-bold text-primary">
+              <div key={index} className="text-center max-w-md">
+                <div className="w-40 h-40 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 mx-auto mb-6 flex items-center justify-center">
+                  <span className="text-4xl font-serif font-bold text-primary">
                     {member.name.split(' ').map(n => n[0]).join('')}
                   </span>
                 </div>
-                <h3 className="text-xl font-semibold mb-1">{member.name}</h3>
-                <p className="text-primary font-medium mb-3">{member.role}</p>
-                <p className="text-foreground/60 text-sm leading-relaxed">{member.bio}</p>
+                <h3 className="text-2xl font-semibold mb-2">{member.name}</h3>
+                <p className="text-primary font-medium text-lg mb-4">{member.role}</p>
+                <p className="text-foreground/60 leading-relaxed">{member.bio}</p>
               </div>
             ))}
           </div>

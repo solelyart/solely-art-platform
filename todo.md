@@ -669,3 +669,7 @@
 - [x] Remove test artist profiles created by unit tests
 - [x] Verify only curated sample artists are visible
 - [x] Fix failing availability calculation test
+
+
+## About Page Update - December 20, 2025
+- [x] Update leadership team to feature only the owner
