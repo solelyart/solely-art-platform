@@ -688,3 +688,11 @@
 - [x] Create Privacy Policy page
 - [x] Create Contact page with form
 - [x] Add routes and footer links for new pages
+
+
+## Copyright Documentation - December 20, 2025
+- [x] Capture PDF screenshots of all major pages (Home, About, Browse, Terms, Privacy, Contact, Artist Profiles, Book Artist)
+- [x] Extract and compile text content into PDF
+- [x] Prepare source code excerpts with redacted secrets (27 files)
+- [x] Collect design assets (logos, icons) - 14 logo files + 2 favicon files
+- [x] Create ZIP file with all documentation (21 MB)
