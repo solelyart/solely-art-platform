@@ -50,7 +50,7 @@ export default function About() {
 
   const team = [
     {
-      name: "Kobe Briant",
+      name: "Kristen Blanks",
       role: "Founder & CEO",
       bio: "Visionary entrepreneur with a passion for connecting exceptional artists with discerning clients worldwide."
     }

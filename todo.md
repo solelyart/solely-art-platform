@@ -673,3 +673,5 @@
 
 ## About Page Update - December 20, 2025
 - [x] Update leadership team to feature only the owner
+
+- [x] Update leadership name from Kobe Briant to Kristen Blanks
