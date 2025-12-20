@@ -1070,29 +1070,31 @@ export async function calculateAvailableSlots(
 
   // 5. Generate candidate slots
   const availableSlots: AvailableSlot[] = [];
-  const start = new Date(startDate + "T00:00:00");
-  const end = new Date(endDate + "T23:59:59");
+  
+  // Parse dates as UTC to avoid timezone issues
+  const start = new Date(startDate + "T12:00:00Z"); // Use noon UTC to avoid date boundary issues
+  const end = new Date(endDate + "T12:00:00Z");
   
   // Ensure start date is not before end date
   if (start > end) return [];
   
   const today = new Date();
-  today.setHours(0, 0, 0, 0); // Reset to start of day for comparison
+  const todayStr = today.toISOString().split('T')[0];
+  const todayNoon = new Date(todayStr + "T12:00:00Z");
   
-  const maxDate = new Date(today);
-  maxDate.setDate(maxDate.getDate() + advanceBookingDays);
+  const maxDate = new Date(todayNoon);
+  maxDate.setUTCDate(maxDate.getUTCDate() + advanceBookingDays);
 
   // Start from today if start date is in the past
-  let currentDate = start < today ? new Date(today) : new Date(start);
+  let currentDate = start < todayNoon ? new Date(todayNoon) : new Date(start);
   
   while (currentDate <= end && currentDate <= maxDate) {
     const dateStr = currentDate.toISOString().split('T')[0];
-    const dayOfWeek = currentDate.getDay(); // 0 = Sunday
-
+    const dayOfWeek = currentDate.getUTCDay(); // 0 = Sunday, use UTC to be consistent
     // Check if this day has availability windows
     const dayWindows = windowsByDay.get(dayOfWeek);
     if (!dayWindows || dayWindows.length === 0) {
-      currentDate.setDate(currentDate.getDate() + 1);
+      currentDate.setUTCDate(currentDate.getUTCDate() + 1);
       continue;
     }
 
@@ -1105,7 +1107,7 @@ export async function calculateAvailableSlots(
     });
 
     if (isBlackedOut) {
-      currentDate.setDate(currentDate.getDate() + 1);
+      currentDate.setUTCDate(currentDate.getUTCDate() + 1);
       continue;
     }
 
@@ -1172,7 +1174,7 @@ export async function calculateAvailableSlots(
       }
     }
 
-    currentDate.setDate(currentDate.getDate() + 1);
+    currentDate.setUTCDate(currentDate.getUTCDate() + 1);
   }
 
   // Cache the results

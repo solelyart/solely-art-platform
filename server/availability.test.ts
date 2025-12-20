@@ -198,6 +198,9 @@ describe("Availability System", () => {
       // Clean up any existing data first to avoid duplicate key errors
       await db.deleteArtistSettings(testArtistId);
       
+      // Delete existing blackout dates that might interfere with tests
+      await db.deleteBlackoutDatesByArtistId(testArtistId);
+      
       // Delete existing availability windows for this artist
       const existingWindows = await db.getAvailabilityWindowsByArtistId(testArtistId);
       for (const window of existingWindows) {
@@ -235,10 +238,18 @@ describe("Availability System", () => {
     });
 
     it("should calculate available slots for a date range", async () => {
+      // Use a date far enough in the future to ensure it's within booking window
+      // Find the next Monday from today
+      const today = new Date();
+      const daysUntilMonday = (8 - today.getUTCDay()) % 7 || 7; // Next Monday
+      const nextMonday = new Date(today);
+      nextMonday.setUTCDate(today.getUTCDate() + daysUntilMonday);
+      const testDateStr = nextMonday.toISOString().split('T')[0];
+      
       const slots = await db.calculateAvailableSlots(
         testArtistId,
-        "2025-12-15", // Monday
-        "2025-12-15",
+        testDateStr,
+        testDateStr,
         60 // 1 hour duration
       );
 

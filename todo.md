@@ -650,3 +650,22 @@
 - [x] Add services for Elena Martinez, Marcus Chen, Sophia Anderson, James Rodriguez, Aria Thompson, and Oliver Kim
 - [x] Create dedicated About page with diamond logo and company story
 - [x] Add testimonials section to homepage with client quotes
+
+
+## Comprehensive Testing - December 20, 2025
+- [ ] Run full unit test suite and fix failures
+- [ ] Test homepage: hero, categories, featured artists, testimonials, footer
+- [ ] Test navigation: all header links, mobile responsiveness
+- [ ] Test Browse page: artist cards, filtering, search
+- [ ] Test artist profiles: portfolio, services, reviews, availability calendar
+- [ ] Test booking flow: service selection, date/time picker, confirmation
+- [ ] Test About page: content, layout, links
+- [ ] Test dashboard: authenticated user features
+- [ ] Test messages and bookings management
+- [ ] Verify brand icons display correctly across all pages
+
+
+## Test Artist Cleanup - December 20, 2025
+- [x] Remove test artist profiles created by unit tests
+- [x] Verify only curated sample artists are visible
+- [x] Fix failing availability calculation test
