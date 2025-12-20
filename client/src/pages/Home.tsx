@@ -274,6 +274,59 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <section className="py-24 bg-card/50">
+        <div className="container">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
+              What Our Clients Say
+            </h2>
+            <p className="text-lg text-foreground/60 font-light max-w-2xl mx-auto">
+              Hear from clients who have found their perfect creative match through Solely Art
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                quote: "Working with Elena was an absolute dream. She captured the essence of our brand in ways we never imagined possible. The abstract piece she created is now the centerpiece of our office.",
+                author: "Sarah Mitchell",
+                role: "Creative Director, Luxe Interiors",
+                rating: 5
+              },
+              {
+                quote: "Marcus's photography transformed our product launch. His attention to detail and artistic vision elevated our entire campaign. We've already booked him for our next three projects.",
+                author: "David Chen",
+                role: "Marketing VP, Artisan Collective",
+                rating: 5
+              },
+              {
+                quote: "The wedding invitation suite Oliver created was beyond our expectations. Every guest commented on the beautiful calligraphy. It set the perfect tone for our special day.",
+                author: "Emma & James Thompson",
+                role: "Newlyweds, Boston",
+                rating: 5
+              }
+            ].map((testimonial, index) => (
+              <Card key={index} className="border-0 shadow-elegant hover-lift">
+                <CardContent className="p-8">
+                  <div className="flex gap-1 mb-4">
+                    {Array.from({ length: testimonial.rating }).map((_, i) => (
+                      <Award key={i} className="h-5 w-5 text-primary fill-primary" />
+                    ))}
+                  </div>
+                  <p className="text-foreground/70 leading-relaxed mb-6 italic">
+                    "{testimonial.quote}"
+                  </p>
+                  <div>
+                    <p className="font-semibold">{testimonial.author}</p>
+                    <p className="text-sm text-foreground/50">{testimonial.role}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-24 bg-gradient-to-br from-primary via-primary/95 to-accent relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
@@ -332,10 +385,11 @@ export default function Home() {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-6 text-sm uppercase tracking-wider">Connect</h3>
-              <p className="text-sm text-foreground/60 font-light leading-relaxed">
-                Join our global network of distinguished creative professionals.
-              </p>
+              <h3 className="font-semibold mb-6 text-sm uppercase tracking-wider">Company</h3>
+              <ul className="space-y-3 text-sm text-foreground/60 font-light">
+                <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
+                <li><span className="cursor-default">Contact</span></li>
+              </ul>
             </div>
           </div>
           <div className="pt-8 border-t border-border/50 text-center text-sm text-foreground/50 font-light">

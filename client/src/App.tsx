@@ -14,6 +14,7 @@ import { AvailabilityDashboard } from "./pages/AvailabilityDashboard";
 import { BookingManagement } from "./pages/BookingManagement";
 import Messages from "./pages/Messages";
 import PortfolioBuilder from "./pages/PortfolioBuilder";
+import About from "./pages/About";
 
 function Router() {
   return (
@@ -28,6 +29,7 @@ function Router() {
       <Route path="/bookings" component={BookingManagement} />
       <Route path="/messages" component={Messages} />
       <Route path="/portfolio-builder" component={PortfolioBuilder} />
+      <Route path="/about" component={About} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
