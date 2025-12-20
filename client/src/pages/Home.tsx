@@ -29,9 +29,12 @@ export default function Home() {
       {/* Header */}
       <header className="glass-effect sticky top-0 z-50 border-b border-border/50">
         <div className="container flex h-20 items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 group">
-            <Palette className="h-9 w-9 text-primary transition-transform group-hover:scale-105" />
-            <span className="text-2xl font-semibold tracking-tight">Solely Art</span>
+          <Link href="/" className="flex items-center gap-2 group">
+            <img 
+              src="/brand/logo-circle-text.svg" 
+              alt="Solely Art" 
+              className="h-12 w-auto transition-transform group-hover:scale-105" 
+            />
           </Link>
           
           <nav className="flex items-center gap-6">
@@ -255,7 +258,11 @@ export default function Home() {
           
           {(!featuredArtists || featuredArtists.length === 0) && (
             <div className="text-center py-20">
-              <Palette className="h-20 w-20 text-muted-foreground mx-auto mb-6 opacity-30" />
+              <img 
+                src="/brand/logo-diamond-icon.svg" 
+                alt="Solely Art" 
+                className="h-20 w-20 mx-auto mb-6 opacity-30" 
+              />
               <p className="text-lg text-foreground/60 font-light mb-8">
                 Be among the first to join our curated community of exceptional artists
               </p>
@@ -299,9 +306,12 @@ export default function Home() {
         <div className="container">
           <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4 mb-12">
             <div>
-              <div className="flex items-center gap-3 mb-6">
-                <Palette className="h-8 w-8 text-primary" />
-                <span className="text-xl font-semibold">Solely Art</span>
+              <div className="mb-6">
+                <img 
+                  src="/brand/logo-circle-full.svg" 
+                  alt="Solely Art - Curated Connections" 
+                  className="h-16 w-auto" 
+                />
               </div>
               <p className="text-sm text-foreground/60 font-light leading-relaxed">
                 Curating exceptional creative talent for discerning clients worldwide.

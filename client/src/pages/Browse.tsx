@@ -97,9 +97,12 @@ export default function Browse() {
       {/* Header */}
       <header className="glass-effect sticky top-0 z-50 border-b border-border/50">
         <div className="container flex h-20 items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 group">
-            <Palette className="h-9 w-9 text-primary transition-transform group-hover:scale-105" />
-            <span className="text-2xl font-semibold tracking-tight">Solely Art</span>
+          <Link href="/" className="flex items-center gap-2 group">
+            <img 
+              src="/brand/logo-circle-text.svg" 
+              alt="Solely Art" 
+              className="h-12 w-auto transition-transform group-hover:scale-105" 
+            />
           </Link>
           
           <nav className="flex items-center gap-6">

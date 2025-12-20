@@ -170,9 +170,11 @@ function DashboardLayoutContent({
               </button>
               {!isCollapsed ? (
                 <div className="flex items-center gap-2 min-w-0">
-                  <span className="font-semibold tracking-tight truncate">
-                    Navigation
-                  </span>
+                  <img 
+                    src="/brand/logo-circle-text.svg" 
+                    alt="Solely Art" 
+                    className="h-8 w-auto" 
+                  />
                 </div>
               ) : null}
             </div>

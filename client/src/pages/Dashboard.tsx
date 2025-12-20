@@ -102,8 +102,11 @@ export default function Dashboard() {
       <header className="border-b bg-card">
         <div className="container flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <Palette className="h-10 w-10 text-primary" />
-            <span className="text-xl font-bold">Solely Art</span>
+            <img 
+              src="/brand/logo-circle-text.svg" 
+              alt="Solely Art" 
+              className="h-12 w-auto" 
+            />
           </Link>
           
           <nav className="flex items-center gap-4">
