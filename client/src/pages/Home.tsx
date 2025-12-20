@@ -393,7 +393,7 @@ export default function Home() {
             </div>
           </div>
           <div className="pt-8 border-t border-border/50 text-center text-sm text-foreground/50 font-light">
-            <p>© 2024 Solely Art. Celebrating exceptional artistry worldwide.</p>
+            <p>© 2025 Solely Art™. All Rights Reserved.</p>
           </div>
         </div>
       </footer>

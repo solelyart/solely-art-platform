@@ -675,3 +675,7 @@
 - [x] Update leadership team to feature only the owner
 
 - [x] Update leadership name from Kobe Briant to Kristen Blanks
+
+
+## Copyright Notice - December 20, 2025
+- [x] Add "© 2025 Solely Art™. All Rights Reserved." to footer of all pages

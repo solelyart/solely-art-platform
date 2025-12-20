@@ -243,7 +243,7 @@ export default function About() {
               className="h-16 w-auto" 
             />
             <p className="text-sm text-foreground/60">
-              © 2024 Solely Art. Celebrating exceptional artistry worldwide.
+              © 2025 Solely Art™. All Rights Reserved.
             </p>
           </div>
         </div>
