@@ -681,3 +681,10 @@
 - [x] Add "© 2025 Solely Art™. All Rights Reserved." to footer of all pages
 
 - [x] Update footer to two-line format with copyright and trademark notice
+
+
+## Legal & Contact Pages - December 20, 2025
+- [x] Create Terms of Service page
+- [x] Create Privacy Policy page
+- [x] Create Contact page with form
+- [x] Add routes and footer links for new pages

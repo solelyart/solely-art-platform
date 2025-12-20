@@ -15,6 +15,9 @@ import { BookingManagement } from "./pages/BookingManagement";
 import Messages from "./pages/Messages";
 import PortfolioBuilder from "./pages/PortfolioBuilder";
 import About from "./pages/About";
+import Terms from "./pages/Terms";
+import Privacy from "./pages/Privacy";
+import Contact from "./pages/Contact";
 
 function Router() {
   return (
@@ -30,6 +33,9 @@ function Router() {
       <Route path="/messages" component={Messages} />
       <Route path="/portfolio-builder" component={PortfolioBuilder} />
       <Route path="/about" component={About} />
+      <Route path="/terms" component={Terms} />
+      <Route path="/privacy" component={Privacy} />
+      <Route path="/contact" component={Contact} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

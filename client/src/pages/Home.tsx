@@ -388,7 +388,9 @@ export default function Home() {
               <h3 className="font-semibold mb-6 text-sm uppercase tracking-wider">Company</h3>
               <ul className="space-y-3 text-sm text-foreground/60 font-light">
                 <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
-                <li><span className="cursor-default">Contact</span></li>
+                <li><Link href="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
+                <li><Link href="/terms" className="hover:text-primary transition-colors">Terms of Service</Link></li>
+                <li><Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
               </ul>
             </div>
           </div>
