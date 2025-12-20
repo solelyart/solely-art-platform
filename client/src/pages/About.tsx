@@ -242,9 +242,10 @@ export default function About() {
               alt="Solely Art - Curated Connections" 
               className="h-16 w-auto" 
             />
-            <p className="text-sm text-foreground/60">
-              © 2025 Solely Art™. All Rights Reserved.
-            </p>
+            <div className="text-sm text-foreground/60 text-center md:text-right">
+              <p>© 2025 Solely Art. All Rights Reserved.</p>
+              <p className="mt-1">Solely Art™ is a trademark of Solely Art.</p>
+            </div>
           </div>
         </div>
       </footer>

@@ -679,3 +679,5 @@
 
 ## Copyright Notice - December 20, 2025
 - [x] Add "© 2025 Solely Art™. All Rights Reserved." to footer of all pages
+
+- [x] Update footer to two-line format with copyright and trademark notice
