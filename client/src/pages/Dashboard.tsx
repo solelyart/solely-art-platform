@@ -105,7 +105,7 @@ export default function Dashboard() {
             <img 
               src="/brand/logo-circle-text.svg" 
               alt="Solely Art" 
-              className="h-12 w-auto" 
+              className="h-16 w-auto" 
             />
           </Link>
           

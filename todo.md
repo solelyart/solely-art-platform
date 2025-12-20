@@ -638,3 +638,9 @@
 - [x] Update footer with full brand logo
 - [x] Update loading states and other UI elements
 - [x] Update DashboardLayout with brand logo
+
+
+## Favicon & Logo Size Updates - December 20, 2025
+- [x] Update favicon to ICO format for better browser visibility
+- [x] Increase header logo sizes across all pages
+- [x] Increase footer logo size

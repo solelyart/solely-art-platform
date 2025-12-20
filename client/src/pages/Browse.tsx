@@ -101,7 +101,7 @@ export default function Browse() {
             <img 
               src="/brand/logo-circle-text.svg" 
               alt="Solely Art" 
-              className="h-12 w-auto transition-transform group-hover:scale-105" 
+              className="h-16 w-auto transition-transform group-hover:scale-105" 
             />
           </Link>
           

@@ -33,7 +33,7 @@ export default function Home() {
             <img 
               src="/brand/logo-circle-text.svg" 
               alt="Solely Art" 
-              className="h-12 w-auto transition-transform group-hover:scale-105" 
+              className="h-16 w-auto transition-transform group-hover:scale-105" 
             />
           </Link>
           
@@ -310,7 +310,7 @@ export default function Home() {
                 <img 
                   src="/brand/logo-circle-full.svg" 
                   alt="Solely Art - Curated Connections" 
-                  className="h-16 w-auto" 
+                  className="h-24 w-auto" 
                 />
               </div>
               <p className="text-sm text-foreground/60 font-light leading-relaxed">
