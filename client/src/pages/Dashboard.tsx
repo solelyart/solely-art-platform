@@ -103,7 +103,7 @@ export default function Dashboard() {
         <div className="container flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <img 
-              src="/brand/logo-header.png" 
+              src="/brand/sla-header-logo.png" 
               alt="Solely Art" 
               className="h-16 w-auto" 
             />

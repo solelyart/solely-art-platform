@@ -32,7 +32,7 @@ export default function Home() {
         <div className="container flex h-20 items-center justify-between">
           <Link href="/" className="flex items-center gap-2 group">
             <img 
-              src="/brand/logo-header.png" 
+              src="/brand/sla-header-logo.png" 
               alt="Solely Art" 
               className="h-11 w-auto transition-transform group-hover:scale-105" 
             />
@@ -260,7 +260,7 @@ export default function Home() {
           {(!featuredArtists || featuredArtists.length === 0) && (
             <div className="text-center py-20">
               <img 
-                src="/brand/logo-icon-128.png" 
+                src="/brand/sla-icon-lg.png" 
                 alt="Solely Art" 
                 className="h-20 w-20 mx-auto mb-6 opacity-30" 
               />
@@ -362,7 +362,7 @@ export default function Home() {
             <div>
               <div className="mb-6">
                 <img 
-                  src="/brand/logo-full-md.png" 
+                  src="/brand/sla-logo-full-md.png" 
                   alt="Solely Art - Curated Connections" 
                   className="w-56 h-auto" 
                 />

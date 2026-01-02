@@ -70,7 +70,7 @@ export default function ArtistProfile() {
           <div className="container flex h-20 items-center justify-between">
             <Link href="/" className="flex items-center gap-2 group">
               <img 
-                src="/brand/logo-header.png" 
+                src="/brand/sla-header-logo.png" 
                 alt="Solely Art" 
                 className="h-16 w-auto transition-transform group-hover:scale-105" 
               />
@@ -123,7 +123,7 @@ export default function ArtistProfile() {
         <div className="container flex h-20 items-center justify-between">
           <Link href="/" className="flex items-center gap-2 group">
             <img 
-              src="/brand/logo-header.png" 
+              src="/brand/sla-header-logo.png" 
               alt="Solely Art" 
               className="h-16 w-auto transition-transform group-hover:scale-105" 
             />

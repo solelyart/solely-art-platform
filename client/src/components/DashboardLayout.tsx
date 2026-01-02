@@ -171,7 +171,7 @@ function DashboardLayoutContent({
               {!isCollapsed ? (
                 <div className="flex items-center gap-2 min-w-0">
                   <img 
-                    src="/brand/logo-header.png" 
+                    src="/brand/sla-header-logo.png" 
                     alt="Solely Art" 
                     className="h-10 w-auto" 
                   />
