@@ -790,4 +790,4 @@
 - [x] Create conversation transcript document (3 parts)
 - [x] Organize files into docs/ folder structure
 - [x] Add all documentation, scripts, and assets to repository
-- [ ] Push complete archive to GitHub
+- [x] Push complete archive to GitHub (v2.1.0 released)
