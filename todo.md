@@ -983,3 +983,10 @@
 - [x] Update ThemeProvider to support light/dark modes
 - [x] Add theme selector to user setup flow
 - [x] Store user theme preference in localStorage
+
+
+## CSS Comparison & Dark Mode Default
+
+- [x] Create git comparison of CSS before/after branding
+- [x] Add theme toggle to Dashboard sidebar
+- [x] Set dark mode as the default theme
