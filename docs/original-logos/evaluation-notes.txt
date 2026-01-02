@@ -1,0 +1,21 @@
+SOLELY ART NEW LOGO EVALUATION
+==============================
+
+Logo Files Reviewed:
+1. solelyart_Logo_Sample_1.jpg - Minimalist SA monogram in circle with "SOLELY ART" text below
+2. solelyart_Logo_Sample_2.jpg - Modern text-only with frame element "SOLELY ART"
+3. solelyart_Logo_Sample_3.jpg - Artist palette icon with "SolelyArt" text
+4. solelyart_Logo_Sample_4.jpg - Elegant serif typography "solely | art" with divider
+5. SA-01.jpg - Teal SA monogram on white background (icon only)
+6. SA-02.jpg - Cream/white SA monogram on dark charcoal background (icon only)
+7. SA-03.jpg - Teal SA monogram on white - different style, more fluid
+
+RECOMMENDATION:
+- Primary Logo: solelyart_Logo_Sample_1.jpg (full logo with text)
+- Icon/Favicon: SA-01.jpg or SA-03.jpg (teal monogram)
+- Dark mode variant: SA-02.jpg (cream on dark)
+
+The SA monogram designs (SA-01, SA-02, SA-03) are elegant and work well as standalone icons.
+Sample_1 provides the best full logo with the monogram + text combination.
+
+Color: Teal (#5B8A8A approximately) - matches existing site accent color
