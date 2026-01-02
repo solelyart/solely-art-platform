@@ -27,31 +27,31 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen gradient-artistic">
-      {/* Header */}
-      <header className="glass-effect sticky top-0 z-50 border-b border-border/50">
+    <div className="min-h-screen bg-background">
+      {/* Header - Glass effect navigation */}
+      <header className="glass-nav sticky top-0 z-50">
         <div className="container flex h-20 items-center justify-between">
           <HeaderLogo className="transition-transform hover:scale-105" />
           
           <nav className="flex items-center gap-6">
-            <Link href="/browse" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors" data-testid="nav-search">
+            <Link href="/browse" className="nav-link-brand" data-testid="nav-search">
               Browse Artists
             </Link>
             {isAuthenticated ? (
               <>
-                <Link href="/dashboard" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors" data-testid="nav-dashboard">
+                <Link href="/dashboard" className="nav-link-brand" data-testid="nav-dashboard">
                   Dashboard
                 </Link>
-                       <Link href="/availability" className="text-foreground/80 hover:text-foreground transition-colors">
-                Availability
+                       <Link href="/availability" className="nav-link-brand">
+                  Availability
               </Link>
-              <Link href="/bookings" className="text-foreground/80 hover:text-foreground transition-colors">
-                Bookings
+              <Link href="/bookings" className="nav-link-brand">
+                  Bookings
               </Link>
-              <Link href="/messages" className="text-foreground/80 hover:text-foreground transition-colors">
-                Messages
+              <Link href="/messages" className="nav-link-brand">
+                  Messages
               </Link>
-                <Button variant="outline" size="sm" asChild className="border-primary/20 hover:bg-primary/5" data-testid="nav-become-artist">
+                <Button variant="brand-outline" size="sm" asChild data-testid="nav-become-artist">
                   <Link href="/become-artist">Become an Artist</Link>
                 </Button>
                 <LogoutButton />
@@ -65,7 +65,7 @@ export default function Home() {
                 </button>
               </>
             ) : (
-              <Button size="sm" asChild className="gradient-hero text-white hover:opacity-90 transition-opacity" data-testid="login-button">
+              <Button variant="brand" size="sm" asChild data-testid="login-button">
                 <a href={getLoginUrl()}>Sign In</a>
               </Button>
             )}
@@ -110,7 +110,7 @@ export default function Home() {
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
               </div>
-              <Button size="lg" asChild className="h-16 px-10 gradient-hero text-white hover:opacity-90 transition-opacity shadow-elegant" data-testid="search-button">
+              <Button variant="brand" size="xl" asChild className="h-16 px-10" data-testid="search-button">
                 <Link href={`/browse?q=${encodeURIComponent(searchTerm)}`}>
                   Search
                 </Link>

@@ -7,14 +7,18 @@ interface ResponsiveLogoProps {
 }
 
 /**
- * ResponsiveLogo - Automatically swaps logo variants based on screen size
+ * ResponsiveLogo - SolelyArt brand logo with responsive sizing
+ * 
+ * Uses the official SolelyArt brand assets:
+ * - logo-full-teal.png: Teal logo on transparent (for light backgrounds)
+ * - logo-full-dark.png: Dark version (for light backgrounds)
+ * - logo-full-light.png: Light version (for dark backgrounds)
+ * - logo-full-white.png: White version (for colored/dark backgrounds)
  * 
  * Breakpoints:
- * - Mobile (< 640px): Icon only, 32px
- * - Tablet (640-1023px): Icon only, 40px  
- * - Desktop (1024px+): Full logo or icon based on variant
- * 
- * Uses srcset for retina displays (1x, 2x, 3x)
+ * - Mobile (< 640px): Smaller logo
+ * - Tablet (640-1023px): Medium logo
+ * - Desktop (1024px+): Full size logo
  */
 export function ResponsiveLogo({ variant = 'header', className = '', linkTo }: ResponsiveLogoProps) {
   const [screenSize, setScreenSize] = useState<'mobile' | 'tablet' | 'desktop'>('desktop');
@@ -38,63 +42,41 @@ export function ResponsiveLogo({ variant = 'header', className = '', linkTo }: R
   // Determine which logo to show based on variant and screen size
   const getLogoConfig = () => {
     if (variant === 'header') {
-      // Header always uses icon for cleaner nav
+      // Header uses teal logo
       return {
-        src: '/brand/sla-icon-1x.png',
-        srcSet: '/brand/sla-icon-1x.png 1x, /brand/sla-icon-2x.png 2x, /brand/sla-icon-3x.png 3x',
-        alt: 'Solely Art',
-        height: screenSize === 'mobile' ? 32 : 40,
-        width: screenSize === 'mobile' ? 37 : 46,
+        src: '/images/brand/logo-full-teal.png',
+        alt: 'SolelyArt',
+        height: screenSize === 'mobile' ? 36 : screenSize === 'tablet' ? 40 : 48,
+        width: screenSize === 'mobile' ? 100 : screenSize === 'tablet' ? 120 : 140,
       };
     }
     
     if (variant === 'footer') {
-      // Footer uses full logo on desktop/tablet, icon on mobile
-      if (screenSize === 'mobile') {
-        return {
-          src: '/brand/sla-mobile-icon.png',
-          srcSet: '/brand/sla-mobile-icon.png 1x, /brand/sla-mobile-icon-2x.png 2x',
-          alt: 'Solely Art',
-          height: 48,
-          width: 48,
-        };
-      }
+      // Footer uses teal logo, slightly smaller
       return {
-        src: '/brand/sla-full-1x.png',
-        srcSet: '/brand/sla-full-1x.png 1x, /brand/sla-full-2x.png 2x, /brand/sla-full-3x.png 3x',
-        alt: 'Solely Art',
-        width: screenSize === 'tablet' ? 150 : 180,
-        height: screenSize === 'tablet' ? 65 : 78,
+        src: '/images/brand/logo-full-teal.png',
+        alt: 'SolelyArt',
+        height: screenSize === 'mobile' ? 40 : screenSize === 'tablet' ? 48 : 56,
+        width: screenSize === 'mobile' ? 110 : screenSize === 'tablet' ? 130 : 150,
       };
     }
     
     if (variant === 'hero') {
-      // Hero uses larger full logo
-      if (screenSize === 'mobile') {
-        return {
-          src: '/brand/sla-full-1x.png',
-          srcSet: '/brand/sla-full-1x.png 1x, /brand/sla-full-2x.png 2x',
-          alt: 'Solely Art',
-          width: 200,
-          height: 87,
-        };
-      }
+      // Hero uses larger logo
       return {
-        src: '/brand/sla-full-2x.png',
-        srcSet: '/brand/sla-full-2x.png 1x, /brand/sla-full-3x.png 2x',
-        alt: 'Solely Art',
-        width: screenSize === 'tablet' ? 280 : 360,
-        height: screenSize === 'tablet' ? 121 : 156,
+        src: '/images/brand/logo-full-teal.png',
+        alt: 'SolelyArt',
+        height: screenSize === 'mobile' ? 60 : screenSize === 'tablet' ? 80 : 100,
+        width: screenSize === 'mobile' ? 160 : screenSize === 'tablet' ? 220 : 280,
       };
     }
 
     // Default fallback
     return {
-      src: '/brand/sla-icon-1x.png',
-      srcSet: '/brand/sla-icon-1x.png 1x, /brand/sla-icon-2x.png 2x',
-      alt: 'Solely Art',
+      src: '/images/brand/logo-full-teal.png',
+      alt: 'SolelyArt',
       height: 40,
-      width: 46,
+      width: 120,
     };
   };
 
@@ -103,7 +85,6 @@ export function ResponsiveLogo({ variant = 'header', className = '', linkTo }: R
   const logoImage = (
     <img
       src={config.src}
-      srcSet={config.srcSet}
       alt={config.alt}
       width={config.width}
       height={config.height}
@@ -111,8 +92,8 @@ export function ResponsiveLogo({ variant = 'header', className = '', linkTo }: R
       style={{
         maxWidth: '100%',
         height: 'auto',
-        aspectRatio: `${config.width} / ${config.height}`,
       }}
+      loading={variant === 'header' ? 'eager' : 'lazy'}
     />
   );
 
@@ -129,29 +110,18 @@ export function ResponsiveLogo({ variant = 'header', className = '', linkTo }: R
 
 /**
  * HeaderLogo - Optimized for navigation bars
- * Uses icon-only variant with proper sizing constraints
+ * Uses the SolelyArt teal logo with proper sizing
  */
 export function HeaderLogo({ className = '' }: { className?: string }) {
   return (
     <a href="/" className="flex items-center shrink-0">
-      <picture>
-        {/* Mobile: smaller icon */}
-        <source
-          media="(max-width: 639px)"
-          srcSet="/brand/sla-mobile-icon.png 1x, /brand/sla-mobile-icon-2x.png 2x"
-        />
-        {/* Tablet and up: standard icon */}
-        <source
-          media="(min-width: 640px)"
-          srcSet="/brand/sla-icon-1x.png 1x, /brand/sla-icon-2x.png 2x, /brand/sla-icon-3x.png 3x"
-        />
-        <img
-          src="/brand/sla-icon-1x.png"
-          alt="Solely Art"
-          className={`h-8 sm:h-10 w-auto object-contain ${className}`}
-          style={{ minWidth: '32px', maxWidth: '60px' }}
-        />
-      </picture>
+      <img
+        src="/images/brand/logo-full-teal.png"
+        alt="SolelyArt"
+        className={`h-9 sm:h-10 md:h-12 w-auto object-contain ${className}`}
+        style={{ minWidth: '100px', maxWidth: '160px' }}
+        loading="eager"
+      />
     </a>
   );
 }
@@ -163,34 +133,53 @@ export function HeaderLogo({ className = '' }: { className?: string }) {
 export function FooterLogo({ className = '' }: { className?: string }) {
   return (
     <a href="/" className="inline-block">
-      <picture>
-        {/* Mobile: compact icon */}
-        <source
-          media="(max-width: 639px)"
-          srcSet="/brand/sla-full-1x.png 1x, /brand/sla-full-2x.png 2x"
-        />
-        {/* Tablet: medium full logo */}
-        <source
-          media="(min-width: 640px) and (max-width: 1023px)"
-          srcSet="/brand/sla-full-1x.png 1x, /brand/sla-full-2x.png 2x"
-        />
-        {/* Desktop: large full logo */}
-        <source
-          media="(min-width: 1024px)"
-          srcSet="/brand/sla-full-2x.png 1x, /brand/sla-full-3x.png 2x"
-        />
-        <img
-          src="/brand/sla-full-1x.png"
-          alt="Solely Art"
-          className={`w-32 sm:w-40 lg:w-44 h-auto object-contain ${className}`}
-          style={{ 
-            minWidth: '120px', 
-            maxWidth: '200px',
-            aspectRatio: '180 / 78'
-          }}
-        />
-      </picture>
+      <img
+        src="/images/brand/logo-full-teal.png"
+        alt="SolelyArt"
+        className={`w-28 sm:w-32 lg:w-36 h-auto object-contain ${className}`}
+        style={{ 
+          minWidth: '100px', 
+          maxWidth: '160px',
+        }}
+        loading="lazy"
+      />
     </a>
+  );
+}
+
+/**
+ * BrandLogo - Generic brand logo component with variant support
+ * For use in various contexts (loading screens, about pages, etc.)
+ */
+export function BrandLogo({ 
+  variant = 'teal', 
+  size = 'md',
+  className = '' 
+}: { 
+  variant?: 'teal' | 'dark' | 'light' | 'white';
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+  className?: string;
+}) {
+  const logoMap = {
+    teal: '/images/brand/logo-full-teal.png',
+    dark: '/images/brand/logo-full-dark.png',
+    light: '/images/brand/logo-full-light.png',
+    white: '/images/brand/logo-full-white.png',
+  };
+
+  const sizeMap = {
+    sm: 'h-8 w-auto',
+    md: 'h-12 w-auto',
+    lg: 'h-16 w-auto',
+    xl: 'h-24 w-auto',
+  };
+
+  return (
+    <img
+      src={logoMap[variant]}
+      alt="SolelyArt"
+      className={`object-contain ${sizeMap[size]} ${className}`}
+    />
   );
 }
 
