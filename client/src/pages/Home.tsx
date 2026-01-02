@@ -34,7 +34,7 @@ export default function Home() {
           <HeaderLogo className="transition-transform hover:scale-105" />
           
           <nav className="flex items-center gap-6">
-            <Link href="/browse" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors" data-testid="search-link">
+            <Link href="/browse" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors" data-testid="nav-search">
               Browse Artists
             </Link>
             {isAuthenticated ? (

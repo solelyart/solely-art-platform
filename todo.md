@@ -926,3 +926,12 @@
 - Payment processing UI not implemented
 - Booking form elements missing test IDs
 - 404 page missing `back-to-home` button
+
+
+## Test Failure Fixes - January 2, 2026
+### Fix Regression Test Failures
+- [x] Add `data-testid="back-to-home"` to 404 page (NotFound.tsx)
+- [x] Fix navigation link test - updated to test actual nav structure (nav-search only)
+- [x] Fix form validation test - updated to test BecomeArtist form instead of non-existent signup page
+- [x] Verify Python scripts use environment variables correctly
+- [ ] Rerun Playwright tests to confirm fixes (blocked by server EMFILE error)
