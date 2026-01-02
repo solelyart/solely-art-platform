@@ -32,7 +32,7 @@ export default function Home() {
         <div className="container flex h-20 items-center justify-between">
           <Link href="/" className="flex items-center gap-2 group">
             <img 
-              src="/brand/logo-full-sm.png" 
+              src="/brand/logo-header.png" 
               alt="Solely Art" 
               className="h-16 w-auto transition-transform group-hover:scale-105" 
             />
@@ -362,7 +362,7 @@ export default function Home() {
             <div>
               <div className="mb-6">
                 <img 
-                  src="/brand/logo-full.png" 
+                  src="/brand/logo-full-lg.png" 
                   alt="Solely Art - Curated Connections" 
                   className="h-24 w-auto" 
                 />
