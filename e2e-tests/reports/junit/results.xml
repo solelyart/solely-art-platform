@@ -1,1070 +1,1264 @@
-<testsuites id="" name="" tests="52" failures="18" skipped="3" errors="0" time="145.060012">
-<testsuite name="auth.setup.ts" timestamp="2026-01-02T17:36:01.548Z" hostname="setup" tests="3" failures="0" skipped="0" time="10.586" errors="0">
-<testcase name="authenticate as client" classname="auth.setup.ts" time="3.513">
-<system-out>
-<![CDATA[🔐 Authenticating as Test Client...
-   Base URL: https://3000-ismw4r56ghxjg647vetcg-a6f21cbd.manusvm.computer
-✅ Test Client auth response: Test Client
-✅ Session cookie set for domain: 3000-ismw4r56ghxjg647vetcg-a6f21cbd.manusvm.computer
-✅ Test Client authenticated - logout button visible
-💾 Client auth state saved to: /home/ubuntu/solely-art-platform/e2e-tests/playwright/.auth/client.json
-]]>
-</system-out>
-</testcase>
-<testcase name="authenticate as artist" classname="auth.setup.ts" time="3.55">
-<system-out>
-<![CDATA[🔐 Authenticating as Test Artist...
-   Base URL: https://3000-ismw4r56ghxjg647vetcg-a6f21cbd.manusvm.computer
-✅ Test Artist auth response: Test Artist
-✅ Session cookie set for domain: 3000-ismw4r56ghxjg647vetcg-a6f21cbd.manusvm.computer
-✅ Test Artist authenticated - logout button visible
-💾 Artist auth state saved to: /home/ubuntu/solely-art-platform/e2e-tests/playwright/.auth/artist.json
-]]>
-</system-out>
-</testcase>
-<testcase name="authenticate as admin" classname="auth.setup.ts" time="3.523">
-<system-out>
-<![CDATA[🔐 Authenticating as Test Admin...
-   Base URL: https://3000-ismw4r56ghxjg647vetcg-a6f21cbd.manusvm.computer
-✅ Test Admin auth response: Test Admin
-✅ Session cookie set for domain: 3000-ismw4r56ghxjg647vetcg-a6f21cbd.manusvm.computer
-✅ Test Admin authenticated - logout button visible
-💾 Admin auth state saved to: /home/ubuntu/solely-art-platform/e2e-tests/playwright/.auth/admin.json
-]]>
-</system-out>
-</testcase>
-</testsuite>
-<testsuite name="tests/e2e/complete-user-journey.spec.ts" timestamp="2026-01-02T17:36:01.548Z" hostname="chromium" tests="5" failures="4" skipped="1" time="47.539" errors="0">
-<testcase name="Complete User Journey - End-to-End Tests › E2E: New client signs up, books artist, completes payment, and communicates" classname="tests/e2e/complete-user-journey.spec.ts" time="7.193">
-<failure message="complete-user-journey.spec.ts:18:7 E2E: New client signs up, books artist, completes payment, and communicates" type="FAILURE">
-<![CDATA[  [chromium] › tests/e2e/complete-user-journey.spec.ts:18:7 › Complete User Journey - End-to-End Tests › E2E: New client signs up, books artist, completes payment, and communicates 
-
-    Error: expect(locator).toContainText(expected) failed
-
-    Locator: locator('h1')
-    Expected substring: "Solely Art"
-    Received string:    "DiscoverExceptional Artists"
-    Timeout: 5000ms
-
-    Call log:
-      - Expect "toContainText" with timeout 5000ms
-      - waiting for locator('h1')
-        8 × locator resolved to <h1 data-testid="hero-title" data-loc="client/src/pages/Home.tsx:91" class="mb-8 text-6xl font-semibold leading-[1.1] md:text-7xl lg:text-8xl">…</h1>
-          - unexpected value "DiscoverExceptional Artists"
-
-
-      32 |     // Step 1: Discover the platform
-      33 |     await page.goto('/');
-    > 34 |     await expect(page.locator('h1')).toContainText('Solely Art', { ignoreCase: true });
-         |                                      ^
-      35 |
-      36 |     // Step 2: Sign up for an account
-      37 |     await page.click('[data-testid="signup-button"]');
-        at /home/ubuntu/solely-art-platform/e2e-tests/tests/e2e/complete-user-journey.spec.ts:34:38
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    test-results/tests-e2e-complete-user-jo-b41be-es-payment-and-communicates-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    test-results/tests-e2e-complete-user-jo-b41be-es-payment-and-communicates-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: test-results/tests-e2e-complete-user-jo-b41be-es-payment-and-communicates-chromium/error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[
-[[ATTACHMENT|../../test-results/tests-e2e-complete-user-jo-b41be-es-payment-and-communicates-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|../../test-results/tests-e2e-complete-user-jo-b41be-es-payment-and-communicates-chromium/video.webm]]
-
-[[ATTACHMENT|../../test-results/tests-e2e-complete-user-jo-b41be-es-payment-and-communicates-chromium/error-context.md]]
-]]>
-</system-out>
-</testcase>
-<testcase name="Complete User Journey - End-to-End Tests › E2E: Artist receives booking, manages schedule, and communicates with client" classname="tests/e2e/complete-user-journey.spec.ts" time="9.111">
-<failure message="complete-user-journey.spec.ts:152:7 E2E: Artist receives booking, manages schedule, and communicates with client" type="FAILURE">
-<![CDATA[  [chromium] › tests/e2e/complete-user-journey.spec.ts:152:7 › Complete User Journey - End-to-End Tests › E2E: Artist receives booking, manages schedule, and communicates with client 
-
-    Error: expect(locator).toBeVisible() failed
-
-    Locator: locator('[data-testid="new-bookings-badge"]')
-    Expected: visible
-    Timeout: 5000ms
-    Error: element(s) not found
-
-    Call log:
-      - Expect "toBeVisible" with timeout 5000ms
-      - waiting for locator('[data-testid="new-bookings-badge"]')
-
-
-      164 |
-      165 |     // Step 2: Check for new bookings
-    > 166 |     await expect(page.locator('[data-testid="new-bookings-badge"]')).toBeVisible();
-          |                                                                      ^
-      167 |
-      168 |     // Step 3: View booking details
-      169 |     await page.click('[data-testid="nav-bookings"]');
-        at /home/ubuntu/solely-art-platform/e2e-tests/tests/e2e/complete-user-journey.spec.ts:166:70
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    test-results/tests-e2e-complete-user-jo-3fdab-nd-communicates-with-client-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    test-results/tests-e2e-complete-user-jo-3fdab-nd-communicates-with-client-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: test-results/tests-e2e-complete-user-jo-3fdab-nd-communicates-with-client-chromium/error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[✅ Client authenticated via storageState
-
-[[ATTACHMENT|../../test-results/tests-e2e-complete-user-jo-3fdab-nd-communicates-with-client-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|../../test-results/tests-e2e-complete-user-jo-3fdab-nd-communicates-with-client-chromium/video.webm]]
-
-[[ATTACHMENT|../../test-results/tests-e2e-complete-user-jo-3fdab-nd-communicates-with-client-chromium/error-context.md]]
-]]>
-</system-out>
-</testcase>
-<testcase name="Complete User Journey - End-to-End Tests › E2E: Client cancels booking and receives refund" classname="tests/e2e/complete-user-journey.spec.ts" time="3.89">
-<properties>
-<property name="skip" value="">
-</property>
-</properties>
+<testsuites id="" name="" tests="297" failures="0" skipped="297" errors="0" time="0.07053800000000002">
+<testsuite name="auth.setup.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="setup" tests="3" failures="0" skipped="3" time="0" errors="0">
+<testcase name="authenticate as client" classname="auth.setup.ts" time="0">
 <skipped>
 </skipped>
 </testcase>
-<testcase name="Complete User Journey - End-to-End Tests › E2E: Multi-device sync - actions on desktop reflect on mobile" classname="tests/e2e/complete-user-journey.spec.ts" time="12.492">
-<failure message="complete-user-journey.spec.ts:269:7 E2E: Multi-device sync - actions on desktop reflect on mobile" type="FAILURE">
-<![CDATA[  [chromium] › tests/e2e/complete-user-journey.spec.ts:269:7 › Complete User Journey - End-to-End Tests › E2E: Multi-device sync - actions on desktop reflect on mobile 
-
-    TimeoutError: page.click: Timeout 10000ms exceeded.
-    Call log:
-      - waiting for locator('[data-testid="conversation-item"]:first-child')
-
-
-      283 |     // Send a message from desktop
-      284 |     await desktopPage.goto('/messages');
-    > 285 |     await desktopPage.click('[data-testid="conversation-item"]:first-child');
-          |                       ^
-      286 |     const testMessage = `Test sync message ${Date.now()}`;
-      287 |     await desktopPage.fill('[data-testid="message-input"]', testMessage);
-      288 |     await desktopPage.click('[data-testid="send-message"]');
-        at /home/ubuntu/solely-art-platform/e2e-tests/tests/e2e/complete-user-journey.spec.ts:285:23
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    test-results/tests-e2e-complete-user-jo-cbc1d-n-desktop-reflect-on-mobile-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
-    test-results/tests-e2e-complete-user-jo-cbc1d-n-desktop-reflect-on-mobile-chromium/test-failed-2.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #3: video (video/webm) ──────────────────────────────────────────────────────────────
-    test-results/tests-e2e-complete-user-jo-cbc1d-n-desktop-reflect-on-mobile-chromium/video-1.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #4: video (video/webm) ──────────────────────────────────────────────────────────────
-    test-results/tests-e2e-complete-user-jo-cbc1d-n-desktop-reflect-on-mobile-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: test-results/tests-e2e-complete-user-jo-cbc1d-n-desktop-reflect-on-mobile-chromium/error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[
-[[ATTACHMENT|../../test-results/tests-e2e-complete-user-jo-cbc1d-n-desktop-reflect-on-mobile-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|../../test-results/tests-e2e-complete-user-jo-cbc1d-n-desktop-reflect-on-mobile-chromium/test-failed-2.png]]
-
-[[ATTACHMENT|../../test-results/tests-e2e-complete-user-jo-cbc1d-n-desktop-reflect-on-mobile-chromium/video-1.webm]]
-
-[[ATTACHMENT|../../test-results/tests-e2e-complete-user-jo-cbc1d-n-desktop-reflect-on-mobile-chromium/video.webm]]
-
-[[ATTACHMENT|../../test-results/tests-e2e-complete-user-jo-cbc1d-n-desktop-reflect-on-mobile-chromium/error-context.md]]
-]]>
-</system-out>
-</testcase>
-<testcase name="Complete User Journey - End-to-End Tests › E2E: Complete booking lifecycle from creation to completion" classname="tests/e2e/complete-user-journey.spec.ts" time="14.853">
-<failure message="complete-user-journey.spec.ts:306:7 E2E: Complete booking lifecycle from creation to completion" type="FAILURE">
-<![CDATA[  [chromium] › tests/e2e/complete-user-journey.spec.ts:306:7 › Complete User Journey - End-to-End Tests › E2E: Complete booking lifecycle from creation to completion 
-
-    TimeoutError: page.click: Timeout 10000ms exceeded.
-    Call log:
-      - waiting for locator('[data-testid="time-slot"]:not([disabled]):first-child')
-
-
-      324 |     await page.click('[data-testid="date-picker"]');
-      325 |     await page.click(`[data-date="${tomorrow.toISOString().split('T')[0]}"]`);
-    > 326 |     await page.click('[data-testid="time-slot"]:not([disabled]):first-child');
-          |                ^
-      327 |     await page.click('[data-testid="book-now-button"]');
-      328 |
-      329 |     // Complete payment
-        at /home/ubuntu/solely-art-platform/e2e-tests/tests/e2e/complete-user-journey.spec.ts:326:16
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    test-results/tests-e2e-complete-user-jo-32811-from-creation-to-completion-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    test-results/tests-e2e-complete-user-jo-32811-from-creation-to-completion-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: test-results/tests-e2e-complete-user-jo-32811-from-creation-to-completion-chromium/error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[✅ Client authenticated via storageState
-
-[[ATTACHMENT|../../test-results/tests-e2e-complete-user-jo-32811-from-creation-to-completion-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|../../test-results/tests-e2e-complete-user-jo-32811-from-creation-to-completion-chromium/video.webm]]
-
-[[ATTACHMENT|../../test-results/tests-e2e-complete-user-jo-32811-from-creation-to-completion-chromium/error-context.md]]
-]]>
-</system-out>
-</testcase>
-</testsuite>
-<testsuite name="tests/functional/booking-workflow.spec.ts" timestamp="2026-01-02T17:36:01.548Z" hostname="chromium" tests="10" failures="0" skipped="0" time="90.866" errors="0">
-<testcase name="Booking Workflow - Functional Tests › should allow client to search for artists by name" classname="tests/functional/booking-workflow.spec.ts" time="2.608">
-</testcase>
-<testcase name="Booking Workflow - Functional Tests › should allow client to filter artists by category" classname="tests/functional/booking-workflow.spec.ts" time="2.295">
-</testcase>
-<testcase name="Booking Workflow - Functional Tests › should display artist profile with all required information" classname="tests/functional/booking-workflow.spec.ts" time="1.669">
-</testcase>
-<testcase name="Booking Workflow - Functional Tests › should show availability preview on artist profile" classname="tests/functional/booking-workflow.spec.ts" time="2.143">
-</testcase>
-<testcase name="Booking Workflow - Functional Tests › should navigate from artist profile to booking page" classname="tests/functional/booking-workflow.spec.ts" time="3.831">
-<system-out>
-<![CDATA[✅ Client authenticated via storageState
-✅ Session cookie present after navigation
-✅ Auth check completed after navigation
-]]>
-</system-out>
-</testcase>
-<testcase name="Booking Workflow - Functional Tests › should display booking page with services (Step 1)" classname="tests/functional/booking-workflow.spec.ts" time="15.8">
-<system-out>
-<![CDATA[✅ Client authenticated via storageState
-✅ Session cookie present after navigation
-]]>
-</system-out>
-<system-err>
-<![CDATA[⚠️  Warning: auth.me response not detected after navigation
-]]>
-</system-err>
-</testcase>
-<testcase name="Booking Workflow - Functional Tests › should show calendar after selecting a service (Step 2)" classname="tests/functional/booking-workflow.spec.ts" time="15.09">
-<system-out>
-<![CDATA[✅ Client authenticated via storageState
-✅ Session cookie present after navigation
-]]>
-</system-out>
-<system-err>
-<![CDATA[⚠️  Warning: auth.me response not detected after navigation
-]]>
-</system-err>
-</testcase>
-<testcase name="Booking Workflow - Functional Tests › should display calendar with date selection in Step 2" classname="tests/functional/booking-workflow.spec.ts" time="15.851">
-<system-out>
-<![CDATA[✅ Client authenticated via storageState
-✅ Session cookie present after navigation
-]]>
-</system-out>
-<system-err>
-<![CDATA[⚠️  Warning: auth.me response not detected after navigation
-]]>
-</system-err>
-</testcase>
-<testcase name="Booking Workflow - Functional Tests › should show time slots after selecting a date" classname="tests/functional/booking-workflow.spec.ts" time="15.842">
-<system-out>
-<![CDATA[✅ Client authenticated via storageState
-✅ Session cookie present after navigation
-]]>
-</system-out>
-<system-err>
-<![CDATA[⚠️  Warning: auth.me response not detected after navigation
-]]>
-</system-err>
-</testcase>
-<testcase name="Booking Workflow - Functional Tests › should complete full booking flow through all steps" classname="tests/functional/booking-workflow.spec.ts" time="15.737">
-<system-out>
-<![CDATA[✅ Client authenticated via storageState
-✅ Session cookie present after navigation
-]]>
-</system-out>
-<system-err>
-<![CDATA[⚠️  Warning: auth.me response not detected after navigation
-]]>
-</system-err>
-</testcase>
-</testsuite>
-<testsuite name="tests/integration/booking-payment-integration.spec.ts" timestamp="2026-01-02T17:36:01.548Z" hostname="chromium" tests="6" failures="6" skipped="0" time="87.26" errors="0">
-<testcase name="Booking and Payment Integration Tests › should integrate booking creation with database" classname="tests/integration/booking-payment-integration.spec.ts" time="13.747">
-<failure message="booking-payment-integration.spec.ts:20:7 should integrate booking creation with database" type="FAILURE">
-<![CDATA[  [chromium] › tests/integration/booking-payment-integration.spec.ts:20:7 › Booking and Payment Integration Tests › should integrate booking creation with database 
-
-    TimeoutError: page.click: Timeout 10000ms exceeded.
-    Call log:
-      - waiting for locator('[data-testid="time-slot"][data-time="10:00"]')
-
-
-      34 |     tomorrow.setDate(tomorrow.getDate() + 1);
-      35 |     await page.click(`[data-date="${tomorrow.toISOString().split('T')[0]}"]`);
-    > 36 |     await page.click('[data-testid="time-slot"][data-time="10:00"]');
-         |                ^
-      37 |
-      38 |     // Proceed to booking
-      39 |     await page.click('[data-testid="book-now-button"]');
-        at /home/ubuntu/solely-art-platform/e2e-tests/tests/integration/booking-payment-integration.spec.ts:36:16
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    test-results/tests-integration-booking--0bdb1-king-creation-with-database-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    test-results/tests-integration-booking--0bdb1-king-creation-with-database-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: test-results/tests-integration-booking--0bdb1-king-creation-with-database-chromium/error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[✅ Client authenticated via storageState
-
-[[ATTACHMENT|../../test-results/tests-integration-booking--0bdb1-king-creation-with-database-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|../../test-results/tests-integration-booking--0bdb1-king-creation-with-database-chromium/video.webm]]
-
-[[ATTACHMENT|../../test-results/tests-integration-booking--0bdb1-king-creation-with-database-chromium/error-context.md]]
-]]>
-</system-out>
-</testcase>
-<testcase name="Booking and Payment Integration Tests › should integrate booking with payment processing" classname="tests/integration/booking-payment-integration.spec.ts" time="14.026">
-<failure message="booking-payment-integration.spec.ts:56:7 should integrate booking with payment processing" type="FAILURE">
-<![CDATA[  [chromium] › tests/integration/booking-payment-integration.spec.ts:56:7 › Booking and Payment Integration Tests › should integrate booking with payment processing 
-
-    TimeoutError: page.click: Timeout 10000ms exceeded.
-    Call log:
-      - waiting for locator('[data-testid="time-slot"][data-time="14:00"]')
-
-
-      65 |     await page.click('[data-testid="date-picker"]');
-      66 |     await page.click(`[data-date="${tomorrow.toISOString().split('T')[0]}"]`);
-    > 67 |     await page.click('[data-testid="time-slot"][data-time="14:00"]');
-         |                ^
-      68 |     await page.click('[data-testid="book-now-button"]');
-      69 |
-      70 |     // Wait for booking creation
-        at /home/ubuntu/solely-art-platform/e2e-tests/tests/integration/booking-payment-integration.spec.ts:67:16
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    test-results/tests-integration-booking--cbc06-ing-with-payment-processing-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    test-results/tests-integration-booking--cbc06-ing-with-payment-processing-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: test-results/tests-integration-booking--cbc06-ing-with-payment-processing-chromium/error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[✅ Client authenticated via storageState
-
-[[ATTACHMENT|../../test-results/tests-integration-booking--cbc06-ing-with-payment-processing-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|../../test-results/tests-integration-booking--cbc06-ing-with-payment-processing-chromium/video.webm]]
-
-[[ATTACHMENT|../../test-results/tests-integration-booking--cbc06-ing-with-payment-processing-chromium/error-context.md]]
-]]>
-</system-out>
-</testcase>
-<testcase name="Booking and Payment Integration Tests › should integrate booking cancellation with refund processing" classname="tests/integration/booking-payment-integration.spec.ts" time="13.286">
-<failure message="booking-payment-integration.spec.ts:104:7 should integrate booking cancellation with refund processing" type="FAILURE">
-<![CDATA[  [chromium] › tests/integration/booking-payment-integration.spec.ts:104:7 › Booking and Payment Integration Tests › should integrate booking cancellation with refund processing 
-
-    TimeoutError: page.click: Timeout 10000ms exceeded.
-    Call log:
-      - waiting for locator('[data-testid="booking-card"][data-status="confirmed"]:first-child')
-
-
-      109 |
-      110 |     // Select a confirmed booking
-    > 111 |     await page.click('[data-testid="booking-card"][data-status="confirmed"]:first-child');
-          |                ^
-      112 |
-      113 |     // Click cancel button
-      114 |     await page.click('[data-testid="cancel-booking"]');
-        at /home/ubuntu/solely-art-platform/e2e-tests/tests/integration/booking-payment-integration.spec.ts:111:16
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    test-results/tests-integration-booking--72656-tion-with-refund-processing-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    test-results/tests-integration-booking--72656-tion-with-refund-processing-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: test-results/tests-integration-booking--72656-tion-with-refund-processing-chromium/error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[✅ Client authenticated via storageState
-
-[[ATTACHMENT|../../test-results/tests-integration-booking--72656-tion-with-refund-processing-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|../../test-results/tests-integration-booking--72656-tion-with-refund-processing-chromium/video.webm]]
-
-[[ATTACHMENT|../../test-results/tests-integration-booking--72656-tion-with-refund-processing-chromium/error-context.md]]
-]]>
-</system-out>
-</testcase>
-<testcase name="Booking and Payment Integration Tests › should integrate availability check with booking creation" classname="tests/integration/booking-payment-integration.spec.ts" time="14.772">
-<failure message="booking-payment-integration.spec.ts:138:7 should integrate availability check with booking creation" type="FAILURE">
-<![CDATA[  [chromium] › tests/integration/booking-payment-integration.spec.ts:138:7 › Booking and Payment Integration Tests › should integrate availability check with booking creation 
-
-    TimeoutError: page.waitForResponse: Timeout 10000ms exceeded while waiting for event "response"
-
-       at utils/helpers.ts:17
-
-      15 |   expectedStatus: number = 200
-      16 | ) {
-    > 17 |   const response = await page.waitForResponse(
-         |                               ^
-      18 |     (response) => {
-      19 |       const url = response.url();
-      20 |       const status = response.status();
-        at waitForAPIResponse (/home/ubuntu/solely-art-platform/e2e-tests/utils/helpers.ts:17:31)
-        at /home/ubuntu/solely-art-platform/e2e-tests/tests/integration/booking-payment-integration.spec.ts:152:58
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    test-results/tests-integration-booking--612c3-check-with-booking-creation-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    test-results/tests-integration-booking--612c3-check-with-booking-creation-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: test-results/tests-integration-booking--612c3-check-with-booking-creation-chromium/error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[✅ Client authenticated via storageState
-
-[[ATTACHMENT|../../test-results/tests-integration-booking--612c3-check-with-booking-creation-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|../../test-results/tests-integration-booking--612c3-check-with-booking-creation-chromium/video.webm]]
-
-[[ATTACHMENT|../../test-results/tests-integration-booking--612c3-check-with-booking-creation-chromium/error-context.md]]
-]]>
-</system-out>
-</testcase>
-<testcase name="Booking and Payment Integration Tests › should handle concurrent booking attempts (race condition)" classname="tests/integration/booking-payment-integration.spec.ts" time="15.871">
-<failure message="booking-payment-integration.spec.ts:175:7 should handle concurrent booking attempts (race condition)" type="FAILURE">
-<![CDATA[  [chromium] › tests/integration/booking-payment-integration.spec.ts:175:7 › Booking and Payment Integration Tests › should handle concurrent booking attempts (race condition) 
-
-    TimeoutError: page.fill: Timeout 10000ms exceeded.
-    Call log:
-      - waiting for locator('input[name="email"]')
-
-
-      181 |     for (const p of [page1, page2]) {
-      182 |       await p.goto('/login');
-    > 183 |       await p.fill('input[name="email"]', process.env.TEST_CLIENT_EMAIL || '');
-          |               ^
-      184 |       await p.fill('input[name="password"]', process.env.TEST_CLIENT_PASSWORD || '');
-      185 |       await p.click('button[type="submit"]');
-      186 |       await p.waitForURL('**/dashboard');
-        at /home/ubuntu/solely-art-platform/e2e-tests/tests/integration/booking-payment-integration.spec.ts:183:15
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    test-results/tests-integration-booking--79afb-ng-attempts-race-condition--chromium/test-failed-3.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
-    test-results/tests-integration-booking--79afb-ng-attempts-race-condition--chromium/test-failed-2.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
-    test-results/tests-integration-booking--79afb-ng-attempts-race-condition--chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #4: video (video/webm) ──────────────────────────────────────────────────────────────
-    test-results/tests-integration-booking--79afb-ng-attempts-race-condition--chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
-    test-results/tests-integration-booking--79afb-ng-attempts-race-condition--chromium/video-2.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #6: video (video/webm) ──────────────────────────────────────────────────────────────
-    test-results/tests-integration-booking--79afb-ng-attempts-race-condition--chromium/video-1.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: test-results/tests-integration-booking--79afb-ng-attempts-race-condition--chromium/error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[✅ Client authenticated via storageState
-
-[[ATTACHMENT|../../test-results/tests-integration-booking--79afb-ng-attempts-race-condition--chromium/test-failed-3.png]]
-
-[[ATTACHMENT|../../test-results/tests-integration-booking--79afb-ng-attempts-race-condition--chromium/test-failed-2.png]]
-
-[[ATTACHMENT|../../test-results/tests-integration-booking--79afb-ng-attempts-race-condition--chromium/test-failed-1.png]]
-
-[[ATTACHMENT|../../test-results/tests-integration-booking--79afb-ng-attempts-race-condition--chromium/video.webm]]
-
-[[ATTACHMENT|../../test-results/tests-integration-booking--79afb-ng-attempts-race-condition--chromium/video-2.webm]]
-
-[[ATTACHMENT|../../test-results/tests-integration-booking--79afb-ng-attempts-race-condition--chromium/video-1.webm]]
-
-[[ATTACHMENT|../../test-results/tests-integration-booking--79afb-ng-attempts-race-condition--chromium/error-context.md]]
-]]>
-</system-out>
-</testcase>
-<testcase name="Booking and Payment Integration Tests › should integrate messaging with booking confirmation" classname="tests/integration/booking-payment-integration.spec.ts" time="15.558">
-<failure message="booking-payment-integration.spec.ts:229:7 should integrate messaging with booking confirmation" type="FAILURE">
-<![CDATA[  [chromium] › tests/integration/booking-payment-integration.spec.ts:229:7 › Booking and Payment Integration Tests › should integrate messaging with booking confirmation 
-
-    TimeoutError: page.click: Timeout 10000ms exceeded.
-    Call log:
-      - waiting for locator('[data-testid="time-slot"][data-time="11:00"]')
-
-
-      238 |     await page.click('[data-testid="date-picker"]');
-      239 |     await page.click(`[data-date="${tomorrow.toISOString().split('T')[0]}"]`);
-    > 240 |     await page.click('[data-testid="time-slot"][data-time="11:00"]');
-          |                ^
-      241 |     await page.click('[data-testid="book-now-button"]');
-      242 |
-      243 |     // Complete payment
-        at /home/ubuntu/solely-art-platform/e2e-tests/tests/integration/booking-payment-integration.spec.ts:240:16
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    test-results/tests-integration-booking--44396-g-with-booking-confirmation-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    test-results/tests-integration-booking--44396-g-with-booking-confirmation-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: test-results/tests-integration-booking--44396-g-with-booking-confirmation-chromium/error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[✅ Client authenticated via storageState
-
-[[ATTACHMENT|../../test-results/tests-integration-booking--44396-g-with-booking-confirmation-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|../../test-results/tests-integration-booking--44396-g-with-booking-confirmation-chromium/video.webm]]
-
-[[ATTACHMENT|../../test-results/tests-integration-booking--44396-g-with-booking-confirmation-chromium/error-context.md]]
-]]>
-</system-out>
-</testcase>
-</testsuite>
-<testsuite name="tests/performance/load-time.spec.ts" timestamp="2026-01-02T17:36:01.548Z" hostname="chromium" tests="12" failures="2" skipped="0" time="72.604" errors="0">
-<testcase name="Performance Tests › should load home page within acceptable time" classname="tests/performance/load-time.spec.ts" time="7.006">
-<failure message="load-time.spec.ts:35:7 should load home page within acceptable time" type="FAILURE">
-<![CDATA[  [chromium] › tests/performance/load-time.spec.ts:35:7 › Performance Tests › should load home page within acceptable time 
-
-    Error: expect(locator).toBeVisible() failed
-
-    Locator: locator('[data-testid="search-link"]')
-    Expected: visible
-    Timeout: 5000ms
-    Error: element(s) not found
-
-    Call log:
-      - Expect "toBeVisible" with timeout 5000ms
-      - waiting for locator('[data-testid="search-link"]')
-
-
-      44 |
-      45 |     // Verify page is interactive
-    > 46 |     await expect(page.locator('[data-testid="search-link"]')).toBeVisible();
-         |                                                               ^
-      47 |   });
-      48 |
-      49 |   test('should meet Core Web Vitals standards', async ({ page }) => {
-        at /home/ubuntu/solely-art-platform/e2e-tests/tests/performance/load-time.spec.ts:46:63
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    test-results/tests-performance-load-tim-5ba5d-page-within-acceptable-time-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    test-results/tests-performance-load-tim-5ba5d-page-within-acceptable-time-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: test-results/tests-performance-load-tim-5ba5d-page-within-acceptable-time-chromium/error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[Home page load time: 724ms
-
-[[ATTACHMENT|../../test-results/tests-performance-load-tim-5ba5d-page-within-acceptable-time-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|../../test-results/tests-performance-load-tim-5ba5d-page-within-acceptable-time-chromium/video.webm]]
-
-[[ATTACHMENT|../../test-results/tests-performance-load-tim-5ba5d-page-within-acceptable-time-chromium/error-context.md]]
-]]>
-</system-out>
-</testcase>
-<testcase name="Performance Tests › should meet Core Web Vitals standards" classname="tests/performance/load-time.spec.ts" time="7.922">
-<system-out>
-<![CDATA[Core Web Vitals: { FCP: [33m728[39m, TTI: [33m261[39m, LCP: [33m736[39m }
-]]>
-</system-out>
-</testcase>
-<testcase name="Performance Tests › should load search results quickly" classname="tests/performance/load-time.spec.ts" time="2.146">
-<system-out>
-<![CDATA[Search results load time: 969ms
-]]>
-</system-out>
-</testcase>
-<testcase name="Performance Tests › should load artist profile within acceptable time" classname="tests/performance/load-time.spec.ts" time="2.712">
-<system-out>
-<![CDATA[Artist profile load time: 762ms
-]]>
-</system-out>
-</testcase>
-<testcase name="Performance Tests › should fetch availability data quickly" classname="tests/performance/load-time.spec.ts" time="1.63">
-<system-out>
-<![CDATA[Availability calendar load time: 17ms
-]]>
-</system-out>
-</testcase>
-<testcase name="Performance Tests › should handle image loading efficiently" classname="tests/performance/load-time.spec.ts" time="2.416">
-<system-out>
-<![CDATA[Loaded 37 images
-Image: https://3000-ismw4r56ghxjg647vetcg-a6f21cbd.manusv... - 9.100000143051147ms - 4067 bytes
-Image: https://images.unsplash.com/photo-1460661419201-fd... - 71.29999995231628ms - 252012 bytes
-Image: https://images.unsplash.com/photo-1513364776144-60... - 67.5ms - 82057 bytes
-Image: https://images.unsplash.com/photo-1579783902614-a3... - 80.59999990463257ms - 235300 bytes
-Image: https://images.unsplash.com/photo-1506794778202-ca... - 73.90000009536743ms - 221479 bytes
-Image: https://images.unsplash.com/photo-1544005313-94ddf... - 75.5ms - 171555 bytes
-Image: https://files.manuscdn.com/user_upload_by_module/s... - 62.700000047683716ms - 0 bytes
-Image: https://files.manuscdn.com/user_upload_by_module/s... - 60.39999985694885ms - 0 bytes
-Image: https://files.manuscdn.com/user_upload_by_module/s... - 26.299999952316284ms - 0 bytes
-Image: https://files.manuscdn.com/user_upload_by_module/s... - 46.5ms - 0 bytes
-Image: https://files.manuscdn.com/user_upload_by_module/s... - 38ms - 0 bytes
-Image: https://files.manuscdn.com/user_upload_by_module/s... - 63.799999952316284ms - 0 bytes
-Image: https://files.manuscdn.com/user_upload_by_module/s... - 80.29999995231628ms - 0 bytes
-Image: https://files.manuscdn.com/user_upload_by_module/s... - 82.20000004768372ms - 0 bytes
-Image: https://files.manuscdn.com/user_upload_by_module/s... - 83.80000019073486ms - 0 bytes
-Image: https://files.manuscdn.com/user_upload_by_module/s... - 92.89999985694885ms - 0 bytes
-Image: https://files.manuscdn.com/user_upload_by_module/s... - 95.90000009536743ms - 0 bytes
-Image: https://files.manuscdn.com/user_upload_by_module/s... - 98.79999995231628ms - 0 bytes
-Image: https://files.manuscdn.com/user_upload_by_module/s... - 122ms - 0 bytes
-Image: https://files.manuscdn.com/user_upload_by_module/s... - 122.5ms - 0 bytes
-Image: https://files.manuscdn.com/user_upload_by_module/s... - 131.59999990463257ms - 0 bytes
-Image: https://files.manuscdn.com/user_upload_by_module/s... - 135.09999990463257ms - 0 bytes
-Image: https://files.manuscdn.com/user_upload_by_module/s... - 228.70000004768372ms - 0 bytes
-Image: https://files.manuscdn.com/user_upload_by_module/s... - 153.10000014305115ms - 0 bytes
-Image: https://files.manuscdn.com/user_upload_by_module/s... - 155.59999990463257ms - 0 bytes
-Image: https://files.manuscdn.com/user_upload_by_module/s... - 159.70000004768372ms - 0 bytes
-Image: https://files.manuscdn.com/user_upload_by_module/s... - 160.5ms - 0 bytes
-Image: https://files.manuscdn.com/user_upload_by_module/s... - 168.70000004768372ms - 0 bytes
-Image: https://files.manuscdn.com/user_upload_by_module/s... - 173.90000009536743ms - 0 bytes
-Image: https://files.manuscdn.com/user_upload_by_module/s... - 203.29999995231628ms - 0 bytes
-Image: https://files.manuscdn.com/user_upload_by_module/s... - 186.09999990463257ms - 0 bytes
-Image: https://files.manuscdn.com/user_upload_by_module/s... - 205.60000014305115ms - 0 bytes
-Image: https://files.manuscdn.com/user_upload_by_module/s... - 209.10000014305115ms - 0 bytes
-Image: https://files.manuscdn.com/user_upload_by_module/s... - 211.5ms - 0 bytes
-Image: https://files.manuscdn.com/user_upload_by_module/s... - 213.79999995231628ms - 0 bytes
-Image: https://files.manuscdn.com/user_upload_by_module/s... - 232.70000004768372ms - 0 bytes
-Image: https://files.manuscdn.com/user_upload_by_module/s... - 233.5ms - 0 bytes
-]]>
-</system-out>
-</testcase>
-<testcase name="Performance Tests › should handle concurrent API requests efficiently" classname="tests/performance/load-time.spec.ts" time="1.67">
-<system-out>
-<![CDATA[Concurrent API requests completed in: 752ms
-Request 1: 200 - https://3000-ismw4r56ghxjg647vetcg-a6f21cbd.manusvm.computer/api/trpc/auth.me,categories.list,artists.search?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%221%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%2C%222%22%3A%7B%22json%22%3A%7B%22searchTerm%22%3Anull%2C%22category%22%3Anull%2C%22location%22%3Anull%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22searchTerm%22%3A%5B%22undefined%22%5D%2C%22category%22%3A%5B%22undefined%22%5D%2C%22location%22%3A%5B%22undefined%22%5D%7D%7D%7D%7D
-]]>
-</system-out>
-</testcase>
-<testcase name="Performance Tests › should maintain performance under slow network conditions" classname="tests/performance/load-time.spec.ts" time="35.49">
-<failure message="load-time.spec.ts:226:7 should maintain performance under slow network conditions" type="FAILURE">
-<![CDATA[  [chromium] › tests/performance/load-time.spec.ts:226:7 › Performance Tests › should maintain performance under slow network conditions 
-
-    Error: expect(locator).toBeVisible() failed
-
-    Locator: locator('[data-testid="search-link"]')
-    Expected: visible
-    Timeout: 5000ms
-    Error: element(s) not found
-
-    Call log:
-      - Expect "toBeVisible" with timeout 5000ms
-      - waiting for locator('[data-testid="search-link"]')
-
-
-      246 |
-      247 |     // Verify critical content is visible
-    > 248 |     await expect(page.locator('[data-testid="search-link"]')).toBeVisible();
-          |                                                               ^
-      249 |   });
-      250 |
-      251 |   test('should optimize bundle size', async ({ page }) => {
-        at /home/ubuntu/solely-art-platform/e2e-tests/tests/performance/load-time.spec.ts:248:63
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    test-results/tests-performance-load-tim-33236-der-slow-network-conditions-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    test-results/tests-performance-load-tim-33236-der-slow-network-conditions-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: test-results/tests-performance-load-tim-33236-der-slow-network-conditions-chromium/error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[Page load time on slow 3G: 29341ms
-
-[[ATTACHMENT|../../test-results/tests-performance-load-tim-33236-der-slow-network-conditions-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|../../test-results/tests-performance-load-tim-33236-der-slow-network-conditions-chromium/video.webm]]
-
-[[ATTACHMENT|../../test-results/tests-performance-load-tim-33236-der-slow-network-conditions-chromium/error-context.md]]
-]]>
-</system-out>
-</testcase>
-<testcase name="Performance Tests › should optimize bundle size" classname="tests/performance/load-time.spec.ts" time="2.254">
-<system-out>
-<![CDATA[Total JavaScript size: 0.00 KB
-]]>
-</system-out>
-</testcase>
-<testcase name="Performance Tests › should cache resources effectively" classname="tests/performance/load-time.spec.ts" time="3.3">
-<system-out>
-<![CDATA[Cache statistics: { total: [33m123[39m, cached: [33m59[39m, cacheRate: [33m47.96747967479675[39m }
-  Total resources: 123
-  Cached resources: 59
-  Cache rate: 47.97%
-]]>
-</system-out>
-</testcase>
-<testcase name="Performance Tests › should handle booking flow without performance degradation" classname="tests/performance/load-time.spec.ts" time="3.965">
-<system-out>
-<![CDATA[✅ Client authenticated via storageState
-Booking flow timings:
-  search: 1328ms
-  profile: 84ms
-  bookingPage: 917ms
-  Total booking flow: 2329ms
-]]>
-</system-out>
-</testcase>
-<testcase name="Performance Tests › should measure and report Web Vitals for monitoring" classname="tests/performance/load-time.spec.ts" time="2.093">
-<system-out>
-<![CDATA[Performance Report:
-  DNS Lookup: 1ms
-  TCP Connection: 6ms
-  Time to First Byte: 12ms
-  Download: 12ms
-  DOM Processing: 563ms
-  DOM Content Loaded: 585ms
-  Page Load: 593ms
-  Resources Loaded: 121
-  JS Heap Used: 18.41 MB
-]]>
-</system-out>
-</testcase>
-</testsuite>
-<testsuite name="tests/regression/critical-paths.spec.ts" timestamp="2026-01-02T17:36:01.548Z" hostname="chromium" tests="12" failures="6" skipped="2" time="81.414" errors="0">
-<testcase name="Critical Path Regression Tests › regression: user login and logout flow" classname="tests/regression/critical-paths.spec.ts" time="2.235">
-<system-out>
-<![CDATA[✅ Client authenticated via storageState
-]]>
-</system-out>
-</testcase>
-<testcase name="Critical Path Regression Tests › regression: artist search functionality" classname="tests/regression/critical-paths.spec.ts" time="2.088">
-</testcase>
-<testcase name="Critical Path Regression Tests › regression: complete booking creation flow" classname="tests/regression/critical-paths.spec.ts" time="13.491">
-<failure message="critical-paths.spec.ts:63:7 regression: complete booking creation flow" type="FAILURE">
-<![CDATA[  [chromium] › tests/regression/critical-paths.spec.ts:63:7 › Critical Path Regression Tests › regression: complete booking creation flow 
-
-    TimeoutError: page.click: Timeout 10000ms exceeded.
-    Call log:
-      - waiting for locator('[data-testid="time-slot"]:not([disabled]):first-child')
-
-
-      75 |
-      76 |     // Select time
-    > 77 |     await page.click('[data-testid="time-slot"]:not([disabled]):first-child');
-         |                ^
-      78 |
-      79 |     // Select duration
-      80 |     await page.selectOption('[data-testid="duration-select"]', '60');
-        at /home/ubuntu/solely-art-platform/e2e-tests/tests/regression/critical-paths.spec.ts:77:16
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    test-results/tests-regression-critical--afa1a-plete-booking-creation-flow-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    test-results/tests-regression-critical--afa1a-plete-booking-creation-flow-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: test-results/tests-regression-critical--afa1a-plete-booking-creation-flow-chromium/error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[✅ Client authenticated via storageState
-
-[[ATTACHMENT|../../test-results/tests-regression-critical--afa1a-plete-booking-creation-flow-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|../../test-results/tests-regression-critical--afa1a-plete-booking-creation-flow-chromium/video.webm]]
-
-[[ATTACHMENT|../../test-results/tests-regression-critical--afa1a-plete-booking-creation-flow-chromium/error-context.md]]
-]]>
-</system-out>
-</testcase>
-<testcase name="Critical Path Regression Tests › regression: successful payment processing" classname="tests/regression/critical-paths.spec.ts" time="13.616">
-<failure message="critical-paths.spec.ts:96:7 regression: successful payment processing" type="FAILURE">
-<![CDATA[  [chromium] › tests/regression/critical-paths.spec.ts:96:7 › Critical Path Regression Tests › regression: successful payment processing 
-
-    TimeoutError: page.click: Timeout 10000ms exceeded.
-    Call log:
-      - waiting for locator('[data-testid="time-slot"]:not([disabled]):first-child')
-
-
-      103 |     await page.click('[data-testid="date-picker"]');
-      104 |     await page.click(`[data-date="${tomorrow.toISOString().split('T')[0]}"]`);
-    > 105 |     await page.click('[data-testid="time-slot"]:not([disabled]):first-child');
-          |                ^
-      106 |     await page.click('[data-testid="book-now-button"]');
-      107 |     await page.click('[data-testid="proceed-to-payment"]');
-      108 |
-        at /home/ubuntu/solely-art-platform/e2e-tests/tests/regression/critical-paths.spec.ts:105:16
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    test-results/tests-regression-critical--53a2c-ccessful-payment-processing-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    test-results/tests-regression-critical--53a2c-ccessful-payment-processing-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: test-results/tests-regression-critical--53a2c-ccessful-payment-processing-chromium/error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[✅ Client authenticated via storageState
-
-[[ATTACHMENT|../../test-results/tests-regression-critical--53a2c-ccessful-payment-processing-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|../../test-results/tests-regression-critical--53a2c-ccessful-payment-processing-chromium/video.webm]]
-
-[[ATTACHMENT|../../test-results/tests-regression-critical--53a2c-ccessful-payment-processing-chromium/error-context.md]]
-]]>
-</system-out>
-</testcase>
-<testcase name="Critical Path Regression Tests › regression: declined payment handling" classname="tests/regression/critical-paths.spec.ts" time="14.268">
-<failure message="critical-paths.spec.ts:125:7 regression: declined payment handling" type="FAILURE">
-<![CDATA[  [chromium] › tests/regression/critical-paths.spec.ts:125:7 › Critical Path Regression Tests › regression: declined payment handling 
-
-    TimeoutError: page.click: Timeout 10000ms exceeded.
-    Call log:
-      - waiting for locator('[data-testid="time-slot"]:not([disabled]):first-child')
-
-
-      132 |     await page.click('[data-testid="date-picker"]');
-      133 |     await page.click(`[data-date="${tomorrow.toISOString().split('T')[0]}"]`);
-    > 134 |     await page.click('[data-testid="time-slot"]:not([disabled]):first-child');
-          |                ^
-      135 |     await page.click('[data-testid="book-now-button"]');
-      136 |     await page.click('[data-testid="proceed-to-payment"]');
-      137 |
-        at /home/ubuntu/solely-art-platform/e2e-tests/tests/regression/critical-paths.spec.ts:134:16
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    test-results/tests-regression-critical--5073c-n-declined-payment-handling-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    test-results/tests-regression-critical--5073c-n-declined-payment-handling-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: test-results/tests-regression-critical--5073c-n-declined-payment-handling-chromium/error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[✅ Client authenticated via storageState
-
-[[ATTACHMENT|../../test-results/tests-regression-critical--5073c-n-declined-payment-handling-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|../../test-results/tests-regression-critical--5073c-n-declined-payment-handling-chromium/video.webm]]
-
-[[ATTACHMENT|../../test-results/tests-regression-critical--5073c-n-declined-payment-handling-chromium/error-context.md]]
-]]>
-</system-out>
-</testcase>
-<testcase name="Critical Path Regression Tests › regression: booking cancellation flow" classname="tests/regression/critical-paths.spec.ts" time="2.912">
-<properties>
-<property name="skip" value="">
-</property>
-</properties>
+<testcase name="authenticate as artist" classname="auth.setup.ts" time="0">
 <skipped>
 </skipped>
 </testcase>
-<testcase name="Critical Path Regression Tests › regression: send and receive messages" classname="tests/regression/critical-paths.spec.ts" time="1.958">
-<properties>
-<property name="skip" value="">
-</property>
-</properties>
+<testcase name="authenticate as admin" classname="auth.setup.ts" time="0">
 <skipped>
 </skipped>
 </testcase>
-<testcase name="Critical Path Regression Tests › regression: update user profile" classname="tests/regression/critical-paths.spec.ts" time="12.479">
-<failure message="critical-paths.spec.ts:225:7 regression: update user profile" type="FAILURE">
-<![CDATA[  [chromium] › tests/regression/critical-paths.spec.ts:225:7 › Critical Path Regression Tests › regression: update user profile 
-
-    TimeoutError: page.fill: Timeout 10000ms exceeded.
-    Call log:
-      - waiting for locator('[data-testid="bio-input"]')
-
-
-      229 |     // Update bio
-      230 |     const newBio = `Updated bio ${Date.now()}`;
-    > 231 |     await page.fill('[data-testid="bio-input"]', newBio);
-          |                ^
-      232 |
-      233 |     // Save changes
-      234 |     await page.click('[data-testid="save-profile"]');
-        at /home/ubuntu/solely-art-platform/e2e-tests/tests/regression/critical-paths.spec.ts:231:16
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    test-results/tests-regression-critical--040a3-ression-update-user-profile-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    test-results/tests-regression-critical--040a3-ression-update-user-profile-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: test-results/tests-regression-critical--040a3-ression-update-user-profile-chromium/error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[✅ Client authenticated via storageState
-
-[[ATTACHMENT|../../test-results/tests-regression-critical--040a3-ression-update-user-profile-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|../../test-results/tests-regression-critical--040a3-ression-update-user-profile-chromium/video.webm]]
-
-[[ATTACHMENT|../../test-results/tests-regression-critical--040a3-ression-update-user-profile-chromium/error-context.md]]
-]]>
-</system-out>
+</testsuite>
+<testsuite name="tests/e2e/complete-user-journey.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="chromium" tests="5" failures="0" skipped="5" time="0" errors="0">
+<testcase name="Complete User Journey - End-to-End Tests › E2E: New client signs up, books artist, completes payment, and communicates" classname="tests/e2e/complete-user-journey.spec.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="Critical Path Regression Tests › regression: main navigation links work correctly" classname="tests/regression/critical-paths.spec.ts" time="3.113">
+<testcase name="Complete User Journey - End-to-End Tests › E2E: Artist receives booking, manages schedule, and communicates with client" classname="tests/e2e/complete-user-journey.spec.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="Critical Path Regression Tests › regression: mobile viewport functionality" classname="tests/regression/critical-paths.spec.ts" time="11.861">
-<failure message="critical-paths.spec.ts:268:7 regression: mobile viewport functionality" type="FAILURE">
-<![CDATA[  [chromium] › tests/regression/critical-paths.spec.ts:268:7 › Critical Path Regression Tests › regression: mobile viewport functionality 
-
-    TimeoutError: page.click: Timeout 10000ms exceeded.
-    Call log:
-      - waiting for locator('[data-testid="mobile-menu-button"]')
-
-
-      274 |
-      275 |     // Verify mobile menu
-    > 276 |     await page.click('[data-testid="mobile-menu-button"]');
-          |                ^
-      277 |     await expect(page.locator('[data-testid="mobile-menu"]')).toBeVisible();
-      278 |
-      279 |     // Test mobile navigation
-        at /home/ubuntu/solely-art-platform/e2e-tests/tests/regression/critical-paths.spec.ts:276:16
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    test-results/tests-regression-critical--b861b-bile-viewport-functionality-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    test-results/tests-regression-critical--b861b-bile-viewport-functionality-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: test-results/tests-regression-critical--b861b-bile-viewport-functionality-chromium/error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[
-[[ATTACHMENT|../../test-results/tests-regression-critical--b861b-bile-viewport-functionality-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|../../test-results/tests-regression-critical--b861b-bile-viewport-functionality-chromium/video.webm]]
-
-[[ATTACHMENT|../../test-results/tests-regression-critical--b861b-bile-viewport-functionality-chromium/error-context.md]]
-]]>
-</system-out>
+<testcase name="Complete User Journey - End-to-End Tests › E2E: Client cancels booking and receives refund" classname="tests/e2e/complete-user-journey.spec.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="Critical Path Regression Tests › regression: form validation works correctly" classname="tests/regression/critical-paths.spec.ts" time="1.179">
-<failure message="critical-paths.spec.ts:294:7 regression: form validation works correctly" type="FAILURE">
-<![CDATA[  [chromium] › tests/regression/critical-paths.spec.ts:294:7 › Critical Path Regression Tests › regression: form validation works correctly 
-
-    Error: expect(locator).toBeVisible() failed
-
-    Locator: locator('text=Sign In')
-    Expected: visible
-    Error: strict mode violation: locator('text=Sign In') resolved to 3 elements:
-        1) <h2 class="mb-4 text-2xl font-bold" data-loc="client/src/pages/BecomeArtist.tsx:75">Please Sign In</h2> aka getByRole('heading', { name: 'Please Sign In' })
-        2) <p class="mb-4 text-muted-foreground" data-loc="client/src/pages/BecomeArtist.tsx:76">You need to sign in to create an artist profile</p> aka getByText('You need to sign in to create')
-        3) <a data-slot="button" data-loc="client/src/pages/BecomeArtist.tsx:78" href="https://manus.im/app-auth?appId=b8XDdB8n6irgSrJYrYA6i8&redirectUri=https%3A%2F%2F3000-ismw4r56ghxjg647vetcg-a6f21cbd.manusvm.computer%2Fapi%2Foauth%2Fcallback&state=aHR0cHM6Ly8zMDAwLWlzbXc0cjU2Z2h4amc2NDd2ZXRjZy1hNmYyMWNiZC5tYW51c3ZtLmNvbXB1dGVyL2FwaS9vYXV0aC9jYWxsYmFjaw%3D%3D&type=signIn" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-…>Sign In</a> aka getByRole('link', { name: 'Sign In' })
-
-    Call log:
-      - Expect "toBeVisible" with timeout 5000ms
-      - waiting for locator('text=Sign In')
-
-
-      309 |     } else {
-      310 |       // User not authenticated - verify sign-in prompt is shown
-    > 311 |       await expect(page.locator('text=Sign In')).toBeVisible();
-          |                                                  ^
-      312 |     }
-      313 |   });
-      314 |
-        at /home/ubuntu/solely-art-platform/e2e-tests/tests/regression/critical-paths.spec.ts:311:50
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    test-results/tests-regression-critical--1f577--validation-works-correctly-chromium/test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    test-results/tests-regression-critical--1f577--validation-works-correctly-chromium/video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: test-results/tests-regression-critical--1f577--validation-works-correctly-chromium/error-context.md
-]]>
-</failure>
-<system-out>
-<![CDATA[
-[[ATTACHMENT|../../test-results/tests-regression-critical--1f577--validation-works-correctly-chromium/test-failed-1.png]]
-
-[[ATTACHMENT|../../test-results/tests-regression-critical--1f577--validation-works-correctly-chromium/video.webm]]
-
-[[ATTACHMENT|../../test-results/tests-regression-critical--1f577--validation-works-correctly-chromium/error-context.md]]
-]]>
-</system-out>
+<testcase name="Complete User Journey - End-to-End Tests › E2E: Multi-device sync - actions on desktop reflect on mobile" classname="tests/e2e/complete-user-journey.spec.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="Critical Path Regression Tests › regression: 404 page displays correctly" classname="tests/regression/critical-paths.spec.ts" time="2.214">
+<testcase name="Complete User Journey - End-to-End Tests › E2E: Complete booking lifecycle from creation to completion" classname="tests/e2e/complete-user-journey.spec.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
 </testsuite>
-<testsuite name="tests/unit/availability-calculator.spec.ts" timestamp="2026-01-02T17:36:01.548Z" hostname="chromium" tests="4" failures="0" skipped="0" time="7.712" errors="0">
-<testcase name="Availability Calculator - Unit Tests › should calculate available time slots correctly" classname="tests/unit/availability-calculator.spec.ts" time="2.401">
+<testsuite name="tests/functional/booking-workflow.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="chromium" tests="10" failures="0" skipped="10" time="0" errors="0">
+<testcase name="Booking Workflow - Functional Tests › should allow client to search for artists by name" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="Availability Calculator - Unit Tests › should handle edge cases in availability calculation" classname="tests/unit/availability-calculator.spec.ts" time="1.881">
+<testcase name="Booking Workflow - Functional Tests › should allow client to filter artists by category" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="Availability Calculator - Unit Tests › should validate booking policy rules" classname="tests/unit/availability-calculator.spec.ts" time="1.723">
+<testcase name="Booking Workflow - Functional Tests › should display artist profile with all required information" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
-<testcase name="Availability Calculator - Unit Tests › should calculate booking price correctly" classname="tests/unit/availability-calculator.spec.ts" time="1.707">
+<testcase name="Booking Workflow - Functional Tests › should show availability preview on artist profile" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should navigate from artist profile to booking page" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should display booking page with services (Step 1)" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should show calendar after selecting a service (Step 2)" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should display calendar with date selection in Step 2" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should show time slots after selecting a date" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should complete full booking flow through all steps" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/integration/booking-payment-integration.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="chromium" tests="6" failures="0" skipped="6" time="0" errors="0">
+<testcase name="Booking and Payment Integration Tests › should integrate booking creation with database" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking and Payment Integration Tests › should integrate booking with payment processing" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking and Payment Integration Tests › should integrate booking cancellation with refund processing" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking and Payment Integration Tests › should integrate availability check with booking creation" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking and Payment Integration Tests › should handle concurrent booking attempts (race condition)" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking and Payment Integration Tests › should integrate messaging with booking confirmation" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/performance/load-time.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="chromium" tests="12" failures="0" skipped="12" time="0" errors="0">
+<testcase name="Performance Tests › should load home page within acceptable time" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should meet Core Web Vitals standards" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should load search results quickly" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should load artist profile within acceptable time" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should fetch availability data quickly" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should handle image loading efficiently" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should handle concurrent API requests efficiently" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should maintain performance under slow network conditions" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should optimize bundle size" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should cache resources effectively" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should handle booking flow without performance degradation" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should measure and report Web Vitals for monitoring" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/regression/critical-paths.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="chromium" tests="12" failures="0" skipped="12" time="0" errors="0">
+<testcase name="Critical Path Regression Tests › regression: user login and logout flow" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: artist search functionality" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: complete booking creation flow" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: successful payment processing" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: declined payment handling" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: booking cancellation flow" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: send and receive messages" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: update user profile" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: main navigation links work correctly" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: mobile viewport functionality" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: form validation works correctly" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: 404 page displays correctly" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/unit/availability-calculator.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="chromium" tests="4" failures="0" skipped="4" time="0" errors="0">
+<testcase name="Availability Calculator - Unit Tests › should calculate available time slots correctly" classname="tests/unit/availability-calculator.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Availability Calculator - Unit Tests › should handle edge cases in availability calculation" classname="tests/unit/availability-calculator.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Availability Calculator - Unit Tests › should validate booking policy rules" classname="tests/unit/availability-calculator.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Availability Calculator - Unit Tests › should calculate booking price correctly" classname="tests/unit/availability-calculator.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/e2e/complete-user-journey.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="firefox" tests="5" failures="0" skipped="5" time="0" errors="0">
+<testcase name="Complete User Journey - End-to-End Tests › E2E: New client signs up, books artist, completes payment, and communicates" classname="tests/e2e/complete-user-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - End-to-End Tests › E2E: Artist receives booking, manages schedule, and communicates with client" classname="tests/e2e/complete-user-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - End-to-End Tests › E2E: Client cancels booking and receives refund" classname="tests/e2e/complete-user-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - End-to-End Tests › E2E: Multi-device sync - actions on desktop reflect on mobile" classname="tests/e2e/complete-user-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - End-to-End Tests › E2E: Complete booking lifecycle from creation to completion" classname="tests/e2e/complete-user-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/functional/booking-workflow.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="firefox" tests="10" failures="0" skipped="10" time="0" errors="0">
+<testcase name="Booking Workflow - Functional Tests › should allow client to search for artists by name" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should allow client to filter artists by category" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should display artist profile with all required information" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should show availability preview on artist profile" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should navigate from artist profile to booking page" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should display booking page with services (Step 1)" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should show calendar after selecting a service (Step 2)" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should display calendar with date selection in Step 2" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should show time slots after selecting a date" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should complete full booking flow through all steps" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/integration/booking-payment-integration.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="firefox" tests="6" failures="0" skipped="6" time="0" errors="0">
+<testcase name="Booking and Payment Integration Tests › should integrate booking creation with database" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking and Payment Integration Tests › should integrate booking with payment processing" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking and Payment Integration Tests › should integrate booking cancellation with refund processing" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking and Payment Integration Tests › should integrate availability check with booking creation" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking and Payment Integration Tests › should handle concurrent booking attempts (race condition)" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking and Payment Integration Tests › should integrate messaging with booking confirmation" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/performance/load-time.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="firefox" tests="12" failures="0" skipped="12" time="0" errors="0">
+<testcase name="Performance Tests › should load home page within acceptable time" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should meet Core Web Vitals standards" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should load search results quickly" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should load artist profile within acceptable time" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should fetch availability data quickly" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should handle image loading efficiently" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should handle concurrent API requests efficiently" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should maintain performance under slow network conditions" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should optimize bundle size" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should cache resources effectively" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should handle booking flow without performance degradation" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should measure and report Web Vitals for monitoring" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/regression/critical-paths.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="firefox" tests="12" failures="0" skipped="12" time="0" errors="0">
+<testcase name="Critical Path Regression Tests › regression: user login and logout flow" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: artist search functionality" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: complete booking creation flow" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: successful payment processing" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: declined payment handling" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: booking cancellation flow" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: send and receive messages" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: update user profile" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: main navigation links work correctly" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: mobile viewport functionality" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: form validation works correctly" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: 404 page displays correctly" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/unit/availability-calculator.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="firefox" tests="4" failures="0" skipped="4" time="0" errors="0">
+<testcase name="Availability Calculator - Unit Tests › should calculate available time slots correctly" classname="tests/unit/availability-calculator.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Availability Calculator - Unit Tests › should handle edge cases in availability calculation" classname="tests/unit/availability-calculator.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Availability Calculator - Unit Tests › should validate booking policy rules" classname="tests/unit/availability-calculator.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Availability Calculator - Unit Tests › should calculate booking price correctly" classname="tests/unit/availability-calculator.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/e2e/complete-user-journey.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="webkit" tests="5" failures="0" skipped="5" time="0" errors="0">
+<testcase name="Complete User Journey - End-to-End Tests › E2E: New client signs up, books artist, completes payment, and communicates" classname="tests/e2e/complete-user-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - End-to-End Tests › E2E: Artist receives booking, manages schedule, and communicates with client" classname="tests/e2e/complete-user-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - End-to-End Tests › E2E: Client cancels booking and receives refund" classname="tests/e2e/complete-user-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - End-to-End Tests › E2E: Multi-device sync - actions on desktop reflect on mobile" classname="tests/e2e/complete-user-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - End-to-End Tests › E2E: Complete booking lifecycle from creation to completion" classname="tests/e2e/complete-user-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/functional/booking-workflow.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="webkit" tests="10" failures="0" skipped="10" time="0" errors="0">
+<testcase name="Booking Workflow - Functional Tests › should allow client to search for artists by name" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should allow client to filter artists by category" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should display artist profile with all required information" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should show availability preview on artist profile" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should navigate from artist profile to booking page" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should display booking page with services (Step 1)" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should show calendar after selecting a service (Step 2)" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should display calendar with date selection in Step 2" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should show time slots after selecting a date" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should complete full booking flow through all steps" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/integration/booking-payment-integration.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="webkit" tests="6" failures="0" skipped="6" time="0" errors="0">
+<testcase name="Booking and Payment Integration Tests › should integrate booking creation with database" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking and Payment Integration Tests › should integrate booking with payment processing" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking and Payment Integration Tests › should integrate booking cancellation with refund processing" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking and Payment Integration Tests › should integrate availability check with booking creation" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking and Payment Integration Tests › should handle concurrent booking attempts (race condition)" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking and Payment Integration Tests › should integrate messaging with booking confirmation" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/performance/load-time.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="webkit" tests="12" failures="0" skipped="12" time="0" errors="0">
+<testcase name="Performance Tests › should load home page within acceptable time" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should meet Core Web Vitals standards" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should load search results quickly" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should load artist profile within acceptable time" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should fetch availability data quickly" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should handle image loading efficiently" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should handle concurrent API requests efficiently" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should maintain performance under slow network conditions" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should optimize bundle size" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should cache resources effectively" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should handle booking flow without performance degradation" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should measure and report Web Vitals for monitoring" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/regression/critical-paths.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="webkit" tests="12" failures="0" skipped="12" time="0" errors="0">
+<testcase name="Critical Path Regression Tests › regression: user login and logout flow" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: artist search functionality" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: complete booking creation flow" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: successful payment processing" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: declined payment handling" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: booking cancellation flow" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: send and receive messages" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: update user profile" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: main navigation links work correctly" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: mobile viewport functionality" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: form validation works correctly" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: 404 page displays correctly" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/unit/availability-calculator.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="webkit" tests="4" failures="0" skipped="4" time="0" errors="0">
+<testcase name="Availability Calculator - Unit Tests › should calculate available time slots correctly" classname="tests/unit/availability-calculator.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Availability Calculator - Unit Tests › should handle edge cases in availability calculation" classname="tests/unit/availability-calculator.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Availability Calculator - Unit Tests › should validate booking policy rules" classname="tests/unit/availability-calculator.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Availability Calculator - Unit Tests › should calculate booking price correctly" classname="tests/unit/availability-calculator.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/e2e/complete-user-journey.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="mobile-chrome" tests="5" failures="0" skipped="5" time="0" errors="0">
+<testcase name="Complete User Journey - End-to-End Tests › E2E: New client signs up, books artist, completes payment, and communicates" classname="tests/e2e/complete-user-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - End-to-End Tests › E2E: Artist receives booking, manages schedule, and communicates with client" classname="tests/e2e/complete-user-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - End-to-End Tests › E2E: Client cancels booking and receives refund" classname="tests/e2e/complete-user-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - End-to-End Tests › E2E: Multi-device sync - actions on desktop reflect on mobile" classname="tests/e2e/complete-user-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - End-to-End Tests › E2E: Complete booking lifecycle from creation to completion" classname="tests/e2e/complete-user-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/functional/booking-workflow.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="mobile-chrome" tests="10" failures="0" skipped="10" time="0" errors="0">
+<testcase name="Booking Workflow - Functional Tests › should allow client to search for artists by name" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should allow client to filter artists by category" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should display artist profile with all required information" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should show availability preview on artist profile" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should navigate from artist profile to booking page" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should display booking page with services (Step 1)" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should show calendar after selecting a service (Step 2)" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should display calendar with date selection in Step 2" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should show time slots after selecting a date" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should complete full booking flow through all steps" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/integration/booking-payment-integration.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="mobile-chrome" tests="6" failures="0" skipped="6" time="0" errors="0">
+<testcase name="Booking and Payment Integration Tests › should integrate booking creation with database" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking and Payment Integration Tests › should integrate booking with payment processing" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking and Payment Integration Tests › should integrate booking cancellation with refund processing" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking and Payment Integration Tests › should integrate availability check with booking creation" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking and Payment Integration Tests › should handle concurrent booking attempts (race condition)" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking and Payment Integration Tests › should integrate messaging with booking confirmation" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/performance/load-time.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="mobile-chrome" tests="12" failures="0" skipped="12" time="0" errors="0">
+<testcase name="Performance Tests › should load home page within acceptable time" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should meet Core Web Vitals standards" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should load search results quickly" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should load artist profile within acceptable time" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should fetch availability data quickly" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should handle image loading efficiently" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should handle concurrent API requests efficiently" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should maintain performance under slow network conditions" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should optimize bundle size" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should cache resources effectively" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should handle booking flow without performance degradation" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should measure and report Web Vitals for monitoring" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/regression/critical-paths.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="mobile-chrome" tests="12" failures="0" skipped="12" time="0" errors="0">
+<testcase name="Critical Path Regression Tests › regression: user login and logout flow" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: artist search functionality" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: complete booking creation flow" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: successful payment processing" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: declined payment handling" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: booking cancellation flow" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: send and receive messages" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: update user profile" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: main navigation links work correctly" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: mobile viewport functionality" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: form validation works correctly" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: 404 page displays correctly" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/unit/availability-calculator.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="mobile-chrome" tests="4" failures="0" skipped="4" time="0" errors="0">
+<testcase name="Availability Calculator - Unit Tests › should calculate available time slots correctly" classname="tests/unit/availability-calculator.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Availability Calculator - Unit Tests › should handle edge cases in availability calculation" classname="tests/unit/availability-calculator.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Availability Calculator - Unit Tests › should validate booking policy rules" classname="tests/unit/availability-calculator.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Availability Calculator - Unit Tests › should calculate booking price correctly" classname="tests/unit/availability-calculator.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/e2e/complete-user-journey.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="mobile-safari" tests="5" failures="0" skipped="5" time="0" errors="0">
+<testcase name="Complete User Journey - End-to-End Tests › E2E: New client signs up, books artist, completes payment, and communicates" classname="tests/e2e/complete-user-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - End-to-End Tests › E2E: Artist receives booking, manages schedule, and communicates with client" classname="tests/e2e/complete-user-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - End-to-End Tests › E2E: Client cancels booking and receives refund" classname="tests/e2e/complete-user-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - End-to-End Tests › E2E: Multi-device sync - actions on desktop reflect on mobile" classname="tests/e2e/complete-user-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - End-to-End Tests › E2E: Complete booking lifecycle from creation to completion" classname="tests/e2e/complete-user-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/functional/booking-workflow.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="mobile-safari" tests="10" failures="0" skipped="10" time="0" errors="0">
+<testcase name="Booking Workflow - Functional Tests › should allow client to search for artists by name" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should allow client to filter artists by category" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should display artist profile with all required information" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should show availability preview on artist profile" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should navigate from artist profile to booking page" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should display booking page with services (Step 1)" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should show calendar after selecting a service (Step 2)" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should display calendar with date selection in Step 2" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should show time slots after selecting a date" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should complete full booking flow through all steps" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/integration/booking-payment-integration.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="mobile-safari" tests="6" failures="0" skipped="6" time="0" errors="0">
+<testcase name="Booking and Payment Integration Tests › should integrate booking creation with database" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking and Payment Integration Tests › should integrate booking with payment processing" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking and Payment Integration Tests › should integrate booking cancellation with refund processing" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking and Payment Integration Tests › should integrate availability check with booking creation" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking and Payment Integration Tests › should handle concurrent booking attempts (race condition)" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking and Payment Integration Tests › should integrate messaging with booking confirmation" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/performance/load-time.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="mobile-safari" tests="12" failures="0" skipped="12" time="0" errors="0">
+<testcase name="Performance Tests › should load home page within acceptable time" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should meet Core Web Vitals standards" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should load search results quickly" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should load artist profile within acceptable time" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should fetch availability data quickly" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should handle image loading efficiently" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should handle concurrent API requests efficiently" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should maintain performance under slow network conditions" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should optimize bundle size" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should cache resources effectively" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should handle booking flow without performance degradation" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should measure and report Web Vitals for monitoring" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/regression/critical-paths.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="mobile-safari" tests="12" failures="0" skipped="12" time="0" errors="0">
+<testcase name="Critical Path Regression Tests › regression: user login and logout flow" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: artist search functionality" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: complete booking creation flow" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: successful payment processing" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: declined payment handling" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: booking cancellation flow" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: send and receive messages" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: update user profile" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: main navigation links work correctly" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: mobile viewport functionality" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: form validation works correctly" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: 404 page displays correctly" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/unit/availability-calculator.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="mobile-safari" tests="4" failures="0" skipped="4" time="0" errors="0">
+<testcase name="Availability Calculator - Unit Tests › should calculate available time slots correctly" classname="tests/unit/availability-calculator.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Availability Calculator - Unit Tests › should handle edge cases in availability calculation" classname="tests/unit/availability-calculator.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Availability Calculator - Unit Tests › should validate booking policy rules" classname="tests/unit/availability-calculator.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Availability Calculator - Unit Tests › should calculate booking price correctly" classname="tests/unit/availability-calculator.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/e2e/complete-user-journey.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="tablet" tests="5" failures="0" skipped="5" time="0" errors="0">
+<testcase name="Complete User Journey - End-to-End Tests › E2E: New client signs up, books artist, completes payment, and communicates" classname="tests/e2e/complete-user-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - End-to-End Tests › E2E: Artist receives booking, manages schedule, and communicates with client" classname="tests/e2e/complete-user-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - End-to-End Tests › E2E: Client cancels booking and receives refund" classname="tests/e2e/complete-user-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - End-to-End Tests › E2E: Multi-device sync - actions on desktop reflect on mobile" classname="tests/e2e/complete-user-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Complete User Journey - End-to-End Tests › E2E: Complete booking lifecycle from creation to completion" classname="tests/e2e/complete-user-journey.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/functional/booking-workflow.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="tablet" tests="10" failures="0" skipped="10" time="0" errors="0">
+<testcase name="Booking Workflow - Functional Tests › should allow client to search for artists by name" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should allow client to filter artists by category" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should display artist profile with all required information" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should show availability preview on artist profile" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should navigate from artist profile to booking page" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should display booking page with services (Step 1)" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should show calendar after selecting a service (Step 2)" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should display calendar with date selection in Step 2" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should show time slots after selecting a date" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking Workflow - Functional Tests › should complete full booking flow through all steps" classname="tests/functional/booking-workflow.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/integration/booking-payment-integration.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="tablet" tests="6" failures="0" skipped="6" time="0" errors="0">
+<testcase name="Booking and Payment Integration Tests › should integrate booking creation with database" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking and Payment Integration Tests › should integrate booking with payment processing" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking and Payment Integration Tests › should integrate booking cancellation with refund processing" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking and Payment Integration Tests › should integrate availability check with booking creation" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking and Payment Integration Tests › should handle concurrent booking attempts (race condition)" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Booking and Payment Integration Tests › should integrate messaging with booking confirmation" classname="tests/integration/booking-payment-integration.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/performance/load-time.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="tablet" tests="12" failures="0" skipped="12" time="0" errors="0">
+<testcase name="Performance Tests › should load home page within acceptable time" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should meet Core Web Vitals standards" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should load search results quickly" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should load artist profile within acceptable time" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should fetch availability data quickly" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should handle image loading efficiently" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should handle concurrent API requests efficiently" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should maintain performance under slow network conditions" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should optimize bundle size" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should cache resources effectively" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should handle booking flow without performance degradation" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Performance Tests › should measure and report Web Vitals for monitoring" classname="tests/performance/load-time.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/regression/critical-paths.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="tablet" tests="12" failures="0" skipped="12" time="0" errors="0">
+<testcase name="Critical Path Regression Tests › regression: user login and logout flow" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: artist search functionality" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: complete booking creation flow" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: successful payment processing" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: declined payment handling" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: booking cancellation flow" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: send and receive messages" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: update user profile" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: main navigation links work correctly" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: mobile viewport functionality" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: form validation works correctly" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Critical Path Regression Tests › regression: 404 page displays correctly" classname="tests/regression/critical-paths.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+<testsuite name="tests/unit/availability-calculator.spec.ts" timestamp="2026-01-02T19:58:18.654Z" hostname="tablet" tests="4" failures="0" skipped="4" time="0" errors="0">
+<testcase name="Availability Calculator - Unit Tests › should calculate available time slots correctly" classname="tests/unit/availability-calculator.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Availability Calculator - Unit Tests › should handle edge cases in availability calculation" classname="tests/unit/availability-calculator.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Availability Calculator - Unit Tests › should validate booking policy rules" classname="tests/unit/availability-calculator.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Availability Calculator - Unit Tests › should calculate booking price correctly" classname="tests/unit/availability-calculator.spec.ts" time="0">
+<skipped>
+</skipped>
 </testcase>
 </testsuite>
 </testsuites>

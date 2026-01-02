@@ -41,6 +41,9 @@ export default defineConfig({
       deny: ["**/.*"],
     },
     watch: {
+      // Use Watchman if available (falls back to native if not)
+      // Disable polling to use native/watchman events
+      usePolling: false,
       // Ignore large directories to reduce file watchers and prevent EMFILE errors
       ignored: [
         '**/node_modules/**',
