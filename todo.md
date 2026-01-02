@@ -905,7 +905,7 @@
 - [ ] Add data-testid="loading-spinner" to loading indicators
 
 ### Verification
-- [ ] Run full Playwright test suite
+- [x] Run full Playwright test suite (in progress)
 - [ ] Verify auth-related tests pass
 - [ ] Verify test ID-related tests pass
 
@@ -945,3 +945,10 @@
 - [x] Added graceful-fs preload to handle EMFILE errors
 - [x] Updated dev script to run without file watcher
 - [x] All 3 auth setup tests now pass] Verify all 294 tests can run after fix
+
+## Watchman Installation & Full Test Suite - January 2, 2026
+- [x] Install Facebook Watchman on the system (v2023.07.03)
+- [x] Diagnose why test-auth endpoint returns success: false (working correctly)
+- [x] Fix the test-auth endpoint issue (no fix needed - was already working)
+- [x] Run full Playwright test suite (in progress)
+- [ ] Report test results
