@@ -150,7 +150,7 @@ export default function BookArtist() {
         </div>
       </header>
 
-      <div className="container py-8 max-w-6xl">
+      <div data-testid="booking-form" className="container py-8 max-w-6xl">
         {/* Artist Info Banner */}
         <Card className="mb-8 shadow-elegant">
           <CardContent className="p-6">

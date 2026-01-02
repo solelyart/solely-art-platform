@@ -7,7 +7,7 @@ import asyncio
 import os
 from playwright.async_api import async_playwright
 
-BASE_URL = "https://3000-ismw4r56ghxjg647vetcg-a6f21cbd.manusvm.computer"
+BASE_URL = os.environ.get("BASE_URL", "http://localhost:3000")
 OUTPUT_DIR = "/home/ubuntu/solely-art-copyright/screenshots"
 
 PAGES = [

@@ -205,7 +205,7 @@ export function BookingCalendar({
         </div>
 
         {isLoading ? (
-          <div className="flex items-center justify-center py-12">
+          <div data-testid="loading-spinner" className="flex items-center justify-center py-12">
             <Loader2 className="h-8 w-8 animate-spin text-primary" />
           </div>
         ) : (

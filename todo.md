@@ -886,3 +886,43 @@
 - [ ] Fix cross-domain cookie handling in Playwright tests
 - [ ] Add missing data-testid attributes to UI components
 - [ ] Update test fixtures for new auth flow
+
+
+## E2E Test Fixes - January 2, 2026
+
+### Option A: Refactor to Official storageState Pattern
+- [ ] Create auth.setup.ts with storageState pattern
+- [ ] Create playwright/.auth directory and add to .gitignore
+- [ ] Update playwright.config.ts with setup project dependencies
+- [ ] Update test files to remove custom auth fixture usage
+- [ ] Simplify auth.fixture.ts to use storageState
+
+### Option C: Add Missing Test IDs
+- [ ] Add data-testid="404-page" to 404 error page
+- [ ] Add data-testid="booking-form" to booking form
+- [ ] Add data-testid="payment-form" to payment form
+- [ ] Add data-testid="error-message" to error displays
+- [ ] Add data-testid="loading-spinner" to loading indicators
+
+### Verification
+- [ ] Run full Playwright test suite
+- [ ] Verify auth-related tests pass
+- [ ] Verify test ID-related tests pass
+
+
+## URL Configuration Fix - January 2, 2026
+### Fix Absolute URLs to Relative URLs
+- [x] Update tRPC client configuration to use relative URLs (already correct - uses `/api/trpc`)
+- [x] Update Python screenshot scripts to use `os.environ.get("BASE_URL")` instead of hardcoded URLs
+- [x] Add Playwright auth files to .gitignore (e2e-tests/playwright/.auth/)
+- [x] Verify fix works with Playwright E2E tests
+
+**Test Results (January 2, 2026):**
+- 31 passed (60%)
+- 18 failed (35%) - mostly missing UI elements (payment forms, booking forms)
+- 3 skipped (5%)
+
+**Remaining failures are due to missing features:**
+- Payment processing UI not implemented
+- Booking form elements missing test IDs
+- 404 page missing `back-to-home` button

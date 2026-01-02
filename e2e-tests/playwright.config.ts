@@ -1,10 +1,16 @@
 import { defineConfig, devices } from '@playwright/test';
 import { testConfig } from './playwright.env';
+import path from 'path';
 
 /**
  * Playwright Configuration for Solely Art Platform
  * 
- * This configuration supports multiple testing types:
+ * This configuration uses the official Playwright storageState pattern:
+ * - Setup project runs first to authenticate test users
+ * - Auth state is saved to JSON files in playwright/.auth/
+ * - Browser projects depend on setup and reuse auth state
+ * 
+ * Testing types supported:
  * - Unit tests
  * - Integration tests
  * - Functional tests
@@ -12,9 +18,16 @@ import { testConfig } from './playwright.env';
  * - Performance tests
  * - End-to-end tests
  */
+
+// Auth state file paths
+const authDir = path.join(__dirname, 'playwright/.auth');
+const clientAuthFile = path.join(authDir, 'client.json');
+const artistAuthFile = path.join(authDir, 'artist.json');
+const adminAuthFile = path.join(authDir, 'admin.json');
+
 export default defineConfig({
-  // Test directory
-  testDir: './tests',
+  // Test directories - include root for setup files
+  testDir: '.',
 
   // Maximum time one test can run
   timeout: 60 * 1000,
@@ -54,57 +67,126 @@ export default defineConfig({
     actionTimeout: 10 * 1000,
   },
 
-  // Configure projects for major browsers
+  // Configure projects with setup dependencies
   projects: [
-    // Chromium - Desktop
+    // ============================================
+    // SETUP PROJECT - Authenticates all test users
+    // ============================================
+    {
+      name: 'setup',
+      testMatch: /auth\.setup\.ts/,
+    },
+
+    // ============================================
+    // AUTHENTICATED BROWSER PROJECTS
+    // These depend on setup and use client auth state by default
+    // ============================================
+    
+    // Chromium - Desktop (with client auth)
     {
       name: 'chromium',
       use: { 
         ...devices['Desktop Chrome'],
         viewport: { width: 1920, height: 1080 },
+        storageState: clientAuthFile,
       },
+      dependencies: ['setup'],
     },
 
-    // Firefox - Desktop
+    // Firefox - Desktop (with client auth)
     {
       name: 'firefox',
       use: { 
         ...devices['Desktop Firefox'],
         viewport: { width: 1920, height: 1080 },
+        storageState: clientAuthFile,
       },
+      dependencies: ['setup'],
     },
 
-    // WebKit - Desktop
+    // WebKit - Desktop (with client auth)
     {
       name: 'webkit',
       use: { 
         ...devices['Desktop Safari'],
         viewport: { width: 1920, height: 1080 },
+        storageState: clientAuthFile,
       },
+      dependencies: ['setup'],
     },
 
-    // Mobile Chrome
+    // Mobile Chrome (with client auth)
     {
       name: 'mobile-chrome',
       use: { 
         ...devices['Pixel 5'],
+        storageState: clientAuthFile,
       },
+      dependencies: ['setup'],
     },
 
-    // Mobile Safari
+    // Mobile Safari (with client auth)
     {
       name: 'mobile-safari',
       use: { 
         ...devices['iPhone 13'],
+        storageState: clientAuthFile,
       },
+      dependencies: ['setup'],
     },
 
-    // Tablet
+    // Tablet (with client auth)
     {
       name: 'tablet',
       use: { 
         ...devices['iPad Pro'],
+        storageState: clientAuthFile,
       },
+      dependencies: ['setup'],
+    },
+
+    // ============================================
+    // ROLE-SPECIFIC PROJECTS
+    // For tests that need specific user roles
+    // ============================================
+    
+    // Artist-specific tests
+    {
+      name: 'chromium-artist',
+      use: { 
+        ...devices['Desktop Chrome'],
+        viewport: { width: 1920, height: 1080 },
+        storageState: artistAuthFile,
+      },
+      dependencies: ['setup'],
+      testMatch: /.*artist.*\.spec\.ts/,
+    },
+
+    // Admin-specific tests
+    {
+      name: 'chromium-admin',
+      use: { 
+        ...devices['Desktop Chrome'],
+        viewport: { width: 1920, height: 1080 },
+        storageState: adminAuthFile,
+      },
+      dependencies: ['setup'],
+      testMatch: /.*admin.*\.spec\.ts/,
+    },
+
+    // ============================================
+    // UNAUTHENTICATED PROJECT
+    // For tests that should run without auth
+    // ============================================
+    {
+      name: 'chromium-no-auth',
+      use: { 
+        ...devices['Desktop Chrome'],
+        viewport: { width: 1920, height: 1080 },
+        // No storageState - runs unauthenticated
+      },
+      // No dependencies - runs without setup
+      testMatch: /.*unauthenticated.*\.spec\.ts|.*public.*\.spec\.ts/,
     },
   ],
 

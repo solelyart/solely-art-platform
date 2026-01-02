@@ -105,3 +105,9 @@ temp/
 *.db
 *.sqlite
 *.sqlite3
+
+# Playwright E2E Testing
+e2e-tests/playwright/.auth/
+e2e-tests/test-results/
+e2e-tests/playwright-report/
+e2e-tests/reports/
