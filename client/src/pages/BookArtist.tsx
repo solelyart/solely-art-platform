@@ -11,6 +11,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { BookingCalendar } from "@/components/BookingCalendar";
 import { Palette, ArrowLeft, CheckCircle2, Loader2 } from "lucide-react";
+import { HeaderLogo, FooterLogo } from "@/components/ResponsiveLogo";
 // Toast functionality to be added later
 
 export default function BookArtist() {
@@ -70,13 +71,7 @@ export default function BookArtist() {
       <div className="min-h-screen bg-background">
         <header className="glass-effect sticky top-0 z-50 border-b border-border/50">
           <div className="container flex h-20 items-center justify-between">
-            <Link href="/" className="flex items-center gap-2 group">
-              <img 
-                src="/brand/sla-header-logo.png" 
-                alt="Solely Art" 
-                className="h-10 w-auto transition-transform group-hover:scale-105" 
-              />
-            </Link>
+            <HeaderLogo />
           </div>
         </header>
         <div className="container py-8 flex items-center justify-center min-h-[60vh]">
@@ -144,13 +139,7 @@ export default function BookArtist() {
       {/* Header */}
       <header className="glass-effect sticky top-0 z-50 border-b border-border/50">
         <div className="container flex h-20 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group">
-            <img 
-              src="/brand/sla-header-logo.png" 
-              alt="Solely Art" 
-              className="h-10 w-auto transition-transform group-hover:scale-105" 
-            />
-          </Link>
+          <HeaderLogo />
           
           <Button variant="ghost" asChild>
             <Link href={`/artist/${artistId}`}>

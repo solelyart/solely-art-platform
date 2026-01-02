@@ -26,6 +26,7 @@ import { CSSProperties, useEffect, useRef, useState } from "react";
 import { useLocation } from "wouter";
 import { DashboardLayoutSkeleton } from './DashboardLayoutSkeleton';
 import { Button } from "./ui/button";
+import { HeaderLogo, FooterLogo } from "@/components/ResponsiveLogo";
 
 const menuItems = [
   { icon: LayoutDashboard, label: "Page 1", path: "/" },
@@ -170,11 +171,7 @@ function DashboardLayoutContent({
               </button>
               {!isCollapsed ? (
                 <div className="flex items-center gap-2 min-w-0">
-                  <img 
-                    src="/brand/sla-header-logo.png" 
-                    alt="Solely Art" 
-                    className="h-10 w-auto" 
-                  />
+                  <HeaderLogo />
                 </div>
               ) : null}
             </div>

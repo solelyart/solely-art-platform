@@ -10,6 +10,7 @@ import { Link } from "wouter";
 import { UserAvatar } from "@/components/UserAvatar";
 import { LogoutButton } from "@/components/LogoutButton";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { HeaderLogo, FooterLogo } from "@/components/ResponsiveLogo";
 
 export default function Home() {
   const { user, isAuthenticated } = useAuth();
@@ -30,13 +31,7 @@ export default function Home() {
       {/* Header */}
       <header className="glass-effect sticky top-0 z-50 border-b border-border/50">
         <div className="container flex h-20 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group">
-            <img 
-              src="/brand/sla-header-logo.png" 
-              alt="Solely Art" 
-              className="h-10 w-auto transition-transform group-hover:scale-105" 
-            />
-          </Link>
+          <HeaderLogo className="transition-transform hover:scale-105" />
           
           <nav className="flex items-center gap-6">
             <Link href="/browse" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors" data-testid="search-link">
@@ -361,11 +356,7 @@ export default function Home() {
           <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4 mb-12">
             <div>
               <div className="mb-6">
-                <img 
-                  src="/brand/sla-logo-full-md.png" 
-                  alt="Solely Art - Curated Connections" 
-                  className="w-44 h-auto" 
-                />
+                <FooterLogo />
               </div>
               <p className="text-sm text-foreground/60 font-light leading-relaxed">
                 Curating exceptional creative talent for discerning clients worldwide.

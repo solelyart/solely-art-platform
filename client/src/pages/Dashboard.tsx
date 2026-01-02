@@ -8,6 +8,7 @@ import { Calendar, CheckCircle, Clock, XCircle, Palette, User } from "lucide-rea
 import { ImageUpload, MultiImageUpload } from "@/components/ImageUpload";
 import { Link } from "wouter";
 import { toast } from "sonner";
+import { HeaderLogo, FooterLogo } from "@/components/ResponsiveLogo";
 
 function ProfilePictureUpload({ userId, currentPhoto }: { userId?: number; currentPhoto?: string | null }) {
   const utils = trpc.useUtils();
@@ -101,13 +102,7 @@ export default function Dashboard() {
       {/* Header */}
       <header className="border-b bg-card">
         <div className="container flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <img 
-              src="/brand/sla-header-logo.png" 
-              alt="Solely Art" 
-              className="h-10 w-auto" 
-            />
-          </Link>
+          <HeaderLogo />
           
           <nav className="flex items-center gap-4">
             <Link href="/browse" className="text-sm font-medium hover:text-primary">

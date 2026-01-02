@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { getLoginUrl } from "@/const";
 import { Heart, Users, Award, Globe, Sparkles, Shield } from "lucide-react";
 import { Link } from "wouter";
+import { HeaderLogo, FooterLogo } from "@/components/ResponsiveLogo";
 
 export default function About() {
   const { isAuthenticated } = useAuth();
@@ -61,13 +62,7 @@ export default function About() {
       {/* Header */}
       <header className="glass-effect sticky top-0 z-50 border-b border-border/50">
         <div className="container flex h-20 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group">
-            <img 
-              src="/brand/sla-header-logo.png" 
-              alt="Solely Art" 
-              className="h-10 w-auto transition-transform group-hover:scale-105" 
-            />
-          </Link>
+          <HeaderLogo />
           
           <nav className="flex items-center gap-6">
             <Link href="/" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
@@ -94,11 +89,7 @@ export default function About() {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
         <div className="container relative">
           <div className="max-w-4xl mx-auto text-center">
-            <img 
-              src="/brand/sla-logo-full-lg.png" 
-              alt="Solely Art - Curated Connections" 
-              className="w-72 h-auto mx-auto mb-8"
-            />
+            <FooterLogo />
             <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6">
               Our Story
             </h1>
@@ -130,11 +121,7 @@ export default function About() {
             </div>
             <div className="relative">
               <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20 flex items-center justify-center">
-                <img 
-                  src="/brand/sla-logo-full-lg.png" 
-                  alt="Solely Art" 
-                  className="w-32 h-auto opacity-80"
-                />
+                <FooterLogo />
               </div>
             </div>
           </div>
@@ -237,11 +224,7 @@ export default function About() {
       <footer className="border-t border-border/50 bg-card/50 backdrop-blur-sm py-12">
         <div className="container">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <img 
-              src="/brand/sla-logo-full-lg.png" 
-              alt="Solely Art - Curated Connections" 
-              className="h-10 w-auto" 
-            />
+            <FooterLogo />
             <div className="text-sm text-foreground/60 text-center md:text-right">
               <p>© 2025 Solely Art. All Rights Reserved.</p>
               <p className="mt-1">Solely Art™ is a trademark of Solely Art.</p>

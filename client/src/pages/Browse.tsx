@@ -12,6 +12,7 @@ import { trpc } from "@/lib/trpc";
 import { Search, Palette, MapPin, X, SlidersHorizontal } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
+import { HeaderLogo, FooterLogo } from "@/components/ResponsiveLogo";
 
 export default function Browse() {
   const { isAuthenticated } = useAuth();
@@ -97,13 +98,7 @@ export default function Browse() {
       {/* Header */}
       <header className="glass-effect sticky top-0 z-50 border-b border-border/50">
         <div className="container flex h-20 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group">
-            <img 
-              src="/brand/sla-header-logo.png" 
-              alt="Solely Art" 
-              className="h-10 w-auto transition-transform group-hover:scale-105" 
-            />
-          </Link>
+          <HeaderLogo />
           
           <nav className="flex items-center gap-6">
             <Link href="/" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">

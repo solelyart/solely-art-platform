@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import { HeaderLogo, FooterLogo } from "@/components/ResponsiveLogo";
 
 export default function Privacy() {
   return (
@@ -6,13 +7,7 @@ export default function Privacy() {
       {/* Header */}
       <header className="glass-effect sticky top-0 z-50 border-b border-border/50">
         <div className="container flex h-20 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group">
-            <img 
-              src="/brand/sla-header-logo.png" 
-              alt="Solely Art" 
-              className="h-10 w-auto transition-transform group-hover:scale-105" 
-            />
-          </Link>
+          <HeaderLogo />
           <nav className="flex items-center gap-6">
             <Link href="/" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
               Home
@@ -27,11 +22,7 @@ export default function Privacy() {
       {/* Content */}
       <main className="container py-16 max-w-4xl">
         <div className="mb-12 text-center">
-          <img 
-            src="/brand/sla-logo-full-lg.png" 
-            alt="Solely Art" 
-            className="w-64 h-auto mx-auto mb-8" 
-          />
+          <FooterLogo />
           <h1 className="text-4xl font-semibold mb-4">Privacy Policy</h1>
           <p className="text-foreground/60">Last Updated: December 20, 2025</p>
         </div>
@@ -245,11 +236,7 @@ export default function Privacy() {
       <footer className="border-t border-border/50 bg-card/50 backdrop-blur-sm py-12">
         <div className="container">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <img 
-              src="/brand/sla-logo-full-lg.png" 
-              alt="Solely Art - Curated Connections" 
-              className="h-10 w-auto" 
-            />
+            <FooterLogo />
             <div className="text-sm text-foreground/60 text-center md:text-right">
               <p>© 2025 Solely Art. All Rights Reserved.</p>
               <p className="mt-1">Solely Art™ is a trademark of Solely Art.</p>

@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Mail, MapPin, Clock, Send, CheckCircle } from "lucide-react";
 import { toast } from "sonner";
 import { trpc } from "@/lib/trpc";
+import { HeaderLogo, FooterLogo } from "@/components/ResponsiveLogo";
 
 export default function Contact() {
   
@@ -65,13 +66,7 @@ export default function Contact() {
         {/* Header */}
         <header className="glass-effect sticky top-0 z-50 border-b border-border/50">
           <div className="container flex h-20 items-center justify-between">
-            <Link href="/" className="flex items-center gap-2 group">
-              <img 
-                src="/brand/sla-header-logo.png" 
-                alt="Solely Art" 
-                className="h-10 w-auto transition-transform group-hover:scale-105" 
-              />
-            </Link>
+            <HeaderLogo />
             <nav className="flex items-center gap-6">
               <Link href="/" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
                 Home
@@ -108,11 +103,7 @@ export default function Contact() {
         <footer className="border-t border-border/50 bg-card/50 backdrop-blur-sm py-12 mt-auto">
           <div className="container">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-              <img 
-                src="/brand/sla-logo-full-lg.png" 
-                alt="Solely Art - Curated Connections" 
-                className="h-10 w-auto" 
-              />
+              <FooterLogo />
               <div className="text-sm text-foreground/60 text-center md:text-right">
                 <p>© 2025 Solely Art. All Rights Reserved.</p>
                 <p className="mt-1">Solely Art™ is a trademark of Solely Art.</p>
@@ -129,13 +120,7 @@ export default function Contact() {
       {/* Header */}
       <header className="glass-effect sticky top-0 z-50 border-b border-border/50">
         <div className="container flex h-20 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group">
-            <img 
-              src="/brand/sla-header-logo.png" 
-              alt="Solely Art" 
-              className="h-10 w-auto transition-transform group-hover:scale-105" 
-            />
-          </Link>
+          <HeaderLogo />
           <nav className="flex items-center gap-6">
             <Link href="/" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
               Home
@@ -150,11 +135,7 @@ export default function Contact() {
       {/* Content */}
       <main className="container py-16">
         <div className="mb-12 text-center">
-          <img 
-            src="/brand/sla-logo-full-lg.png" 
-            alt="Solely Art" 
-            className="w-64 h-auto mx-auto mb-8" 
-          />
+          <FooterLogo />
           <h1 className="text-4xl font-semibold mb-4">Contact Us</h1>
           <p className="text-foreground/60 text-lg max-w-2xl mx-auto">
             Have a question, feedback, or partnership inquiry? We'd love to hear from you. 
@@ -377,11 +358,7 @@ export default function Contact() {
       <footer className="border-t border-border/50 bg-card/50 backdrop-blur-sm py-12 mt-16">
         <div className="container">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <img 
-              src="/brand/sla-logo-full-lg.png" 
-              alt="Solely Art - Curated Connections" 
-              className="h-10 w-auto" 
-            />
+            <FooterLogo />
             <div className="text-sm text-foreground/60 text-center md:text-right">
               <p>© 2025 Solely Art. All Rights Reserved.</p>
               <p className="mt-1">Solely Art™ is a trademark of Solely Art.</p>

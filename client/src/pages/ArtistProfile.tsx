@@ -12,6 +12,7 @@ import { trpc } from "@/lib/trpc";
 import { MapPin, Star, Palette, Clock, DollarSign, Calendar, ChevronLeft, ChevronRight, Info } from "lucide-react";
 import { Link, useParams } from "wouter";
 import { useState } from "react";
+import { HeaderLogo, FooterLogo } from "@/components/ResponsiveLogo";
 
 function BookingSettingsCard({ artistId }: { artistId: number }) {
   const { data: settings } = trpc.availability.getSettingsByArtist.useQuery({ artistId });
@@ -68,13 +69,7 @@ export default function ArtistProfile() {
       <div className="min-h-screen bg-background">
         <header className="glass-effect sticky top-0 z-50 border-b border-border/50">
           <div className="container flex h-20 items-center justify-between">
-            <Link href="/" className="flex items-center gap-2 group">
-              <img 
-                src="/brand/sla-header-logo.png" 
-                alt="Solely Art" 
-                className="h-10 w-auto transition-transform group-hover:scale-105" 
-              />
-            </Link>
+            <HeaderLogo />
           </div>
         </header>
         <div className="container py-8">
@@ -121,13 +116,7 @@ export default function ArtistProfile() {
       {/* Header */}
       <header className="glass-effect sticky top-0 z-50 border-b border-border/50">
         <div className="container flex h-20 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group">
-            <img 
-              src="/brand/sla-header-logo.png" 
-              alt="Solely Art" 
-              className="h-10 w-auto transition-transform group-hover:scale-105" 
-            />
-          </Link>
+          <HeaderLogo />
           
           <nav className="flex items-center gap-6">
             <Link href="/browse" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
