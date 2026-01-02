@@ -974,3 +974,12 @@
 - [ ] Cross-browser testing
 - [ ] Accessibility audit for color contrast
 - [ ] Final brand consistency review
+
+
+## Theme Mode Implementation
+
+- [x] Re-add gradient CSS styles to light mode
+- [x] Create dark mode with swapped charcoal (#333333) and cream (#F5F2ED) colors
+- [x] Update ThemeProvider to support light/dark modes
+- [x] Add theme selector to user setup flow
+- [x] Store user theme preference in localStorage

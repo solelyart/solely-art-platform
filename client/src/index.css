@@ -43,7 +43,10 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-/* SolelyArt Brand Identity - Premium Artist Marketplace */
+/* ============================================
+   SolelyArt Brand Identity - Premium Artist Marketplace
+   LIGHT MODE (Default) - Cream background, Charcoal text
+   ============================================ */
 :root {
   /* Brand Primary - Teal (#4A7C85) */
   --primary: #4A7C85;
@@ -139,67 +142,109 @@
   --shadow-hover: 0 2px 6px rgba(51, 51, 51, 0.06),
                   0 4px 12px rgba(51, 51, 51, 0.05),
                   0 8px 24px rgba(51, 51, 51, 0.04);
+  
+  /* Gradient Colors for Light Mode */
+  --gradient-start: #F5F2ED;
+  --gradient-mid: #EDE9E4;
+  --gradient-end: #E0DDD8;
+  --gradient-accent-start: #4A7C85;
+  --gradient-accent-mid: #5A8C95;
+  --gradient-accent-end: #6A9CA5;
 }
 
+/* ============================================
+   DARK MODE - Charcoal background, Cream text
+   (Swapped from light mode)
+   ============================================ */
 .dark {
-  /* Dark mode - Charcoal base */
-  --background: #1A1A1A;
+  /* Base - Charcoal background, Cream text (SWAPPED) */
+  --background: #333333;
   --foreground: #F5F2ED;
   
-  /* Brand Teal (lightened for dark mode) */
-  --primary: #5A8C95;
+  /* Brand Teal (lightened for dark mode visibility) */
+  --primary: #6A9CA5;
   --primary-foreground: #FFFFFF;
   
-  /* Secondary */
-  --secondary: #404040;
+  /* Secondary - Dark cream tones */
+  --secondary: #4A4744;
   --secondary-foreground: #F5F2ED;
   
   /* Accent */
-  --accent: #5A8C95;
+  --accent: #6A9CA5;
   --accent-foreground: #FFFFFF;
   
-  /* Card - Dark surface */
-  --card: #333333;
+  /* Card - Slightly lighter charcoal */
+  --card: #3D3D3D;
   --card-foreground: #F5F2ED;
   
   /* Popover */
-  --popover: #333333;
+  --popover: #3D3D3D;
   --popover-foreground: #F5F2ED;
   
   /* Muted */
-  --muted: #404040;
-  --muted-foreground: #CCCCCC;
+  --muted: #4A4744;
+  --muted-foreground: #C5C2BD;
   
   /* Borders and inputs */
-  --border: #444444;
-  --input: #333333;
-  --ring: #5A8C95;
+  --border: #4A4744;
+  --input: #3D3D3D;
+  --ring: #6A9CA5;
   
   /* Destructive */
   --destructive: #E86B5E;
   --destructive-foreground: #FFFFFF;
   
+  /* Success */
+  --success: #5A9C7A;
+  --success-foreground: #FFFFFF;
+  
+  /* Warning */
+  --warning: #D4B36A;
+  --warning-foreground: #333333;
+  
   /* Sidebar */
-  --sidebar: #333333;
+  --sidebar: #3D3D3D;
   --sidebar-foreground: #F5F2ED;
-  --sidebar-primary: #5A8C95;
+  --sidebar-primary: #6A9CA5;
   --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #404040;
+  --sidebar-accent: #4A4744;
   --sidebar-accent-foreground: #F5F2ED;
-  --sidebar-border: #444444;
-  --sidebar-ring: #5A8C95;
+  --sidebar-border: #4A4744;
+  --sidebar-ring: #6A9CA5;
   
   /* Color Variants */
-  --primary-hover: #6A9CA5;
-  --primary-light: #7AACB5;
-  --primary-subtle: rgba(90, 140, 149, 0.15);
+  --primary-hover: #7AACB5;
+  --primary-light: #8ABCC5;
+  --primary-subtle: rgba(106, 156, 165, 0.15);
   
   /* Charts */
-  --chart-1: #5A8C95;
-  --chart-2: #6A9CA5;
-  --chart-3: #555555;
+  --chart-1: #6A9CA5;
+  --chart-2: #7AACB5;
+  --chart-3: #4A4744;
   --chart-4: #F5F2ED;
-  --chart-5: #7AACB5;
+  --chart-5: #8ABCC5;
+  
+  /* Shadow System - Darker shadows for dark mode */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 8px 32px rgba(0, 0, 0, 0.35);
+  
+  --shadow-elegant: 0 1px 3px rgba(0, 0, 0, 0.15),
+                    0 2px 8px rgba(0, 0, 0, 0.12),
+                    0 4px 16px rgba(0, 0, 0, 0.1);
+  
+  --shadow-hover: 0 2px 6px rgba(0, 0, 0, 0.2),
+                  0 4px 12px rgba(0, 0, 0, 0.18),
+                  0 8px 24px rgba(0, 0, 0, 0.15);
+  
+  /* Gradient Colors for Dark Mode */
+  --gradient-start: #333333;
+  --gradient-mid: #3D3D3D;
+  --gradient-end: #4A4744;
+  --gradient-accent-start: #4A7C85;
+  --gradient-accent-mid: #5A8C95;
+  --gradient-accent-end: #6A9CA5;
 }
 
 @layer base {
@@ -339,30 +384,83 @@
     }
   }
   
-  /* === Brand Gradients === */
-  .gradient-brand {
-    background: linear-gradient(135deg, 
-      #F5F2ED 0%, 
-      #EDE9E4 50%,
-      #E0DDD8 100%);
+  /* ============================================
+     GRADIENT STYLES - Brand Gradients
+     ============================================ */
+  
+  /* Artistic background gradient - uses CSS variables for theme support */
+  .gradient-artistic {
+    background: linear-gradient(180deg, 
+      var(--gradient-start) 0%, 
+      var(--gradient-mid) 50%,
+      var(--gradient-end) 100%);
   }
   
+  /* Brand gradient - cream tones */
+  .gradient-brand {
+    background: linear-gradient(135deg, 
+      var(--gradient-start) 0%, 
+      var(--gradient-mid) 50%,
+      var(--gradient-end) 100%);
+  }
+  
+  /* Hero gradient - teal accent */
   .gradient-hero {
     background: linear-gradient(135deg,
-      #4A7C85 0%,
-      #5A8C95 50%,
-      #6A9CA5 100%);
+      var(--gradient-accent-start) 0%,
+      var(--gradient-accent-mid) 50%,
+      var(--gradient-accent-end) 100%);
+  }
+  
+  /* Radial gradient for hero sections */
+  .gradient-radial {
+    background: radial-gradient(
+      ellipse at 50% 0%,
+      var(--primary-subtle) 0%,
+      transparent 50%
+    );
+  }
+  
+  /* Subtle mesh gradient overlay */
+  .gradient-mesh {
+    background: 
+      radial-gradient(at 40% 20%, var(--primary-subtle) 0px, transparent 50%),
+      radial-gradient(at 80% 0%, rgba(106, 156, 165, 0.1) 0px, transparent 50%),
+      radial-gradient(at 0% 50%, var(--primary-subtle) 0px, transparent 50%),
+      radial-gradient(at 80% 50%, rgba(106, 156, 165, 0.08) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, var(--primary-subtle) 0px, transparent 50%);
   }
   
   /* Brand text gradient */
   .text-gradient {
     background: linear-gradient(135deg,
-      #4A7C85,
-      #5A8C95,
-      #6A9CA5);
+      var(--gradient-accent-start),
+      var(--gradient-accent-mid),
+      var(--gradient-accent-end));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+  
+  /* Shimmer text effect */
+  .text-shimmer {
+    background: linear-gradient(
+      90deg,
+      var(--foreground) 0%,
+      var(--primary) 50%,
+      var(--foreground) 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s linear infinite;
+  }
+  
+  @keyframes shimmer {
+    to {
+      background-position: 200% center;
+    }
   }
   
   /* Elegant underline effect */
@@ -378,8 +476,34 @@
     width: 100%;
     height: 2px;
     background: linear-gradient(90deg,
-      #4A7C85,
+      var(--primary),
       rgba(74, 124, 133, 0.3));
+  }
+  
+  /* Texture overlay for hero sections */
+  .texture-overlay {
+    position: relative;
+  }
+  
+  .texture-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+  }
+  
+  /* Glass effect (legacy support) */
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(224, 221, 216, 0.5);
+  }
+  
+  .dark .glass-effect {
+    background: rgba(51, 51, 51, 0.8);
+    border: 1px solid rgba(74, 71, 68, 0.5);
   }
   
   /* Glass effect navigation */
@@ -390,11 +514,13 @@
   }
   
   .dark .glass-nav {
-    background: rgba(26, 26, 26, 0.9);
-    border-bottom: 1px solid rgba(68, 68, 68, 0.5);
+    background: rgba(51, 51, 51, 0.9);
+    border-bottom: 1px solid rgba(74, 71, 68, 0.5);
   }
   
-  /* === Button Styles === */
+  /* ============================================
+     BUTTON STYLES
+     ============================================ */
   .btn-primary {
     background-color: var(--primary);
     color: var(--primary-foreground);
@@ -432,7 +558,34 @@
     background-color: var(--primary-subtle);
   }
   
-  /* === Card Styles === */
+  /* Gradient button */
+  .btn-gradient {
+    background: linear-gradient(135deg,
+      var(--gradient-accent-start) 0%,
+      var(--gradient-accent-mid) 50%,
+      var(--gradient-accent-end) 100%);
+    color: white;
+    padding: 0.75rem 1.75rem;
+    border-radius: var(--radius);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    border: none;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .btn-gradient:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-lg);
+    opacity: 0.95;
+  }
+  
+  /* ============================================
+     CARD STYLES
+     ============================================ */
   .card-brand {
     background: var(--card);
     border-radius: var(--radius-lg);
@@ -446,7 +599,14 @@
     transform: translateY(-4px);
   }
   
-  /* === Form Elements === */
+  /* Elegant shadow for cards */
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+  
+  /* ============================================
+     FORM ELEMENTS
+     ============================================ */
   .input-brand {
     border: 1px solid var(--border);
     border-radius: var(--radius);
@@ -468,7 +628,9 @@
     color: var(--muted-foreground);
   }
   
-  /* === Navigation Link Style === */
+  /* ============================================
+     NAVIGATION LINK STYLE
+     ============================================ */
   .nav-link-brand {
     font-family: 'Cormorant Garamond', Georgia, serif;
     font-size: 0.875rem;
@@ -500,7 +662,9 @@
     width: 100%;
   }
   
-  /* === Loading Skeleton === */
+  /* ============================================
+     LOADING SKELETON
+     ============================================ */
   @keyframes skeleton-loading {
     0% {
       background-position: 200% 0;
@@ -522,7 +686,9 @@
     border-radius: var(--radius);
   }
   
-  /* === Empty State === */
+  /* ============================================
+     EMPTY STATE
+     ============================================ */
   .empty-state {
     @apply flex flex-col items-center justify-center text-center;
     padding: var(--spacing-xl);
@@ -548,7 +714,9 @@
     max-width: 400px;
   }
   
-  /* === Hover Effects === */
+  /* ============================================
+     HOVER EFFECTS
+     ============================================ */
   .hover-lift {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -558,7 +726,9 @@
     box-shadow: var(--shadow-hover);
   }
   
-  /* === Scrollbar Styling === */
+  /* ============================================
+     SCROLLBAR STYLING
+     ============================================ */
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -579,7 +749,9 @@
     background: var(--primary-hover);
   }
   
-  /* === Brand Logo Styles === */
+  /* ============================================
+     BRAND LOGO STYLES
+     ============================================ */
   .brand-logo {
     height: 40px;
     width: auto;
@@ -591,12 +763,23 @@
     }
   }
   
-  /* === Wordmark Style === */
+  /* Wordmark Style */
   .brand-wordmark {
     font-family: 'Cormorant Garamond', Georgia, serif;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     font-weight: 400;
     color: var(--foreground);
+  }
+  
+  /* ============================================
+     THEME TOGGLE ANIMATION
+     ============================================ */
+  .theme-toggle-icon {
+    transition: transform 0.3s ease, opacity 0.2s ease;
+  }
+  
+  .theme-toggle-icon.rotating {
+    transform: rotate(180deg);
   }
 }

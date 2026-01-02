@@ -11,6 +11,7 @@ import { UserAvatar } from "@/components/UserAvatar";
 import { LogoutButton } from "@/components/LogoutButton";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { HeaderLogo, FooterLogo } from "@/components/ResponsiveLogo";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export default function Home() {
   const { user, isAuthenticated } = useAuth();
@@ -55,6 +56,7 @@ export default function Home() {
                   <Link href="/become-artist">Become an Artist</Link>
                 </Button>
                 <LogoutButton />
+                <ThemeToggle variant="dropdown" />
                 <button
                   data-testid="user-menu"
                   onClick={() => window.location.href = '/dashboard'}
@@ -65,9 +67,12 @@ export default function Home() {
                 </button>
               </>
             ) : (
-              <Button variant="brand" size="sm" asChild data-testid="login-button">
-                <a href={getLoginUrl()}>Sign In</a>
-              </Button>
+              <>
+                <ThemeToggle variant="dropdown" />
+                <Button variant="brand" size="sm" asChild data-testid="login-button">
+                  <a href={getLoginUrl()}>Sign In</a>
+                </Button>
+              </>
             )}
           </nav>
         </div>
