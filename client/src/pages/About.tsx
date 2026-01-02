@@ -63,7 +63,7 @@ export default function About() {
         <div className="container flex h-20 items-center justify-between">
           <Link href="/" className="flex items-center gap-2 group">
             <img 
-              src="/brand/logo-circle-text.svg" 
+              src="/brand/logo-full-sm.png" 
               alt="Solely Art" 
               className="h-16 w-auto transition-transform group-hover:scale-105" 
             />
@@ -95,7 +95,7 @@ export default function About() {
         <div className="container relative">
           <div className="max-w-4xl mx-auto text-center">
             <img 
-              src="/brand/logo-diamond-full.svg" 
+              src="/brand/logo-full.png" 
               alt="Solely Art - Curated Connections" 
               className="h-40 w-auto mx-auto mb-8"
             />
@@ -131,7 +131,7 @@ export default function About() {
             <div className="relative">
               <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20 flex items-center justify-center">
                 <img 
-                  src="/brand/logo-diamond-icon.svg" 
+                  src="/brand/logo-icon-128.png" 
                   alt="Solely Art" 
                   className="h-48 w-auto opacity-80"
                 />
@@ -238,7 +238,7 @@ export default function About() {
         <div className="container">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <img 
-              src="/brand/logo-circle-full.svg" 
+              src="/brand/logo-full.png" 
               alt="Solely Art - Curated Connections" 
               className="h-16 w-auto" 
             />

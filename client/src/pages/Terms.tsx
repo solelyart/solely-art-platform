@@ -8,7 +8,7 @@ export default function Terms() {
         <div className="container flex h-20 items-center justify-between">
           <Link href="/" className="flex items-center gap-2 group">
             <img 
-              src="/brand/logo-circle-text.svg" 
+              src="/brand/logo-full-sm.png" 
               alt="Solely Art" 
               className="h-16 w-auto transition-transform group-hover:scale-105" 
             />
@@ -28,7 +28,7 @@ export default function Terms() {
       <main className="container py-16 max-w-4xl">
         <div className="mb-12 text-center">
           <img 
-            src="/brand/logo-diamond-text.svg" 
+            src="/brand/logo-full.png" 
             alt="Solely Art" 
             className="h-24 w-auto mx-auto mb-8" 
           />
@@ -212,7 +212,7 @@ export default function Terms() {
         <div className="container">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <img 
-              src="/brand/logo-circle-full.svg" 
+              src="/brand/logo-full.png" 
               alt="Solely Art - Curated Connections" 
               className="h-16 w-auto" 
             />

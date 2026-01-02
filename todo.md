@@ -707,3 +707,21 @@
 - [x] Create newsletter subscription API endpoint
 - [x] Test contact form email delivery
 - [x] Test newsletter signup flow
+
+## Copyright Registration ZIP - December 20, 2025
+- [x] Create folder structure (01_Screenshots_or_PDF, 02_Website_Text_Copy, 03_Source_Code_Excerpt, 04_Original_Visual_Assets)
+- [x] Capture PDF exports of key pages (Home, About, Browse, Contact, Terms, Privacy, Artist Profiles) - 9 PDFs
+- [x] Compile all website text copy into single PDF
+- [x] Prepare redacted source code excerpts (21 files)
+- [x] Collect original visual assets (logos, icons) - 13 files
+- [x] Create README.txt with work details
+- [x] Package everything into clean ZIP file (11 MB)
+
+## New Logo Implementation - December 20, 2025
+- [x] Extract and evaluate new logo files (8 variants reviewed)
+- [x] Create optimized logo variants (SVG, PNG, different sizes) - 12 new files
+- [x] Replace header logo across all pages
+- [x] Replace footer logo across all pages
+- [x] Update favicon
+- [x] Update meta/OG images if applicable
+- [x] Test logo display on all pages (verified on Home, About)
