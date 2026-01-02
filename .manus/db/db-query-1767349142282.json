@@ -1,0 +1,9 @@
+{
+  "query": "SELECT openId, name, role FROM users WHERE openId IN ('test-client-001', 'test-artist-001', 'test-admin-001') LIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user dQ3VUcXRRX4nqcF.755c6100da67 --database b8XDdB8n6irgSrJYrYA6i8 --execute SELECT openId, name, role FROM users WHERE openId IN ('test-client-001', 'test-artist-001', 'test-admin-001') LIMIT 10;",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 73
+}

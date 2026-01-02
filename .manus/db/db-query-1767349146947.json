@@ -1,0 +1,60 @@
+{
+  "query": "SELECT openId, name, role FROM users LIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user dQ3VUcXRRX4nqcF.755c6100da67 --database b8XDdB8n6irgSrJYrYA6i8 --execute SELECT openId, name, role FROM users LIMIT 10;",
+  "rows": [
+    {
+      "openId": "WJqKbUx4Fu3xWNYovFAd5D",
+      "name": "Kristen  Blanks",
+      "role": "admin"
+    },
+    {
+      "openId": "sample-elena-martinez",
+      "name": "Elena Martinez",
+      "role": "user"
+    },
+    {
+      "openId": "sample-marcus-chen",
+      "name": "Marcus Chen",
+      "role": "user"
+    },
+    {
+      "openId": "sample-sophia-anderson",
+      "name": "Sophia Anderson",
+      "role": "user"
+    },
+    {
+      "openId": "sample-james-rodriguez",
+      "name": "James Rodriguez",
+      "role": "user"
+    },
+    {
+      "openId": "sample-aria-thompson",
+      "name": "Aria Thompson",
+      "role": "user"
+    },
+    {
+      "openId": "sample-oliver-kim",
+      "name": "Oliver Kim",
+      "role": "user"
+    },
+    {
+      "openId": "test-admin-openid-11111",
+      "name": "Test Admin",
+      "role": "admin"
+    },
+    {
+      "openId": "jane-doe-openid-99999",
+      "name": "Jane Doe",
+      "role": "user"
+    },
+    {
+      "openId": "sample-client-sarah.mitchell",
+      "name": "Sarah Mitchell",
+      "role": "user"
+    }
+  ],
+  "messages": [],
+  "stdout": "openId\tname\trole\nWJqKbUx4Fu3xWNYovFAd5D\tKristen  Blanks\tadmin\nsample-elena-martinez\tElena Martinez\tuser\nsample-marcus-chen\tMarcus Chen\tuser\nsample-sophia-anderson\tSophia Anderson\tuser\nsample-james-rodriguez\tJames Rodriguez\tuser\nsample-aria-thompson\tAria Thompson\tuser\nsample-oliver-kim\tOliver Kim\tuser\ntest-admin-openid-11111\tTest Admin\tadmin\njane-doe-openid-99999\tJane Doe\tuser\nsample-client-sarah.mitchell\tSarah Mitchell\tuser\n",
+  "stderr": "",
+  "execution_time_ms": 63
+}
