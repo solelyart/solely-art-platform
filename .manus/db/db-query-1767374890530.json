@@ -1,0 +1,9 @@
+{
+  "query": "INSERT INTO users (openId, name, email, role, createdAt, updatedAt) VALUES \n('test-client-openid-12345', 'Test Client', 'playwright-client@test.com', 'user', NOW(), NOW()),\n('test-artist-openid-67890', 'Test Artist', 'playwright-artist@test.com', 'user', NOW(), NOW()),\n('test-admin-openid-11111', 'Test Admin', 'playwright-admin@test.com', 'admin', NOW(), NOW())\nON DUPLICATE KEY UPDATE name=VALUES(name), email=VALUES(email), role=VALUES(role), updatedAt=NOW();",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user dQ3VUcXRRX4nqcF.755c6100da67 --database b8XDdB8n6irgSrJYrYA6i8 --execute INSERT INTO users (openId, name, email, role, createdAt, updatedAt) VALUES \n('test-client-openid-12345', 'Test Client', 'playwright-client@test.com', 'user', NOW(), NOW()),\n('test-artist-openid-67890', 'Test Artist', 'playwright-artist@test.com', 'user', NOW(), NOW()),\n('test-admin-openid-11111', 'Test Admin', 'playwright-admin@test.com', 'admin', NOW(), NOW())\nON DUPLICATE KEY UPDATE name=VALUES(name), email=VALUES(email), role=VALUES(role), updatedAt=NOW();",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 66
+}

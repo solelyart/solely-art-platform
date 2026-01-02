@@ -935,3 +935,13 @@
 - [x] Fix form validation test - updated to test BecomeArtist form instead of non-existent signup page
 - [x] Verify Python scripts use environment variables correctly
 - [ ] Rerun Playwright tests to confirm fixes (blocked by server EMFILE error)
+
+
+## Auth Setup Fix - January 2, 2026
+### Fix test-auth endpoint returning success: false
+- [x] Diagnose why test-auth returns success: false (test users didn't exist in DB)
+- [x] Created test users with correct openIds in database
+- [x] Created artist profile for test artist user
+- [x] Added graceful-fs preload to handle EMFILE errors
+- [x] Updated dev script to run without file watcher
+- [x] All 3 auth setup tests now pass] Verify all 294 tests can run after fix

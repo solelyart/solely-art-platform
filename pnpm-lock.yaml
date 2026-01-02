@@ -160,6 +160,9 @@ importers:
       framer-motion:
         specifier: ^12.23.22
         version: 12.23.22(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
+      graceful-fs:
+        specifier: ^4.2.11
+        version: 4.2.11
       helmet:
         specifier: ^8.1.0
         version: 8.1.0
@@ -254,6 +257,9 @@ importers:
       '@types/google.maps':
         specifier: ^3.58.1
         version: 3.58.1
+      '@types/graceful-fs':
+        specifier: ^4.1.9
+        version: 4.1.9
       '@types/jsonwebtoken':
         specifier: ^9.0.10
         version: 9.0.10
@@ -2397,6 +2403,9 @@ packages:
 
   '@types/google.maps@3.58.1':
     resolution: {integrity: sha512-X9QTSvGJ0nCfMzYOnaVs/k6/4L+7F5uCS+4iUmkLEls6J9S/Phv+m/i3mDeyc49ZBgwab3EFO1HEoBY7k98EGQ==}
+
+  '@types/graceful-fs@4.1.9':
+    resolution: {integrity: sha512-olP3sd1qOEe5dXTSaFvQG+02VdRXcdytWLAZsAq1PecU8uqQAhkrnbli7DagjtXKW/Bl7YJbUsa8MPcuc8LHEQ==}
 
   '@types/hast@3.0.4':
     resolution: {integrity: sha512-WPs+bbQw5aCj+x6laNGWLH3wviHtoCv/P3+otBhbOhJgG8qtpdAMlTCxLtsTWA7LH1Oh/bFCHsBn0TPS5m30EQ==}
@@ -7084,6 +7093,10 @@ snapshots:
   '@types/geojson@7946.0.16': {}
 
   '@types/google.maps@3.58.1': {}
+
+  '@types/graceful-fs@4.1.9':
+    dependencies:
+      '@types/node': 24.7.0
 
   '@types/hast@3.0.4':
     dependencies:

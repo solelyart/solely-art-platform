@@ -1,0 +1,80 @@
+{
+  "query": "SELECT id, openId, name, email, role FROM users WHERE openId LIKE 'test-%' LIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user dQ3VUcXRRX4nqcF.755c6100da67 --database b8XDdB8n6irgSrJYrYA6i8 --execute SELECT id, openId, name, email, role FROM users WHERE openId LIKE 'test-%' LIMIT 10;",
+  "rows": [
+    {
+      "id": "990006",
+      "openId": "test-admin-openid-11111",
+      "name": "Test Admin",
+      "email": "playwright-admin@test.com",
+      "role": "admin"
+    },
+    {
+      "id": "1560059",
+      "openId": "test-openid-1765848928504-282855-547265",
+      "name": "Test Artist - Double Booking",
+      "email": "test-artist-1765848928504-282855-547265@test.com",
+      "role": "user"
+    },
+    {
+      "id": "1560060",
+      "openId": "test-openid-1765848928506-763053-49202",
+      "name": "Availability Test Artist",
+      "email": "test-artist-1765848928506-763053-49202@test.com",
+      "role": "user"
+    },
+    {
+      "id": "1560061",
+      "openId": "test-openid-1765848928518-637026-82540",
+      "name": "Test Artist - Availability",
+      "email": "test-artist-1765848928518-637026-82540@test.com",
+      "role": "user"
+    },
+    {
+      "id": "1560062",
+      "openId": "test-openid-1765848928537-796928-598102",
+      "name": "Calendar Test Artist",
+      "email": "test-artist-1765848928537-796928-598102@test.com",
+      "role": "user"
+    },
+    {
+      "id": "1560063",
+      "openId": "test-openid-1765848928681-104502-382017",
+      "name": "Availability Test Client",
+      "email": "test-artist-1765848928681-104502-382017@test.com",
+      "role": "user"
+    },
+    {
+      "id": "1560064",
+      "openId": "test-openid-1765848928681-173735-42587",
+      "name": "Test Client - Availability",
+      "email": "test-artist-1765848928681-173735-42587@test.com",
+      "role": "user"
+    },
+    {
+      "id": "1560065",
+      "openId": "test-openid-1765848928682-384203-832786",
+      "name": "Test Client 1",
+      "email": "test-artist-1765848928682-384203-832786@test.com",
+      "role": "user"
+    },
+    {
+      "id": "1560066",
+      "openId": "test-openid-1765848928717-167188-243219",
+      "name": "Test Client 2",
+      "email": "test-artist-1765848928717-167188-243219@test.com",
+      "role": "user"
+    },
+    {
+      "id": "1560067",
+      "openId": "test-openid-1765848928789-650604-649011",
+      "name": "Pacific Artist",
+      "email": "test-artist-1765848928789-650604-649011@test.com",
+      "role": "user"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\topenId\tname\temail\trole\n990006\ttest-admin-openid-11111\tTest Admin\tplaywright-admin@test.com\tadmin\n1560059\ttest-openid-1765848928504-282855-547265\tTest Artist - Double Booking\ttest-artist-1765848928504-282855-547265@test.com\tuser\n1560060\ttest-openid-1765848928506-763053-49202\tAvailability Test Artist\ttest-artist-1765848928506-763053-49202@test.com\tuser\n1560061\ttest-openid-1765848928518-637026-82540\tTest Artist - Availability\ttest-artist-1765848928518-637026-82540@test.com\tuser\n1560062\ttest-openid-1765848928537-796928-598102\tCalendar Test Artist\ttest-artist-1765848928537-796928-598102@test.com\tuser\n1560063\ttest-openid-1765848928681-104502-382017\tAvailability Test Client\ttest-artist-1765848928681-104502-382017@test.com\tuser\n1560064\ttest-openid-1765848928681-173735-42587\tTest Client - Availability\ttest-artist-1765848928681-173735-42587@test.com\tuser\n1560065\ttest-openid-1765848928682-384203-832786\tTest Client 1\ttest-artist-1765848928682-384203-832786@test.com\tuser\n1560066\ttest-openid-1765848928717-167188-243219\tTest Client 2\ttest-artist-1765848928717-167188-243219@test.com\tuser\n1560067\ttest-openid-1765848928789-650604-649011\tPacific Artist\ttest-artist-1765848928789-650604-649011@test.com\tuser\n",
+  "stderr": "",
+  "execution_time_ms": 498
+}

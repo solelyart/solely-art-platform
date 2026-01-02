@@ -1,0 +1,9 @@
+{
+  "query": "UPDATE users SET userType = 'artist' WHERE openId = 'test-artist-openid-67890';",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user dQ3VUcXRRX4nqcF.755c6100da67 --database b8XDdB8n6irgSrJYrYA6i8 --execute UPDATE users SET userType = 'artist' WHERE openId = 'test-artist-openid-67890';",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 71
+}

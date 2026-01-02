@@ -1,0 +1,100 @@
+{
+  "query": "SELECT openId, name, email, role FROM users ORDER BY createdAt DESC LIMIT 15;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user dQ3VUcXRRX4nqcF.755c6100da67 --database b8XDdB8n6irgSrJYrYA6i8 --execute SELECT openId, name, email, role FROM users ORDER BY createdAt DESC LIMIT 15;",
+  "rows": [
+    {
+      "openId": "test-openid-1767350171530-985158-379812",
+      "name": "Test Artist 985158-379812",
+      "email": "test-artist-1767350171530-985158-379812@test.com",
+      "role": "user"
+    },
+    {
+      "openId": "test-openid-1767350170916-765558-625275",
+      "name": "Calendar Test Artist",
+      "email": "test-artist-1767350170916-765558-625275@test.com",
+      "role": "user"
+    },
+    {
+      "openId": "test-openid-1767350171697-204052-4514",
+      "name": "Test Artist 204052-4514",
+      "email": "test-artist-1767350171697-204052-4514@test.com",
+      "role": "user"
+    },
+    {
+      "openId": "test-openid-1767350170955-905047-483342",
+      "name": "Test Artist 905047-483342",
+      "email": "test-artist-1767350170955-905047-483342@test.com",
+      "role": "user"
+    },
+    {
+      "openId": "test-openid-1767350171584-882218-92034",
+      "name": "Test Artist 882218-92034",
+      "email": "test-artist-1767350171584-882218-92034@test.com",
+      "role": "user"
+    },
+    {
+      "openId": "test-openid-1767350170051-846074-622557",
+      "name": "Test Client 9",
+      "email": "test-artist-1767350170051-846074-622557@test.com",
+      "role": "user"
+    },
+    {
+      "openId": "test-openid-1767350170065-534987-118143",
+      "name": "E2E Test Client",
+      "email": "test-artist-1767350170065-534987-118143@test.com",
+      "role": "user"
+    },
+    {
+      "openId": "test-openid-1767350170202-880857-223556",
+      "name": "Multi-booking Client",
+      "email": "test-artist-1767350170202-880857-223556@test.com",
+      "role": "user"
+    },
+    {
+      "openId": "test-openid-1767350170086-291702-816270",
+      "name": "Test Client 10",
+      "email": "test-artist-1767350170086-291702-816270@test.com",
+      "role": "user"
+    },
+    {
+      "openId": "test-openid-1767350170014-825292-69655",
+      "name": "E2E Test Artist",
+      "email": "test-artist-1767350170014-825292-69655@test.com",
+      "role": "user"
+    },
+    {
+      "openId": "test-openid-1767350170018-474267-543961",
+      "name": "Test Client 8",
+      "email": "test-artist-1767350170018-474267-543961@test.com",
+      "role": "user"
+    },
+    {
+      "openId": "test-openid-1767350170153-221151-665072",
+      "name": "Multi-booking Artist",
+      "email": "test-artist-1767350170153-221151-665072@test.com",
+      "role": "user"
+    },
+    {
+      "openId": "test-openid-1767350169749-678379-177228",
+      "name": "Test Client - Lifecycle",
+      "email": "test-artist-1767350169749-678379-177228@test.com",
+      "role": "user"
+    },
+    {
+      "openId": "test-openid-1767350169734-719128-217985",
+      "name": "Test Artist - Race Conditions",
+      "email": "test-artist-1767350169734-719128-217985@test.com",
+      "role": "user"
+    },
+    {
+      "openId": "test-openid-1767350169570-935396-470243",
+      "name": "Pacific Artist",
+      "email": "test-artist-1767350169570-935396-470243@test.com",
+      "role": "user"
+    }
+  ],
+  "messages": [],
+  "stdout": "openId\tname\temail\trole\ntest-openid-1767350171530-985158-379812\tTest Artist 985158-379812\ttest-artist-1767350171530-985158-379812@test.com\tuser\ntest-openid-1767350170916-765558-625275\tCalendar Test Artist\ttest-artist-1767350170916-765558-625275@test.com\tuser\ntest-openid-1767350171697-204052-4514\tTest Artist 204052-4514\ttest-artist-1767350171697-204052-4514@test.com\tuser\ntest-openid-1767350170955-905047-483342\tTest Artist 905047-483342\ttest-artist-1767350170955-905047-483342@test.com\tuser\ntest-openid-1767350171584-882218-92034\tTest Artist 882218-92034\ttest-artist-1767350171584-882218-92034@test.com\tuser\ntest-openid-1767350170051-846074-622557\tTest Client 9\ttest-artist-1767350170051-846074-622557@test.com\tuser\ntest-openid-1767350170065-534987-118143\tE2E Test Client\ttest-artist-1767350170065-534987-118143@test.com\tuser\ntest-openid-1767350170202-880857-223556\tMulti-booking Client\ttest-artist-1767350170202-880857-223556@test.com\tuser\ntest-openid-1767350170086-291702-816270\tTest Client 10\ttest-artist-1767350170086-291702-816270@test.com\tuser\ntest-openid-1767350170014-825292-69655\tE2E Test Artist\ttest-artist-1767350170014-825292-69655@test.com\tuser\ntest-openid-1767350170018-474267-543961\tTest Client 8\ttest-artist-1767350170018-474267-543961@test.com\tuser\ntest-openid-1767350170153-221151-665072\tMulti-booking Artist\ttest-artist-1767350170153-221151-665072@test.com\tuser\ntest-openid-1767350169749-678379-177228\tTest Client - Lifecycle\ttest-artist-1767350169749-678379-177228@test.com\tuser\ntest-openid-1767350169734-719128-217985\tTest Artist - Race Conditions\ttest-artist-1767350169734-719128-217985@test.com\tuser\ntest-openid-1767350169570-935396-470243\tPacific Artist\ttest-artist-1767350169570-935396-470243@test.com\tuser\n",
+  "stderr": "",
+  "execution_time_ms": 62
+}

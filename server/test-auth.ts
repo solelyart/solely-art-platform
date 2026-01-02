@@ -20,6 +20,7 @@ const ONE_YEAR_MS = 365 * 24 * 60 * 60 * 1000;
 
 // Only enable in test/development
 const isTestEnvironment = process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'development';
+console.log(`[test-auth] NODE_ENV=${process.env.NODE_ENV}, isTestEnvironment=${isTestEnvironment}`);
 
 if (isTestEnvironment) {
   /**

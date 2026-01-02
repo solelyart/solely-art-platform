@@ -1,0 +1,60 @@
+{
+  "query": "SELECT openId, name, role FROM users WHERE openId LIKE 'test-%' OR name LIKE 'Test%' LIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user dQ3VUcXRRX4nqcF.755c6100da67 --database b8XDdB8n6irgSrJYrYA6i8 --execute SELECT openId, name, role FROM users WHERE openId LIKE 'test-%' OR name LIKE 'Test%' LIMIT 10;",
+  "rows": [
+    {
+      "openId": "test-admin-openid-11111",
+      "name": "Test Admin",
+      "role": "admin"
+    },
+    {
+      "openId": "test-openid-1765848928504-282855-547265",
+      "name": "Test Artist - Double Booking",
+      "role": "user"
+    },
+    {
+      "openId": "test-openid-1765848928506-763053-49202",
+      "name": "Availability Test Artist",
+      "role": "user"
+    },
+    {
+      "openId": "test-openid-1765848928518-637026-82540",
+      "name": "Test Artist - Availability",
+      "role": "user"
+    },
+    {
+      "openId": "test-openid-1765848928537-796928-598102",
+      "name": "Calendar Test Artist",
+      "role": "user"
+    },
+    {
+      "openId": "test-openid-1765848928681-104502-382017",
+      "name": "Availability Test Client",
+      "role": "user"
+    },
+    {
+      "openId": "test-openid-1765848928681-173735-42587",
+      "name": "Test Client - Availability",
+      "role": "user"
+    },
+    {
+      "openId": "test-openid-1765848928682-384203-832786",
+      "name": "Test Client 1",
+      "role": "user"
+    },
+    {
+      "openId": "test-openid-1765848928717-167188-243219",
+      "name": "Test Client 2",
+      "role": "user"
+    },
+    {
+      "openId": "test-openid-1765848928789-650604-649011",
+      "name": "Pacific Artist",
+      "role": "user"
+    }
+  ],
+  "messages": [],
+  "stdout": "openId\tname\trole\ntest-admin-openid-11111\tTest Admin\tadmin\ntest-openid-1765848928504-282855-547265\tTest Artist - Double Booking\tuser\ntest-openid-1765848928506-763053-49202\tAvailability Test Artist\tuser\ntest-openid-1765848928518-637026-82540\tTest Artist - Availability\tuser\ntest-openid-1765848928537-796928-598102\tCalendar Test Artist\tuser\ntest-openid-1765848928681-104502-382017\tAvailability Test Client\tuser\ntest-openid-1765848928681-173735-42587\tTest Client - Availability\tuser\ntest-openid-1765848928682-384203-832786\tTest Client 1\tuser\ntest-openid-1765848928717-167188-243219\tTest Client 2\tuser\ntest-openid-1765848928789-650604-649011\tPacific Artist\tuser\n",
+  "stderr": "",
+  "execution_time_ms": 65
+}
