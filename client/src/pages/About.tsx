@@ -65,7 +65,7 @@ export default function About() {
             <img 
               src="/brand/sla-header-logo.png" 
               alt="Solely Art" 
-              className="h-16 w-auto transition-transform group-hover:scale-105" 
+              className="h-10 w-auto transition-transform group-hover:scale-105" 
             />
           </Link>
           
@@ -97,7 +97,7 @@ export default function About() {
             <img 
               src="/brand/sla-logo-full-lg.png" 
               alt="Solely Art - Curated Connections" 
-              className="w-80 h-auto mx-auto mb-8"
+              className="w-72 h-auto mx-auto mb-8"
             />
             <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6">
               Our Story
@@ -133,7 +133,7 @@ export default function About() {
                 <img 
                   src="/brand/sla-logo-full-lg.png" 
                   alt="Solely Art" 
-                  className="w-40 h-auto opacity-80"
+                  className="w-32 h-auto opacity-80"
                 />
               </div>
             </div>
@@ -240,7 +240,7 @@ export default function About() {
             <img 
               src="/brand/sla-logo-full-lg.png" 
               alt="Solely Art - Curated Connections" 
-              className="h-16 w-auto" 
+              className="h-10 w-auto" 
             />
             <div className="text-sm text-foreground/60 text-center md:text-right">
               <p>© 2025 Solely Art. All Rights Reserved.</p>

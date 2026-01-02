@@ -69,7 +69,7 @@ export default function Contact() {
               <img 
                 src="/brand/sla-header-logo.png" 
                 alt="Solely Art" 
-                className="h-16 w-auto transition-transform group-hover:scale-105" 
+                className="h-10 w-auto transition-transform group-hover:scale-105" 
               />
             </Link>
             <nav className="flex items-center gap-6">
@@ -111,7 +111,7 @@ export default function Contact() {
               <img 
                 src="/brand/sla-logo-full-lg.png" 
                 alt="Solely Art - Curated Connections" 
-                className="h-16 w-auto" 
+                className="h-10 w-auto" 
               />
               <div className="text-sm text-foreground/60 text-center md:text-right">
                 <p>© 2025 Solely Art. All Rights Reserved.</p>
@@ -133,7 +133,7 @@ export default function Contact() {
             <img 
               src="/brand/sla-header-logo.png" 
               alt="Solely Art" 
-              className="h-16 w-auto transition-transform group-hover:scale-105" 
+              className="h-10 w-auto transition-transform group-hover:scale-105" 
             />
           </Link>
           <nav className="flex items-center gap-6">
@@ -153,7 +153,7 @@ export default function Contact() {
           <img 
             src="/brand/sla-logo-full-lg.png" 
             alt="Solely Art" 
-            className="h-24 w-auto mx-auto mb-8" 
+            className="w-64 h-auto mx-auto mb-8" 
           />
           <h1 className="text-4xl font-semibold mb-4">Contact Us</h1>
           <p className="text-foreground/60 text-lg max-w-2xl mx-auto">
@@ -380,7 +380,7 @@ export default function Contact() {
             <img 
               src="/brand/sla-logo-full-lg.png" 
               alt="Solely Art - Curated Connections" 
-              className="h-16 w-auto" 
+              className="h-10 w-auto" 
             />
             <div className="text-sm text-foreground/60 text-center md:text-right">
               <p>© 2025 Solely Art. All Rights Reserved.</p>

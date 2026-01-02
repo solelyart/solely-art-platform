@@ -105,7 +105,7 @@ export default function Dashboard() {
             <img 
               src="/brand/sla-header-logo.png" 
               alt="Solely Art" 
-              className="h-16 w-auto" 
+              className="h-10 w-auto" 
             />
           </Link>
           
