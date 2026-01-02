@@ -40,5 +40,17 @@ export default defineConfig({
       strict: true,
       deny: ["**/.*"],
     },
+    watch: {
+      // Ignore large directories to reduce file watchers and prevent EMFILE errors
+      ignored: [
+        '**/node_modules/**',
+        '**/.git/**',
+        '**/dist/**',
+        '**/coverage/**',
+        '**/.playwright/**',
+        '**/e2e-tests/.auth/**',
+        '**/attached_assets/**'
+      ]
+    },
   },
 });
