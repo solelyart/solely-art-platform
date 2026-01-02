@@ -3,7 +3,7 @@
 This directory contains all documentation for the Solely Art Platform, organized by category.
 
 **Last Updated:** January 2026  
-**Total Documents:** 32 files (consolidated from 55 files)
+**Total Documents:** 31 files (consolidated from 55 files)
 
 ---
 
@@ -117,10 +117,9 @@ Quality assurance and testing documentation.
 
 | File | Description |
 |------|-------------|
-| `QA_MASTER_DOCUMENTATION.md` | Master QA documentation |
-| `QA_RESEARCH_NOTES.md` | QA research notes |
-| `DUPLICATE_CLEANUP_LIST.md` | List of duplicates to clean up |
-| `duplicate_cleanup_report.md` | Duplicate cleanup report |
+| `QA_STRATEGY.md` | Consolidated QA strategy and research notes (1,864 lines) |
+| `VERIFICATION_RESULTS.md` | Consolidated verification test results |
+| `CLEANUP_REPORT.md` | Duplicate cleanup list and report |
 
 ### 📁 scripts/
 
@@ -156,8 +155,9 @@ E2E testing documentation is located in `/e2e-tests/`:
 |----------|--------|-------|-----------|
 | E2E Testing Docs | 18 files | 4 files | 78% |
 | Implementation Guides | 6 files | 3 files | 50% |
+| QA Testing Docs | 10 files | 3 files | 70% |
 | Root-level Docs | 15 files | 1 file | 93% |
-| **Total** | **55 files** | **32 files** | **42%** |
+| **Total** | **55 files** | **31 files** | **44%** |
 
 **Key Consolidations:**
 - Merged 6 E2E progress/summary files → `IMPLEMENTATION_HISTORY.md`

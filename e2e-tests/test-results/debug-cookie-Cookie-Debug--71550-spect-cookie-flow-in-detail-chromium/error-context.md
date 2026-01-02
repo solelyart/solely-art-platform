@@ -1,0 +1,287 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - region "Notifications alt+T"
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - link "Solely Art" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - img "Solely Art" [ref=e8]
+        - navigation [ref=e9]:
+          - link "Browse Artists" [ref=e10] [cursor=pointer]:
+            - /url: /browse
+          - link "Dashboard" [ref=e11] [cursor=pointer]:
+            - /url: /dashboard
+          - link "Availability" [ref=e12] [cursor=pointer]:
+            - /url: /availability
+          - link "Bookings" [ref=e13] [cursor=pointer]:
+            - /url: /bookings
+          - link "Messages" [ref=e14] [cursor=pointer]:
+            - /url: /messages
+          - link "Become an Artist" [ref=e15] [cursor=pointer]:
+            - /url: /become-artist
+          - button "Logout" [ref=e16] [cursor=pointer]:
+            - img
+            - text: Logout
+          - button "Go to dashboard" [ref=e17] [cursor=pointer]:
+            - generic [ref=e19]: TC
+    - generic [ref=e22]:
+      - generic [ref=e23]:
+        - img [ref=e24]
+        - generic [ref=e27]: Curated Global Talent
+      - heading "Discover Exceptional Artists" [level=1] [ref=e28]:
+        - text: Discover
+        - text: Exceptional Artists
+      - paragraph [ref=e29]: A refined marketplace connecting discerning clients with world-class creative talent.
+      - generic [ref=e30]:
+        - generic [ref=e31]:
+          - img [ref=e32]
+          - textbox "Search artists, services, or locations..." [ref=e35]
+        - link "Search" [ref=e36] [cursor=pointer]:
+          - /url: /browse?q=
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - generic [ref=e39]: 1,000+
+          - generic [ref=e40]: Curated Artists
+        - generic [ref=e41]:
+          - generic [ref=e42]: 50+
+          - generic [ref=e43]: Countries
+        - generic [ref=e44]:
+          - generic [ref=e45]: 10,000+
+          - generic [ref=e46]: Projects
+    - generic [ref=e48]:
+      - generic [ref=e49]:
+        - generic [ref=e52]: Categories
+        - heading "Explore by Discipline" [level=2] [ref=e54]
+        - paragraph [ref=e55]: Each category features hand-selected artists renowned for their exceptional craft
+      - generic [ref=e56]:
+        - link "Crafts & Handmade Handcrafted items, pottery, jewelry, and custom creations" [ref=e57] [cursor=pointer]:
+          - /url: /browse?category=crafts-handmade
+          - generic [ref=e59]:
+            - img [ref=e61]
+            - heading "Crafts & Handmade" [level=3] [ref=e65]
+            - paragraph [ref=e66]: Handcrafted items, pottery, jewelry, and custom creations
+        - link "Digital Art & Design Graphic design, illustration, and digital artwork" [ref=e67] [cursor=pointer]:
+          - /url: /browse?category=digital-art-design
+          - generic [ref=e69]:
+            - img [ref=e71]
+            - heading "Digital Art & Design" [level=3] [ref=e77]
+            - paragraph [ref=e78]: Graphic design, illustration, and digital artwork
+        - link "Music & Performance Live music, DJ services, and performance art" [ref=e79] [cursor=pointer]:
+          - /url: /browse?category=music-performance
+          - generic [ref=e81]:
+            - img [ref=e83]
+            - heading "Music & Performance" [level=3] [ref=e87]
+            - paragraph [ref=e88]: Live music, DJ services, and performance art
+        - link "Painting & Drawing Custom paintings, portraits, murals, and drawings" [ref=e89] [cursor=pointer]:
+          - /url: /browse?category=painting-drawing
+          - generic [ref=e91]:
+            - img [ref=e93]
+            - heading "Painting & Drawing" [level=3] [ref=e99]
+            - paragraph [ref=e100]: Custom paintings, portraits, murals, and drawings
+        - link "Photography Professional photography services for events, portraits, and more" [ref=e101] [cursor=pointer]:
+          - /url: /browse?category=photography
+          - generic [ref=e103]:
+            - img [ref=e105]
+            - heading "Photography" [level=3] [ref=e108]
+            - paragraph [ref=e109]: Professional photography services for events, portraits, and more
+        - link "Sculpture & 3D Art Sculptures, installations, and three-dimensional artwork" [ref=e110] [cursor=pointer]:
+          - /url: /browse?category=sculpture-3d
+          - generic [ref=e112]:
+            - img [ref=e114]
+            - heading "Sculpture & 3D Art" [level=3] [ref=e120]
+            - paragraph [ref=e121]: Sculptures, installations, and three-dimensional artwork
+        - link "Videography & Film Video production, editing, and cinematography" [ref=e122] [cursor=pointer]:
+          - /url: /browse?category=videography-film
+          - generic [ref=e124]:
+            - img [ref=e126]
+            - heading "Videography & Film" [level=3] [ref=e132]
+            - paragraph [ref=e133]: Video production, editing, and cinematography
+        - link "Writing & Poetry Creative writing, poetry, and literary services" [ref=e134] [cursor=pointer]:
+          - /url: /browse?category=writing-poetry
+          - generic [ref=e136]:
+            - img [ref=e138]
+            - heading "Writing & Poetry" [level=3] [ref=e144]
+            - paragraph [ref=e145]: Creative writing, poetry, and literary services
+    - generic [ref=e147]:
+      - generic [ref=e148]:
+        - generic [ref=e149]:
+          - img [ref=e150]
+          - generic [ref=e153]: Featured
+        - heading "Distinguished Creators" [level=2] [ref=e154]
+        - paragraph [ref=e155]: Meet the exceptional artists shaping creative excellence worldwide
+      - generic [ref=e156]:
+        - link "TA Test Artist 204052-4514 Test artist bio for automated testing Starting from $100/hr" [ref=e157] [cursor=pointer]:
+          - /url: /artist/390031
+          - generic [ref=e158]:
+            - generic [ref=e160]:
+              - generic [ref=e161]: TA
+              - img [ref=e162]
+            - generic [ref=e168]:
+              - heading "Test Artist 204052-4514" [level=3] [ref=e169]
+              - paragraph [ref=e170]: Test artist bio for automated testing
+              - generic [ref=e171]:
+                - generic [ref=e172]: Starting from
+                - generic [ref=e173]: $100/hr
+        - link "TA Test Artist 882218-92034 Test artist bio for automated testing Starting from $100/hr" [ref=e174] [cursor=pointer]:
+          - /url: /artist/390030
+          - generic [ref=e175]:
+            - generic [ref=e177]:
+              - generic [ref=e178]: TA
+              - img [ref=e179]
+            - generic [ref=e185]:
+              - heading "Test Artist 882218-92034" [level=3] [ref=e186]
+              - paragraph [ref=e187]: Test artist bio for automated testing
+              - generic [ref=e188]:
+                - generic [ref=e189]: Starting from
+                - generic [ref=e190]: $100/hr
+        - link "TA Test Artist 985158-379812 Test artist bio for automated testing Starting from $100/hr" [ref=e191] [cursor=pointer]:
+          - /url: /artist/390029
+          - generic [ref=e192]:
+            - generic [ref=e194]:
+              - generic [ref=e195]: TA
+              - img [ref=e196]
+            - generic [ref=e202]:
+              - heading "Test Artist 985158-379812" [level=3] [ref=e203]
+              - paragraph [ref=e204]: Test artist bio for automated testing
+              - generic [ref=e205]:
+                - generic [ref=e206]: Starting from
+                - generic [ref=e207]: $100/hr
+        - link "TA Test Artist 905047-483342 Test artist bio for automated testing Starting from $100/hr" [ref=e208] [cursor=pointer]:
+          - /url: /artist/390028
+          - generic [ref=e209]:
+            - generic [ref=e211]:
+              - generic [ref=e212]: TA
+              - img [ref=e213]
+            - generic [ref=e219]:
+              - heading "Test Artist 905047-483342" [level=3] [ref=e220]
+              - paragraph [ref=e221]: Test artist bio for automated testing
+              - generic [ref=e222]:
+                - generic [ref=e223]: Starting from
+                - generic [ref=e224]: $100/hr
+        - link "CT Calendar Test Artist Test artist bio for automated testing Starting from $100/hr" [ref=e225] [cursor=pointer]:
+          - /url: /artist/390027
+          - generic [ref=e226]:
+            - generic [ref=e228]:
+              - generic [ref=e229]: CT
+              - img [ref=e230]
+            - generic [ref=e236]:
+              - heading "Calendar Test Artist" [level=3] [ref=e237]
+              - paragraph [ref=e238]: Test artist bio for automated testing
+              - generic [ref=e239]:
+                - generic [ref=e240]: Starting from
+                - generic [ref=e241]: $100/hr
+        - link "ET E2E Test Artist Test artist bio for automated testing Starting from $100/hr" [ref=e242] [cursor=pointer]:
+          - /url: /artist/390020
+          - generic [ref=e243]:
+            - generic [ref=e245]:
+              - generic [ref=e246]: ET
+              - img [ref=e247]
+            - generic [ref=e253]:
+              - heading "E2E Test Artist" [level=3] [ref=e254]
+              - paragraph [ref=e255]: Test artist bio for automated testing
+              - generic [ref=e256]:
+                - generic [ref=e257]: Starting from
+                - generic [ref=e258]: $100/hr
+    - generic [ref=e260]:
+      - generic [ref=e261]:
+        - heading "What Our Clients Say" [level=2] [ref=e262]
+        - paragraph [ref=e263]: Hear from clients who have found their perfect creative match through Solely Art
+      - generic [ref=e264]:
+        - generic [ref=e266]:
+          - generic [ref=e267]:
+            - img [ref=e268]
+            - img [ref=e271]
+            - img [ref=e274]
+            - img [ref=e277]
+            - img [ref=e280]
+          - paragraph [ref=e283]: "\"Working with Elena was an absolute dream. She captured the essence of our brand in ways we never imagined possible. The abstract piece she created is now the centerpiece of our office.\""
+          - generic [ref=e284]:
+            - paragraph [ref=e285]: Sarah Mitchell
+            - paragraph [ref=e286]: Creative Director, Luxe Interiors
+        - generic [ref=e288]:
+          - generic [ref=e289]:
+            - img [ref=e290]
+            - img [ref=e293]
+            - img [ref=e296]
+            - img [ref=e299]
+            - img [ref=e302]
+          - paragraph [ref=e305]: "\"Marcus's photography transformed our product launch. His attention to detail and artistic vision elevated our entire campaign. We've already booked him for our next three projects.\""
+          - generic [ref=e306]:
+            - paragraph [ref=e307]: David Chen
+            - paragraph [ref=e308]: Marketing VP, Artisan Collective
+        - generic [ref=e310]:
+          - generic [ref=e311]:
+            - img [ref=e312]
+            - img [ref=e315]
+            - img [ref=e318]
+            - img [ref=e321]
+            - img [ref=e324]
+          - paragraph [ref=e327]: "\"The wedding invitation suite Oliver created was beyond our expectations. Every guest commented on the beautiful calligraphy. It set the perfect tone for our special day.\""
+          - generic [ref=e328]:
+            - paragraph [ref=e329]: Emma & James Thompson
+            - paragraph [ref=e330]: Newlyweds, Boston
+    - generic [ref=e335]:
+      - img [ref=e336]
+      - heading "Elevate Your Creative Vision" [level=2] [ref=e339]
+      - paragraph [ref=e340]: Join a distinguished community where exceptional artistry meets discerning clientele. Whether showcasing your portfolio or commissioning bespoke work, Solely Art is your gateway to excellence.
+      - generic [ref=e341]:
+        - link "Apply as Artist" [ref=e342] [cursor=pointer]:
+          - /url: /become-artist
+        - link "Explore Portfolio" [ref=e343] [cursor=pointer]:
+          - /url: /browse
+    - contentinfo [ref=e344]:
+      - generic [ref=e345]:
+        - generic [ref=e346]:
+          - generic [ref=e347]:
+            - link "Solely Art" [ref=e349] [cursor=pointer]:
+              - /url: /
+              - img "Solely Art" [ref=e351]
+            - paragraph [ref=e352]: Curating exceptional creative talent for discerning clients worldwide.
+          - generic [ref=e353]:
+            - heading "For Artists" [level=3] [ref=e354]
+            - list [ref=e355]:
+              - listitem [ref=e356]:
+                - link "Join as Artist" [ref=e357] [cursor=pointer]:
+                  - /url: /become-artist
+              - listitem [ref=e358]:
+                - link "Dashboard" [ref=e359] [cursor=pointer]:
+                  - /url: /dashboard
+          - generic [ref=e360]:
+            - heading "For Clients" [level=3] [ref=e361]
+            - list [ref=e362]:
+              - listitem [ref=e363]:
+                - link "Browse Artists" [ref=e364] [cursor=pointer]:
+                  - /url: /browse
+              - listitem [ref=e365]:
+                - link "My Commissions" [ref=e366] [cursor=pointer]:
+                  - /url: /dashboard
+          - generic [ref=e367]:
+            - heading "Company" [level=3] [ref=e368]
+            - list [ref=e369]:
+              - listitem [ref=e370]:
+                - link "About Us" [ref=e371] [cursor=pointer]:
+                  - /url: /about
+              - listitem [ref=e372]:
+                - link "Contact" [ref=e373] [cursor=pointer]:
+                  - /url: /contact
+              - listitem [ref=e374]:
+                - link "Terms of Service" [ref=e375] [cursor=pointer]:
+                  - /url: /terms
+              - listitem [ref=e376]:
+                - link "Privacy Policy" [ref=e377] [cursor=pointer]:
+                  - /url: /privacy
+        - generic [ref=e379]:
+          - heading "Join Our Community" [level=3] [ref=e380]
+          - paragraph [ref=e381]: Get the latest artist spotlights, creative inspiration, and platform updates delivered to your inbox.
+          - generic [ref=e382]:
+            - generic [ref=e383]:
+              - img [ref=e384]
+              - textbox "Enter your email" [ref=e387]
+            - button "Subscribe" [ref=e388] [cursor=pointer]
+        - generic [ref=e389]:
+          - paragraph [ref=e390]: © 2025 Solely Art. All Rights Reserved.
+          - paragraph [ref=e391]: Solely Art™ is a trademark of Solely Art.
+```

@@ -1,0 +1,243 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - region "Notifications alt+T"
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - link "Solely Art" [ref=e6] [cursor=pointer]:
+          - /url: /
+          - img "Solely Art" [ref=e8]
+        - navigation [ref=e9]:
+          - link "Browse Artists" [ref=e10] [cursor=pointer]:
+            - /url: /browse
+          - link "Dashboard" [ref=e11] [cursor=pointer]:
+            - /url: /dashboard
+    - generic [ref=e12]:
+      - generic [ref=e15]:
+        - generic [ref=e17]: J
+        - generic [ref=e18]:
+          - heading "Jane Doe" [level=1] [ref=e19]
+          - generic [ref=e20]:
+            - generic [ref=e21]:
+              - img [ref=e22]
+              - generic [ref=e25]: New York, NY
+            - generic [ref=e26]:
+              - img [ref=e27]
+              - generic [ref=e29]: "4.8"
+              - generic [ref=e30]: (4 reviews)
+            - generic [ref=e31]:
+              - img [ref=e32]
+              - generic [ref=e34]: $120/hour
+          - generic [ref=e35]:
+            - generic [ref=e36]: Music & Performance
+            - generic [ref=e37]: Painting & Drawing
+          - paragraph [ref=e38]: Talented artist specializing in portrait photography and digital art. Available for commissions and custom projects.
+        - link "Book Now" [ref=e40] [cursor=pointer]:
+          - /url: /book/150001
+          - img
+          - text: Book Now
+      - generic [ref=e41]:
+        - generic [ref=e42]:
+          - generic [ref=e44]:
+            - generic [ref=e45]:
+              - generic [ref=e46]: Portfolio
+              - generic [ref=e47]:
+                - button "Featured" [ref=e48] [cursor=pointer]
+                - button "Portrait Photography" [ref=e49] [cursor=pointer]:
+                  - text: Portrait Photography
+                  - img
+            - generic [ref=e52] [cursor=pointer]:
+              - img "Feminine Elegance" [ref=e53]
+              - generic [ref=e55]:
+                - heading "Feminine Elegance" [level=4] [ref=e56]
+                - paragraph [ref=e57]: A dramatic portrait capturing feminine grace with theatrical lighting
+              - generic [ref=e58]:
+                - img
+          - generic [ref=e59]:
+            - generic [ref=e61]: Services
+            - generic [ref=e63]:
+              - generic [ref=e65]:
+                - generic [ref=e66]:
+                  - heading "Portrait Photography Session" [level=3] [ref=e67]
+                  - generic [ref=e68]: $250
+                - paragraph [ref=e69]: Professional portrait photography session in studio or on location. Includes 1-hour shoot, 20+ edited photos, and online gallery delivery.
+                - generic [ref=e70]:
+                  - generic [ref=e71]:
+                    - img [ref=e72]
+                    - generic [ref=e75]: 60 minutes
+                  - link "Book This Service" [ref=e76] [cursor=pointer]:
+                    - /url: /book/150001?service=60001
+              - generic [ref=e78]:
+                - generic [ref=e79]:
+                  - heading "Headshot Package" [level=3] [ref=e80]
+                  - generic [ref=e81]: $150
+                - paragraph [ref=e82]: Professional headshots for LinkedIn, corporate profiles, or acting portfolios. Includes 30-minute session and 5 retouched images.
+                - generic [ref=e83]:
+                  - generic [ref=e84]:
+                    - img [ref=e85]
+                    - generic [ref=e88]: 30 minutes
+                  - link "Book This Service" [ref=e89] [cursor=pointer]:
+                    - /url: /book/150001?service=60002
+              - generic [ref=e91]:
+                - generic [ref=e92]:
+                  - heading "Digital Art Commission" [level=3] [ref=e93]
+                  - generic [ref=e94]: $350
+                - paragraph [ref=e95]: Custom digital portrait or artwork created from your photos or concepts. Perfect for gifts, social media, or personal use.
+                - generic [ref=e96]:
+                  - generic [ref=e97]:
+                    - img [ref=e98]
+                    - generic [ref=e101]: 180 minutes
+                  - link "Book This Service" [ref=e102] [cursor=pointer]:
+                    - /url: /book/150001?service=60003
+              - generic [ref=e104]:
+                - generic [ref=e105]:
+                  - heading "Event Photography" [level=3] [ref=e106]
+                  - generic [ref=e107]: $500
+                - paragraph [ref=e108]: Professional photography coverage for events, parties, or celebrations. Includes 3-hour coverage and 100+ edited photos.
+                - generic [ref=e109]:
+                  - generic [ref=e110]:
+                    - img [ref=e111]
+                    - generic [ref=e114]: 180 minutes
+                  - link "Book This Service" [ref=e115] [cursor=pointer]:
+                    - /url: /book/150001?service=60004
+          - generic [ref=e116]:
+            - generic [ref=e118]: Reviews
+            - generic [ref=e120]:
+              - generic [ref=e122]:
+                - generic [ref=e124]: U
+                - generic [ref=e125]:
+                  - generic [ref=e126]:
+                    - generic [ref=e127]:
+                      - paragraph [ref=e128]: Anonymous
+                      - paragraph [ref=e129]: December 15, 2025
+                    - generic [ref=e130]:
+                      - img [ref=e131]
+                      - img [ref=e133]
+                      - img [ref=e135]
+                      - img [ref=e137]
+                      - img [ref=e139]
+                  - paragraph [ref=e141]: Jane is absolutely incredible! She captured my personality perfectly in the headshots. The photos exceeded my expectations and I got so many compliments on LinkedIn.
+              - generic [ref=e143]:
+                - generic [ref=e145]: U
+                - generic [ref=e146]:
+                  - generic [ref=e147]:
+                    - generic [ref=e148]:
+                      - paragraph [ref=e149]: Anonymous
+                      - paragraph [ref=e150]: December 15, 2025
+                    - generic [ref=e151]:
+                      - img [ref=e152]
+                      - img [ref=e154]
+                      - img [ref=e156]
+                      - img [ref=e158]
+                      - img [ref=e160]
+                  - paragraph [ref=e162]: The portrait session was so much fun and the results were stunning. Jane made me feel comfortable and the lighting was perfect. Highly recommend!
+              - generic [ref=e164]:
+                - generic [ref=e166]: U
+                - generic [ref=e167]:
+                  - generic [ref=e168]:
+                    - generic [ref=e169]:
+                      - paragraph [ref=e170]: Anonymous
+                      - paragraph [ref=e171]: December 15, 2025
+                    - generic [ref=e172]:
+                      - img [ref=e173]
+                      - img [ref=e175]
+                      - img [ref=e177]
+                      - img [ref=e179]
+                      - img [ref=e181]
+                  - paragraph [ref=e183]: Great experience overall. Jane is professional and talented. The digital art commission turned out beautifully - my family loved it as a gift.
+              - generic [ref=e185]:
+                - generic [ref=e187]: U
+                - generic [ref=e188]:
+                  - generic [ref=e189]:
+                    - generic [ref=e190]:
+                      - paragraph [ref=e191]: Anonymous
+                      - paragraph [ref=e192]: December 15, 2025
+                    - generic [ref=e193]:
+                      - img [ref=e194]
+                      - img [ref=e196]
+                      - img [ref=e198]
+                      - img [ref=e200]
+                      - img [ref=e202]
+                  - paragraph [ref=e204]: Jane photographed our anniversary party and the photos are gorgeous. She captured all the special moments and delivered them quickly. Will definitely book again!
+        - generic [ref=e205]:
+          - generic [ref=e206]:
+            - generic [ref=e208]: Quick Stats
+            - generic [ref=e209]:
+              - generic [ref=e210]:
+                - generic [ref=e211]: Response Time
+                - generic [ref=e212]: Within 24h
+              - generic [ref=e213]:
+                - generic [ref=e214]: Total Reviews
+                - generic [ref=e215]: "4"
+              - generic [ref=e216]:
+                - generic [ref=e217]: Average Rating
+                - generic [ref=e218]:
+                  - text: "4.8"
+                  - img [ref=e219]
+          - generic [ref=e222]:
+            - generic [ref=e224]:
+              - img [ref=e225]
+              - text: Check Availability
+            - generic [ref=e227]:
+              - generic [ref=e228]:
+                - button "‹" [ref=e229] [cursor=pointer]
+                - generic [ref=e230]: January 2026
+                - button "›" [ref=e231] [cursor=pointer]
+              - generic [ref=e232]:
+                - generic [ref=e233]: Su
+                - generic [ref=e234]: Mo
+                - generic [ref=e235]: Tu
+                - generic [ref=e236]: We
+                - generic [ref=e237]: Th
+                - generic [ref=e238]: Fr
+                - generic [ref=e239]: Sa
+                - button "1" [disabled] [ref=e244]
+                - button "2" [ref=e245] [cursor=pointer]
+                - button "3" [active] [ref=e246] [cursor=pointer]
+                - button "4" [ref=e247] [cursor=pointer]
+                - button "5" [ref=e248] [cursor=pointer]
+                - button "6" [ref=e249] [cursor=pointer]
+                - button "7" [ref=e250] [cursor=pointer]
+                - button "8" [ref=e251] [cursor=pointer]
+                - button "9" [ref=e252] [cursor=pointer]
+                - button "10" [ref=e253] [cursor=pointer]
+                - button "11" [ref=e254] [cursor=pointer]
+                - button "12" [ref=e255] [cursor=pointer]
+                - button "13" [ref=e256] [cursor=pointer]
+                - button "14" [ref=e257] [cursor=pointer]
+                - button "15" [ref=e258] [cursor=pointer]
+                - button "16" [ref=e259] [cursor=pointer]
+                - button "17" [ref=e260] [cursor=pointer]
+                - button "18" [ref=e261] [cursor=pointer]
+                - button "19" [ref=e262] [cursor=pointer]
+                - button "20" [ref=e263] [cursor=pointer]
+                - button "21" [ref=e264] [cursor=pointer]
+                - button "22" [ref=e265] [cursor=pointer]
+                - button "23" [ref=e266] [cursor=pointer]
+                - button "24" [ref=e267] [cursor=pointer]
+                - button "25" [ref=e268] [cursor=pointer]
+                - button "26" [ref=e269] [cursor=pointer]
+                - button "27" [ref=e270] [cursor=pointer]
+                - button "28" [ref=e271] [cursor=pointer]
+                - button "29" [ref=e272] [cursor=pointer]
+                - button "30" [ref=e273] [cursor=pointer]
+                - button "31" [ref=e274] [cursor=pointer]
+              - generic [ref=e275]:
+                - paragraph [ref=e276]: Saturday, January 3
+                - paragraph [ref=e277]: No availability for this date
+                - link "Book Now" [ref=e278] [cursor=pointer]:
+                  - /url: /book/150001?date=2026-01-03
+                  - img
+                  - text: Book Now
+          - generic [ref=e279]:
+            - generic [ref=e281]: Get in Touch
+            - generic [ref=e282]:
+              - paragraph [ref=e283]: Ready to work with Jane Doe? Book a session or send a message.
+              - link "Request Booking" [ref=e284] [cursor=pointer]:
+                - /url: /book/150001
+                - img
+                - text: Request Booking
+              - button "Send Message" [ref=e285] [cursor=pointer]
+```
