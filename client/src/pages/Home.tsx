@@ -80,15 +80,16 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative overflow-hidden py-32 md:py-40 texture-overlay">
-        {/* Subtle decorative elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
-          <div className="absolute top-32 left-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-32 right-20 w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
+        {/* Subtle decorative elements - charcoal hints in dark mode */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30 dark:opacity-40">
+          <div className="absolute top-32 left-20 w-96 h-96 bg-primary/10 dark:bg-[#333333]/30 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-32 right-20 w-96 h-96 bg-accent/10 dark:bg-primary/15 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-transparent dark:bg-[#1A1A1A]/50 rounded-full blur-3xl"></div>
         </div>
         
         <div className="container relative">
           <div className="mx-auto max-w-4xl text-center">
-            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-card/50 px-5 py-2.5 text-sm font-medium text-primary backdrop-blur-sm">
+            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-primary/20 dark:border-[#333333] bg-card/50 dark:bg-[#1A1A1A]/80 px-5 py-2.5 text-sm font-medium text-primary backdrop-blur-sm">
               <Globe className="h-4 w-4" />
               <span>Curated Global Talent</span>
             </div>
@@ -110,7 +111,7 @@ export default function Home() {
                 <Input
                   data-testid="search-input"
                   placeholder="Search artists, services, or locations..."
-                  className="h-16 pl-14 text-base border-2 border-border/50 focus:border-primary/50 shadow-elegant bg-card/80 backdrop-blur-sm"
+                  className="h-16 pl-14 text-base border-2 border-border/50 dark:border-[#333333] focus:border-primary/50 shadow-elegant bg-card/80 dark:bg-[#1A1A1A]/90 backdrop-blur-sm"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
@@ -142,7 +143,7 @@ export default function Home() {
       </section>
 
       {/* Categories */}
-      <section className="py-24 bg-card/30">
+      <section className="py-24 bg-card/30 dark:bg-[#0A0A0A]">
         <div className="container">
           <div className="text-center mb-16">
             <div className="mb-4 inline-flex items-center gap-2 text-primary/80">
@@ -163,9 +164,9 @@ export default function Home() {
               const Icon = categoryIcons[category.slug] || Palette;
               return (
                 <Link key={category.id} href={`/browse?category=${category.slug}`}>
-                  <Card data-testid="category-card" className="group hover-lift border-border/50 bg-card/80 backdrop-blur-sm shadow-elegant">
+                  <Card data-testid="category-card" className="group hover-lift border-border/50 dark:border-[#333333] bg-card/80 dark:bg-[#1A1A1A] backdrop-blur-sm shadow-elegant">
                     <CardContent className="p-10 text-center">
-                      <div className="mb-6 inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-primary/5 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
+                      <div className="mb-6 inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-primary/5 dark:bg-[#333333]/50 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
                         <Icon className="h-10 w-10" />
                       </div>
                       <h3 className="text-2xl font-semibold mb-3 group-hover:text-primary transition-colors">
@@ -207,7 +208,7 @@ export default function Home() {
               
               return (
               <Link key={artist.id} href={`/artist/${artist.id}`}>
-                <Card data-testid="featured-artist-card" className="group overflow-hidden hover-lift border-border/50 bg-card/80 backdrop-blur-sm shadow-elegant">
+                <Card data-testid="featured-artist-card" className="group overflow-hidden hover-lift border-border/50 dark:border-[#333333] bg-card/80 dark:bg-[#1A1A1A] backdrop-blur-sm shadow-elegant">
                   {portfolioImages && portfolioImages.length > 0 ? (
                     <div className="aspect-[4/3] overflow-hidden bg-muted relative">
                       <img
@@ -307,7 +308,7 @@ export default function Home() {
                 rating: 5
               }
             ].map((testimonial, index) => (
-              <Card key={index} className="border-0 shadow-elegant hover-lift">
+              <Card key={index} className="border-0 dark:border dark:border-[#333333] shadow-elegant hover-lift dark:bg-[#1A1A1A]">
                 <CardContent className="p-8">
                   <div className="flex gap-1 mb-4">
                     {Array.from({ length: testimonial.rating }).map((_, i) => (
@@ -356,7 +357,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border/50 bg-card/50 backdrop-blur-sm py-16">
+      <footer className="border-t border-border/50 dark:border-[#333333] bg-card/50 dark:bg-[#0A0A0A] backdrop-blur-sm py-16">
         <div className="container">
           <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4 mb-12">
             <div>

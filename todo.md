@@ -990,3 +990,9 @@
 - [x] Create git comparison of CSS before/after branding
 - [x] Add theme toggle to Dashboard sidebar
 - [x] Set dark mode as the default theme
+
+
+## Dark Mode Color Update
+
+- [x] Replace charcoal (#333333) with black (#000000) for dark mode background
+- [x] Add charcoal (#333333) as accent hints (cards, borders, hover states)
