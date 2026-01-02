@@ -97,7 +97,7 @@ export default function About() {
             <img 
               src="/brand/logo-full-lg.png" 
               alt="Solely Art - Curated Connections" 
-              className="h-40 w-auto mx-auto mb-8"
+              className="w-80 h-auto mx-auto mb-8"
             />
             <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6">
               Our Story
@@ -131,9 +131,9 @@ export default function About() {
             <div className="relative">
               <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20 flex items-center justify-center">
                 <img 
-                  src="/brand/logo-icon-128.png" 
+                  src="/brand/logo-icon-256.png" 
                   alt="Solely Art" 
-                  className="h-48 w-auto opacity-80"
+                  className="w-40 h-auto opacity-80"
                 />
               </div>
             </div>

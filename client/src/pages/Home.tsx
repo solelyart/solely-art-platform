@@ -34,7 +34,7 @@ export default function Home() {
             <img 
               src="/brand/logo-header.png" 
               alt="Solely Art" 
-              className="h-16 w-auto transition-transform group-hover:scale-105" 
+              className="h-11 w-auto transition-transform group-hover:scale-105" 
             />
           </Link>
           
@@ -362,9 +362,9 @@ export default function Home() {
             <div>
               <div className="mb-6">
                 <img 
-                  src="/brand/logo-full-lg.png" 
+                  src="/brand/logo-full-md.png" 
                   alt="Solely Art - Curated Connections" 
-                  className="h-24 w-auto" 
+                  className="w-56 h-auto" 
                 />
               </div>
               <p className="text-sm text-foreground/60 font-light leading-relaxed">
