@@ -1029,3 +1029,24 @@
 - [x] Fix missing navigation links on Privacy page
 - [x] Fix missing navigation links on BecomeArtist page
 - [x] Created shared Navigation component for consistency
+
+
+## Additional Navigation Fixes
+
+- [ ] Add Navigation to Home.tsx
+- [ ] Add Navigation to Dashboard.tsx (uses DashboardLayout)
+- [ ] Add Navigation to AvailabilityDashboard.tsx (uses DashboardLayout)
+- [ ] Add Navigation to BookingManagement.tsx (uses DashboardLayout)
+- [ ] Add Navigation to Messages.tsx (uses DashboardLayout)
+- [ ] Add Navigation to PortfolioBuilder.tsx (uses DashboardLayout)
+- [ ] Add Navigation to NotFound.tsx
+- [ ] Add Navigation to ComponentShowcase.tsx
+
+
+## Universal Layout Components
+
+- [x] Create universal Header component with Navigation
+- [x] Create universal Footer component
+- [x] Create Layout wrapper component
+- [x] Apply Layout to App.tsx for all routes
+- [x] Remove duplicate headers/footers from individual pages

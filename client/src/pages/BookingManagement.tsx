@@ -19,6 +19,7 @@ import {
   Ban
 } from "lucide-react";
 
+
 type BookingStatus = "pending" | "accepted" | "declined" | "cancelled" | "completed";
 
 export function BookingManagement() {
@@ -162,9 +163,11 @@ export function BookingManagement() {
   }
 
   return (
-    <div className="container max-w-6xl py-8">
-      {/* Header */}
-      <div className="mb-8">
+    <div className="min-h-screen bg-background">
+      
+      <div className="container max-w-6xl py-8">
+        {/* Header */}
+        <div className="mb-8">
         <h1 className="text-3xl font-bold mb-2">Booking Management</h1>
         <p className="text-muted-foreground">
           View and manage your bookings {profile && "as an artist"} and client.
@@ -367,6 +370,7 @@ export function BookingManagement() {
           )}
         </TabsContent>
       </Tabs>
+      </div>
     </div>
   );
 }

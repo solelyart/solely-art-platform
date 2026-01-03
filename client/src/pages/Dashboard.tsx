@@ -10,6 +10,7 @@ import { Link } from "wouter";
 import { toast } from "sonner";
 import { HeaderLogo, FooterLogo } from "@/components/ResponsiveLogo";
 
+
 function ProfilePictureUpload({ userId, currentPhoto }: { userId?: number; currentPhoto?: string | null }) {
   const utils = trpc.useUtils();
   const uploadMutation = trpc.user.uploadProfilePhoto.useMutation({
@@ -98,26 +99,7 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen">
-      {/* Header */}
-      <header className="border-b bg-card">
-        <div className="container flex h-16 items-center justify-between">
-          <HeaderLogo />
-          
-          <nav className="flex items-center gap-4">
-            <Link href="/browse" className="text-sm font-medium hover:text-primary">
-              Browse Artists
-            </Link>
-            {!artistProfile && (
-              <Button variant="outline" size="sm" asChild>
-                <Link href="/become-artist">Become an Artist</Link>
-              </Button>
-            )}
-          </nav>
-        </div>
-      </header>
-
-      <div className="container py-8">
+    <div className="container py-8">
         <div className="mb-8">
           <h1 className="mb-2 text-4xl font-bold">Dashboard</h1>
           <p className="text-muted-foreground">Welcome back, {user?.name || "there"}!</p>
@@ -258,7 +240,6 @@ export default function Dashboard() {
             </TabsContent>
           )}
         </Tabs>
-      </div>
     </div>
   );
 }

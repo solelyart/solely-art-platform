@@ -13,7 +13,7 @@ import { Search, Palette, MapPin, X, SlidersHorizontal } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { HeaderLogo, FooterLogo } from "@/components/ResponsiveLogo";
-import { Navigation } from "@/components/Navigation";
+
 
 export default function Browse() {
   const { isAuthenticated } = useAuth();
@@ -97,7 +97,7 @@ export default function Browse() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <Navigation />
+      
 
       <div className="container py-8">
         <div className="flex gap-8">

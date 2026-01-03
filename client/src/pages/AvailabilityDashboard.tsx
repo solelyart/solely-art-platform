@@ -9,6 +9,7 @@ import { WeeklyScheduleEditor } from "@/components/WeeklyScheduleEditor";
 import { BlackoutCalendar } from "@/components/BlackoutCalendar";
 import { BookingPolicySelector } from "@/components/BookingPolicySelector";
 
+
 export function AvailabilityDashboard() {
   const { user } = useAuth();
   const [activeTab, setActiveTab] = useState("schedule");
@@ -50,7 +51,9 @@ export function AvailabilityDashboard() {
   }
 
   return (
-    <div className="container max-w-6xl py-8">
+    <div className="min-h-screen bg-background">
+      
+      <div className="container max-w-6xl py-8">
       {/* Header */}
       <div className="mb-8">
         <h1 className="text-3xl font-bold mb-2">Availability Management</h1>
@@ -118,6 +121,7 @@ export function AvailabilityDashboard() {
           </Card>
         </TabsContent>
       </Tabs>
+      </div>
     </div>
   );
 }

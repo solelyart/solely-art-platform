@@ -5,7 +5,7 @@ import { getLoginUrl } from "@/const";
 import { Heart, Users, Award, Globe, Sparkles, Shield } from "lucide-react";
 import { Link } from "wouter";
 import { HeaderLogo, FooterLogo } from "@/components/ResponsiveLogo";
-import { Navigation } from "@/components/Navigation";
+
 
 export default function About() {
   const { isAuthenticated } = useAuth();
@@ -61,7 +61,7 @@ export default function About() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <Navigation />
+      
 
       {/* Hero Section with Diamond Logo */}
       <section className="relative py-24 overflow-hidden">

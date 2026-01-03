@@ -1,12 +1,12 @@
 import { Link } from "wouter";
 import { HeaderLogo, FooterLogo } from "@/components/ResponsiveLogo";
-import { Navigation } from "@/components/Navigation";
+
 
 export default function Privacy() {
   return (
     <div className="min-h-screen gradient-artistic">
       {/* Header */}
-      <Navigation />
+      
 
       {/* Content */}
       <main className="container py-16 max-w-4xl">

@@ -10,7 +10,7 @@ import { Mail, MapPin, Clock, Send, CheckCircle } from "lucide-react";
 import { toast } from "sonner";
 import { trpc } from "@/lib/trpc";
 import { HeaderLogo, FooterLogo } from "@/components/ResponsiveLogo";
-import { Navigation } from "@/components/Navigation";
+
 
 export default function Contact() {
   
@@ -65,7 +65,7 @@ export default function Contact() {
     return (
       <div className="min-h-screen gradient-artistic">
         {/* Header */}
-        <Navigation />
+        
 
         {/* Success Message */}
         <main className="container py-24 max-w-2xl text-center">
@@ -107,7 +107,7 @@ export default function Contact() {
   return (
     <div className="min-h-screen gradient-artistic">
       {/* Header */}
-      <Navigation />
+      
 
       {/* Content */}
       <main className="container py-16">
