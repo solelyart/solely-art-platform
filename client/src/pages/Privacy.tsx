@@ -1,23 +1,12 @@
 import { Link } from "wouter";
 import { HeaderLogo, FooterLogo } from "@/components/ResponsiveLogo";
+import { Navigation } from "@/components/Navigation";
 
 export default function Privacy() {
   return (
     <div className="min-h-screen gradient-artistic">
       {/* Header */}
-      <header className="glass-effect sticky top-0 z-50 border-b border-border/50">
-        <div className="container flex h-20 items-center justify-between">
-          <HeaderLogo />
-          <nav className="flex items-center gap-6">
-            <Link href="/" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
-              Home
-            </Link>
-            <Link href="/browse" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
-              Browse Artists
-            </Link>
-          </nav>
-        </div>
-      </header>
+      <Navigation />
 
       {/* Content */}
       <main className="container py-16 max-w-4xl">

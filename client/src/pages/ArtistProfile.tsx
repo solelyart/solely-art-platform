@@ -13,6 +13,7 @@ import { MapPin, Star, Palette, Clock, DollarSign, Calendar, ChevronLeft, Chevro
 import { Link, useParams } from "wouter";
 import { useState } from "react";
 import { HeaderLogo, FooterLogo } from "@/components/ResponsiveLogo";
+import { Navigation } from "@/components/Navigation";
 
 function BookingSettingsCard({ artistId }: { artistId: number }) {
   const { data: settings } = trpc.availability.getSettingsByArtist.useQuery({ artistId });
@@ -114,22 +115,7 @@ export default function ArtistProfile() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="glass-effect sticky top-0 z-50 border-b border-border/50">
-        <div className="container flex h-20 items-center justify-between">
-          <HeaderLogo />
-          
-          <nav className="flex items-center gap-6">
-            <Link href="/browse" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
-              Browse Artists
-            </Link>
-            {isAuthenticated && (
-              <Link href="/dashboard" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
-                Dashboard
-              </Link>
-            )}
-          </nav>
-        </div>
-      </header>
+      <Navigation />
 
       <div className="container py-8">
         {/* Artist Header */}

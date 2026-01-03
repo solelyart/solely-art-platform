@@ -1016,3 +1016,16 @@
 - [ ] Apply charcoal accents to Booking page
 - [ ] Apply charcoal accents to Dashboard pages
 - [ ] Add charcoal dividers between major sections site-wide
+
+
+## Navigation Fixes
+
+- [x] Fix missing navigation links on Browse Artists page
+- [x] Fix missing navigation links on Artist Profile page
+- [x] Fix missing navigation links on Booking page
+- [x] Fix missing navigation links on About page
+- [x] Fix missing navigation links on Contact page
+- [x] Fix missing navigation links on Terms page
+- [x] Fix missing navigation links on Privacy page
+- [x] Fix missing navigation links on BecomeArtist page
+- [x] Created shared Navigation component for consistency

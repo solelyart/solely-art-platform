@@ -12,6 +12,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { BookingCalendar } from "@/components/BookingCalendar";
 import { Palette, ArrowLeft, CheckCircle2, Loader2 } from "lucide-react";
 import { HeaderLogo, FooterLogo } from "@/components/ResponsiveLogo";
+import { Navigation } from "@/components/Navigation";
 // Toast functionality to be added later
 
 export default function BookArtist() {
@@ -137,18 +138,7 @@ export default function BookArtist() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="glass-effect sticky top-0 z-50 border-b border-border/50">
-        <div className="container flex h-20 items-center justify-between">
-          <HeaderLogo />
-          
-          <Button variant="ghost" asChild>
-            <Link href={`/artist/${artistId}`}>
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Profile
-            </Link>
-          </Button>
-        </div>
-      </header>
+      <Navigation />
 
       <div data-testid="booking-form" className="container py-8 max-w-6xl">
         {/* Artist Info Banner */}

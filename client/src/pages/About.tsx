@@ -5,6 +5,7 @@ import { getLoginUrl } from "@/const";
 import { Heart, Users, Award, Globe, Sparkles, Shield } from "lucide-react";
 import { Link } from "wouter";
 import { HeaderLogo, FooterLogo } from "@/components/ResponsiveLogo";
+import { Navigation } from "@/components/Navigation";
 
 export default function About() {
   const { isAuthenticated } = useAuth();
@@ -60,29 +61,7 @@ export default function About() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="glass-effect sticky top-0 z-50 border-b border-border/50">
-        <div className="container flex h-20 items-center justify-between">
-          <HeaderLogo />
-          
-          <nav className="flex items-center gap-6">
-            <Link href="/" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
-              Home
-            </Link>
-            <Link href="/browse" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
-              Browse Artists
-            </Link>
-            {isAuthenticated ? (
-              <Link href="/dashboard" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
-                Dashboard
-              </Link>
-            ) : (
-              <Button asChild className="btn-cta">
-                <a href={getLoginUrl()}>Sign In</a>
-              </Button>
-            )}
-          </nav>
-        </div>
-      </header>
+      <Navigation />
 
       {/* Hero Section with Diamond Logo */}
       <section className="relative py-24 overflow-hidden">

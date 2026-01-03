@@ -13,6 +13,7 @@ import { Search, Palette, MapPin, X, SlidersHorizontal } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { HeaderLogo, FooterLogo } from "@/components/ResponsiveLogo";
+import { Navigation } from "@/components/Navigation";
 
 export default function Browse() {
   const { isAuthenticated } = useAuth();
@@ -96,22 +97,7 @@ export default function Browse() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="glass-effect sticky top-0 z-50 border-b border-border/50">
-        <div className="container flex h-20 items-center justify-between">
-          <HeaderLogo />
-          
-          <nav className="flex items-center gap-6">
-            <Link href="/" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
-              Home
-            </Link>
-            {isAuthenticated && (
-              <Link href="/dashboard" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
-                Dashboard
-              </Link>
-            )}
-          </nav>
-        </div>
-      </header>
+      <Navigation />
 
       <div className="container py-8">
         <div className="flex gap-8">

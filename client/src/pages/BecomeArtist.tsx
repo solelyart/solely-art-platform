@@ -12,6 +12,7 @@ import { Link, useLocation } from "wouter";
 import { toast } from "sonner";
 import { ThemeSelector } from "@/components/ThemeToggle";
 import { HeaderLogo } from "@/components/ResponsiveLogo";
+import { Navigation } from "@/components/Navigation";
 import { ArrowLeft, ArrowRight, Check, Palette, User, Settings } from "lucide-react";
 
 type SetupStep = "theme" | "profile" | "categories";
@@ -140,16 +141,7 @@ export default function BecomeArtist() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="glass-nav sticky top-0 z-50">
-        <div className="container flex h-16 items-center justify-between">
-          <Link href="/">
-            <HeaderLogo />
-          </Link>
-          <Link href="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-            ← Back to Home
-          </Link>
-        </div>
-      </header>
+      <Navigation />
 
       <div className="container max-w-3xl py-12">
         {/* Progress Steps */}
