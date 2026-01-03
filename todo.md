@@ -996,3 +996,23 @@
 
 - [x] Replace charcoal (#333333) with black (#000000) for dark mode background
 - [x] Add charcoal (#333333) as accent hints (cards, borders, hover states)
+
+
+## Logo Updates for Dark Mode
+
+- [ ] Create white/light version of the SolelyArt logo for dark mode visibility
+- [ ] Update ResponsiveLogo component to swap logo variants based on theme
+- [ ] Add logo-light.png and logo-dark.png variants to brand assets folder
+- [ ] Update favicon to work well on both light and dark browser tabs
+- [ ] Test logo visibility across all pages in both light and dark modes
+- [ ] Update HeaderLogo to use theme-aware logo switching
+- [ ] Update FooterLogo to use theme-aware logo switching
+- [ ] Ensure logo maintains brand consistency in both color schemes
+
+## Charcoal Accent Consistency
+
+- [ ] Apply charcoal accents to Browse Artists page
+- [ ] Apply charcoal accents to Artist Profile page
+- [ ] Apply charcoal accents to Booking page
+- [ ] Apply charcoal accents to Dashboard pages
+- [ ] Add charcoal dividers between major sections site-wide
